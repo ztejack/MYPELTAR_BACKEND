@@ -9,7 +9,7 @@
 </a>
 </p>
 <p align="center">
-<a href="https://github.com/PHP-Open-Source-Saver/jwt-auth" target="_blank">
+<a href="https://github.com/PHP-Open-Source-Saver/jwt-auth" target="_blank" width="400">
 <img class="icon" src="https://jwt.io/img/pic_logo.svg" alt="JWT logo">
 <img class="logo" src="https://jwt.io/img/logo.svg" alt="JWT logo">
 </a>
