@@ -1,0 +1,142 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "ALPHA",
+    "dateExported": "2023-02-17T18:15:46.940Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "434abb5f-ded2-41ab-b332-beb97b4dd9a9",
+            "name": "AUTH",
+            "containerId": "",
+            "created": "2023-02-10T17:28:53.216Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "12de18ef-8cf1-4f62-998f-af7ccbffba73",
+            "name": "TEST",
+            "containerId": "",
+            "created": "2023-02-10T17:58:59.745Z",
+            "sortNum": 20000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "0506e260-f33d-41cd-be08-d291dc3f2ed3",
+            "colId": "159f72ad-0b7d-4ef7-983e-7cdc4c3f2335",
+            "containerId": "12de18ef-8cf1-4f62-998f-af7ccbffba73",
+            "name": "TEST GET",
+            "url": "http://127.0.0.1:8000/api/get-user",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-02-10T17:59:09.622Z",
+            "modified": "2023-02-17T17:03:25.026Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzIiwianRpIjoiNDU3NzZiYzVhYTkwYTBlODc2ZDM1ZDMxODBiMGJmYjBjMDliMDZkNTgxYzUzYTQ0MDMxM2YzMmU2ODU4MDI0ZjBmMGE1MTcwZTZlMjg0ZjYiLCJpYXQiOjE2NzYzMTcxNDQuMTc0NTUzLCJuYmYiOjE2NzYzMTcxNDQuMTc0NTY2LCJleHAiOjE3MDc4NTMxNDQuMTYyNjIsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.R0_LLHlRIBKFS7_gvXxY0EFuRogRlEzxy90M9wc4FIiSzduR0pZPmFfAWIk2vElowb56VuZYlyY1FMS8sJDowuPvMzbIbAvbe2sUtvUDpLAxjq7alvosjLxt-bRMKKkodutBRX1_mKHBQkibbw7iUAlYFQJHUWCvtzXXtv-R8Bf0CdXi9a-0c1kH-_WPO5AGOsS5oQJA-59HdQ29IAhcAh1fp6zxCSPWN_k7aFR9SPIsNDxMwBOOx_Vgm9gXN9UTdLYoT-XybDiiGHfd95k-7CjIFySOuZX01KUcdw6osxknNTvuE9vrBY_uXHMF2VqEcu7R6Ch0QdYLzg-pxhnBV9SRaZlnVOwwHIuvwWzovLj_z3I1Wm9Np4vi8RH84GwBEpZ1e28BGws1MAYB9HvFtjX76qrhiz9jECMsjz8koerNy0urSV60dLQIqEwq3baPpVURbHOu04xO5k6UDBo9VwvO489bT7ppMTaYFQANN41MjaKaEXTShbuvGsKGVRqORBGUuxDmGwjJzlSOCZnj0d4WNKGyqYYwwgYaM6tmbYIdbsdcx7-MBBdja-a23HeOiG7Yy_SFIazqWk-NjK_vEKeCr4SV_ig4MiQwUjhHWJOnhxWTe_NI867EIYIJHFMbKVEUDNnIr40R927ZUOlph_861cT1G8A0r9tJGfLgfzE"
+            },
+            "tests": []
+        },
+        {
+            "_id": "72eb5e56-0cd2-4e9b-b040-2dc06e119dcb",
+            "colId": "159f72ad-0b7d-4ef7-983e-7cdc4c3f2335",
+            "containerId": "434abb5f-ded2-41ab-b332-beb97b4dd9a9",
+            "name": "Profile",
+            "url": "http://127.0.0.1:8000/api/profile",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-02-10T17:31:46.272Z",
+            "modified": "2023-02-17T17:34:23.459Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjc2NjU1MjUyLCJleHAiOjE2NzY2NTg4NTIsIm5iZiI6MTY3NjY1NTI1MiwianRpIjoiNFdNekFBVDRUVEZrT2FBTSIsInN1YiI6IjIiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.-oInocfoDKZr5hT3nuIZtMuhQ4d3L8na4spMCXH6oEk"
+            },
+            "tests": []
+        },
+        {
+            "_id": "22c578ea-14a7-472d-b633-f751d87d83c7",
+            "colId": "159f72ad-0b7d-4ef7-983e-7cdc4c3f2335",
+            "containerId": "434abb5f-ded2-41ab-b332-beb97b4dd9a9",
+            "name": "Logout",
+            "url": "http://127.0.0.1:8000/api/logout",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2023-02-10T17:34:17.162Z",
+            "modified": "2023-02-17T17:34:58.639Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjc2NjU1MjUyLCJleHAiOjE2NzY2NTg4NTIsIm5iZiI6MTY3NjY1NTI1MiwianRpIjoiNFdNekFBVDRUVEZrT2FBTSIsInN1YiI6IjIiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.-oInocfoDKZr5hT3nuIZtMuhQ4d3L8na4spMCXH6oEk"
+            },
+            "tests": []
+        },
+        {
+            "_id": "803dad8b-bae6-4085-97b6-a359c488a514",
+            "colId": "159f72ad-0b7d-4ef7-983e-7cdc4c3f2335",
+            "containerId": "434abb5f-ded2-41ab-b332-beb97b4dd9a9",
+            "name": "Login",
+            "url": "http://127.0.0.1:8000/api/login",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2023-02-13T19:10:57.220Z",
+            "modified": "2023-02-17T16:50:37.525Z",
+            "headers": [
+                {
+                    "name": "apiKey",
+                    "value": "2N9S0lvFF7T9qaPaP4YkPmmgI8sYswGHqZ8sPcg1"
+                }
+            ],
+            "params": [
+                {
+                    "name": "username",
+                    "value": "einstein",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "password",
+                    "value": "password",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "username",
+                        "value": "einstein"
+                    },
+                    {
+                        "name": "password",
+                        "value": "password"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "20a5b5d1-ad22-4e04-93c7-b535c50f3f4e",
+            "colId": "159f72ad-0b7d-4ef7-983e-7cdc4c3f2335",
+            "containerId": "434abb5f-ded2-41ab-b332-beb97b4dd9a9",
+            "name": "Refresh",
+            "url": "http://127.0.0.1:8000/api/refresh",
+            "method": "POST",
+            "sortNum": 60000,
+            "created": "2023-02-13T19:21:42.705Z",
+            "modified": "2023-02-17T17:06:48.316Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjc2NjUyNjgxLCJleHAiOjE2NzY2NTYyODEsIm5iZiI6MTY3NjY1MjY4MSwianRpIjoicXFpbnRaYjRBNmJoaEhyeSIsInN1YiI6IjIiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.RtVX9BL5-NulsQh5xzdoTDtoIzEEjQnrHvO-r67Voq4"
+            },
+            "tests": []
+        }
+    ]
+}
