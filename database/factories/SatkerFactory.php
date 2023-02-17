@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\sarket>
  */
-class SarketFactory extends Factory
+class SatkerFactory extends Factory
 {
     /**
      * Define the model's default state.

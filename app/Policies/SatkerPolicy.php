@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\sarket;
+use App\Models\satker;
 use Illuminate\Auth\Access\HandlesAuthorization;
 use LdapRecord\Models\OpenLDAP\User;
 
-class SarketPolicy
+class SatkerPolicy
 {
     use HandlesAuthorization;
 
@@ -25,10 +25,10 @@ class SarketPolicy
      * Determine whether the user can view the model.
      *
      * @param  \LdapRecord\Models\OpenLDAP\User  $user
-     * @param  \App\Models\sarket  $sarket
+     * @param  \App\Models\satker  $satker
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, sarket $sarket)
+    public function view(User $user, satker $satker)
     {
         //
     }
@@ -48,10 +48,10 @@ class SarketPolicy
      * Determine whether the user can update the model.
      *
      * @param  \LdapRecord\Models\OpenLDAP\User  $user
-     * @param  \App\Models\sarket  $sarket
+     * @param  \App\Models\satker  $satker
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, sarket $sarket)
+    public function update(User $user, satker $satker)
     {
         //
     }
@@ -60,10 +60,10 @@ class SarketPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \LdapRecord\Models\OpenLDAP\User  $user
-     * @param  \App\Models\sarket  $sarket
+     * @param  \App\Models\satker  $satker
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, sarket $sarket)
+    public function delete(User $user, satker $satker)
     {
         //
     }
@@ -72,10 +72,10 @@ class SarketPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \LdapRecord\Models\OpenLDAP\User  $user
-     * @param  \App\Models\sarket  $sarket
+     * @param  \App\Models\satker  $satker
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, sarket $sarket)
+    public function restore(User $user, satker $satker)
     {
         //
     }
@@ -84,10 +84,10 @@ class SarketPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \LdapRecord\Models\OpenLDAP\User  $user
-     * @param  \App\Models\sarket  $sarket
+     * @param  \App\Models\satker  $satker
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, sarket $sarket)
+    public function forceDelete(User $user, satker $satker)
     {
         //
     }
