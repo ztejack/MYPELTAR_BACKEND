@@ -6,8 +6,8 @@
 <img src="https://ldaprecord.com/logo.svg" width="400">
 </a>
 <a href="https://github.com/PHP-Open-Source-Saver/jwt-auth" target="_blank">
-<img class="icon" src="/img/pic_logo.svg" alt="JWT logo">
-<img class="logo" src="/img/logo.svg" alt="JWT logo">
+<img class="icon" src="https://jwt.io/img/pic_logo.svg" alt="JWT logo">
+<img class="logo" src="https://jwt.io/img/logo.svg" alt="JWT logo">
 </a>
 
 </p>
