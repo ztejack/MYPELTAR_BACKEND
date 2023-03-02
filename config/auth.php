@@ -42,7 +42,7 @@ return [
         ],
         'api' => [
             'driver' => 'jwt',
-            'provider' => 'ldap',
+            'provider' => 'users',
             'hash' => false,
         ],
     ],
@@ -65,25 +65,29 @@ return [
     */
 
     'providers' => [
+        // 'users' => [
+        //     'driver' => 'ldap',
+        //     'model' => App\Models\User::class,
+        // ],
+        // 'ldap' => [
+        //     'driver' => 'ldap',
+        //     'model' => LdapRecord\Models\OpenLDAP\User::class,
+        //     'database' => [
+        //         'model' => App\Models\User::class,
+        //         'sync_passwords' => false,
+        //         'sync_attributes' => [
+        //             'name' => 'cn',
+        //             'email' => 'mail',
+        //         ],
+        //         'sync_existing' => [
+        //             'email' => 'mail',
+        //         ],
+        //         'password_column' => 'password',
+        //     ],
+        // ],
         'users' => [
-            'driver' => 'ldap',
+            'driver' => 'eloquent',
             'model' => App\Models\User::class,
-        ],
-        'ldap' => [
-            'driver' => 'ldap',
-            'model' => LdapRecord\Models\OpenLDAP\User::class,
-            'database' => [
-                'model' => App\Models\User::class,
-                'sync_passwords' => false,
-                'sync_attributes' => [
-                    'name' => 'cn',
-                    'email' => 'mail',
-                ],
-                'sync_existing' => [
-                    'email' => 'mail',
-                ],
-                'password_column' => 'password',
-            ],
         ],
 
         // 'users' => [

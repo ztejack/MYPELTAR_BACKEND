@@ -2,10 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\Satker;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class SarketSeeder extends Seeder
+class SatkerSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +15,8 @@ class SarketSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Satker::create([
+            'satker' => 'Perawatan',
+        ]);
     }
 }

@@ -2,18 +2,18 @@
 
 namespace App\Policies;
 
-use App\Models\sarket;
+use App\Models\User;
+use App\Models\p_categories;
 use Illuminate\Auth\Access\HandlesAuthorization;
-use LdapRecord\Models\OpenLDAP\User;
 
-class SarketPolicy
+class PCategoriesPolicy
 {
     use HandlesAuthorization;
 
     /**
      * Determine whether the user can view any models.
      *
-     * @param  \LdapRecord\Models\OpenLDAP\User  $user
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function viewAny(User $user)
@@ -24,11 +24,11 @@ class SarketPolicy
     /**
      * Determine whether the user can view the model.
      *
-     * @param  \LdapRecord\Models\OpenLDAP\User  $user
-     * @param  \App\Models\sarket  $sarket
+     * @param  \App\Models\User  $user
+     * @param  \App\Models\p_categories  $pCategories
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, sarket $sarket)
+    public function view(User $user, p_categories $pCategories)
     {
         //
     }
@@ -36,7 +36,7 @@ class SarketPolicy
     /**
      * Determine whether the user can create models.
      *
-     * @param  \LdapRecord\Models\OpenLDAP\User  $user
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function create(User $user)
@@ -47,11 +47,11 @@ class SarketPolicy
     /**
      * Determine whether the user can update the model.
      *
-     * @param  \LdapRecord\Models\OpenLDAP\User  $user
-     * @param  \App\Models\sarket  $sarket
+     * @param  \App\Models\User  $user
+     * @param  \App\Models\p_categories  $pCategories
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, sarket $sarket)
+    public function update(User $user, p_categories $pCategories)
     {
         //
     }
@@ -59,11 +59,11 @@ class SarketPolicy
     /**
      * Determine whether the user can delete the model.
      *
-     * @param  \LdapRecord\Models\OpenLDAP\User  $user
-     * @param  \App\Models\sarket  $sarket
+     * @param  \App\Models\User  $user
+     * @param  \App\Models\p_categories  $pCategories
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, sarket $sarket)
+    public function delete(User $user, p_categories $pCategories)
     {
         //
     }
@@ -71,11 +71,11 @@ class SarketPolicy
     /**
      * Determine whether the user can restore the model.
      *
-     * @param  \LdapRecord\Models\OpenLDAP\User  $user
-     * @param  \App\Models\sarket  $sarket
+     * @param  \App\Models\User  $user
+     * @param  \App\Models\p_categories  $pCategories
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, sarket $sarket)
+    public function restore(User $user, p_categories $pCategories)
     {
         //
     }
@@ -83,11 +83,11 @@ class SarketPolicy
     /**
      * Determine whether the user can permanently delete the model.
      *
-     * @param  \LdapRecord\Models\OpenLDAP\User  $user
-     * @param  \App\Models\sarket  $sarket
+     * @param  \App\Models\User  $user
+     * @param  \App\Models\p_categories  $pCategories
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, sarket $sarket)
+    public function forceDelete(User $user, p_categories $pCategories)
     {
         //
     }

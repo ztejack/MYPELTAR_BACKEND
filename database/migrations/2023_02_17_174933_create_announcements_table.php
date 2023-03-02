@@ -13,8 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('subsatkers', function (Blueprint $table) {
-            $table->id();
+        Schema::create('announcements', function (Blueprint $table) {
+            $table->id('id');
+            $table->string('path');
+            $table->string('deskripsi');
+            $table->foreignId('id_user')->default(false)->references('id')->on('users');;
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('subsatkers');
+        Schema::dropIfExists('announcements');
     }
 };

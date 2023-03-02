@@ -13,8 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('assets', function (Blueprint $table) {
+        Schema::create('subsatkers', function (Blueprint $table) {
             $table->id();
+            $table->string('subsatker');
+            $table->foreignId('id_satker')->default(false)->references('id')->on('satkers');;
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('assets');
+        Schema::dropIfExists('subsatkers');
     }
 };

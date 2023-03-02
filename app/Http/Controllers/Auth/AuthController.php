@@ -23,7 +23,7 @@ class AuthController extends Controller
         // ]);
         // $credentials = $request->only('uid', 'password');
         $credentials = [
-            'uid' => $request->get('username'),
+            'username' => $request->get('username'),
             'password' => $request->get('password'),
         ];
         // return $credentials;
