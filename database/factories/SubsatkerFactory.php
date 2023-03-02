@@ -17,7 +17,8 @@ class SubsatkerFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'subsatker' => $this->faker->sentence(1),
+            'id_satker' => 1
         ];
     }
 }

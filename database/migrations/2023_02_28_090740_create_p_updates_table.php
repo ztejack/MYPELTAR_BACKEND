@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('p_updates', function (Blueprint $table) {
-            $table->bigInteger('id');
+            $table->id();
             $table->foreignId('id_asset')->default(false)->references('id')->on('assets');
             $table->foreignId('id_user')->default(false)->references('id')->on('users');
             $table->foreignId('id_maintenance')->default(false)->references('id')->on('maintenances');

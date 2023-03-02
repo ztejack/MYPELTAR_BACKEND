@@ -17,7 +17,13 @@ class MaintenanceFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'id_user' => 3,
+            'jenis' => fake()->name(),
+            'deskripsi' => $this->faker->sentence(mt_rand(2, 5)),
+            'fotobefore' => $this->faker->sentence(mt_rand(2, 5)),
+            'fotoafter' => $this->faker->sentence(mt_rand(2, 5)),
+            'created_at' => now(),
+            'updated_at' => now(),
         ];
     }
 }

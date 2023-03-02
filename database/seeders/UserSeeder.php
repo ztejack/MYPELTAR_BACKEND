@@ -18,6 +18,7 @@ class UserSeeder extends Seeder
         User::create([
             'name' => 'SuperUser',
             'username' => 'superuser',
+            'email' => 'example0@example.com',
             'id_role' => 1,
             'id_subsatker' => 1,
             'email' => 'superuser@example.com',
@@ -26,6 +27,7 @@ class UserSeeder extends Seeder
         User::create([
             'name' => 'AdminInspeksi',
             'username' => 'inspeksi',
+            'email' => 'example1@example.com',
             'id_role' => 2,
             'id_subsatker' => 2,
             'email' => 'inspeksi@example.com',
@@ -34,6 +36,7 @@ class UserSeeder extends Seeder
         User::create([
             'name' => 'AdminInspektor',
             'username' => 'inspektor',
+            'email' => 'example2@example.com',
             'id_role' => 3,
             'id_subsatker' => 3,
             'email' => 'inspektor@example.com',

@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('p_categories', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_category')->default(false)->references('id')->on('categories');
+            $table->foreignId('id_kategori')->default(false)->references('id')->on('categories');
             $table->foreignId('id_asset')->default(false)->references('id')->on('assets');
             $table->timestamps();
         });

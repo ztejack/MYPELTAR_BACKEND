@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Location extends Model
+class PUpdate extends Model
 {
     use HasFactory;
     /**
@@ -14,7 +14,10 @@ class Location extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'unit',
+        'id_asset',
+        'id_user',
+        'id_maintenance',
+        'id_status'
     ];
 
     /**
@@ -29,5 +32,7 @@ class Location extends Model
      *
      * @var array<string, string>
      */
-    protected $casts = [];
+    protected $casts = [
+        // 'create_at' =
+    ];
 }
