@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('subsatkers', function (Blueprint $table) {
             $table->id();
+            $table->string('subsatker');
+            $table->foreignId('id_satker')->default(false)->references('id')->on('satkers');;
             $table->timestamps();
         });
     }

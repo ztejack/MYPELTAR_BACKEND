@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
+            $table->string('kategori');
+            $table->foreignId('id_subsatker')->default(false)->references('id')->on('subsatkers');;
             $table->timestamps();
         });
     }

@@ -11,10 +11,12 @@ use LdapRecord\Laravel\Auth\LdapAuthenticatable;
 use LdapRecord\Laravel\Auth\AuthenticatesWithLdap;
 use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject;
 
-class User extends Authenticatable implements LdapAuthenticatable, JWTSubject
+// class User extends Authenticatable implements LdapAuthenticatable, JWTSubject
+class User extends Authenticatable implements JWTSubject
 {
     // HasApiTokens,HasFactory,
-    use   Notifiable, AuthenticatesWithLdap;
+    // use   Notifiable, AuthenticatesWithLdap;
+    use   Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -24,6 +26,7 @@ class User extends Authenticatable implements LdapAuthenticatable, JWTSubject
     protected $fillable = [
         'name',
         'email',
+        'username',
         'password',
     ];
 

@@ -14,15 +14,16 @@ return new class extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('guid')->unique()->nullable();
-            $table->string('domain')->nullable();
+            $table->id('id');
             $table->string('name');
+            $table->foreignId('id_role')->default(false)->references('id')->on('roles');
+            $table->foreignId('id_subsatker')->default(false)->references('id')->on('subsatkers');
+            $table->string('username');
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->rememberToken();
-            $table->timestamps();
+            // $table->rememberToken();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
         });
     }
 
