@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\lokasi>
  */
-class LokasiFactory extends Factory
+// class LokasiFactory extends Factory
+class LocationFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,7 +18,7 @@ class LokasiFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'unit' => $this->faker->sentence(1)
         ];
     }
 }

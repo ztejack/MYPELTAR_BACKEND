@@ -14,9 +14,9 @@ use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject;
 // class User extends Authenticatable implements LdapAuthenticatable, JWTSubject
 class User extends Authenticatable implements JWTSubject
 {
-    // HasApiTokens,HasFactory,
+
     // use   Notifiable, AuthenticatesWithLdap;
-    use   Notifiable;
+    use Notifiable, HasApiTokens, HasFactory;
 
     /**
      * The attributes that are mass assignable.
@@ -27,7 +27,9 @@ class User extends Authenticatable implements JWTSubject
         'name',
         'email',
         'username',
-        'password',
+        'id_role',
+        'id_subsatker',
+        // 'password',
     ];
 
     /**

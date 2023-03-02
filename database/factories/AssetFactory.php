@@ -17,7 +17,16 @@ class AssetFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'stockcode' => mt_rand(1, 5),
+            'code' => $this->faker->macAddress(),
+            'nama' => fake()->name(),
+            'merk' => $this->faker->sentence(mt_rand(1, 3)),
+            'model' => $this->faker->sentence(mt_rand(1, 3)),
+            'spesifikasi' => $this->faker->sentence(mt_rand(1, 3)),
+            'deskripsi' => $this->faker->sentence(mt_rand(1, 3)),
+            'id_lokasi' => mt_rand(1,5),
+            'id_kategori' => mt_rand(1,5),
+            'id_status' => mt_rand(1,5),
         ];
     }
 }

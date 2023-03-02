@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('assets', function (Blueprint $table) {
-            $table->id('id')->key();
+            $table->id()->key();
             $table->string('stockcode');
             $table->string('code')->unique()->key();
             $table->string('nama');
