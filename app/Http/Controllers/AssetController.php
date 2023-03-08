@@ -65,13 +65,6 @@ class AssetController extends Controller
         $asset->id_lokasi = $input['id_lokasi'];
         $asset->id_status = $input['id_status'];
         $asset->save();
-        // foreach ($input['id_kategori'] as $kategori) {
-        //     $p_category = [
-        //         "id_kategori" => $kategori,
-        //         "id_asset" => $asset->id,
-        //     ];
-        //     PCategory::create($p_category);
-        // }
         $category = Category::find($input['id_kategori']);
         $asset->kategori()->attach($category);
         return response()->json(['status' => 'Asset Berhasil Ditambahkan !'], 201);
