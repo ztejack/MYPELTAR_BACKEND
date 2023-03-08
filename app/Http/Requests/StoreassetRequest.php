@@ -13,7 +13,7 @@ class StoreassetRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +23,39 @@ class StoreassetRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            //
+        return $this->customrule();
+    }
+    public function customrule()
+    {
+        //     try {
+        //         $input = $this->validate($request, [
+        //             'stockcode' => 'required|string',
+        //             'serialnumber' => 'required',
+        //             'nama_asset' => 'min:6',
+        //             'merk' => 'required|string',
+        //             'model' => 'string',
+        //             'spesifikasi' => 'string',
+        //             'deskripsi' => 'string',
+        //             'id_lokasi' => 'integer',
+        //             'id_kategori' => 'array',
+        //         ]);
+        //     } catch (ValidationException $e) {
+        //         return response()->json($e->errors(), 201);
+        //     }
+        // }
+
+        $rule = [
+            'stockcode' => 'required|string',
+            'serialnumber' => 'required',
+            'nama_asset' => 'min:6',
+            'merk' => 'required|string',
+            'model' => 'string',
+            'spesifikasi' => 'string',
+            'deskripsi' => 'string',
+            'id_lokasi' => 'integer',
+            'id_kategori' => 'array',
+            'id_status' => 'integer',
         ];
+        return $rule;
     }
 }

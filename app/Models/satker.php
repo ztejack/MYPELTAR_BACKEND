@@ -36,4 +36,17 @@ class Satker extends Model
     protected $casts = [
         // 'email_verified_at' => 'datetime',
     ];
+    /**
+     * Return a model value array, containing any relation model.
+     *
+     * @return array
+     */
+    public function subsatker()
+    {
+        return $this->belongsTo(Subsatker::class, 'id_satker');
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'id_satker');
+    }
 }
