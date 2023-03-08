@@ -70,4 +70,18 @@ class User extends Authenticatable implements JWTSubject
     {
         return [];
     }
+
+    /**
+     * Return a model value array, containing any relation model.
+     *
+     * @return array
+     */
+    public function role()
+    {
+        return $this->belongsTo(Role::class, 'id_role');
+    }
+    public function subsatker()
+    {
+        return $this->belongsTo(Subsatker::class, 'id_subsatker');
+    }
 }

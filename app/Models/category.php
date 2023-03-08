@@ -31,4 +31,22 @@ class Category extends Model
      * @var array<string, string>
      */
     protected $casts = [];
+
+    /**
+     * Return a model value array, containing any relation model.
+     *
+     * @return array
+     */
+    public function asset()
+    {
+        return $this->belongsToMany(Asset::class);
+    }
+    public function subsatker()
+    {
+        return $this->belongsTo(Category::class, 'id_subsatker');
+    }
+    public function status()
+    {
+        return $this->belongsTo(Status::class, 'id_status');
+    }
 }

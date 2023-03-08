@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\UserResource;
+use App\Http\Resources\User as UserC;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,11 +19,6 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-        // $request->validate([
-        //     'uid' => 'required|string|username',
-        //     'password' => 'required|string',
-        // ]);
-        // $credentials = $request->only('uid', 'password');
         $credentials = [
             'username' => $request->get('username'),
             'password' => $request->get('password'),
@@ -32,15 +29,13 @@ class AuthController extends Controller
             return response()->json([
                 'status' => 'error',
                 'message' => 'Unauthorized',
-                'user' => User::get(),
-
             ], 401);
         }
 
         $user = Auth::user();
         return response()->json([
             'status' => 'success',
-            'user' => $user,
+            'user' => new UserResource($user),
             'authorisation' => [
                 'token' => $token,
                 'type' => 'bearer',
@@ -61,7 +56,7 @@ class AuthController extends Controller
     {
         return response()->json([
             'status' => 'success',
-            'user' => Auth::user(),
+            'user' => new UserResource(Auth::user()),
             'authorisation' => [
                 'token' => Auth::refresh(),
                 'type' => 'bearer',
@@ -71,8 +66,12 @@ class AuthController extends Controller
 
     public function profile()
     {
+        $auth = Auth::user();
         return response()->json(
-            Auth::user(),
+            [
+                'status' => 'success',
+                'user' => new UserResource($auth),
+            ],
             200
         );
     }

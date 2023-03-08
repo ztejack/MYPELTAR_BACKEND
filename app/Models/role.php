@@ -17,4 +17,13 @@ class Role extends Model
     protected $fillable = [
         'role',
     ];
+    /**
+     * Return a model value array, containing any relation model.
+     *
+     * @return array
+     */
+    public function user()
+    {
+        return $this->belongsToMany(User::class, 'id_role');
+    }
 }

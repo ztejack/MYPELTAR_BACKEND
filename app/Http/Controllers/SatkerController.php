@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\sarket;
-use App\Http\Requests\StoresarketRequest;
-use App\Http\Requests\UpdatesarketRequest;
+use App\Models\Satker;
+use App\Http\Requests\StoresatkerRequest;
+use App\Http\Requests\UpdatesatkerRequest;
 
-class SarketController extends Controller
+class SatkerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,8 @@ class SarketController extends Controller
      */
     public function index()
     {
-        //
+        $satkers = Satker::all();
+        return response()->json([]);
     }
 
     /**
@@ -25,16 +26,15 @@ class SarketController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoresarketRequest  $request
+     * @param  \App\Http\Requests\StoresatkerRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoresarketRequest $request)
+    public function store(StoresatkerRequest $request)
     {
         //
     }
@@ -42,10 +42,10 @@ class SarketController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\sarket  $sarket
+     * @param  \App\Models\satker  $satker
      * @return \Illuminate\Http\Response
      */
-    public function show(sarket $sarket)
+    public function show(satker $satker)
     {
         //
     }
@@ -53,10 +53,10 @@ class SarketController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\sarket  $sarket
+     * @param  \App\Models\satker  $satker
      * @return \Illuminate\Http\Response
      */
-    public function edit(sarket $sarket)
+    public function edit(satker $satker)
     {
         //
     }
@@ -64,11 +64,11 @@ class SarketController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdatesarketRequest  $request
-     * @param  \App\Models\sarket  $sarket
+     * @param  \App\Http\Requests\UpdatesatkerRequest  $request
+     * @param  \App\Models\satker  $satker
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatesarketRequest $request, sarket $sarket)
+    public function update(UpdatesatkerRequest $request, satker $satker)
     {
         //
     }
@@ -76,10 +76,10 @@ class SarketController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\sarket  $sarket
+     * @param  \App\Models\satker  $satker
      * @return \Illuminate\Http\Response
      */
-    public function destroy(sarket $sarket)
+    public function destroy(satker $satker)
     {
         //
     }

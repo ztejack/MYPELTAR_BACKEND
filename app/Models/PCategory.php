@@ -14,7 +14,7 @@ class PCategory extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'id_categori',
+        'id_kategori',
         'id_asset',
     ];
 

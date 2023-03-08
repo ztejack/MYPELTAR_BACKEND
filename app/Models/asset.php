@@ -15,7 +15,7 @@ class Asset extends Model
      */
     protected $fillable = [
         'stockcode',
-        'code',
+        // 'code',
         'nama',
         'merk',
         'model',
@@ -39,4 +39,23 @@ class Asset extends Model
      * @var array<string, string>
      */
     protected $casts = [];
+
+
+    /**
+     * Return a model value array, containing any relation model.
+     *
+     * @return array
+     */
+    public function lokasi()
+    {
+        return $this->belongsTo(Location::class, 'id_lokasi');
+    }
+    public function kategori()
+    {
+        return $this->belongsToMany(Category::class);
+    }
+    public function status()
+    {
+        return $this->belongsTo(Status::class, 'id_status');
+    }
 }

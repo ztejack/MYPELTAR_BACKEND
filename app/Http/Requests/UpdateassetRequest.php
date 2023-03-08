@@ -11,10 +11,10 @@ class UpdateassetRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
-    {
-        return false;
-    }
+    // public function authorize()
+    // {
+    //     return false;
+    // }
 
     /**
      * Get the validation rules that apply to the request.
@@ -23,8 +23,22 @@ class UpdateassetRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            //
+        return $this->customrule();
+    }
+    public function customrule()
+    {
+        $rule = [
+            'stockcode' => 'required|string',
+            'serialnumber' => 'required',
+            'nama_asset' => 'min:6',
+            'merk' => 'required|string',
+            'model' => 'string',
+            'spesifikasi' => 'string',
+            'deskripsi' => 'string',
+            'id_lokasi' => 'integer',
+            'id_kategori' => 'array',
+            'id_status' => 'integer',
         ];
+        return $rule;
     }
 }
