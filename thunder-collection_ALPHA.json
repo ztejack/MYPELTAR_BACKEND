@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "ALPHA",
-    "dateExported": "2023-02-17T18:15:46.940Z",
+    "dateExported": "2023-03-08T19:40:38.162Z",
     "version": "1.1",
     "folders": [
         {
@@ -17,6 +17,20 @@
             "containerId": "",
             "created": "2023-02-10T17:58:59.745Z",
             "sortNum": 20000
+        },
+        {
+            "_id": "70b8fdb1-cdf2-4d68-bed8-0b3d7e53c495",
+            "name": "Aset",
+            "containerId": "",
+            "created": "2023-03-05T06:41:55.947Z",
+            "sortNum": 30000
+        },
+        {
+            "_id": "9c73bd8e-4d37-485f-bf8e-d4f84552629e",
+            "name": "Category",
+            "containerId": "",
+            "created": "2023-03-08T08:42:28.672Z",
+            "sortNum": 40000
         }
     ],
     "requests": [
@@ -39,6 +53,24 @@
             "tests": []
         },
         {
+            "_id": "a1ec60b5-7385-438e-bad7-fc51aa72a2a2",
+            "colId": "159f72ad-0b7d-4ef7-983e-7cdc4c3f2335",
+            "containerId": "70b8fdb1-cdf2-4d68-bed8-0b3d7e53c495",
+            "name": "GETALL",
+            "url": "http://127.0.0.1:8000/api/v1/asset/getall",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-03-05T06:42:06.105Z",
+            "modified": "2023-03-08T12:06:58.736Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2NzgyNzcyMDMsImV4cCI6MTY3ODUzNjQwMywibmJmIjoxNjc4Mjc3MjAzLCJqdGkiOiJ0VkxibXM5bWN3RW1tY1J4Iiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.gIHRkpn1_Nihr88xZsEhoT66LMz674ZBGwPTc_ldPwg"
+            },
+            "tests": []
+        },
+        {
             "_id": "72eb5e56-0cd2-4e9b-b040-2dc06e119dcb",
             "colId": "159f72ad-0b7d-4ef7-983e-7cdc4c3f2335",
             "containerId": "434abb5f-ded2-41ab-b332-beb97b4dd9a9",
@@ -47,12 +79,12 @@
             "method": "POST",
             "sortNum": 20000,
             "created": "2023-02-10T17:31:46.272Z",
-            "modified": "2023-02-17T17:34:23.459Z",
+            "modified": "2023-02-26T03:22:33.299Z",
             "headers": [],
             "params": [],
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjc2NjU1MjUyLCJleHAiOjE2NzY2NTg4NTIsIm5iZiI6MTY3NjY1NTI1MiwianRpIjoiNFdNekFBVDRUVEZrT2FBTSIsInN1YiI6IjIiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.-oInocfoDKZr5hT3nuIZtMuhQ4d3L8na4spMCXH6oEk"
+                "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjc3MzgxNjQ3LCJleHAiOjE2NzczODUyNDcsIm5iZiI6MTY3NzM4MTY0NywianRpIjoiRnNlUUU4V0dlSVljeHk0VSIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.XC5s8yizrqM_W-w9rEafW7y60Pw_RD2LNQU5tec-JcI"
             },
             "tests": []
         },
@@ -61,16 +93,16 @@
             "colId": "159f72ad-0b7d-4ef7-983e-7cdc4c3f2335",
             "containerId": "434abb5f-ded2-41ab-b332-beb97b4dd9a9",
             "name": "Logout",
-            "url": "http://127.0.0.1:8000/api/logout",
+            "url": "http://127.0.0.1:8000/api/v1/auth/logout",
             "method": "POST",
             "sortNum": 30000,
             "created": "2023-02-10T17:34:17.162Z",
-            "modified": "2023-02-17T17:34:58.639Z",
+            "modified": "2023-03-05T06:25:55.447Z",
             "headers": [],
             "params": [],
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjc2NjU1MjUyLCJleHAiOjE2NzY2NTg4NTIsIm5iZiI6MTY3NjY1NTI1MiwianRpIjoiNFdNekFBVDRUVEZrT2FBTSIsInN1YiI6IjIiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.-oInocfoDKZr5hT3nuIZtMuhQ4d3L8na4spMCXH6oEk"
+                "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvcmVmcmVzaCIsImlhdCI6MTY3Nzk5NzQxMywiZXhwIjoxNjc4MjU2Njg3LCJuYmYiOjE2Nzc5OTc0ODcsImp0aSI6IjFBZ0tiNXdnaHNGMkYzeG0iLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.k-fPu-3ENKbh8Ahqix4SLJcXv77P9dLe5Un5_NTRcx8"
             },
             "tests": []
         },
@@ -79,11 +111,11 @@
             "colId": "159f72ad-0b7d-4ef7-983e-7cdc4c3f2335",
             "containerId": "434abb5f-ded2-41ab-b332-beb97b4dd9a9",
             "name": "Login",
-            "url": "http://127.0.0.1:8000/api/login",
+            "url": "http://127.0.0.1:8000/api/v1/auth/login",
             "method": "POST",
             "sortNum": 50000,
             "created": "2023-02-13T19:10:57.220Z",
-            "modified": "2023-02-17T16:50:37.525Z",
+            "modified": "2023-03-08T12:30:57.018Z",
             "headers": [
                 {
                     "name": "apiKey",
@@ -105,18 +137,9 @@
                 }
             ],
             "body": {
-                "type": "formencoded",
-                "raw": "",
-                "form": [
-                    {
-                        "name": "username",
-                        "value": "einstein"
-                    },
-                    {
-                        "name": "password",
-                        "value": "password"
-                    }
-                ]
+                "type": "json",
+                "raw": "{\n  \"username\" : \"superuser\",\n  \"password\" : \"123456789\"\n}",
+                "form": []
             },
             "tests": []
         },
@@ -125,16 +148,139 @@
             "colId": "159f72ad-0b7d-4ef7-983e-7cdc4c3f2335",
             "containerId": "434abb5f-ded2-41ab-b332-beb97b4dd9a9",
             "name": "Refresh",
-            "url": "http://127.0.0.1:8000/api/refresh",
+            "url": "http://127.0.0.1:8000/api/v1/auth/refresh",
             "method": "POST",
             "sortNum": 60000,
             "created": "2023-02-13T19:21:42.705Z",
-            "modified": "2023-02-17T17:06:48.316Z",
+            "modified": "2023-03-05T06:24:47.063Z",
             "headers": [],
             "params": [],
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjc2NjUyNjgxLCJleHAiOjE2NzY2NTYyODEsIm5iZiI6MTY3NjY1MjY4MSwianRpIjoicXFpbnRaYjRBNmJoaEhyeSIsInN1YiI6IjIiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.RtVX9BL5-NulsQh5xzdoTDtoIzEEjQnrHvO-r67Voq4"
+                "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2Nzc5OTc0MTMsImV4cCI6MTY3ODI1NjYxMywibmJmIjoxNjc3OTk3NDEzLCJqdGkiOiJLakpJcTdIMWdlSEdwS2l5Iiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.yEoGsku3wVSnFkV8f279KMtt0M6jbFBHZi8QL0gCleM"
+            },
+            "tests": []
+        },
+        {
+            "_id": "e91fc5cf-e31d-47bd-b8dc-b7ea79cd2481",
+            "colId": "159f72ad-0b7d-4ef7-983e-7cdc4c3f2335",
+            "containerId": "434abb5f-ded2-41ab-b332-beb97b4dd9a9",
+            "name": "Profile",
+            "url": "http://127.0.0.1:8000/api/v1/auth/profile",
+            "method": "GET",
+            "sortNum": 70000,
+            "created": "2023-03-04T04:58:41.542Z",
+            "modified": "2023-03-05T06:31:06.523Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2Nzc5OTc4NTIsImV4cCI6MTY3ODI1NzA1MiwibmJmIjoxNjc3OTk3ODUyLCJqdGkiOiJSSnY4VnBpMDIyVjIxb3BKIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.hrBnphiIQqtuvD9ks6bD45irPgb8yoNY_SZuuK3kpcs"
+            },
+            "tests": []
+        },
+        {
+            "_id": "2c7c9fd1-3cf5-442c-9b20-8aa9447e12f3",
+            "colId": "159f72ad-0b7d-4ef7-983e-7cdc4c3f2335",
+            "containerId": "12de18ef-8cf1-4f62-998f-af7ccbffba73",
+            "name": "TESTMULTIPLETEST",
+            "url": "http://127.0.0.1:8000/api/v1/asset/postd",
+            "method": "POST",
+            "sortNum": 80000,
+            "created": "2023-03-07T07:15:45.394Z",
+            "modified": "2023-03-08T08:34:13.708Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"stockcode\": \"20202020045\",\n  \"serialnumber\": \"22aa-a564-aasd-asdg\",\n  \"nama_asset\": \"Gearbox\",\n  \"merk\": \"merktern\",\n  \"model\": \"carbonite\",\n  \"spesifikasi\": \"blablablablabla\",\n  \"deskripsi\": \"blablablablabla\",\n  \"id_lokasi\": 2,\n  \"id_kategori\": [\n    1,\n    2\n  ]\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2NzgxODA2ODcsImV4cCI6MTY3ODQzOTg4NywibmJmIjoxNjc4MTgwNjg3LCJqdGkiOiJKM21kRGVZTjRBbnYxVmphIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.geqsKd47xCff4VwYIxvREKVdVTNsErePNJXakk7nOJk"
+            },
+            "tests": []
+        },
+        {
+            "_id": "055e5791-c748-4e38-830b-06d1031fc33e",
+            "colId": "159f72ad-0b7d-4ef7-983e-7cdc4c3f2335",
+            "containerId": "70b8fdb1-cdf2-4d68-bed8-0b3d7e53c495",
+            "name": "STORE",
+            "url": "http://127.0.0.1:8000/api/v1/asset/store",
+            "method": "POST",
+            "sortNum": 90000,
+            "created": "2023-03-08T08:41:32.214Z",
+            "modified": "2023-03-08T15:49:45.933Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"stockcode\": \"20202020045\",\n  \"serialnumber\": \"22aa-a564-aasd-asdg\",\n  \"nama_asset\": \"Gearbox\",\n  \"merk\": \"merktern\",\n  \"model\": \"carbonite\",\n  \"spesifikasi\": \"blablablablabla\",\n  \"deskripsi\": \"blablablablabla\",\n  \"id_lokasi\": 2,\n  \"id_kategori\": [\n    1,\n    2\n  ],\n  \"id_status\":2\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2NzgxODA2ODcsImV4cCI6MTY3ODQzOTg4NywibmJmIjoxNjc4MTgwNjg3LCJqdGkiOiJKM21kRGVZTjRBbnYxVmphIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.geqsKd47xCff4VwYIxvREKVdVTNsErePNJXakk7nOJ"
+            },
+            "tests": []
+        },
+        {
+            "_id": "6aba7dbe-92d9-44ad-a30a-e67a9827ad8a",
+            "colId": "159f72ad-0b7d-4ef7-983e-7cdc4c3f2335",
+            "containerId": "9c73bd8e-4d37-485f-bf8e-d4f84552629e",
+            "name": "GETALL",
+            "url": "http://127.0.0.1:8000/api/v1/category/getall",
+            "method": "GET",
+            "sortNum": 100000,
+            "created": "2023-03-08T08:42:55.208Z",
+            "modified": "2023-03-08T08:43:58.454Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2NzgxODA2ODcsImV4cCI6MTY3ODQzOTg4NywibmJmIjoxNjc4MTgwNjg3LCJqdGkiOiJKM21kRGVZTjRBbnYxVmphIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.geqsKd47xCff4VwYIxvREKVdVTNsErePNJXakk7nOJk"
+            },
+            "tests": []
+        },
+        {
+            "_id": "eaf06d0e-1cf3-41b4-9a94-a42a24813533",
+            "colId": "159f72ad-0b7d-4ef7-983e-7cdc4c3f2335",
+            "containerId": "70b8fdb1-cdf2-4d68-bed8-0b3d7e53c495",
+            "name": "GET",
+            "url": "http://127.0.0.1:8000/api/v1/asset/show/2",
+            "method": "GET",
+            "sortNum": 110000,
+            "created": "2023-03-08T09:42:16.055Z",
+            "modified": "2023-03-08T15:50:38.001Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2NzgyOTA2MTUsImV4cCI6MTY3ODU0OTgxNSwibmJmIjoxNjc4MjkwNjE1LCJqdGkiOiJSSmhFMk1WMXh6NnlHOG1kIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.JMwVpjxa88zzsn3PiN9o47pBpAtusGZADiu1eqCnzQE"
+            },
+            "tests": []
+        },
+        {
+            "_id": "1f444678-643b-49d6-9136-44085a85b818",
+            "colId": "159f72ad-0b7d-4ef7-983e-7cdc4c3f2335",
+            "containerId": "70b8fdb1-cdf2-4d68-bed8-0b3d7e53c495",
+            "name": "UPDATE",
+            "url": "http://127.0.0.1:8000/api/v1/asset/update/2",
+            "method": "POST",
+            "sortNum": 120000,
+            "created": "2023-03-08T15:35:49.103Z",
+            "modified": "2023-03-08T15:53:39.355Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"stockcode\": \"20202020045\",\n  \"serialnumber\": \"22aa-a564-aasd-asdg\",\n  \"nama_asset\": \"Gearbos\",\n  \"merk\": \"merktern\",\n  \"model\": \"carbonite\",\n  \"spesifikasi\": \"blablablablabla\",\n  \"deskripsi\": \"blablablablabla\",\n  \"id_lokasi\": 2,\n  \"id_kategori\": [\n    1,\n    2\n  ],\n  \"id_status\":2\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2NzgyOTA2MTUsImV4cCI6MTY3ODU0OTgxNSwibmJmIjoxNjc4MjkwNjE1LCJqdGkiOiJSSmhFMk1WMXh6NnlHOG1kIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.JMwVpjxa88zzsn3PiN9o47pBpAtusGZADiu1eqCnzQE"
             },
             "tests": []
         }

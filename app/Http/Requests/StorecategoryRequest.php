@@ -21,10 +21,17 @@ class StorecategoryRequest extends FormRequest
      *
      * @return array<string, mixed>
      */
+
     public function rules()
     {
-        return [
-            //
+        return $this->customrule();
+    }
+    public function customrule()
+    {
+        $rule = [
+            'kategori' => 'required|string',
+            'id_subsatker' => 'integer'
         ];
+        return $rule;
     }
 }
