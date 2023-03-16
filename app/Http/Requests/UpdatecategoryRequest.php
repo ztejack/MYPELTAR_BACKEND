@@ -13,7 +13,7 @@ class UpdatecategoryRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +23,14 @@ class UpdatecategoryRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            //
+        return $this->customrule();
+    }
+    public function customrule()
+    {
+        $rule = [
+            'kategori' => 'required|string',
+            'subsatker' => 'required|integer'
         ];
+        return $rule;
     }
 }

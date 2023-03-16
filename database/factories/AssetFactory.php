@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Asset;
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -43,5 +44,12 @@ class AssetFactory extends Factory
             // 'id_kategori' => mt_rand(1, 5),
             'id_status' => mt_rand(1, 4),
         ];
+    }
+    public function configure()
+    {
+        return $this->afterCreating(function (Asset $asset) {
+            $roles = Category::factory()->count(2)->create();
+            $asset->category()->attach($roles);
+        });
     }
 }

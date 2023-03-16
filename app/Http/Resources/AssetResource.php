@@ -24,7 +24,7 @@ class AssetResource extends JsonResource
             'spesifikasi' => $this->spesifikasi,
             'deskripsi' => $this->deskripsi,
             'lokasi' => $this->lokasi->unit,
-            'kategori' => $this->kategori,
+            'kategori' => $this->category,
             'status' => $this->status,
         ];
     }

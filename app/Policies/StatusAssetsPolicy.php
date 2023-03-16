@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
+use App\Models\StatusAssets;
 use App\Models\User;
-use App\Models\status;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class StatusPolicy
+class StatusAssetsPolicy
 {
     use HandlesAuthorization;
 
@@ -25,10 +25,10 @@ class StatusPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\status  $status
+     * @param  \App\Models\StatusAssets  $statusAssets
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, status $status)
+    public function view(User $user, StatusAssets $statusAssets)
     {
         //
     }
@@ -48,10 +48,10 @@ class StatusPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\status  $status
+     * @param  \App\Models\StatusAssets  $statusAssets
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, status $status)
+    public function update(User $user, StatusAssets $statusAssets)
     {
         //
     }
@@ -60,10 +60,10 @@ class StatusPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\status  $status
+     * @param  \App\Models\StatusAssets  $statusAssets
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, status $status)
+    public function delete(User $user, StatusAssets $statusAssets)
     {
         //
     }
@@ -72,10 +72,10 @@ class StatusPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\status  $status
+     * @param  \App\Models\StatusAssets  $statusAssets
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, status $status)
+    public function restore(User $user, StatusAssets $statusAssets)
     {
         //
     }
@@ -84,10 +84,10 @@ class StatusPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\status  $status
+     * @param  \App\Models\StatusAssets  $statusAssets
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, status $status)
+    public function forceDelete(User $user, StatusAssets $statusAssets)
     {
         //
     }

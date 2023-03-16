@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdatestatusRequest extends FormRequest
+class StoreStatusAssetsRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class UpdatestatusRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +23,13 @@ class UpdatestatusRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            //
+        return $this->customrule();
+    }
+    public function customrule()
+    {
+        $rule = [
+            'status' => 'required|string',
         ];
+        return $rule;
     }
 }

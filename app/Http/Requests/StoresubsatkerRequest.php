@@ -13,7 +13,7 @@ class StoresubsatkerRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +23,14 @@ class StoresubsatkerRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            //
+        return $this->customrule();
+    }
+    public function customrule()
+    {
+        $rule = [
+            'subsatker' => 'required|string',
+            'satker' => 'required|integer',
         ];
+        return $rule;
     }
 }

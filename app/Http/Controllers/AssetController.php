@@ -66,7 +66,7 @@ class AssetController extends Controller
         $asset->id_status = $input['id_status'];
         $asset->save();
         $category = Category::find($input['id_kategori']);
-        $asset->kategori()->attach($category);
+        $asset->category()->attach($category);
         return response()->json(['status' => 'Asset Berhasil Ditambahkan !'], 201);
         // return response()->json($asset, 201);
     }
@@ -83,7 +83,7 @@ class AssetController extends Controller
         // return $asset;
         // $assetx = Asset::findOrFail($asset);
         $assetr = AssetResource::make($asset);
-        return response($assetr);
+        return response()->json(['data' => $assetr], 200);
     }
 
     /**

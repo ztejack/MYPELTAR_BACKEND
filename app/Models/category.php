@@ -37,13 +37,13 @@ class Category extends Model
      *
      * @return array
      */
-    public function asset()
+    public function assets()
     {
         return $this->belongsToMany(Asset::class);
     }
     public function subsatker()
     {
-        return $this->belongsTo(Category::class, 'id_subsatker');
+        return $this->belongsTo(Subsatker::class, 'id_subsatker');
     }
     public function status()
     {

@@ -43,10 +43,10 @@ class Satker extends Model
      */
     public function subsatker()
     {
-        return $this->belongsTo(Subsatker::class, 'id_satker');
+        return $this->hasMany(Subsatker::class, 'id_satker');
     }
-    public function user()
+    public function users()
     {
-        return $this->belongsTo(User::class, 'id_satker');
+        return $this->hasMany(User::class, 'id');
     }
 }
