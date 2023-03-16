@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Status extends Model
+class StatusAssets extends Model
 {
     use HasFactory;
     /**
@@ -39,6 +39,6 @@ class Status extends Model
     ];
     public function asset()
     {
-        return $this->belongsToMany(Asset::class, 'id_status');
+        return $this->hasMany(Asset::class, 'id');
     }
 }

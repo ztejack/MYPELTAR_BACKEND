@@ -13,7 +13,7 @@ class StorecategoryRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -30,7 +30,7 @@ class StorecategoryRequest extends FormRequest
     {
         $rule = [
             'kategori' => 'required|string',
-            'id_subsatker' => 'integer'
+            'subsatker' => 'required|integer'
         ];
         return $rule;
     }

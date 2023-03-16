@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\subsatker;
+use App\Models\Subsatker;
 use App\Http\Requests\StoresubsatkerRequest;
 use App\Http\Requests\UpdatesubsatkerRequest;
+use App\Http\Resources\SubsatkerResource;
 
 class SubsatkerController extends Controller
 {
@@ -15,7 +16,9 @@ class SubsatkerController extends Controller
      */
     public function index()
     {
-        //
+        $satkers = SubsatkerResource::collection(Subsatker::all());
+        // $satkers = Subsatker::all();
+        return response()->json(['data' => $satkers]);
     }
 
     /**
@@ -36,7 +39,12 @@ class SubsatkerController extends Controller
      */
     public function store(StoresubsatkerRequest $request)
     {
-        //
+        $input = $request->validated();
+        $subsatker = new Subsatker();
+        $subsatker->subsatker = $input['subsatker'];
+        $subsatker->id_satker = $input['satker'];
+        $subsatker->save();
+        return response()->json(['status' => 'Subsatker Berhasil Ditambahkan !'], 201);
     }
 
     /**
@@ -47,7 +55,8 @@ class SubsatkerController extends Controller
      */
     public function show(subsatker $subsatker)
     {
-        //
+        $subsatker = SubsatkerResource::make($subsatker);
+        return response()->json(['data' => $subsatker], 200);
     }
 
     /**
@@ -70,7 +79,11 @@ class SubsatkerController extends Controller
      */
     public function update(UpdatesubsatkerRequest $request, subsatker $subsatker)
     {
-        //
+        $input = $request->validated();
+        $subsatker->subsatker = $input['subsatker'];
+        $subsatker->id_satker = $input['satker'];
+        $subsatker->update();
+        return response()->json(['status' => 'SubSatker Berhasil Diupdate !'], 201);
     }
 
     /**
@@ -81,6 +94,11 @@ class SubsatkerController extends Controller
      */
     public function destroy(subsatker $subsatker)
     {
-        //
+        if (!$subsatker->delete()) {
+            return response()->withErrors($subsatker->errors());
+        }
+        return response()->json([
+            'status' => 'SubSatker Berhasil Dihapus !'
+        ], 200);
     }
 }

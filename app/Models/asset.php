@@ -22,7 +22,7 @@ class Asset extends Model
         'spesifikasi',
         'deskripsi',
         'id_lokasi',
-        'id_kategori',
+        // 'id_kategori',
         'id_status',
     ];
 
@@ -50,12 +50,12 @@ class Asset extends Model
     {
         return $this->belongsTo(Location::class, 'id_lokasi');
     }
-    public function kategori()
+    public function category()
     {
         return $this->belongsToMany(Category::class);
     }
     public function status()
     {
-        return $this->belongsTo(Status::class, 'id_status');
+        return $this->belongsTo(StatusAssets::class, 'id_status');
     }
 }

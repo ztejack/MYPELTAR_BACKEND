@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Status;
+use App\Models\StatusAssets;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class StatusSeeder extends Seeder
+class StatusAssetsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,23 +15,23 @@ class StatusSeeder extends Seeder
      */
     public function run()
     {
-        Status::create([
-            'statuscode' => 'ST1',
+        StatusAssets::create([
+            // 'statuscode' => 'ST1',
             'status' => 'Dalam Perbaikan',
         ]);
 
-        Status::create([
-            'statuscode' => 'ST2',
+        StatusAssets::create([
+            // 'statuscode' => 'ST2',
             'status' => 'Baik'
         ]);
 
-        Status::create([
-            'statuscode' => 'ST3',
+        StatusAssets::create([
+            // 'statuscode' => 'ST3',
             'status' => 'Rusak',
         ]);
 
-        Status::create([
-            'statuscode' => 'ST4',
+        StatusAssets::create([
+            // 'statuscode' => 'ST4',
             'status' => 'Under Maintenance',
         ]);
     }

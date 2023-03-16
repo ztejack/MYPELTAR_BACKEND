@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\role;
+use App\Models\Role;
 use App\Http\Requests\StoreroleRequest;
 use App\Http\Requests\UpdateroleRequest;
 
@@ -15,7 +15,8 @@ class RoleController extends Controller
      */
     public function index()
     {
-        //
+        $roles = Role::all();
+        return response()->json(['data' => $roles]);
     }
 
     /**
@@ -31,6 +32,7 @@ class RoleController extends Controller
     /**
      * Store a newly created resource in storage.
      *
+     * 
      * @param  \App\Http\Requests\StoreroleRequest  $request
      * @return \Illuminate\Http\Response
      */

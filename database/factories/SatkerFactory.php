@@ -17,7 +17,7 @@ class SatkerFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'satker' => $this->faker->sentence(1)
         ];
     }
 }

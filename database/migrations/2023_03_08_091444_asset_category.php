@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('asset_category', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('category_id')->default(false)->references('id')->on('categories');
-            $table->foreignId('asset_id')->default(false)->references('id')->on('assets');
+            $table->foreignId('category_id')->default(false)->references('id')->on('categories')->onDelete("cascade");
+            $table->foreignId('asset_id')->default(false)->references('id')->on('assets')->onDelete("cascade");
             $table->timestamps();
         });
     }

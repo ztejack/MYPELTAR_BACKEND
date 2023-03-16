@@ -52,9 +52,9 @@ class StoreassetRequest extends FormRequest
             'model' => 'string',
             'spesifikasi' => 'string',
             'deskripsi' => 'string',
-            'id_lokasi' => 'integer',
+            'id_lokasi' => 'required|integer',
             'id_kategori' => 'array',
-            'id_status' => 'integer',
+            'id_status' => 'required|integer',
         ];
         return $rule;
     }

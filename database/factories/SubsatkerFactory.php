@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Satker;
+use App\Models\Subsatker;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,7 +20,17 @@ class SubsatkerFactory extends Factory
     {
         return [
             'subsatker' => $this->faker->sentence(1),
-            'id_satker' => 1
+            'id_satker' => function () {
+                return Satker::factory()->create()->id;
+            }
         ];
     }
+    // public function configure()
+    // {
+    //     return $this->beforeCreating(function (Subsatker $subsatker) {
+    //         $subsatker->id_satker = function () {
+    //             return Satker::factory()->create()->id;
+    //         };
+    //     });
+    // }
 }
