@@ -40,7 +40,6 @@ class Asset extends Model
      */
     protected $casts = [];
 
-
     /**
      * Return a model value array, containing any relation model.
      *
@@ -56,6 +55,6 @@ class Asset extends Model
     }
     public function status()
     {
-        return $this->belongsTo(StatusAssets::class, 'id_status');
+        return $this->hasOne(StatusAssets::class, 'id_status');
     }
 }

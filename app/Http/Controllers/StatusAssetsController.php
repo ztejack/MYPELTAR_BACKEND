@@ -98,10 +98,10 @@ class StatusAssetsController extends Controller
         // if (!$statusassets->delete()) {
         //     return response()->withErrors($statusassets->errors());
         // }
-        $statusassets->delete();
+        $statusassets->detach();
         return response()->json([
             'status' => 'Status Berhasil Dihapus !',
-            'data' => $statusassets->asset
+            // 'data' => $statusassets->asset
         ], 200);
     }
 }
