@@ -14,10 +14,10 @@ use Illuminate\Validation\ValidationException;
 
 class AssetController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth:api', ['except' => ['index', 'show']]);
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth:api', ['except' => ['index', 'show']]);
+    // }
 
     /**
      * Display a listing of the resource.
@@ -63,7 +63,7 @@ class AssetController extends Controller
         $asset->spesifikasi = $input['spesifikasi'];
         $asset->deskripsi = $input['deskripsi'];
         $asset->id_lokasi = $input['id_lokasi'];
-        $asset->id_status = $input['id_status'];
+        $asset->id_status->attach($input['id_status']);
         $asset->save();
         $category = Category::find($input['id_kategori']);
         $asset->category()->attach($category);

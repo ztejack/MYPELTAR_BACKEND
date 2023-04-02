@@ -38,7 +38,8 @@ class RoleController extends Controller
      */
     public function store(StoreroleRequest $request)
     {
-        //
+        // $input = $request->validated();
+        // $role = new Role()
     }
 
     /**

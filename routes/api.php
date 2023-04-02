@@ -4,6 +4,7 @@ use App\Http\Controllers\AssetController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\LocationController;
+use App\Http\Controllers\MaintenanceController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SatkerController;
 use App\Http\Controllers\StatusAssetsController;
@@ -40,6 +41,14 @@ Route::prefix('v1/asset')->middleware('auth:api')->group(
         Route::post('store', [AssetController::class, 'store']);
         Route::get('show/{asset}', [AssetController::class, 'show']);
         Route::post('update/{asset}', [AssetController::class, 'update']);
+    }
+);
+Route::prefix('v1/maintenance')->middleware('auth:api')->group(
+    function () {
+        Route::get('getall', [MaintenanceController::class, 'index']);
+        Route::post('store', [MaintenanceController::class, 'store']);
+        Route::get('show/{maintenance}', [MaintenanceController::class, 'show']);
+        Route::post('update/{maintenance}', [MaintenanceController::class, 'update']);
     }
 );
 Route::prefix('v1/category')->middleware('auth:api')->group(

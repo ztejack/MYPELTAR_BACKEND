@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('deskripsi');
             $table->foreignId('id_lokasi')->default(false)->references('id')->on('locations')->onDelete('cascade');
             // $table->foreignId('id_kategori')->default(false)->references('id')->on('categories'); //many to many wait
-            $table->foreignId('id_status')->references('id')->on('status_assets')->unsigned()->nullable(); //many to many wait
+            $table->foreignId('id_status')->nullable()->unsigned()->default(false)->references('id')->on('status_assets'); //many to many wait
             $table->timestamps();
         });
     }

@@ -14,7 +14,7 @@ class PUpdate extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'id_asset',
+        // 'id_asset',
         'id_user',
         'id_maintenance',
         'id_status'

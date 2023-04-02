@@ -18,28 +18,33 @@ class UserSeeder extends Seeder
         User::create([
             'name' => 'SuperUser',
             'username' => 'superuser',
-            'email' => 'example0@example.com',
             'id_role' => 1,
             'id_subsatker' => 1,
             'email' => 'superuser@example.com',
             'password' => bcrypt('123456789'),
         ]);
         User::create([
-            'name' => 'AdminInspeksi',
-            'username' => 'inspeksi',
-            'email' => 'example1@example.com',
+            'name' => 'Admin',
+            'username' => 'admin',
             'id_role' => 2,
-            'id_subsatker' => 2,
-            'email' => 'inspeksi@example.com',
+            'id_subsatker' => 1,
+            'email' => 'Admin@example.com',
             'password' => bcrypt('123456789'),
         ]);
         User::create([
-            'name' => 'AdminInspektor',
-            'username' => 'inspektor',
-            'email' => 'example2@example.com',
+            'name' => 'AdminMaintenance',
+            'username' => 'maintenance',
             'id_role' => 3,
-            'id_subsatker' => 3,
-            'email' => 'inspektor@example.com',
+            'id_subsatker' => 1,
+            'email' => 'Maintenance@example.com',
+            'password' => bcrypt('123456789'),
+        ]);
+        User::create([
+            'name' => 'AdminInspeksi',
+            'username' => 'inspeksi',
+            'id_role' => 4,
+            'id_subsatker' => 1,
+            'email' => 'inspeksi@example.com',
             'password' => bcrypt('123456789'),
         ]);
     }

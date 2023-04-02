@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\maintenance;
+use App\Http\Requests\StoreassetRequest;
+use App\Models\Maintenance;
 use App\Http\Requests\StoremaintenanceRequest;
 use App\Http\Requests\UpdatemaintenanceRequest;
+use App\Http\Resources\MaintenanceResource;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class MaintenanceController extends Controller
 {
@@ -15,7 +19,7 @@ class MaintenanceController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json([MaintenanceResource::collection(Maintenance::all())]);
     }
 
     /**
@@ -36,18 +40,32 @@ class MaintenanceController extends Controller
      */
     public function store(StoremaintenanceRequest $request)
     {
-        //
+        $input = $request->validated();
+        $maintenance = new Maintenance();
+        $maintenance->id_user_inspektor = Auth::user()->id;
+        $maintenance->id_asset = $input['id_asset'];
+        $maintenance->id_type = $input['id_type'];
+        $maintenance->deskripsi = $input['deskripsi'];
+        $maintenance->fotoafter = null;
+        // $maintenance->fotobefore = $request->file('fotobefore')->store('images/Maintenance', 'public');
+        $maintenance->fotobefore = Storage::put('public/images/Maintenance', $request->file('fotobefore'));
+
+        $maintenance->save();
+        return response()->json($maintenance);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\maintenance  $maintenance
+     * @param  \App\Models\Maintenance  $maintenance
      * @return \Illuminate\Http\Response
      */
-    public function show(maintenance $maintenance)
+    public function show(Maintenance $maintenance)
     {
-        //
+        // $maintenances = Maintenance::find($maintenance)
+        $maintenances = MaintenanceResource::make($maintenance);
+        return response()->json(['data' => $maintenances], 200);
+        // return response()->json(Maintenance::all());
     }
 
     /**
@@ -56,7 +74,7 @@ class MaintenanceController extends Controller
      * @param  \App\Models\maintenance  $maintenance
      * @return \Illuminate\Http\Response
      */
-    public function edit(maintenance $maintenance)
+    public function edit(Maintenance $maintenance)
     {
         //
     }
@@ -79,7 +97,7 @@ class MaintenanceController extends Controller
      * @param  \App\Models\maintenance  $maintenance
      * @return \Illuminate\Http\Response
      */
-    public function destroy(maintenance $maintenance)
+    public function destroy(Maintenance $maintenance)
     {
         //
     }

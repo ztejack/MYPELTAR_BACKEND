@@ -40,7 +40,6 @@ class Asset extends Model
      */
     protected $casts = [];
 
-
     /**
      * Return a model value array, containing any relation model.
      *

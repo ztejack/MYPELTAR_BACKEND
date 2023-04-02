@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\StatusAssets;
 use App\Http\Requests\StoreStatusAssetsRequest;
 use App\Http\Requests\UpdateStatusAssetsRequest;
-use App\Models\Asset;
 
 class StatusAssetsController extends Controller
 {
@@ -95,13 +94,16 @@ class StatusAssetsController extends Controller
      */
     public function destroy(StatusAssets $statusassets)
     {
-        // if (!$statusassets->delete()) {
-        //     return response()->withErrors($statusassets->errors());
-        // }
-        $statusassets->delete();
+        try {
+            $statusassets->delete();
+        } catch (\Exception $e) {
+            return response()->json([
+                'error' => 'Failed to delete resource',
+                // 'message' => 'Status memilki relasi',
+            ], 500);
+        }
         return response()->json([
             'status' => 'Status Berhasil Dihapus !',
-            'data' => $statusassets->asset
         ], 200);
     }
 }

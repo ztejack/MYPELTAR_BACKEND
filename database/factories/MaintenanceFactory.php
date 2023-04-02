@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class MaintenanceFactory extends Factory
 {
+
     /**
      * Define the model's default state.
      *
@@ -17,9 +18,10 @@ class MaintenanceFactory extends Factory
     public function definition()
     {
         return [
-            'id_user' => 3,
-            'jenis' => fake()->name(),
-            'deskripsi' => $this->faker->sentence(mt_rand(2, 5)),
+            'id_user_inspektor' => 3,
+            'id_asset' => mt_rand(1, 5),
+            'id_type' => mt_rand(1, 2),
+            'deskripsi' => $this->faker->sentence(mt_rand(2, 10)),
             'fotobefore' => $this->faker->sentence(mt_rand(2, 5)),
             'fotoafter' => $this->faker->sentence(mt_rand(2, 5)),
             'created_at' => now(),

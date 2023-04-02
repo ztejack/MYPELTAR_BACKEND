@@ -90,8 +90,15 @@ class SatkerController extends Controller
      */
     public function destroy(satker $satker)
     {
-        if (!$satker->delete()) {
-            return response()->withErrors($satker->errors());
+        // if (!$satker->delete()) {
+        //     return response()->withErrors($satker->errors());
+        // }
+        try {
+            $satker->delete();
+        } catch (\Exception $e) {
+            return response()->json([
+                'error' => 'Failed to delete resource',
+            ], 500);
         }
         return response()->json([
             'status' => 'Satker Berhasil Dihapus !'

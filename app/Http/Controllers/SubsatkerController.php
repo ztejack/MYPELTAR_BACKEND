@@ -94,8 +94,12 @@ class SubsatkerController extends Controller
      */
     public function destroy(subsatker $subsatker)
     {
-        if (!$subsatker->delete()) {
-            return response()->withErrors($subsatker->errors());
+        try {
+            $subsatker->delete();
+        } catch (\Exception $e) {
+            return response()->json([
+                'error' => 'Failed to delete resource',
+            ], 500);
         }
         return response()->json([
             'status' => 'SubSatker Berhasil Dihapus !'

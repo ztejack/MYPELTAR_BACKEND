@@ -17,10 +17,11 @@ class PUpdateFactory extends Factory
     public function definition()
     {
         return [
-            'id_asset' => mt_rand(1, 5),
+            // 'id_asset' => mt_rand(1, 5),
             'id_user' => mt_rand(1, 3),
             'id_maintenance' => mt_rand(1, 5),
             'id_status' => mt_rand(1, 2),
+            // 'foto_after' => 
         ];
     }
 }
