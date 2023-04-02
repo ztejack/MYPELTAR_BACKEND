@@ -55,6 +55,6 @@ class Asset extends Model
     }
     public function status()
     {
-        return $this->hasOne(StatusAssets::class, 'id_status');
+        return $this->belongsTo(StatusAssets::class, 'id_status');
     }
 }

@@ -93,8 +93,14 @@ class LocationController extends Controller
      */
     public function destroy(Location $location)
     {
-        if (!$location->delete()) {
-            return response()->withErrors($location->errors());
+
+        try {
+            $location->delete();
+        } catch (\Exception $e) {
+            return response()->json([
+                'error' => 'Failed to delete resource',
+                // 'message' => 'Status memilki relasi',
+            ], 500);
         }
         return response()->json([
             'status' => 'Lokasi Berhasil Dihapus !'

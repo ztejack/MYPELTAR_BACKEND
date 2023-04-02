@@ -14,8 +14,9 @@ class Maintenance extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'id_user',
-        'jenis',
+        'id_user_inspektor',
+        'id_asset',
+        'id_type',
         'deskripsi',
         'fotobefore',
         'fotoafter',
@@ -36,4 +37,26 @@ class Maintenance extends Model
     protected $casts = [
         // 'create_at' =
     ];
+
+    /**
+     * Return a model value array, containing any relation model.
+     *
+     * @return array
+     */
+    public function user_inspek()
+    {
+        return $this->belongsTo(User::class, 'id_user_inspektor');
+    }
+    public function type()
+    {
+        return $this->belongsTo(TypeMaintenance::class, 'id_type');
+    }
+    public function PUpdate()
+    {
+        return $this->belongsToMany(PUpdate::class);
+    }
+    public function asset()
+    {
+        return $this->belongsTo(Asset::class, 'id_asset');
+    }
 }

@@ -86,6 +86,10 @@ class User extends Authenticatable implements JWTSubject
     }
     public function satker()
     {
-        return $this->belongsTo(Satker::class, 'id');
+        return $this->belongsTo(Satker::class);
+    }
+    public function maintenance()
+    {
+        return $this->belongsToMany(Maintenance::class);
     }
 }

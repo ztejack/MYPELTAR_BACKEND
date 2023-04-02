@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('maintenances', function (Blueprint $table) {
             $table->id('id');
-            // $table->foreign('id_asset')->default(false)->references('code')->on('assets');
-            $table->foreignId('id_user')->default(false)->references('id')->on('users');
-            $table->string('jenis');
-            $table->string('deskripsi');
-            $table->string('fotobefore');
-            $table->string('fotoafter');
+            $table->foreignId('id_asset')->default(false)->references('id')->on('assets')->onDelete('cascade');
+            $table->foreignId('id_user_inspektor')->default(false)->references('id')->on('users');
+            $table->foreignId('id_type')->default(false)->references('id')->on('type_maintenances');
+            $table->string('deskripsi')->default(false);
+            $table->string('fotobefore')->default(false);
+            $table->string('fotoafter')->default(false)->nullable();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
         });
@@ -33,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('maintenances');
+        Schema::dropIfExists('type_maintenances');
     }
 };

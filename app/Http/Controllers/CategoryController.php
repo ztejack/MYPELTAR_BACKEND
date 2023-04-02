@@ -86,10 +86,6 @@ class CategoryController extends Controller
     public function update(UpdatecategoryRequest $request, category $category)
     {
         $input = $request->validated();
-
-
-
-
         $category->kategori = $input['kategori'];
         $category->id_subsatker = $input['subsatker'];
         $category->update();
@@ -106,16 +102,13 @@ class CategoryController extends Controller
      */
     public function destroy(category $category)
     {
-        // $asset = Asset::get()->where($asset->category->id);
-        // $post = $post->findOrFail($id);
-
-        if (!$category->delete()) {
-            return response()->withErrors($category->errors());
+        try {
+            $category->delete();
+        } catch (\Exception $e) {
+            return response()->json([
+                'error' => 'Failed to delete resource',
+            ], 500);
         }
-
-        // $category->assets->detach($assets);
-        // return response()->json(['status' => 'Kategori Berhasil Dihapus !'], 201);
-
         return response()->json([
             'status' => 'Kategori Berhasil Dihapus !'
         ], 200);
