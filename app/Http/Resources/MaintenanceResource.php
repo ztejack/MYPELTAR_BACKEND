@@ -23,7 +23,6 @@ class MaintenanceResource extends JsonResource
             'type' => $this->type,
             'fotobefore' => ($this->fotobefore == null) ? null : asset(Storage::url($this->fotobefore)),
             'fotoafter' => ($this->fotoafter == null) ? null : asset($this->fotoafter)
-
         ];
     }
 }

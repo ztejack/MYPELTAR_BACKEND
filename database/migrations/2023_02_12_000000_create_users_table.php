@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id('id');
             $table->string('name');
             // $table->string('email');
-            $table->foreignId('id_role')->default(false)->references('id')->on('roles');
+            // $table->foreignId('id_role')->default(false)->references('id')->on('roles');
             $table->foreignId('id_subsatker');
             $table->string('username');
             $table->string('email')->unique();

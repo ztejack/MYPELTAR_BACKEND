@@ -10,13 +10,14 @@ use Laravel\Sanctum\HasApiTokens;
 use LdapRecord\Laravel\Auth\LdapAuthenticatable;
 use LdapRecord\Laravel\Auth\AuthenticatesWithLdap;
 use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject;
+use Spatie\Permission\Traits\HasRoles;
 
 // class User extends Authenticatable implements LdapAuthenticatable, JWTSubject
 class User extends Authenticatable implements JWTSubject
 {
 
     // use   Notifiable, AuthenticatesWithLdap;
-    use Notifiable, HasApiTokens, HasFactory;
+    use Notifiable, HasApiTokens, HasFactory, HasRoles;
 
     /**
      * The attributes that are mass assignable.

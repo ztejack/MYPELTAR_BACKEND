@@ -17,7 +17,8 @@ class PUpdate extends Model
         // 'id_asset',
         'id_user',
         'id_maintenance',
-        'id_status'
+        'id_status',
+        'deskripsi'
     ];
 
     /**
