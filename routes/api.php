@@ -1,15 +1,15 @@
 <?php
 
-use App\Http\Controllers\AssetController;
-use App\Http\Controllers\Auth\AuthController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\LocationController;
-use App\Http\Controllers\MaintenanceController;
-use App\Http\Controllers\RoleController;
-use App\Http\Controllers\SatkerController;
-use App\Http\Controllers\StatusAssetsController;
-use App\Http\Controllers\StatusController;
-use App\Http\Controllers\SubsatkerController;
+use App\Http\Controllers\API\AssetController;
+use App\Http\Controllers\API\Auth\AuthController;
+use App\Http\Controllers\API\CategoryController;
+use App\Http\Controllers\API\LocationController;
+use App\Http\Controllers\API\MaintenanceController;
+use App\Http\Controllers\API\RoleController;
+use App\Http\Controllers\API\SatkerController;
+use App\Http\Controllers\API\StatusAssetsController;
+use App\Http\Controllers\API\StatusController;
+use App\Http\Controllers\API\SubsatkerController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 

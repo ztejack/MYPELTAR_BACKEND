@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "ALPHA",
-    "dateExported": "2023-03-20T05:01:53.322Z",
+    "dateExported": "2023-04-03T17:15:29.906Z",
     "version": "1.1",
     "folders": [
         {
@@ -66,6 +66,13 @@
             "containerId": "",
             "created": "2023-03-15T16:40:24.242Z",
             "sortNum": 90000
+        },
+        {
+            "_id": "cfd7cd8d-b580-4067-94d6-4e9562b77aca",
+            "name": "Maintenance",
+            "containerId": "",
+            "created": "2023-03-25T16:48:38.587Z",
+            "sortNum": 100000
         }
     ],
     "requests": [
@@ -305,12 +312,12 @@
             "method": "GET",
             "sortNum": 110000,
             "created": "2023-03-08T09:42:16.055Z",
-            "modified": "2023-03-08T15:50:38.001Z",
+            "modified": "2023-04-02T17:41:22.272Z",
             "headers": [],
             "params": [],
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2NzgyOTA2MTUsImV4cCI6MTY3ODU0OTgxNSwibmJmIjoxNjc4MjkwNjE1LCJqdGkiOiJSSmhFMk1WMXh6NnlHOG1kIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.JMwVpjxa88zzsn3PiN9o47pBpAtusGZADiu1eqCnzQE"
+                "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODA0MTMzMjcsImV4cCI6MTY4MDY3MjUyNywibmJmIjoxNjgwNDEzMzI3LCJqdGkiOiJhZnpTRFpmemFPQng4N1p2Iiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.vNePlGQXY5z-aZcVQnWl1WsblKD9ds20WFKlkg248Rk"
             },
             "tests": []
         },
@@ -470,16 +477,16 @@
             "colId": "159f72ad-0b7d-4ef7-983e-7cdc4c3f2335",
             "containerId": "9c73bd8e-4d37-485f-bf8e-d4f84552629e",
             "name": "DESTROY",
-            "url": "http://127.0.0.1:8000/api/v1/category/destroy/1",
+            "url": "http://127.0.0.1:8000/api/v1/category/destroy/2",
             "method": "POST",
             "sortNum": 160000,
             "created": "2023-03-13T09:16:10.276Z",
-            "modified": "2023-03-13T18:40:49.293Z",
+            "modified": "2023-03-25T15:21:35.007Z",
             "headers": [],
             "params": [],
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2Nzg2OTg1MjUsImV4cCI6MTY3ODk1NzcyNSwibmJmIjoxNjc4Njk4NTI1LCJqdGkiOiJ5OWJLQWF5a0p0anB6YjZtIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.715FOeTTYBE5Xf7-1RxTCoYfJUBWr8pfSiQTtrJw3Rg"
+                "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2Nzk3MzEzMTcsImV4cCI6MTY3OTk5MDUxNywibmJmIjoxNjc5NzMxMzE3LCJqdGkiOiJNTXZJbGpEYlBmaDdreXZBIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.JVr5jXWworHUV5bgU8dVQO-lFUdiuvn8QOtG8-0nyLQ"
             },
             "tests": []
         },
@@ -880,16 +887,16 @@
             "colId": "159f72ad-0b7d-4ef7-983e-7cdc4c3f2335",
             "containerId": "fde89b6b-6a87-4528-9af8-c482b61ab58c",
             "name": "DESTROY",
-            "url": "http://127.0.0.1:8000/api/v1/statusa/destroy/3",
+            "url": "http://127.0.0.1:8000/api/v1/statusa/destroy/1",
             "method": "POST",
             "sortNum": 257500,
             "created": "2023-03-15T16:40:24.245Z",
-            "modified": "2023-03-16T09:11:17.686Z",
+            "modified": "2023-03-25T15:10:43.225Z",
             "headers": [],
             "params": [],
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2Nzg5NTc4MDUsImV4cCI6MTY3OTIxNzAwNSwibmJmIjoxNjc4OTU3ODA1LCJqdGkiOiJJdjd1WmN3TzdsSWd2WXg4Iiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.BsuHcshZbKA5ASxjKnSUdNLSEUSAE37H9oDlSirHdOc"
+                "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2Nzk3MzEzMTcsImV4cCI6MTY3OTk5MDUxNywibmJmIjoxNjc5NzMxMzE3LCJqdGkiOiJNTXZJbGpEYlBmaDdreXZBIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.JVr5jXWworHUV5bgU8dVQO-lFUdiuvn8QOtG8-0nyLQ"
             },
             "tests": []
         },
@@ -938,12 +945,94 @@
             "method": "GET",
             "sortNum": 260000,
             "created": "2023-03-15T16:40:24.246Z",
-            "modified": "2023-03-16T05:05:04.274Z",
+            "modified": "2023-03-25T15:12:19.648Z",
             "headers": [],
             "params": [],
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2Nzg2OTg1MjUsImV4cCI6MTY3ODk1NzcyNSwibmJmIjoxNjc4Njk4NTI1LCJqdGkiOiJ5OWJLQWF5a0p0anB6YjZtIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.715FOeTTYBE5Xf7-1RxTCoYfJUBWr8pfSiQTtrJw3Rg"
+                "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2Nzk3MzEzMTcsImV4cCI6MTY3OTk5MDUxNywibmJmIjoxNjc5NzMxMzE3LCJqdGkiOiJNTXZJbGpEYlBmaDdreXZBIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.JVr5jXWworHUV5bgU8dVQO-lFUdiuvn8QOtG8-0nyLQ"
+            },
+            "tests": []
+        },
+        {
+            "_id": "e600a592-a8c3-4c2e-b3a6-fb0f2e5b0892",
+            "colId": "159f72ad-0b7d-4ef7-983e-7cdc4c3f2335",
+            "containerId": "cfd7cd8d-b580-4067-94d6-4e9562b77aca",
+            "name": "GETALL",
+            "url": "http://127.0.0.1:8000/api/v1/maintenance/getall",
+            "method": "GET",
+            "sortNum": 270000,
+            "created": "2023-03-25T16:48:52.201Z",
+            "modified": "2023-04-02T18:12:04.565Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODA0MTMzMjcsImV4cCI6MTY4MDY3MjUyNywibmJmIjoxNjgwNDEzMzI3LCJqdGkiOiJhZnpTRFpmemFPQng4N1p2Iiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.vNePlGQXY5z-aZcVQnWl1WsblKD9ds20WFKlkg248Rk"
+            },
+            "tests": []
+        },
+        {
+            "_id": "b6d7eacf-4116-4af5-8d86-a57312c572f3",
+            "colId": "159f72ad-0b7d-4ef7-983e-7cdc4c3f2335",
+            "containerId": "cfd7cd8d-b580-4067-94d6-4e9562b77aca",
+            "name": "GET",
+            "url": "http://127.0.0.1:8000/api/v1/maintenance/show/6",
+            "method": "GET",
+            "sortNum": 275000,
+            "created": "2023-04-02T17:07:54.604Z",
+            "modified": "2023-04-02T21:13:43.291Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODA0MTMzMjcsImV4cCI6MTY4MDY3MjUyNywibmJmIjoxNjgwNDEzMzI3LCJqdGkiOiJhZnpTRFpmemFPQng4N1p2Iiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.vNePlGQXY5z-aZcVQnWl1WsblKD9ds20WFKlkg248Rk"
+            },
+            "tests": []
+        },
+        {
+            "_id": "0d67d41d-baeb-4865-9aac-dcf4d05a7d06",
+            "colId": "159f72ad-0b7d-4ef7-983e-7cdc4c3f2335",
+            "containerId": "cfd7cd8d-b580-4067-94d6-4e9562b77aca",
+            "name": "STORE",
+            "url": "http://127.0.0.1:8000/api/v1/maintenance/store",
+            "method": "POST",
+            "sortNum": 280000,
+            "created": "2023-03-25T20:24:00.186Z",
+            "modified": "2023-04-02T18:12:01.468Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "id_asset",
+                        "value": "2"
+                    },
+                    {
+                        "name": "id_type",
+                        "value": "2"
+                    },
+                    {
+                        "name": "deskripsi",
+                        "value": "2"
+                    },
+                    {
+                        "name": "fotoafter",
+                        "value": "asd"
+                    }
+                ],
+                "files": [
+                    {
+                        "name": "fotobefore",
+                        "value": "e:\\Personal\\DSC_5877-Editbw.jpg"
+                    }
+                ]
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODA0MTMzMjcsImV4cCI6MTY4MDY3MjUyNywibmJmIjoxNjgwNDEzMzI3LCJqdGkiOiJhZnpTRFpmemFPQng4N1p2Iiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.vNePlGQXY5z-aZcVQnWl1WsblKD9ds20WFKlkg248Rk"
             },
             "tests": []
         }
