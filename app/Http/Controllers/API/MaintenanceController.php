@@ -51,7 +51,7 @@ class MaintenanceController extends Controller
         $maintenance->fotobefore = Storage::put('public/images/Maintenance', $request->file('fotobefore'));
 
         $maintenance->save();
-        return response()->json($maintenance);
+        return response()->json(MaintenanceResource::make($maintenance));
     }
 
     /**
@@ -65,7 +65,6 @@ class MaintenanceController extends Controller
         // $maintenances = Maintenance::find($maintenance)
         $maintenances = MaintenanceResource::make($maintenance);
         return response()->json(['data' => $maintenances], 200);
-        // return response()->json(Maintenance::all());
     }
 
     /**
