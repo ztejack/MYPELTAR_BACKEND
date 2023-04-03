@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
 
+use App\Http\Controllers\Controller;
 use App\Models\StatusAssets;
 use App\Http\Requests\StoreStatusAssetsRequest;
 use App\Http\Requests\UpdateStatusAssetsRequest;

@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
 
+use App\Http\Controllers\Controller;
 use App\Models\Location;
 use App\Http\Requests\StorelocationRequest;
 use App\Http\Requests\UpdatelocationRequest;

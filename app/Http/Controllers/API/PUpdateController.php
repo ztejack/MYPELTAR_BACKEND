@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\p_categories;
-use App\Http\Requests\Storep_categoriesRequest;
-use App\Http\Requests\Updatep_categoriesRequest;
+use App\Http\Requests\Storep_updateRequest;
+use App\Models\PUpdate;
+use App\Http\Requests\StorePUpdateRequest;
+use App\Http\Requests\Updatep_updateRequest;
+use App\Http\Requests\UpdatePUpdateRequest;
 
-class PCategoriesController extends Controller
+class PUpdateController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,10 +33,10 @@ class PCategoriesController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\Storep_categoriesRequest  $request
+     * @param  \App\Http\Requests\StorePUpdateRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Storep_categoriesRequest $request)
+    public function store(Storep_updateRequest $request)
     {
         //
     }
@@ -42,10 +44,10 @@ class PCategoriesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\p_categories  $p_categories
+     * @param  \App\Models\PUpdate  $PUpdate
      * @return \Illuminate\Http\Response
      */
-    public function show(p_categories $p_categories)
+    public function show(PUpdate $PUpdate)
     {
         //
     }
@@ -53,10 +55,10 @@ class PCategoriesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\p_categories  $p_categories
+     * @param  \App\Models\PUpdate  $PUpdate
      * @return \Illuminate\Http\Response
      */
-    public function edit(p_categories $p_categories)
+    public function edit(PUpdate $PUpdate)
     {
         //
     }
@@ -64,11 +66,11 @@ class PCategoriesController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\Updatep_categoriesRequest  $request
-     * @param  \App\Models\p_categories  $p_categories
+     * @param  \App\Http\Requests\UpdatePUpdateRequest  $request
+     * @param  \App\Models\PUpdate  $PUpdate
      * @return \Illuminate\Http\Response
      */
-    public function update(Updatep_categoriesRequest $request, p_categories $p_categories)
+    public function update(Updatep_updateRequest $request, PUpdate $PUpdate)
     {
         //
     }
@@ -76,10 +78,10 @@ class PCategoriesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\p_categories  $p_categories
+     * @param  \App\Models\PUpdate  $PUpdate
      * @return \Illuminate\Http\Response
      */
-    public function destroy(p_categories $p_categories)
+    public function destroy(PUpdate $PUpdate)
     {
         //
     }

@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
 
-use App\Models\banner;
+use App\Http\Controllers\Controller;
+use App\Models\Banner;
 use App\Http\Requests\StorebannerRequest;
 use App\Http\Requests\UpdatebannerRequest;
 
@@ -45,7 +46,7 @@ class BannerController extends Controller
      * @param  \App\Models\banner  $banner
      * @return \Illuminate\Http\Response
      */
-    public function show(banner $banner)
+    public function show(Banner $banner)
     {
         //
     }
@@ -56,7 +57,7 @@ class BannerController extends Controller
      * @param  \App\Models\banner  $banner
      * @return \Illuminate\Http\Response
      */
-    public function edit(banner $banner)
+    public function edit(Banner $banner)
     {
         //
     }
@@ -68,7 +69,7 @@ class BannerController extends Controller
      * @param  \App\Models\banner  $banner
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatebannerRequest $request, banner $banner)
+    public function update(UpdatebannerRequest $request, Banner $banner)
     {
         //
     }
@@ -79,7 +80,7 @@ class BannerController extends Controller
      * @param  \App\Models\banner  $banner
      * @return \Illuminate\Http\Response
      */
-    public function destroy(banner $banner)
+    public function destroy(Banner $banner)
     {
         //
     }

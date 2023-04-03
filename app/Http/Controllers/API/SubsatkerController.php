@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
 
+use App\Http\Controllers\Controller;
 use App\Models\Subsatker;
 use App\Http\Requests\StoresubsatkerRequest;
 use App\Http\Requests\UpdatesubsatkerRequest;
