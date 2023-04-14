@@ -18,7 +18,8 @@ class PUpdate extends Model
         'id_user',
         'id_maintenance',
         'id_status',
-        'deskripsi'
+        'deskripsi',
+        'foto'
     ];
 
     /**
@@ -36,4 +37,16 @@ class PUpdate extends Model
     protected $casts = [
         // 'create_at' =
     ];
+    public function maintenance()
+    {
+        return $this->belongsTo(Maintenance::class, 'id_maintenance');
+    }
+    public function users()
+    {
+        return $this->belongsTo(User::class, 'id_user');
+    }
+    public function status()
+    {
+        return $this->belongsTo(Status::class, 'id_status');
+    }
 }

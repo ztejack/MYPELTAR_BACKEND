@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use App\Models\StatusAssets;
-use App\Http\Requests\StoreStatusAssetsRequest;
-use App\Http\Requests\UpdateStatusAssetsRequest;
+use App\Models\Status;
+use App\Http\Requests\StoreStatusRequest;
+use App\Http\Requests\UpdateStatusRequest;
 
-class StatusAssetsController extends Controller
+class StatusController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,7 @@ class StatusAssetsController extends Controller
      */
     public function index()
     {
-        $statusa = StatusAssets::all();
+        $statusa = Status::all();
         return response()->json(['data' => $statusa]);
     }
 
@@ -33,13 +33,13 @@ class StatusAssetsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreStatusAssetsRequest  $request
+     * @param  \App\Http\Requests\StoreStatusRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreStatusAssetsRequest $request)
+    public function store(StoreStatusRequest $request)
     {
         $input = $request->validated();
-        $statusa = new StatusAssets();
+        $statusa = new Status();
         $statusa->status = $input['status'];
         $statusa->save();
         return response()->json([
@@ -50,21 +50,21 @@ class StatusAssetsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\StatusAssets  $statusAssets
+     * @param  \App\Models\Status  $status
      * @return \Illuminate\Http\Response
      */
-    public function show(StatusAssets $statusassets)
+    public function show(Status $status)
     {
-        return response()->json(['data' => $statusassets], 200);
+        return response()->json(['data' => $status], 200);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\StatusAssets  $statusAssets
+     * @param  \App\Models\Status  $status
      * @return \Illuminate\Http\Response
      */
-    public function edit(StatusAssets $statusAssets)
+    public function edit(Status $status)
     {
         //
     }
@@ -72,31 +72,31 @@ class StatusAssetsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateStatusAssetsRequest  $request
-     * @param  \App\Models\StatusAssets  $statusAssets
+     * @param  \App\Http\Requests\UpdateStatusRequest  $request
+     * @param  \App\Models\Status  $status
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateStatusAssetsRequest $request, StatusAssets $statusAssets)
+    public function update(UpdateStatusRequest $request, Status $status)
     {
         $input = $request->validated();
-        $statusAssets->unit = $input['status'];
-        $statusAssets->update();
+        $status->unit = $input['status'];
+        $status->update();
         return response()->json([
             'status' => 'Status Berhasil Diupdate !',
-            'statusasset' => $statusAssets
+            'statusasset' => $status
         ], 200);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\StatusAssets  $statusassets
+     * @param  \App\Models\Status  $status
      * @return \Illuminate\Http\Response
      */
-    public function destroy(StatusAssets $statusassets)
+    public function destroy(Status $status)
     {
         try {
-            $statusassets->delete();
+            $status->delete();
         } catch (\Exception $e) {
             return response()->json([
                 'error' => 'Failed to delete resource',

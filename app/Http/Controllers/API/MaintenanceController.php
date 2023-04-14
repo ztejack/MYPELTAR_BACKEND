@@ -7,8 +7,11 @@ use App\Models\Maintenance;
 use App\Http\Requests\StoremaintenanceRequest;
 use App\Http\Requests\UpdatemaintenanceRequest;
 use App\Http\Resources\MaintenanceResource;
+use App\Models\Asset;
+use App\Models\PUpdate;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use LdapRecord\Query\Events\Paginate;
 
 class MaintenanceController extends Controller
 {
@@ -19,7 +22,8 @@ class MaintenanceController extends Controller
      */
     public function index()
     {
-        return response()->json([MaintenanceResource::collection(Maintenance::all())]);
+        $maintenances = Maintenance::latest()->paginate(50);
+        return response()->json(MaintenanceResource::collection($maintenances));
     }
 
     /**
@@ -41,6 +45,7 @@ class MaintenanceController extends Controller
     public function store(StoremaintenanceRequest $request)
     {
         $input = $request->validated();
+        $fotopath = Storage::put('public/images/Maintenance', $request->file('fotobefore'));
         $maintenance = new Maintenance();
         $maintenance->id_user_inspektor = Auth::user()->id;
         $maintenance->id_asset = $input['id_asset'];
@@ -48,10 +53,20 @@ class MaintenanceController extends Controller
         $maintenance->deskripsi = $input['deskripsi'];
         $maintenance->fotoafter = null;
         // $maintenance->fotobefore = $request->file('fotobefore')->store('images/Maintenance', 'public');
-        $maintenance->fotobefore = Storage::put('public/images/Maintenance', $request->file('fotobefore'));
-
+        $maintenance->fotobefore = $fotopath;
         $maintenance->save();
+
+        $pupdate = new PUpdate();
+        $pupdate->id_user = $maintenance->id_user_inspektor;
+        $pupdate->id_maintenance = $maintenance->id;
+        $pupdate->id_status = $input['id_status'];
+        $pupdate->foto = $fotopath;
+        $pupdate->save();
+
+        $asset = Asset::find($input['id_asset']);
+
         return response()->json(MaintenanceResource::make($maintenance));
+        // return response()->json($maintenance);
     }
 
     /**

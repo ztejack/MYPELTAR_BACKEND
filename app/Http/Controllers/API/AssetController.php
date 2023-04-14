@@ -10,6 +10,7 @@ use App\Http\Resources\AssetResource;
 use App\Models\Category;
 use App\Models\Location;
 use App\Models\PCategory;
+use App\Models\StatusAssets;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 
@@ -52,7 +53,6 @@ class AssetController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(StoreassetRequest $request)
-    // public function store(StoreassetRequest $request)
     {
         $input = $request->validated();
         $asset = new Asset();
@@ -64,10 +64,12 @@ class AssetController extends Controller
         $asset->spesifikasi = $input['spesifikasi'];
         $asset->deskripsi = $input['deskripsi'];
         $asset->id_lokasi = $input['id_lokasi'];
-        $asset->id_status->attach($input['id_status']);
+        $asset->id_status = $input['id_status'];
         $asset->save();
         $category = Category::find($input['id_kategori']);
         $asset->category()->attach($category);
+
+        // return response()->json(['status' => 'Asset Berhasil Ditambahkan !'], 201);
         return response()->json(['status' => 'Asset Berhasil Ditambahkan !'], 201);
         // return response()->json($asset, 201);
     }

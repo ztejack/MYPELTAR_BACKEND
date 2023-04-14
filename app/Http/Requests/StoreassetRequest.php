@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Http\Exceptions\HttpResponseException;
 
 class StoreassetRequest extends FormRequest
 {
@@ -27,23 +29,6 @@ class StoreassetRequest extends FormRequest
     }
     public function customrule()
     {
-        //     try {
-        //         $input = $this->validate($request, [
-        //             'stockcode' => 'required|string',
-        //             'serialnumber' => 'required',
-        //             'nama_asset' => 'min:6',
-        //             'merk' => 'required|string',
-        //             'model' => 'string',
-        //             'spesifikasi' => 'string',
-        //             'deskripsi' => 'string',
-        //             'id_lokasi' => 'integer',
-        //             'id_kategori' => 'array',
-        //         ]);
-        //     } catch (ValidationException $e) {
-        //         return response()->json($e->errors(), 201);
-        //     }
-        // }
-
         $rule = [
             'stockcode' => 'required|string',
             'serialnumber' => 'required',
@@ -57,5 +42,13 @@ class StoreassetRequest extends FormRequest
             'id_status' => 'required|integer',
         ];
         return $rule;
+    }
+    protected function failedValidation(Validator $validator)
+    {
+        $errors = $validator->errors()->messages();
+        throw new HttpResponseException(response()->json([
+            'message' => 'The given data was invalid.',
+            'errors' => $errors,
+        ], 422));
     }
 }

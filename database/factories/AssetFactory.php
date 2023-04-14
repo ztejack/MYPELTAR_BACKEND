@@ -42,7 +42,7 @@ class AssetFactory extends Factory
             'deskripsi' => $this->faker->sentence(mt_rand(1, 3)),
             'id_lokasi' => mt_rand(1, 5),
             // 'id_kategori' => mt_rand(1, 5),
-            'id_status' => mt_rand(1, 4),
+            'id_status' => mt_rand(1, 3),
         ];
     }
     public function configure()

@@ -51,12 +51,16 @@ class Maintenance extends Model
     {
         return $this->belongsTo(TypeMaintenance::class, 'id_type');
     }
-    public function PUpdate()
+    public function pupdate()
     {
-        return $this->belongsToMany(PUpdate::class);
+        return $this->hasmany(PUpdate::class, 'id_maintenance');
     }
     public function asset()
     {
         return $this->belongsTo(Asset::class, 'id_asset');
+    }
+    public function status()
+    {
+        return $this->belongsTo(Status::class);
     }
 }

@@ -31,6 +31,7 @@ class StoremaintenanceRequest extends FormRequest
             'deskripsi' => 'string',
             'fotobefore' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'fotoafter' => '',
+            'id_status' => 'exists:roles,id'
         ];
     }
 

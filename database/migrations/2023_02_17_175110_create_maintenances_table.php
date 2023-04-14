@@ -13,6 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
+        Schema::create('type_maintenances', function (Blueprint $table) {
+            $table->id();
+            $table->string('type');
+        });
         Schema::create('maintenances', function (Blueprint $table) {
             $table->id('id');
             $table->foreignId('id_asset')->default(false)->references('id')->on('assets')->onDelete('cascade');
@@ -34,5 +38,6 @@ return new class extends Migration
     public function down()
     {
         Schema::dropIfExists('type_maintenances');
+        Schema::dropIfExists('maintenances');
     }
 };

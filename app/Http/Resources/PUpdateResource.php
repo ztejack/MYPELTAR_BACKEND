@@ -3,8 +3,9 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\Storage;
 
-class AssetResource extends JsonResource
+class PUpdateResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,16 +17,12 @@ class AssetResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'stockcode' => $this->stockcode,
-            'serialnumber' => $this->serialnumber,
-            'nama_asset' => $this->name,
-            'merk' => $this->merk,
-            'model' => $this->model,
-            'spesifikasi' => $this->spesifikasi,
-            'deskripsi' => $this->deskripsi,
-            'lokasi' => $this->lokasi->unit,
-            'kategori' => $this->category,
+            'user' => $this->users->name,
             'status' => $this->status->status,
+            'deskripsi' => $this->deskripsi,
+            'foto' => ($this->foto == null) ? null : asset(Storage::url($this->foto)),
+            'created_at' => $this->created_at,
+            'update_at' => $this->updated_at
         ];
     }
 }
