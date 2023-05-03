@@ -25,14 +25,18 @@ class StoremaintenanceRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'id_asset' => 'required',
-            'id_type' => 'required',
-            'deskripsi' => 'string',
-            'fotobefore' => 'required|image|mimes:jpeg,png,jpg|max:2048',
-            'fotoafter' => '',
-            'id_status' => 'exists:roles,id'
-        ];
+        $rules = [];
+        if (!is_null($this->input('fotobefore'))) {
+            $rules['fotobefore'] = 'image|mimes:jpeg,png,jpg|max:2048';
+        } else {
+            $rules['fotobefore'] = '';
+        }
+        $rules['id_asset'] = 'required';
+        $rules['id_type'] = 'required';
+        $rules['deskripsi'] = 'string';
+        $rules['fotoafter'] = '';
+
+        return $rules;
     }
 
     protected function failedValidation(Validator $validator)

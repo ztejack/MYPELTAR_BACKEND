@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Maintenance;
 use App\Http\Requests\StoremaintenanceRequest;
 use App\Http\Requests\UpdatemaintenanceRequest;
+use App\Http\Resources\AssetResource;
 use App\Http\Resources\MaintenanceResource;
 use App\Models\Asset;
 use App\Models\PUpdate;
@@ -44,29 +45,32 @@ class MaintenanceController extends Controller
      */
     public function store(StoremaintenanceRequest $request)
     {
+        $status_id = 4;
         $input = $request->validated();
-        $fotopath = Storage::put('public/images/Maintenance', $request->file('fotobefore'));
         $maintenance = new Maintenance();
+        $pupdate = new PUpdate();
+        if (!is_null($input['fotobefore'])) {
+            $fotopath = Storage::put('public/images/Maintenance', $request->file('fotobefore'));
+            $maintenance->fotobefore = $fotopath;
+            $pupdate->foto = $fotopath;
+        }
         $maintenance->id_user_inspektor = Auth::user()->id;
         $maintenance->id_asset = $input['id_asset'];
         $maintenance->id_type = $input['id_type'];
         $maintenance->deskripsi = $input['deskripsi'];
-        $maintenance->fotoafter = null;
-        // $maintenance->fotobefore = $request->file('fotobefore')->store('images/Maintenance', 'public');
-        $maintenance->fotobefore = $fotopath;
         $maintenance->save();
 
-        $pupdate = new PUpdate();
         $pupdate->id_user = $maintenance->id_user_inspektor;
         $pupdate->id_maintenance = $maintenance->id;
-        $pupdate->id_status = $input['id_status'];
-        $pupdate->foto = $fotopath;
+        $pupdate->id_status = $status_id;
         $pupdate->save();
 
         $asset = Asset::find($input['id_asset']);
-
-        return response()->json(MaintenanceResource::make($maintenance));
-        // return response()->json($maintenance);
+        $asset->id_status = $status_id;
+        $asset->save();
+        return response()->json(['status' => 'Data Maintenance Berhasil Ditambahkan !'], 201);
+        // return response()->json($input->id_type);
+        // return response()->json(MaintenanceResource::make($maintenance));
     }
 
     /**
@@ -102,7 +106,7 @@ class MaintenanceController extends Controller
      */
     public function update(UpdatemaintenanceRequest $request, maintenance $maintenance)
     {
-        //
+        $input = $request->validated();
     }
 
     /**

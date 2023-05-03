@@ -13,7 +13,7 @@ class UpdatemaintenanceRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +23,18 @@ class UpdatemaintenanceRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            //
+        return $this->customrule();
+    }
+    public function customrule()
+    {
+        $rule = [
+            'id_asset' => 'required',
+            'id_type' => 'required',
+            'deskripsi' => 'string',
+            'fotobefore' => 'image|mimes:jpeg,png,jpg|max:2048',
+            'fotoafter' => 'image|mimes:jpeg,png,jpg|max:2048',
+
         ];
+        return $rule;
     }
 }

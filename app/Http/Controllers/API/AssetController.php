@@ -71,7 +71,6 @@ class AssetController extends Controller
 
         // return response()->json(['status' => 'Asset Berhasil Ditambahkan !'], 201);
         return response()->json(['status' => 'Asset Berhasil Ditambahkan !'], 201);
-        // return response()->json($asset, 201);
     }
 
     /**
