@@ -20,11 +20,11 @@ return new class extends Migration
         Schema::create('maintenances', function (Blueprint $table) {
             $table->id('id');
             $table->foreignId('id_asset')->default(false)->references('id')->on('assets')->onDelete('cascade');
-            $table->foreignId('id_user_inspektor')->default(false)->references('id')->on('users');
+            $table->foreignId('id_user_inspeksi')->default(false)->references('id')->on('users');
             $table->foreignId('id_type')->default(false)->references('id')->on('type_maintenances');
             $table->string('deskripsi')->default(false);
-            $table->string('fotobefore')->default(false);
-            $table->string('fotoafter')->default(false)->nullable();
+            $table->string('imagebefore')->default(false);
+            $table->string('imageafter')->default(false)->nullable();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
         });

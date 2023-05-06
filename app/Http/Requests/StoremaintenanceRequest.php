@@ -26,16 +26,15 @@ class StoremaintenanceRequest extends FormRequest
     public function rules()
     {
         $rules = [];
-        if (!is_null($this->input('fotobefore'))) {
-            $rules['fotobefore'] = 'image|mimes:jpeg,png,jpg|max:2048';
+        if (!is_null($this->input('imagebefore'))) {
+            $rules['imagebefore'] = 'image|mimes:jpeg,png,jpg|max:2048';
         } else {
-            $rules['fotobefore'] = '';
+            $rules['imagebefore'] = '';
         }
         $rules['id_asset'] = 'required';
         $rules['id_type'] = 'required';
         $rules['deskripsi'] = 'string';
-        $rules['fotoafter'] = '';
-
+        $rules['imageafter'] = '';
         return $rules;
     }
 

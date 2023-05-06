@@ -48,19 +48,18 @@ class MaintenanceController extends Controller
         $status_id = 4;
         $input = $request->validated();
         $maintenance = new Maintenance();
-        $pupdate = new PUpdate();
-        if (!is_null($input['fotobefore'])) {
-            $fotopath = Storage::put('public/images/Maintenance', $request->file('fotobefore'));
-            $maintenance->fotobefore = $fotopath;
-            $pupdate->foto = $fotopath;
-        }
         $maintenance->id_user_inspektor = Auth::user()->id;
+        $pupdate = new PUpdate();
+        if (!is_null($input['imagebefore'])) {
+            $imagepath = Storage::put('public/images/Maintenance', $request->file('imagebefore'));
+            $maintenance->imagebefore = $imagepath;
+            $pupdate->image = $imagepath;
+        }
         $maintenance->id_asset = $input['id_asset'];
         $maintenance->id_type = $input['id_type'];
         $maintenance->deskripsi = $input['deskripsi'];
         $maintenance->save();
-
-        $pupdate->id_user = $maintenance->id_user_inspektor;
+        $pupdate->id_user = $maintenance->id_user_inspeksi;
         $pupdate->id_maintenance = $maintenance->id;
         $pupdate->id_status = $status_id;
         $pupdate->save();
@@ -102,11 +101,31 @@ class MaintenanceController extends Controller
      *
      * @param  \App\Http\Requests\UpdatemaintenanceRequest  $request
      * @param  \App\Models\maintenance  $maintenance
+     * @param  \public\image\maintenance\ $imagepath
      * @return \Illuminate\Http\Response
      */
     public function update(UpdatemaintenanceRequest $request, maintenance $maintenance)
     {
         $input = $request->validated();
+        $maintenance->id_type = $input['id_type'];
+        $maintenance->deskripsi = $input['deskripsi'];
+        $pupdate = new PUpdate();
+        if (!is_null($input['imagebefore'])) {
+            $imagepath = Storage::put('public/images/Maintenance', $request->file('imagebefore'));
+            $maintenance->imagebefore = $imagepath;
+            $pupdate->image = $imagepath;
+        }
+        $maintenance->save();
+        $pupdate->id_user = Auth::user()->id;
+        $pupdate->id_maintenance = $maintenance->id;
+        $pupdate->id_status = $input['id_status'];
+        $pupdate->deskripsi = $input['deskripsi_update'];
+        $pupdate->save();
+        return response()->json(['status' => 'Data Maintenance Berhasil Diupdate !'], 201);
+    }
+
+    function deleteimage()
+    {
     }
 
     /**
@@ -117,6 +136,17 @@ class MaintenanceController extends Controller
      */
     public function destroy(Maintenance $maintenance)
     {
-        //
+        // note:
+        // Rubah Kondisi Status Asset
+        try {
+            $maintenance->delete();
+        } catch (\Exception $e) {
+            return response()->json([
+                'error' => 'Failed to delete resource',
+            ], 500);
+        }
+        return response()->json([
+            'status' => 'Track Maintenance Berhasil Dihapus !',
+        ], 200);
     }
 }

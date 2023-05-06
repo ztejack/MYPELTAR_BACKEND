@@ -27,7 +27,7 @@ return new class extends Migration
         Schema::create('assets', function (Blueprint $table) {
             $table->id()->key();
             $table->string('stockcode');
-            // $table->prefix('AST')->string('code')->unique();
+            $table->string('code_ast')->uniqid();
             $table->string('serialnumber');
             $table->string('name');
             $table->string('merk');

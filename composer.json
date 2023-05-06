@@ -9,6 +9,7 @@
         "directorytree/ldaprecord-laravel": "^2.7",
         "fruitcake/laravel-cors": "^2.0.5",
         "guzzlehttp/guzzle": "^7.2",
+        "haruncpi/laravel-id-generator": "^1.1",
         "laravel/framework": "^9.0",
         "laravel/sanctum": "^2.14",
         "laravel/tinker": "^2.7",

@@ -19,7 +19,7 @@ class PUpdate extends Model
         'id_maintenance',
         'id_status',
         'deskripsi',
-        'foto'
+        'image'
     ];
 
     /**

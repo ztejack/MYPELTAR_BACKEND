@@ -8,6 +8,7 @@ use App\Http\Requests\StoreassetRequest;
 use App\Http\Requests\UpdateassetRequest;
 use App\Http\Resources\AssetResource;
 use App\Models\Category;
+use Haruncpi\LaravelIdGenerator\IdGenerator;
 use App\Models\Location;
 use App\Models\PCategory;
 use App\Models\StatusAssets;
@@ -28,13 +29,17 @@ class AssetController extends Controller
      */
     public function index()
     {
-        $assets = AssetResource::collection(Asset::orderBy(request('column') ? request('column') : 'updated_at', request('direction') ? request('direction') : 'desc')->paginate());
+        $assets = AssetResource::collection(
+            Asset::orderBy(
+                request('column') ? request('column') : 'updated_at',
+                request('direction') ? request('direction') : 'desc'
+            )->paginate(50)
+        );
         return response()->json([
             'status' => 'success',
             'asset' => $assets,
         ], 200);
     }
-    // return response()->json(Produk::orderBy(request('column') ? request('column') : 'updated_at', request('direction') ? request('direction') : 'desc')->paginate());
 
 
     /**
@@ -56,9 +61,12 @@ class AssetController extends Controller
     {
         $input = $request->validated();
         $asset = new Asset();
+        $asset->uuid = $this->uniqid();
         $asset->stockcode = $input['stockcode'];
         $asset->serialnumber = $input['serialnumber'];
         $asset->name = $input['nama_asset'];
+        $asset->code_ast = IdGenerator::generate(['table' => 'invoices', 'length' => 10, 'prefix' => 'INV-']);
+
         $asset->merk = $input['merk'];
         $asset->model = $input['model'];
         $asset->spesifikasi = $input['spesifikasi'];
@@ -135,6 +143,16 @@ class AssetController extends Controller
      */
     public function destroy(asset $asset)
     {
-        //
+        try {
+            $asset->delete();
+        } catch (\Exception $e) {
+            return response()->json([
+                'error' => 'Failed to delete resource',
+                // 'message' => 'Status memilki relasi',
+            ], 500);
+        }
+        return response()->json([
+            'status' => 'Asset Berhasil Dihapus !',
+        ], 200);
     }
 }

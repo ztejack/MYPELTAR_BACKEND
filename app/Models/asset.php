@@ -15,14 +15,13 @@ class Asset extends Model
      */
     protected $fillable = [
         'stockcode',
-        // 'code',
+        'code',
         'nama',
         'merk',
         'model',
         'spesifikasi',
         'deskripsi',
         'id_lokasi',
-        // 'id_kategori',
         'id_status',
     ];
 

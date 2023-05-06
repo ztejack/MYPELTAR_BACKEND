@@ -23,18 +23,16 @@ class UpdatemaintenanceRequest extends FormRequest
      */
     public function rules()
     {
-        return $this->customrule();
-    }
-    public function customrule()
-    {
-        $rule = [
-            'id_asset' => 'required',
-            'id_type' => 'required',
-            'deskripsi' => 'string',
-            'fotobefore' => 'image|mimes:jpeg,png,jpg|max:2048',
-            'fotoafter' => 'image|mimes:jpeg,png,jpg|max:2048',
-
-        ];
-        return $rule;
+        $rules = [];
+        if (!is_null($this->input('imagebefore'))) {
+            $rules['imagebefore'] = 'image|mimes:jpeg,png,jpg|max:2048';
+        } else {
+            $rules['imagebefore'] = '';
+        }
+        $rules['id_type'] = 'required';
+        $rules['deskripsi'] = 'string';
+        $rules['deskripsi_update'] = 'string';
+        $rules['id_status'] = 'required';
+        return $rules;
     }
 }
