@@ -17,6 +17,9 @@ use Illuminate\Validation\ValidationException;
 
 class AssetController extends Controller
 {
+    /**
+     * @group Assets
+     */
     // public function __construct()
     // {
     //     $this->middleware('auth:api', ['except' => ['index', 'show']]);
@@ -73,6 +76,8 @@ class AssetController extends Controller
     }
 
     /**
+     * 
+     * @group Assets
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -92,17 +97,8 @@ class AssetController extends Controller
         ], 200);
     }
 
-
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-    }
-
-    /**
+     * @group Assets
      * Store a newly created resource in storage.
      *
      * @param  \App\Http\Requests\StoreassetRequest  $request
@@ -130,6 +126,7 @@ class AssetController extends Controller
     }
 
     /**
+     * @group Assets
      * Display the specified resource.
      *
      * @param  \App\Models\Asset  $asset
@@ -137,25 +134,12 @@ class AssetController extends Controller
      */
     public function show(Asset $asset)
     {
-        // Asset::find($id);
-        // return $asset;
-        // $assetx = Asset::findOrFail($asset);
         $assetr = AssetResource::make($asset);
         return response()->json(['data' => $assetr], 200);
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\asset  $asset
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(asset $asset)
-    {
-        //
-    }
-
-    /**
+     * @group Assets
      * Update the specified resource in storage.
      *
      * @param  \App\Http\Requests\UpdateassetRequest  $request
@@ -184,6 +168,7 @@ class AssetController extends Controller
     }
 
     /**
+     * @group Assets
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\asset  $asset
