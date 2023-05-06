@@ -61,12 +61,9 @@ class AssetController extends Controller
     {
         $input = $request->validated();
         $asset = new Asset();
-        $asset->uuid = $this->uniqid();
         $asset->stockcode = $input['stockcode'];
         $asset->serialnumber = $input['serialnumber'];
         $asset->name = $input['nama_asset'];
-        $asset->code_ast = IdGenerator::generate(['table' => 'invoices', 'length' => 10, 'prefix' => 'INV-']);
-
         $asset->merk = $input['merk'];
         $asset->model = $input['model'];
         $asset->spesifikasi = $input['spesifikasi'];

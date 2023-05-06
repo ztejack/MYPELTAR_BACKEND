@@ -31,9 +31,8 @@ class AssetFactory extends Factory
         $strcode = 'AST';
 
         return [
-            'uuid' => $this->faker->uuid(),
             'stockcode' => mt_rand(1, 5),
-            'code' => $this->assetcode($strcode, $num),
+            'code_ast' => $this->assetcode($strcode, $num),
             // 'code' => $this->assetcode($strserial, $num),
             'serialnumber' => $this->assetcode($strserial, $num),
             'name' => fake()->name(),

@@ -26,7 +26,7 @@
     "method": "GET",
     "sortNum": 10000,
     "created": "2023-05-03T19:44:37.578Z",
-    "modified": "2023-05-05T17:16:40.118Z",
+    "modified": "2023-05-06T10:09:38.029Z",
     "headers": [],
     "params": [
       {
@@ -237,16 +237,16 @@
     "colId": "1fb1d14f-4ec9-49fd-aaa4-002da09a66d0",
     "containerId": "89d7fc9b-0e5c-4e0d-aaa5-b2ffd604130e",
     "name": "GET",
-    "url": "http://127.0.0.1:8000/api/v1/asset/show/2",
+    "url": "http://127.0.0.1:8000/api/v1/asset/show/10",
     "method": "GET",
     "sortNum": 110000,
     "created": "2023-05-03T19:44:37.588Z",
-    "modified": "2023-05-03T19:44:37.588Z",
+    "modified": "2023-05-06T10:08:45.098Z",
     "headers": [],
     "params": [],
     "auth": {
       "type": "bearer",
-      "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODA0MTMzMjcsImV4cCI6MTY4MDY3MjUyNywibmJmIjoxNjgwNDEzMzI3LCJqdGkiOiJhZnpTRFpmemFPQng4N1p2Iiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.vNePlGQXY5z-aZcVQnWl1WsblKD9ds20WFKlkg248Rk"
+      "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODMzMDYxNzcsImV4cCI6MTY4MzU2NTM3NywibmJmIjoxNjgzMzA2MTc3LCJqdGkiOiJrZVBZb3BIV2hneXRnS2JnIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.DMamWqV0suVG3Tt4YdaRcIW070mrWlyhq4F_NJ7u3ns"
     },
     "tests": []
   },
