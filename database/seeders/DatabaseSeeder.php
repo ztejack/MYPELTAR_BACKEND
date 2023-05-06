@@ -28,7 +28,7 @@ class DatabaseSeeder extends Seeder
             SatkerSeeder::class,
             SubsatkerSeeder::class,
             UserSeeder::class,
-            StatusAssetsSeeder::class,
+            StatusSeeder::class,
             TypeMaintenanceSeeder::class,
         ]);
         Satker::factory(5)->create();
@@ -37,8 +37,8 @@ class DatabaseSeeder extends Seeder
         Location::factory(5)->create();
         Asset::factory(5)->create();
 
-        Maintenance::factory(5)->create();
+        Maintenance::factory(5000)->create();
         // PCategory::factory(5)->create();
-        PUpdate::factory(5)->create();
+        PUpdate::factory(20)->create();
     }
 }

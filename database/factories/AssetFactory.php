@@ -32,9 +32,9 @@ class AssetFactory extends Factory
 
         return [
             'stockcode' => mt_rand(1, 5),
-            // 'code' => $this->faker->macAddress(),
+            'code_ast' => $this->assetcode($strcode, $num),
             // 'code' => $this->assetcode($strserial, $num),
-            'serialnumber' => $this->assetcode($strcode, $num),
+            'serialnumber' => $this->assetcode($strserial, $num),
             'name' => fake()->name(),
             'merk' => $this->faker->sentence(mt_rand(1, 3)),
             'model' => $this->faker->sentence(mt_rand(1, 3)),
@@ -42,7 +42,7 @@ class AssetFactory extends Factory
             'deskripsi' => $this->faker->sentence(mt_rand(1, 3)),
             'id_lokasi' => mt_rand(1, 5),
             // 'id_kategori' => mt_rand(1, 5),
-            'id_status' => mt_rand(1, 4),
+            'id_status' => mt_rand(1, 3),
         ];
     }
     public function configure()

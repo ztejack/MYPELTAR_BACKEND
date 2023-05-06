@@ -1,0 +1,88 @@
+[
+  {
+    "_id": "1fb1d14f-4ec9-49fd-aaa4-002da09a66d0",
+    "colName": "ALPHA",
+    "created": "2023-05-03T19:44:37.567Z",
+    "sortNum": 10000,
+    "folders": [
+      {
+        "_id": "ef350bbc-b8b4-4d15-a882-ffab6d8b0dca",
+        "name": "AUTH",
+        "containerId": "",
+        "created": "2023-05-03T19:44:37.576Z",
+        "sortNum": 10000
+      },
+      {
+        "_id": "40351c61-22a0-43e1-8dbe-e863b8005df8",
+        "name": "TEST",
+        "containerId": "",
+        "created": "2023-05-03T19:44:37.577Z",
+        "sortNum": 20000
+      },
+      {
+        "_id": "89d7fc9b-0e5c-4e0d-aaa5-b2ffd604130e",
+        "name": "Aset",
+        "containerId": "",
+        "created": "2023-05-03T19:44:37.578Z",
+        "sortNum": 30000
+      },
+      {
+        "_id": "f80acd67-4de0-4f0f-a564-d40b959ba5c0",
+        "name": "Category",
+        "containerId": "",
+        "created": "2023-05-03T19:44:37.579Z",
+        "sortNum": 40000
+      },
+      {
+        "_id": "81ff43ff-9925-4ef1-92e4-f3a162aff15a",
+        "name": "Role",
+        "containerId": "",
+        "created": "2023-05-03T19:44:37.580Z",
+        "sortNum": 45000
+      },
+      {
+        "_id": "71615ae6-ddd9-46ac-8bf3-19faa3c65798",
+        "name": "Location",
+        "containerId": "",
+        "created": "2023-05-03T19:44:37.581Z",
+        "sortNum": 60000
+      },
+      {
+        "_id": "787dbd2b-51b3-4fff-8594-99f3cefe0a23",
+        "name": "Satker",
+        "containerId": "",
+        "created": "2023-05-03T19:44:37.582Z",
+        "sortNum": 70000
+      },
+      {
+        "_id": "9ce60d7b-b9e7-4944-89ed-839a59dbb24a",
+        "name": "Subsatker",
+        "containerId": "",
+        "created": "2023-05-03T19:44:37.583Z",
+        "sortNum": 80000
+      },
+      {
+        "_id": "036a1c3b-5702-4dbe-b963-0dd929c57987",
+        "name": "StatusAsset",
+        "containerId": "",
+        "created": "2023-05-03T19:44:37.584Z",
+        "sortNum": 90000
+      },
+      {
+        "_id": "dd2c651c-059d-41f8-8fee-0cd455a36ffc",
+        "name": "Maintenance",
+        "containerId": "",
+        "created": "2023-05-03T19:44:37.585Z",
+        "sortNum": 100000
+      },
+      {
+        "_id": "be614dfe-f978-470c-9880-7cceddcb6d95",
+        "name": "News",
+        "containerId": "",
+        "created": "2023-05-06T19:33:35.638Z",
+        "sortNum": 110000
+      }
+    ],
+    "settings": {}
+  }
+]

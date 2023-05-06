@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use App\Models\Banner;
-use App\Http\Requests\StorebannerRequest;
-use App\Http\Requests\UpdatebannerRequest;
+use App\Models\News;
+use App\Http\Requests\StorenewsRequest;
+use App\Http\Requests\UpdatenewsRequest;
 
-class BannerController extends Controller
+class NewsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -32,10 +32,10 @@ class BannerController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StorebannerRequest  $request
+     * @param  \App\Http\Requests\StorenewsRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorebannerRequest $request)
+    public function store(StorenewsRequest $request)
     {
         //
     }
@@ -43,10 +43,10 @@ class BannerController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\banner  $banner
+     * @param  \App\Models\News  $news
      * @return \Illuminate\Http\Response
      */
-    public function show(Banner $banner)
+    public function show(News $news)
     {
         //
     }
@@ -54,10 +54,10 @@ class BannerController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\banner  $banner
+     * @param  \App\Models\news  $news
      * @return \Illuminate\Http\Response
      */
-    public function edit(Banner $banner)
+    public function edit(News $news)
     {
         //
     }
@@ -65,11 +65,11 @@ class BannerController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdatebannerRequest  $request
-     * @param  \App\Models\banner  $banner
+     * @param  \App\Http\Requests\UpdatenewsRequest  $request
+     * @param  \App\Models\news  $news
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatebannerRequest $request, Banner $banner)
+    public function update(UpdatenewsRequest $request, News $news)
     {
         //
     }
@@ -80,7 +80,7 @@ class BannerController extends Controller
      * @param  \App\Models\banner  $banner
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Banner $banner)
+    public function destroy(News $banner)
     {
         //
     }

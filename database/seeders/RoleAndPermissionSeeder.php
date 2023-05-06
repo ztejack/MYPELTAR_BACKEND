@@ -18,43 +18,55 @@ class RoleAndPermissionSeeder extends Seeder
      */
     public function run()
     {
-        // Role::create([
-        //     'role' => 'SuperUser',
-        // ]);
-        // Role::create([
-        //     'role' => 'Admin',
-        // ]);
-        // Role::create([
-        //     'role' => 'Maintenance',
-        // ]);
-        // Role::create([
-        //     'role' => 'Inspeksi',
-        // ]);
-
         // USERS
-        Permission::create(['name' => 'create-users']);
+        Permission::create(['name' => 'store-users']);
         Permission::create(['name' => 'edit-users']);
 
         Permission::create(['name' => 'delete-users']);
 
         // MAINTENANCE
-        Permission::create(['name' => 'create-maintenance']);
-
+        Permission::create(['name' => 'store-maintenance']);
         Permission::create(['name' => 'update-maintenance']);
+        Permission::create(['name' => 'delete-maintenance']);
 
         //SATKER
-        Permission::create(['name' => 'create-satker']);
+        Permission::create(['name' => 'store-satker']);
         Permission::create(['name' => 'update-satker']);
+        Permission::create(['name' => 'delete-satker']);
 
         //SUBSATKER
-        Permission::create(['name' => 'create-subsatker']);
+        Permission::create(['name' => 'store-subsatker']);
         Permission::create(['name' => 'update-subsatker']);
+        Permission::create(['name' => 'delete-subsatker']);
 
         // ROLES
-        Permission::create(['name' => 'attemp-role']);
+        Permission::create(['name' => 'assign-role']);
+        Permission::create(['name' => 'remove-role']);
 
         //ASSET
-        Permission::create(['name' => 'crud-assets']);
+        Permission::create(['name' => 'store-assets']);
+        Permission::create(['name' => 'update-assets']);
+        Permission::create(['name' => 'delete-assets']);
+
+        // BANNER
+        Permission::create(['name' => 'store-banner']);
+        Permission::create(['name' => 'update-banner']);
+        Permission::create(['name' => 'delete-banner']);
+
+        // CATEGORY
+        Permission::create(['name' => 'store-category']);
+        Permission::create(['name' => 'update-category']);
+        Permission::create(['name' => 'delete-category']);
+
+        // LOCATION
+        Permission::create(['name' => 'store-location']);
+        Permission::create(['name' => 'update-location']);
+        Permission::create(['name' => 'delete-location']);
+
+        // STATUSA
+        Permission::create(['name' => 'store-statusa']);
+        Permission::create(['name' => 'update-statusa']);
+        Permission::create(['name' => 'delete-statusa']);
 
 
 
@@ -64,36 +76,84 @@ class RoleAndPermissionSeeder extends Seeder
         $maintenanceRole = Role::create(['name' => 'Maintenance']);
 
         $superadminRole->givePermissionTo([
-            'create-users',
+            'store-users',
             'edit-users',
             'delete-users',
-            'create-maintenance',
+
+            'store-assets',
+            'update-assets',
+            'delete-assets',
+
+            'store-banner',
+            'update-banner',
+            'delete-banner',
+
+            'store-maintenance',
             'update-maintenance',
-            'create-satker',
+            'delete-maintenance',
+
+            'store-satker',
             'update-satker',
-            'create-subsatker',
+            'delete-satker',
+
+            'store-subsatker',
             'update-subsatker',
-            // 'crud-assets',
-            'attemp-role'
+            'delete-subsatker',
+
+            'store-category',
+            'update-category',
+            'delete-category',
+
+            'store-statusa',
+            'update-statusa',
+            'delete-statusa',
+
+            'assign-role',
+            'remove-role'
         ]);
 
         $adminRole->givePermissionTo([
+            'store-users',
             'edit-users',
-            'create-maintenance',
-            'update-maintenance',
-            'create-satker',
-            'update-satker',
-            'create-subsatker',
-            'update-subsatker',
-            'crud-assets',
 
+            'store-assets',
+            'update-assets',
+            'delete-assets',
+
+            'store-banner',
+            'update-banner',
+            'delete-banner',
+
+            'store-maintenance',
+            'update-maintenance',
+            'delete-maintenance',
+
+            'store-satker',
+            'update-satker',
+            'delete-satker',
+
+            'store-subsatker',
+            'update-subsatker',
+            'delete-subsatker',
+
+            'store-category',
+            'update-category',
+            'delete-category',
+
+            'store-statusa',
+            'update-statusa',
+            'delete-statusa',
         ]);
 
         $inspeksiRole->givePermissionTo([
-            'create-maintenance',
+            'store-maintenance',
+            'update-maintenance',
+            'delete-maintenance',
         ]);
 
         $maintenanceRole->givePermissionTo([
+            // 'store-maintenance',
+            // 'delete-maintenance',
             'update-maintenance',
         ]);
     }

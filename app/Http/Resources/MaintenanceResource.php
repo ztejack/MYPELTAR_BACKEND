@@ -22,7 +22,8 @@ class MaintenanceResource extends JsonResource
             'asset' => AssetResource::make($this->asset),
             'type' => $this->type,
             'fotobefore' => ($this->fotobefore == null) ? null : asset(Storage::url($this->fotobefore)),
-            'fotoafter' => ($this->fotoafter == null) ? null : asset($this->fotoafter)
+            'fotoafter' => ($this->fotoafter == null) ? null : asset($this->fotoafter),
+            'history' => PUpdateResource::collection($this->pupdate)
         ];
     }
 }

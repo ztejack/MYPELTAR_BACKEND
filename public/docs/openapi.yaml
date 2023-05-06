@@ -1,0 +1,1236 @@
+openapi: 3.0.3
+info:
+  title: Laravel
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+paths:
+  /api/v1/asset/getall:
+    get:
+      summary: 'Display a listing of the resource.'
+      operationId: displayAListingOfTheResource
+      description: ''
+      parameters: []
+      responses:
+        403:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: UnAuthenticated
+                properties:
+                  error:
+                    type: string
+                    example: UnAuthenticated
+      tags:
+        - Assets
+      security: []
+  /api/v1/asset/search:
+    get:
+      summary: ''
+      operationId: getApiV1AssetSearch
+      description: ''
+      parameters: []
+      responses:
+        403:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: UnAuthenticated
+                properties:
+                  error:
+                    type: string
+                    example: UnAuthenticated
+      tags:
+        - Assets
+      security: []
+  /api/v1/asset/store:
+    post:
+      summary: 'Store a newly created resource in storage.'
+      operationId: storeANewlyCreatedResourceInStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Assets
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                stockcode:
+                  type: string
+                  description: ''
+                  example: dolorem
+                serialnumber:
+                  type: string
+                  description: ''
+                  example: magni
+                nama_asset:
+                  type: string
+                  description: 'Must be at least 6 characters.'
+                  example: ghlnckesxbqupsb
+                merk:
+                  type: string
+                  description: ''
+                  example: quo
+                model:
+                  type: string
+                  description: ''
+                  example: et
+                spesifikasi:
+                  type: string
+                  description: ''
+                  example: temporibus
+                deskripsi:
+                  type: string
+                  description: ''
+                  example: deleniti
+                id_lokasi:
+                  type: integer
+                  description: ''
+                  example: 8
+                id_kategori:
+                  type: object
+                  description: ''
+                  example: null
+                  properties: []
+                id_status:
+                  type: integer
+                  description: ''
+                  example: 13
+              required:
+                - stockcode
+                - serialnumber
+                - merk
+                - id_lokasi
+                - id_status
+      security: []
+  '/api/v1/asset/show/{asset_id}':
+    get:
+      summary: 'Display the specified resource.'
+      operationId: displayTheSpecifiedResource
+      description: ''
+      parameters: []
+      responses:
+        403:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: UnAuthenticated
+                properties:
+                  error:
+                    type: string
+                    example: UnAuthenticated
+      tags:
+        - Assets
+      security: []
+    parameters:
+      -
+        in: path
+        name: asset_id
+        description: 'The ID of the asset.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/v1/asset/update/{asset_id}':
+    post:
+      summary: 'Update the specified resource in storage.'
+      operationId: updateTheSpecifiedResourceInStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Assets
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                stockcode:
+                  type: string
+                  description: ''
+                  example: laudantium
+                serialnumber:
+                  type: string
+                  description: ''
+                  example: labore
+                nama_asset:
+                  type: string
+                  description: 'Must be at least 6 characters.'
+                  example: xfyklecqiegrwjfdrtdibruqxuhfjclpmabbisg
+                merk:
+                  type: string
+                  description: ''
+                  example: quo
+                model:
+                  type: string
+                  description: ''
+                  example: in
+                spesifikasi:
+                  type: string
+                  description: ''
+                  example: suscipit
+                deskripsi:
+                  type: string
+                  description: ''
+                  example: in
+                id_lokasi:
+                  type: integer
+                  description: ''
+                  example: 15
+                id_kategori:
+                  type: object
+                  description: ''
+                  example: null
+                  properties: []
+                id_status:
+                  type: integer
+                  description: ''
+                  example: 13
+              required:
+                - stockcode
+                - serialnumber
+                - merk
+      security: []
+    parameters:
+      -
+        in: path
+        name: asset_id
+        description: 'The ID of the asset.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/v1/asset/destroy/{asset_id}':
+    post:
+      summary: 'Remove the specified resource from storage.'
+      operationId: removeTheSpecifiedResourceFromStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Assets
+      security: []
+    parameters:
+      -
+        in: path
+        name: asset_id
+        description: 'The ID of the asset.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/v1/auth/login:
+    post:
+      summary: ''
+      operationId: postApiV1AuthLogin
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/auth/logout:
+    post:
+      summary: ''
+      operationId: postApiV1AuthLogout
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/auth/refresh:
+    post:
+      summary: ''
+      operationId: postApiV1AuthRefresh
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/auth/profile:
+    get:
+      summary: ''
+      operationId: getApiV1AuthProfile
+      description: ''
+      parameters: []
+      responses:
+        403:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: UnAuthenticated
+                properties:
+                  error:
+                    type: string
+                    example: UnAuthenticated
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/maintenance/getall:
+    get:
+      summary: 'Display a listing of the resource.'
+      operationId: displayAListingOfTheResource
+      description: ''
+      parameters: []
+      responses:
+        403:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: UnAuthenticated
+                properties:
+                  error:
+                    type: string
+                    example: UnAuthenticated
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/maintenance/store:
+    post:
+      summary: 'Store a newly created resource in storage.'
+      operationId: storeANewlyCreatedResourceInStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                imagebefore:
+                  type: string
+                  description: ''
+                  example: null
+                id_asset:
+                  type: string
+                  description: ''
+                  example: saepe
+                id_type:
+                  type: string
+                  description: ''
+                  example: distinctio
+                deskripsi:
+                  type: string
+                  description: ''
+                  example: voluptas
+                imageafter:
+                  type: string
+                  description: ''
+                  example: null
+              required:
+                - id_asset
+                - id_type
+      security: []
+  '/api/v1/maintenance/show/{maintenance_id}':
+    get:
+      summary: 'Display the specified resource.'
+      operationId: displayTheSpecifiedResource
+      description: ''
+      parameters: []
+      responses:
+        403:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: UnAuthenticated
+                properties:
+                  error:
+                    type: string
+                    example: UnAuthenticated
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: maintenance_id
+        description: 'The ID of the maintenance.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/v1/maintenance/update/{maintenance_id}':
+    post:
+      summary: 'Update the specified resource in storage.'
+      operationId: updateTheSpecifiedResourceInStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                imagebefore:
+                  type: string
+                  description: ''
+                  example: null
+                id_type:
+                  type: string
+                  description: ''
+                  example: rerum
+                deskripsi:
+                  type: string
+                  description: ''
+                  example: omnis
+                deskripsi_update:
+                  type: string
+                  description: ''
+                  example: suscipit
+                id_status:
+                  type: string
+                  description: ''
+                  example: deleniti
+              required:
+                - id_type
+                - id_status
+      security: []
+    parameters:
+      -
+        in: path
+        name: maintenance_id
+        description: 'The ID of the maintenance.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/v1/maintenance/destroy/{maintenance_id}':
+    post:
+      summary: 'Remove the specified resource from storage.'
+      operationId: removeTheSpecifiedResourceFromStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: maintenance_id
+        description: 'The ID of the maintenance.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/v1/category/getall:
+    get:
+      summary: 'Display a listing of the resource.'
+      operationId: displayAListingOfTheResource
+      description: ''
+      parameters: []
+      responses:
+        403:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: UnAuthenticated
+                properties:
+                  error:
+                    type: string
+                    example: UnAuthenticated
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/category/store:
+    post:
+      summary: 'Store a newly created resource in storage.'
+      operationId: storeANewlyCreatedResourceInStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                kategori:
+                  type: string
+                  description: ''
+                  example: iste
+                subsatker:
+                  type: integer
+                  description: ''
+                  example: 15
+              required:
+                - kategori
+                - subsatker
+      security: []
+  '/api/v1/category/show/{category_id}':
+    get:
+      summary: 'Display the specified resource.'
+      operationId: displayTheSpecifiedResource
+      description: ''
+      parameters: []
+      responses:
+        403:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: UnAuthenticated
+                properties:
+                  error:
+                    type: string
+                    example: UnAuthenticated
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: category_id
+        description: 'The ID of the category.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/v1/category/update/{category_id}':
+    post:
+      summary: 'Update the specified resource in storage.'
+      operationId: updateTheSpecifiedResourceInStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                kategori:
+                  type: string
+                  description: ''
+                  example: quisquam
+                subsatker:
+                  type: integer
+                  description: ''
+                  example: 16
+              required:
+                - kategori
+                - subsatker
+      security: []
+    parameters:
+      -
+        in: path
+        name: category_id
+        description: 'The ID of the category.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/v1/category/destroy/{category_id}':
+    post:
+      summary: 'Remove the specified resource from storage.'
+      operationId: removeTheSpecifiedResourceFromStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: category_id
+        description: 'The ID of the category.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/v1/category/search:
+    get:
+      summary: ''
+      operationId: getApiV1CategorySearch
+      description: ''
+      parameters: []
+      responses:
+        403:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: UnAuthenticated
+                properties:
+                  error:
+                    type: string
+                    example: UnAuthenticated
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/location/getall:
+    get:
+      summary: 'Display a listing of the resource.'
+      operationId: displayAListingOfTheResource
+      description: ''
+      parameters: []
+      responses:
+        403:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: UnAuthenticated
+                properties:
+                  error:
+                    type: string
+                    example: UnAuthenticated
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/location/store:
+    post:
+      summary: 'Store a newly created resource in storage.'
+      operationId: storeANewlyCreatedResourceInStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                unit:
+                  type: string
+                  description: ''
+                  example: voluptatum
+              required:
+                - unit
+      security: []
+  '/api/v1/location/show/{location_id}':
+    get:
+      summary: 'Display the specified resource.'
+      operationId: displayTheSpecifiedResource
+      description: ''
+      parameters: []
+      responses:
+        403:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: UnAuthenticated
+                properties:
+                  error:
+                    type: string
+                    example: UnAuthenticated
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: location_id
+        description: 'The ID of the location.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/v1/location/update/{location_id}':
+    post:
+      summary: 'Update the specified resource in storage.'
+      operationId: updateTheSpecifiedResourceInStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                unit:
+                  type: string
+                  description: ''
+                  example: nisi
+              required:
+                - unit
+      security: []
+    parameters:
+      -
+        in: path
+        name: location_id
+        description: 'The ID of the location.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/v1/location/destroy/{location_id}':
+    post:
+      summary: 'Remove the specified resource from storage.'
+      operationId: removeTheSpecifiedResourceFromStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: location_id
+        description: 'The ID of the location.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/v1/satker/getall:
+    get:
+      summary: 'Display a listing of the resource.'
+      operationId: displayAListingOfTheResource
+      description: ''
+      parameters: []
+      responses:
+        403:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: UnAuthenticated
+                properties:
+                  error:
+                    type: string
+                    example: UnAuthenticated
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/satker/store:
+    post:
+      summary: 'Store a newly created resource in storage.'
+      operationId: storeANewlyCreatedResourceInStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                satker:
+                  type: string
+                  description: ''
+                  example: non
+              required:
+                - satker
+      security: []
+  '/api/v1/satker/show/{satker_id}':
+    get:
+      summary: 'Display the specified resource.'
+      operationId: displayTheSpecifiedResource
+      description: ''
+      parameters: []
+      responses:
+        403:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: UnAuthenticated
+                properties:
+                  error:
+                    type: string
+                    example: UnAuthenticated
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: satker_id
+        description: 'The ID of the satker.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/v1/satker/update/{satker_id}':
+    post:
+      summary: 'Update the specified resource in storage.'
+      operationId: updateTheSpecifiedResourceInStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                satker:
+                  type: string
+                  description: ''
+                  example: aut
+              required:
+                - satker
+      security: []
+    parameters:
+      -
+        in: path
+        name: satker_id
+        description: 'The ID of the satker.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/v1/satker/destroy/{satker_id}':
+    post:
+      summary: 'Remove the specified resource from storage.'
+      operationId: removeTheSpecifiedResourceFromStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: satker_id
+        description: 'The ID of the satker.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/v1/subsatker/getall:
+    get:
+      summary: 'Display a listing of the resource.'
+      operationId: displayAListingOfTheResource
+      description: ''
+      parameters: []
+      responses:
+        403:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: UnAuthenticated
+                properties:
+                  error:
+                    type: string
+                    example: UnAuthenticated
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/subsatker/store:
+    post:
+      summary: 'Store a newly created resource in storage.'
+      operationId: storeANewlyCreatedResourceInStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                subsatker:
+                  type: string
+                  description: ''
+                  example: itaque
+                satker:
+                  type: integer
+                  description: ''
+                  example: 3
+              required:
+                - subsatker
+                - satker
+      security: []
+  '/api/v1/subsatker/show/{subsatker_id}':
+    get:
+      summary: 'Display the specified resource.'
+      operationId: displayTheSpecifiedResource
+      description: ''
+      parameters: []
+      responses:
+        403:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: UnAuthenticated
+                properties:
+                  error:
+                    type: string
+                    example: UnAuthenticated
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: subsatker_id
+        description: 'The ID of the subsatker.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/v1/subsatker/update/{subsatker_id}':
+    post:
+      summary: 'Update the specified resource in storage.'
+      operationId: updateTheSpecifiedResourceInStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                subsatker:
+                  type: string
+                  description: ''
+                  example: aut
+                satker:
+                  type: integer
+                  description: ''
+                  example: 19
+              required:
+                - subsatker
+                - satker
+      security: []
+    parameters:
+      -
+        in: path
+        name: subsatker_id
+        description: 'The ID of the subsatker.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/v1/subsatker/destroy/{subsatker_id}':
+    post:
+      summary: 'Remove the specified resource from storage.'
+      operationId: removeTheSpecifiedResourceFromStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: subsatker_id
+        description: 'The ID of the subsatker.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/v1/role/getall:
+    get:
+      summary: 'Display a listing of the resource.'
+      operationId: displayAListingOfTheResource
+      description: ''
+      parameters: []
+      responses:
+        403:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: UnAuthenticated
+                properties:
+                  error:
+                    type: string
+                    example: UnAuthenticated
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/role/store:
+    post:
+      summary: 'Store a newly created resource in storage.'
+      operationId: storeANewlyCreatedResourceInStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  '/api/v1/role/show/{role_id}':
+    get:
+      summary: 'Display the specified resource.'
+      operationId: displayTheSpecifiedResource
+      description: ''
+      parameters: []
+      responses:
+        403:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: UnAuthenticated
+                properties:
+                  error:
+                    type: string
+                    example: UnAuthenticated
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: role_id
+        description: 'The ID of the role.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/v1/role/update/{role_id}':
+    post:
+      summary: 'Update the specified resource in storage.'
+      operationId: updateTheSpecifiedResourceInStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: role_id
+        description: 'The ID of the role.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/v1/role/destroy/{role_id}':
+    post:
+      summary: 'Remove the specified resource from storage.'
+      operationId: removeTheSpecifiedResourceFromStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: role_id
+        description: 'The ID of the role.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/v1/statusa/getall:
+    get:
+      summary: 'Display a listing of the resource.'
+      operationId: displayAListingOfTheResource
+      description: ''
+      parameters: []
+      responses:
+        403:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: UnAuthenticated
+                properties:
+                  error:
+                    type: string
+                    example: UnAuthenticated
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/statusa/store:
+    post:
+      summary: 'Store a newly created resource in storage.'
+      operationId: storeANewlyCreatedResourceInStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: string
+                  description: ''
+                  example: doloremque
+              required:
+                - status
+      security: []
+  '/api/v1/statusa/show/{statusassets}':
+    get:
+      summary: 'Display the specified resource.'
+      operationId: displayTheSpecifiedResource
+      description: ''
+      parameters: []
+      responses:
+        403:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: UnAuthenticated
+                properties:
+                  error:
+                    type: string
+                    example: UnAuthenticated
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: statusassets
+        description: ''
+        example: et
+        required: true
+        schema:
+          type: string
+  '/api/v1/statusa/update/{statusassets}':
+    post:
+      summary: 'Update the specified resource in storage.'
+      operationId: updateTheSpecifiedResourceInStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: string
+                  description: ''
+                  example: est
+              required:
+                - status
+      security: []
+    parameters:
+      -
+        in: path
+        name: statusassets
+        description: ''
+        example: quasi
+        required: true
+        schema:
+          type: string
+  '/api/v1/statusa/destroy/{statusassets}':
+    post:
+      summary: 'Remove the specified resource from storage.'
+      operationId: removeTheSpecifiedResourceFromStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: statusassets
+        description: ''
+        example: ullam
+        required: true
+        schema:
+          type: string
+tags:
+  -
+    name: Assets
+    description: ''
+  -
+    name: Endpoints
+    description: ''

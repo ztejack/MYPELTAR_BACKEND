@@ -1,0 +1,392 @@
+name: Assets
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/asset/getall
+    metadata:
+      groupName: Assets
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Display a listing of the resource.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 403
+        content: '{"error":"UnAuthenticated"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/asset/search
+    metadata:
+      groupName: Assets
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 403
+        content: '{"error":"UnAuthenticated"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/asset/store
+    metadata:
+      groupName: Assets
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Store a newly created resource in storage.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      stockcode:
+        name: stockcode
+        description: ''
+        required: true
+        example: dolorem
+        type: string
+        custom: []
+      serialnumber:
+        name: serialnumber
+        description: ''
+        required: true
+        example: magni
+        type: string
+        custom: []
+      nama_asset:
+        name: nama_asset
+        description: 'Must be at least 6 characters.'
+        required: false
+        example: ghlnckesxbqupsb
+        type: string
+        custom: []
+      merk:
+        name: merk
+        description: ''
+        required: true
+        example: quo
+        type: string
+        custom: []
+      model:
+        name: model
+        description: ''
+        required: false
+        example: et
+        type: string
+        custom: []
+      spesifikasi:
+        name: spesifikasi
+        description: ''
+        required: false
+        example: temporibus
+        type: string
+        custom: []
+      deskripsi:
+        name: deskripsi
+        description: ''
+        required: false
+        example: deleniti
+        type: string
+        custom: []
+      id_lokasi:
+        name: id_lokasi
+        description: ''
+        required: true
+        example: 8
+        type: integer
+        custom: []
+      id_kategori:
+        name: id_kategori
+        description: ''
+        required: false
+        example: null
+        type: object
+        custom: []
+      id_status:
+        name: id_status
+        description: ''
+        required: true
+        example: 13
+        type: integer
+        custom: []
+    cleanBodyParameters:
+      stockcode: dolorem
+      serialnumber: magni
+      nama_asset: ghlnckesxbqupsb
+      merk: quo
+      model: et
+      spesifikasi: temporibus
+      deskripsi: deleniti
+      id_lokasi: 8
+      id_status: 13
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/asset/show/{asset_id}'
+    metadata:
+      groupName: Assets
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Display the specified resource.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      asset_id:
+        name: asset_id
+        description: 'The ID of the asset.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      asset_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 403
+        content: '{"error":"UnAuthenticated"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/v1/asset/update/{asset_id}'
+    metadata:
+      groupName: Assets
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Update the specified resource in storage.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      asset_id:
+        name: asset_id
+        description: 'The ID of the asset.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      asset_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      stockcode:
+        name: stockcode
+        description: ''
+        required: true
+        example: laudantium
+        type: string
+        custom: []
+      serialnumber:
+        name: serialnumber
+        description: ''
+        required: true
+        example: labore
+        type: string
+        custom: []
+      nama_asset:
+        name: nama_asset
+        description: 'Must be at least 6 characters.'
+        required: false
+        example: xfyklecqiegrwjfdrtdibruqxuhfjclpmabbisg
+        type: string
+        custom: []
+      merk:
+        name: merk
+        description: ''
+        required: true
+        example: quo
+        type: string
+        custom: []
+      model:
+        name: model
+        description: ''
+        required: false
+        example: in
+        type: string
+        custom: []
+      spesifikasi:
+        name: spesifikasi
+        description: ''
+        required: false
+        example: suscipit
+        type: string
+        custom: []
+      deskripsi:
+        name: deskripsi
+        description: ''
+        required: false
+        example: in
+        type: string
+        custom: []
+      id_lokasi:
+        name: id_lokasi
+        description: ''
+        required: false
+        example: 15
+        type: integer
+        custom: []
+      id_kategori:
+        name: id_kategori
+        description: ''
+        required: false
+        example: null
+        type: object
+        custom: []
+      id_status:
+        name: id_status
+        description: ''
+        required: false
+        example: 13
+        type: integer
+        custom: []
+    cleanBodyParameters:
+      stockcode: laudantium
+      serialnumber: labore
+      nama_asset: xfyklecqiegrwjfdrtdibruqxuhfjclpmabbisg
+      merk: quo
+      model: in
+      spesifikasi: suscipit
+      deskripsi: in
+      id_lokasi: 15
+      id_status: 13
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/v1/asset/destroy/{asset_id}'
+    metadata:
+      groupName: Assets
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Remove the specified resource from storage.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      asset_id:
+        name: asset_id
+        description: 'The ID of the asset.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      asset_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

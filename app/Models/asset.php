@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Haruncpi\LaravelIdGenerator\IdGenerator;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,16 +16,24 @@ class Asset extends Model
      */
     protected $fillable = [
         'stockcode',
-        // 'code',
-        'nama',
+        'code_ast',
+        'name',
         'merk',
         'model',
         'spesifikasi',
         'deskripsi',
         'id_lokasi',
-        // 'id_kategori',
         'id_status',
     ];
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($asset) {
+            // Generate a unique serial code for the asset while it's creatign
+            $asset->code_ast = IdGenerator::generate(['table' => 'assets', 'length' => 11, 'field' => 'code_ast', 'prefix' => 'AST' . date('ym')]);
+        });
+    }
 
     /**
      * The attributes that should be hidden for serialization.
@@ -55,6 +64,6 @@ class Asset extends Model
     }
     public function status()
     {
-        return $this->belongsTo(StatusAssets::class, 'id_status');
+        return $this->belongsTo(Status::class, 'id_status');
     }
 }

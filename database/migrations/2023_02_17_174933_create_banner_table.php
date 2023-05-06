@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('banner', function (Blueprint $table) {
+        Schema::create('newsies', function (Blueprint $table) {
             $table->id('id');
             $table->string('path');
             $table->string('deskripsi');

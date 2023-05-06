@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class StatusAssets extends Model
+class Status extends Model
 {
     use HasFactory;
     /**
@@ -14,19 +14,9 @@ class StatusAssets extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'statuscode',
+        'statustype',
         'status',
         // 'password',
-    ];
-
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
-    protected $hidden = [
-        // 'password',
-        // 'remember_token',
     ];
 
     /**
@@ -40,5 +30,13 @@ class StatusAssets extends Model
     public function assets()
     {
         return $this->belongsToMany(Asset::class);
+    }
+    public function maintenance()
+    {
+        return $this->belongsToMany(Maintenance::class);
+    }
+    public function pupdate()
+    {
+        return $this->belongsToMany(PUpdate::class, 'id_status');
     }
 }

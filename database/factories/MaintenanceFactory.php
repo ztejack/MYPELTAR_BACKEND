@@ -18,12 +18,12 @@ class MaintenanceFactory extends Factory
     public function definition()
     {
         return [
-            'id_user_inspektor' => 3,
+            'id_user_inspeksi' => 3,
             'id_asset' => mt_rand(1, 5),
             'id_type' => mt_rand(1, 2),
             'deskripsi' => $this->faker->sentence(mt_rand(2, 10)),
-            'fotobefore' => $this->faker->sentence(mt_rand(2, 5)),
-            'fotoafter' => $this->faker->sentence(mt_rand(2, 5)),
+            'imagebefore' => $this->faker->sentence(mt_rand(2, 5)),
+            'imageafter' => $this->faker->sentence(mt_rand(2, 5)),
             'created_at' => now(),
             'updated_at' => now(),
         ];

@@ -14,7 +14,7 @@ class Maintenance extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'id_user_inspektor',
+        'id_user_inspeksi',
         'id_asset',
         'id_type',
         'deskripsi',
@@ -45,18 +45,22 @@ class Maintenance extends Model
      */
     public function user_inspek()
     {
-        return $this->belongsTo(User::class, 'id_user_inspektor');
+        return $this->belongsTo(User::class, 'id_user_inspeksi');
     }
     public function type()
     {
         return $this->belongsTo(TypeMaintenance::class, 'id_type');
     }
-    public function PUpdate()
+    public function pupdate()
     {
-        return $this->belongsToMany(PUpdate::class);
+        return $this->hasmany(PUpdate::class, 'id_maintenance');
     }
     public function asset()
     {
         return $this->belongsTo(Asset::class, 'id_asset');
+    }
+    public function status()
+    {
+        return $this->belongsTo(Status::class);
     }
 }
