@@ -22,12 +22,62 @@ class AssetController extends Controller
     //     $this->middleware('auth:api', ['except' => ['index', 'show']]);
     // }
 
+    public function search(Request $request)
+    {
+        $assets = Asset::query();
+
+        // Apply filters
+        if ($request->has('nama_asset') && $request->input('nama_asset') != null) {
+            $assets->where('name', 'like', '%' . $request->input('nama_asset') . '%');
+        }
+        if ($request->has('merk') && $request->input('merk') != null) {
+            $assets->where('merk', 'like', '%' . $request->input('merk') . '%');
+        }
+        if ($request->has('model') && $request->input('model') != null) {
+            $assets->where('model', 'like', '%' . $request->input('model') . '%');
+        }
+
+        if ($request->has('code_asset') && $request->input('code_asset') != null) {
+            $assets->where('code_asset', $request->input('code_asset'));
+        }
+        if ($request->has('stockcode') && $request->input('stockcode') != null) {
+            $assets->where('stockcode', $request->input('stockcode'));
+        }
+        if ($request->has('serialnumber') && $request->input('serialnumber') != null) {
+            $assets->where('serialnumber', $request->input('serialnumber'));
+        }
+        if ($request->has('kategori') && $request->input('kategori') != null) {
+            $kategoriTerm = $request->input('kategori');
+            $assets->whereHas('category', function ($query) use ($kategoriTerm) {
+                $query->where('kategori', $kategoriTerm);
+            });
+        }
+        if ($request->has('status') && $request->input('status') != null) {
+            $statusTerm = $request->input('status');
+            $assets->whereHas('status', function ($query) use ($statusTerm) {
+                $query->where('status',  $statusTerm);
+            });
+        }
+
+        // Get results
+        $assets = $assets->get();
+
+        if ($assets->isEmpty()) {
+            return response()->json(['message' => 'No results found.'], 404);
+        } else {
+            $assets = AssetResource::collection(
+                $assets
+            );
+            return response()->json($assets, 200);
+        }
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $assets = AssetResource::collection(
             Asset::orderBy(
@@ -35,6 +85,7 @@ class AssetController extends Controller
                 request('direction') ? request('direction') : 'desc'
             )->paginate(50)
         );
+
         return response()->json([
             'status' => 'success',
             'asset' => $assets,

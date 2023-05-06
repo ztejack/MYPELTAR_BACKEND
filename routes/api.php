@@ -37,6 +37,7 @@ Route::prefix('v1/auth')->group(
 Route::prefix('v1/asset')->middleware('auth:api')->group(
     function () {
         Route::get('getall', [AssetController::class, 'index']);
+        Route::get('search', [AssetController::class, 'search']);
         Route::post('store', [AssetController::class, 'store'])->middleware('can:store-assets');
         Route::get('show/{asset}', [AssetController::class, 'show']);
         Route::post('update/{asset}', [AssetController::class, 'update'])->middleware('can:update-assets');

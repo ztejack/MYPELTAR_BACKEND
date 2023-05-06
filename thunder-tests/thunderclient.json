@@ -22,22 +22,32 @@
     "colId": "1fb1d14f-4ec9-49fd-aaa4-002da09a66d0",
     "containerId": "89d7fc9b-0e5c-4e0d-aaa5-b2ffd604130e",
     "name": "GETALL",
-    "url": "http://127.0.0.1:8000/api/v1/asset/getall?page=1",
+    "url": "http://127.0.0.1:8000/api/v1/asset/getall?page=1&nama_asset&stockcode",
     "method": "GET",
     "sortNum": 10000,
     "created": "2023-05-03T19:44:37.578Z",
-    "modified": "2023-05-06T10:09:38.029Z",
+    "modified": "2023-05-06T17:20:24.453Z",
     "headers": [],
     "params": [
       {
         "name": "page",
         "value": "1",
         "isPath": false
+      },
+      {
+        "name": "nama_asset",
+        "value": "",
+        "isPath": false
+      },
+      {
+        "name": "stockcode",
+        "value": "",
+        "isPath": false
       }
     ],
     "auth": {
       "type": "bearer",
-      "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODMzMDYxNzcsImV4cCI6MTY4MzU2NTM3NywibmJmIjoxNjgzMzA2MTc3LCJqdGkiOiJrZVBZb3BIV2hneXRnS2JnIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.DMamWqV0suVG3Tt4YdaRcIW070mrWlyhq4F_NJ7u3ns"
+      "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODMzODc0MjksImV4cCI6MTY4MzY0NjYzMCwibmJmIjoxNjgzMzg3NDMwLCJqdGkiOiJGeWZabE1mQ1IwSHV0RmlhIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.c8R1D3ekc6rOYMmL12LXpNO13wzGrJg2fY9EqrokNVQ"
     },
     "tests": []
   },
@@ -1027,6 +1037,71 @@
     "auth": {
       "type": "bearer",
       "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODMzMTY1OTAsImV4cCI6MTY4MzU3NTc5MCwibmJmIjoxNjgzMzE2NTkwLCJqdGkiOiJnVTBrWHVhM1ozdHBzbE84Iiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.CRokZxoCUss2Ja50s6K2zrf56NmC13Y1ltGLdf8RPbM"
+    },
+    "tests": []
+  },
+  {
+    "_id": "4c2f8af9-051c-4d29-aedc-620375c028b1",
+    "colId": "1fb1d14f-4ec9-49fd-aaa4-002da09a66d0",
+    "containerId": "89d7fc9b-0e5c-4e0d-aaa5-b2ffd604130e",
+    "name": "SEARCH",
+    "url": "http://127.0.0.1:8000/api/v1/asset/search?page=1&nama_asset&stockcode&merk&model&code_asset&serialnumber&kategori=Tempora.",
+    "method": "GET",
+    "sortNum": 50000,
+    "created": "2023-05-06T15:40:28.558Z",
+    "modified": "2023-05-06T18:50:28.952Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "page",
+        "value": "1",
+        "isPath": false
+      },
+      {
+        "name": "nama_asset",
+        "value": "",
+        "isPath": false
+      },
+      {
+        "name": "stockcode",
+        "value": "",
+        "isPath": false
+      },
+      {
+        "name": "merk",
+        "value": "",
+        "isPath": false
+      },
+      {
+        "name": "model",
+        "value": "",
+        "isPath": false
+      },
+      {
+        "name": "code_asset",
+        "value": "",
+        "isPath": false
+      },
+      {
+        "name": "serialnumber",
+        "value": "",
+        "isPath": false
+      },
+      {
+        "name": "kategori",
+        "value": "Tempora.",
+        "isPath": false
+      },
+      {
+        "name": "status",
+        "value": "Baik",
+        "isDisabled": true,
+        "isPath": false
+      }
+    ],
+    "auth": {
+      "type": "bearer",
+      "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODMzODc0MjksImV4cCI6MTY4MzY0NjYzMCwibmJmIjoxNjgzMzg3NDMwLCJqdGkiOiJGeWZabE1mQ1IwSHV0RmlhIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.c8R1D3ekc6rOYMmL12LXpNO13wzGrJg2fY9EqrokNVQ"
     },
     "tests": []
   }
