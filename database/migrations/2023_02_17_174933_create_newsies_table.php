@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('newsies', function (Blueprint $table) {
             $table->id('id');
-            $table->string('path');
+            $table->string('title');
+            $table->string('image');
             $table->string('deskripsi');
             $table->foreignId('id_user')->default(false)->references('id')->on('users');;
             $table->timestamps();

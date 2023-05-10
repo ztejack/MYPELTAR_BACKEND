@@ -21,8 +21,8 @@ class MaintenanceResource extends JsonResource
             'user_inspektor' => UserResource::make($this->user_inspek),
             'asset' => AssetResource::make($this->asset),
             'type' => $this->type,
-            'fotobefore' => ($this->fotobefore == null) ? null : asset(Storage::url($this->fotobefore)),
-            'fotoafter' => ($this->fotoafter == null) ? null : asset($this->fotoafter),
+            'imagebefore' => ($this->imagebefore == null) ? null : asset(Storage::url($this->imagebefore)),
+            'imageafter' => ($this->imageafter == null) ? null : asset($this->imageafter),
             'history' => PUpdateResource::collection($this->pupdate)
         ];
     }

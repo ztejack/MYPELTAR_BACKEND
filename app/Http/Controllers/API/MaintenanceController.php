@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Maintenance;
 use App\Http\Requests\StoremaintenanceRequest;
 use App\Http\Requests\UpdatemaintenanceRequest;
+use App\Http\Requests\UpdatePupdateMaintenanceRequest;
 use App\Http\Resources\AssetResource;
 use App\Http\Resources\MaintenanceResource;
 use App\Models\Asset;
@@ -48,7 +49,7 @@ class MaintenanceController extends Controller
         $status_id = 4;
         $input = $request->validated();
         $maintenance = new Maintenance();
-        $maintenance->id_user_inspektor = Auth::user()->id;
+        $maintenance->id_user_inspeksi = Auth::user()->id;
         $pupdate = new PUpdate();
         if (!is_null($input['imagebefore'])) {
             $imagepath = Storage::put('public/images/Maintenance', $request->file('imagebefore'));
@@ -124,9 +125,26 @@ class MaintenanceController extends Controller
         return response()->json(['status' => 'Data Maintenance Berhasil Diupdate !'], 201);
     }
 
-    function deleteimage()
-    {
-    }
+    // public function update_maintenance(UpdatePupdateMaintenanceRequest $request, maintenance $maintenance)
+    // {
+    //     $input = $request->validated();
+    //     $maintenance->id_type = $input['id_type'];
+    //     $maintenance->deskripsi = $input['deskripsi'];
+    //     $pupdate = new PUpdate();
+    //     if (!is_null($input['imagebefore'])) {
+    //         $imagepath = Storage::put('public/images/Maintenance', $request->file('imagebefore'));
+    //         $maintenance->imagebefore = $imagepath;
+    //         $pupdate->image = $imagepath;
+    //     }
+    //     $maintenance->save();
+    //     $pupdate->id_user = Auth::user()->id;
+    //     $pupdate->id_maintenance = $maintenance->id;
+    //     $pupdate->id_status = $input['id_status'];
+    //     $pupdate->deskripsi = $input['deskripsi_update'];
+    //     $pupdate->save();
+    //     return response()->json(['status' => 'Data Maintenance Berhasil Diupdate !'], 201);
+    // }
+
 
     /**
      * Remove the specified resource from storage.
@@ -136,9 +154,18 @@ class MaintenanceController extends Controller
      */
     public function destroy(Maintenance $maintenance)
     {
-        // note:
-        // Rubah Kondisi Status Asset
         try {
+            if (Storage::exists($maintenance->imagebefore)) {
+                Storage::delete($maintenance->imagebefore);
+            }
+            if (Storage::exists($maintenance->imageafter)) {
+                Storage::delete($maintenance->imageafter);
+            }
+            foreach ($maintenance->pupdate as $update) {
+                if (Storage::exists($update->image)) {
+                    Storage::delete($update->image);
+                }
+            }
             $maintenance->delete();
         } catch (\Exception $e) {
             return response()->json([

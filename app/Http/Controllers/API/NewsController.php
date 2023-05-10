@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\News;
 use App\Http\Requests\StorenewsRequest;
 use App\Http\Requests\UpdatenewsRequest;
+use App\Http\Resources\NewsResource;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class NewsController extends Controller
 {
@@ -16,17 +19,15 @@ class NewsController extends Controller
      */
     public function index()
     {
-        //
-    }
+        $news = News::orderBy(
+            request('column') ? request('column') : 'update_at',
+            request('direction') ? request('directio') : 'desc'
+        )->paginate(50);
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return response()->json([
+            'status' => 'success',
+            'news' => $news,
+        ], 200);
     }
 
     /**
@@ -37,7 +38,15 @@ class NewsController extends Controller
      */
     public function store(StorenewsRequest $request)
     {
-        //
+        $input = $request->validated();
+        $news = new News();
+        $news->title = $input['title'];
+        $news->deskripsi = $input['deskripsi'];
+        $imagepath = Storage::put('public/images/News', $request->file('image'));
+        $news->image = $imagepath;
+        $news->id_user = Auth::user()->id;
+        $news->save();
+        return response()->json(['status' => 'Data News Berhasil Ditambahkan !'], 201);
     }
 
     /**
@@ -48,18 +57,8 @@ class NewsController extends Controller
      */
     public function show(News $news)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\news  $news
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(News $news)
-    {
-        //
+        $news = NewsResource::make($news);
+        return response()->json(['data' => $news], 200);
     }
 
     /**
@@ -71,17 +70,40 @@ class NewsController extends Controller
      */
     public function update(UpdatenewsRequest $request, News $news)
     {
-        //
+        $input = $request->validated();
+        $news->title = $input['title'];
+        $news->deskripsi = $input['deskripsi'];
+        if ($request->hasFile('image')) {
+            if (Storage::exists($news->image)) {
+                Storage::delete($news->image);
+            }
+            $imagepath = Storage::put('public/images/News', $request->file('image'));
+            $news->image = $imagepath;
+        }
+        $news->save();
+        return response()->json(['status' => 'Data News berhasil Diupdate']);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\banner  $banner
+     * @param  \App\Models\banner  $news
      * @return \Illuminate\Http\Response
      */
-    public function destroy(News $banner)
+    public function destroy(News $news)
     {
-        //
+        try {
+            if (Storage::exists($news->image)) {
+                Storage::delete($news->image);
+            }
+            $news->delete();
+        } catch (\Exception $e) {
+            return response()->json([
+                'error' => 'Failed to delete resource',
+            ], 500);
+        }
+        return response()->json([
+            'status' => 'Data News Berhasil Dihapus !',
+        ], 200);
     }
 }

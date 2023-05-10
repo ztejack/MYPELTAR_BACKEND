@@ -181,7 +181,6 @@ class AssetController extends Controller
         } catch (\Exception $e) {
             return response()->json([
                 'error' => 'Failed to delete resource',
-                // 'message' => 'Status memilki relasi',
             ], 500);
         }
         return response()->json([

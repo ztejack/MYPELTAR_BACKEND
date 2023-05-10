@@ -35,7 +35,7 @@ return new class extends Migration
             $table->foreignId('id_maintenance')->default(false)->references('id')->on('maintenances')->onDelete('cascade');
             $table->foreignId('id_status')->default(false)->references('id')->on('statuses')->onDelete('cascade');
             $table->string('deskripsi')->default(false)->nullable();
-            $table->string('foto')->default(false)->nullable();
+            $table->string('image')->default(false)->nullable();
             $table->timestamps();
         });
     }
