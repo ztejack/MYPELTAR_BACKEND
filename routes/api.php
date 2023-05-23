@@ -5,6 +5,7 @@ use App\Http\Controllers\API\Auth\AuthController;
 use App\Http\Controllers\API\CategoryController;
 use App\Http\Controllers\API\LocationController;
 use App\Http\Controllers\API\MaintenanceController;
+use App\Http\Controllers\API\NewsController;
 use App\Http\Controllers\API\RoleController;
 use App\Http\Controllers\API\SatkerController;
 use App\Http\Controllers\API\StatusController;
@@ -113,6 +114,16 @@ Route::prefix('v1/statusa')->middleware('auth:api')->group(
         Route::get('show/{statusassets}', [StatusController::class, 'show']);
         Route::post('update/{statusassets}', [StatusController::class, 'update'])->middleware('can:update-statusa');
         Route::post('destroy/{statusassets}', [StatusController::class, 'destroy'])->middleware('can:delete-statusa');
+        // Route::get('search', [SubsatkerController::class, 'search']); 
+    }
+);
+Route::prefix('v1/news')->middleware('auth:api')->group(
+    function () {
+        Route::get('getall', [NewsController::class, 'index']);
+        Route::post('store', [NewsController::class, 'store']);
+        Route::get('show/{news}', [NewsController::class, 'show']);
+        Route::post('update/{news}', [NewsController::class, 'update'])->middleware('can:update-statusa');
+        Route::post('destroy/{news}', [NewsController::class, 'destroy'])->middleware('can:delete-statusa');
         // Route::get('search', [SubsatkerController::class, 'search']); 
     }
 );

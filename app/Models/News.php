@@ -41,4 +41,8 @@ class News extends Model
      *
      * @return array
      */
+    public function publiser()
+    {
+        return $this->belongsTo(User::class, 'id_user');
+    }
 }

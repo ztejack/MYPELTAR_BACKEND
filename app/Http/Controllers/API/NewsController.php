@@ -42,8 +42,10 @@ class NewsController extends Controller
         $news = new News();
         $news->title = $input['title'];
         $news->deskripsi = $input['deskripsi'];
-        $imagepath = Storage::put('public/images/News', $request->file('image'));
-        $news->image = $imagepath;
+        if (!is_null($this->input('image'))) {
+            $image = Storage::put('public/images/News', $request->file('image'));
+            $news->image = $image;
+        }
         $news->id_user = Auth::user()->id;
         $news->save();
         return response()->json(['status' => 'Data News Berhasil Ditambahkan !'], 201);
@@ -81,7 +83,7 @@ class NewsController extends Controller
             $news->image = $imagepath;
         }
         $news->save();
-        return response()->json(['status' => 'Data News berhasil Diupdate']);
+        return response()->json(['status' => 'Data News berhasil Diupdate'], 201);
     }
 
     /**
