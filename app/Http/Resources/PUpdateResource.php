@@ -20,7 +20,7 @@ class PUpdateResource extends JsonResource
             'user' => $this->users->name,
             'status' => $this->status->status,
             'deskripsi' => $this->deskripsi,
-            'foto' => ($this->foto == null) ? null : asset(Storage::url($this->foto)),
+            'image' => ($this->image == null) ? null : asset(Storage::url($this->image)),
             'created_at' => $this->created_at,
             'update_at' => $this->updated_at
         ];

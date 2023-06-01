@@ -42,7 +42,7 @@ class NewsController extends Controller
         $news = new News();
         $news->title = $input['title'];
         $news->deskripsi = $input['deskripsi'];
-        if (!is_null($this->input('image'))) {
+        if (!is_null($input['image'])) {
             $image = Storage::put('public/images/News', $request->file('image'));
             $news->image = $image;
         }

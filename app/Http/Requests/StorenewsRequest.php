@@ -26,14 +26,13 @@ class StorenewsRequest extends FormRequest
     public function rules()
     {
         $rules = [];
-        if (!is_null($this->input('imagepath'))) {
-            $rules['imagepath'] = 'image|mimes:jpeg,png,jpg|max:2048';
+        if (!is_null($this->input('image'))) {
+            $rules['image'] = 'image|mimes:jpeg,png,jpg|max:2048';
         } else {
-            $rules['imagepath'] = '';
+            $rules['image'] = '';
         }
         $rules['title'] = 'required';
         $rules['deskripsi'] = 'required|string';
-        $rules['deskripsi'] = 'string';
         return $rules;
     }
     protected function failedValidation(Validator $validator)

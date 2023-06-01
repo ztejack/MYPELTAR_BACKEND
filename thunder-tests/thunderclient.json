@@ -92,15 +92,26 @@
     "colId": "1fb1d14f-4ec9-49fd-aaa4-002da09a66d0",
     "containerId": "ef350bbc-b8b4-4d15-a882-ffab6d8b0dca",
     "name": "Login",
-    "url": "http://127.0.0.1:8000/api/v1/auth/login",
+    "url": "auth/login",
     "method": "POST",
     "sortNum": 50000,
     "created": "2023-05-03T19:44:37.581Z",
-    "modified": "2023-05-17T07:25:45.802Z",
+    "modified": "2023-05-31T13:59:02.444Z",
     "headers": [
       {
+        "name": "Accept",
+        "value": "*/*",
+        "isDisabled": true
+      },
+      {
+        "name": "User-Agent",
+        "value": "Thunder Client (https://www.thunderclient.com)",
+        "isDisabled": true
+      },
+      {
         "name": "apiKey",
-        "value": "2N9S0lvFF7T9qaPaP4YkPmmgI8sYswGHqZ8sPcg1"
+        "value": "2N9S0lvFF7T9qaPaP4YkPmmgI8sYswGHqZ8sPcg1",
+        "isDisabled": true
       }
     ],
     "params": [
@@ -922,17 +933,13 @@
     "colId": "1fb1d14f-4ec9-49fd-aaa4-002da09a66d0",
     "containerId": "dd2c651c-059d-41f8-8fee-0cd455a36ffc",
     "name": "GET",
-    "url": "http://127.0.0.1:8000/api/v1/maintenance/show/5001",
+    "url": "http://127.0.0.1:8000/api/v1/maintenance/show/3",
     "method": "GET",
     "sortNum": 275000,
     "created": "2023-05-03T19:44:37.621Z",
-    "modified": "2023-05-17T07:54:50.541Z",
+    "modified": "2023-06-01T07:50:59.280Z",
     "headers": [],
     "params": [],
-    "auth": {
-      "type": "bearer",
-      "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODQzMDgzNDUsImV4cCI6MTY4NDU2NzU0NSwibmJmIjoxNjg0MzA4MzQ1LCJqdGkiOiJkcTZWUndJR3pwU1FxV0QxIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.vXe4_2kYkeIrNgbIoUfngRQ2-tGFJbqWhE204Lhq-Tk"
-    },
     "tests": []
   },
   {
@@ -944,7 +951,7 @@
     "method": "POST",
     "sortNum": 280000,
     "created": "2023-05-03T19:44:37.622Z",
-    "modified": "2023-05-17T07:43:12.688Z",
+    "modified": "2023-05-31T14:13:18.692Z",
     "headers": [],
     "params": [],
     "body": {
@@ -974,10 +981,6 @@
           "value": "..\\..\\..\\..\\Personal\\DSC_5877-Editbw.jpg"
         }
       ]
-    },
-    "auth": {
-      "type": "bearer",
-      "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODQzMDgzNDUsImV4cCI6MTY4NDU2NzU0NSwibmJmIjoxNjg0MzA4MzQ1LCJqdGkiOiJkcTZWUndJR3pwU1FxV0QxIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.vXe4_2kYkeIrNgbIoUfngRQ2-tGFJbqWhE204Lhq-Tk"
     },
     "tests": []
   },
@@ -1110,16 +1113,144 @@
     "colId": "1fb1d14f-4ec9-49fd-aaa4-002da09a66d0",
     "containerId": "be614dfe-f978-470c-9880-7cceddcb6d95",
     "name": "GET",
-    "url": "http://127.0.0.1:8000/api/v1/news/show/1",
+    "url": "http://127.0.0.1:8000/api/v1/news/show/3",
     "method": "GET",
     "sortNum": 300000,
     "created": "2023-05-17T07:26:38.960Z",
-    "modified": "2023-05-17T07:27:25.800Z",
+    "modified": "2023-05-23T08:19:27.152Z",
     "headers": [],
     "params": [],
     "auth": {
       "type": "bearer",
-      "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODQzMDgzNDUsImV4cCI6MTY4NDU2NzU0NSwibmJmIjoxNjg0MzA4MzQ1LCJqdGkiOiJkcTZWUndJR3pwU1FxV0QxIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.vXe4_2kYkeIrNgbIoUfngRQ2-tGFJbqWhE204Lhq-Tk"
+      "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODQ4MTQ0MjMsImV4cCI6MTY4NTA3MzYyNCwibmJmIjoxNjg0ODE0NDI0LCJqdGkiOiJIRzJCMlo2RDY0ME9Yd0w4Iiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.0H1QEBRN5B38lo4161LjHNmgply24OUNzZ857UWgwPE"
+    },
+    "tests": []
+  },
+  {
+    "_id": "e8e3af6a-4e1c-4b8a-9a61-6d0a675a61ac",
+    "colId": "1fb1d14f-4ec9-49fd-aaa4-002da09a66d0",
+    "containerId": "be614dfe-f978-470c-9880-7cceddcb6d95",
+    "name": "STORE",
+    "url": "http://127.0.0.1:8000/api/v1/news/store",
+    "method": "POST",
+    "sortNum": 310000,
+    "created": "2023-05-23T04:05:30.717Z",
+    "modified": "2023-05-23T04:09:05.037Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "formdata",
+      "raw": "",
+      "form": [
+        {
+          "name": "title",
+          "value": "new NEWS"
+        },
+        {
+          "name": "deskripsi",
+          "value": "manot"
+        }
+      ],
+      "files": [
+        {
+          "name": "image",
+          "value": "..\\..\\..\\..\\Personal\\DSC_5877-Editbw.jpg"
+        }
+      ]
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODQ4MTQ0MjMsImV4cCI6MTY4NTA3MzYyNCwibmJmIjoxNjg0ODE0NDI0LCJqdGkiOiJIRzJCMlo2RDY0ME9Yd0w4Iiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.0H1QEBRN5B38lo4161LjHNmgply24OUNzZ857UWgwPE"
+    },
+    "tests": []
+  },
+  {
+    "_id": "df1eb182-bdce-4eec-907f-cca02b0e04e5",
+    "colId": "1fb1d14f-4ec9-49fd-aaa4-002da09a66d0",
+    "containerId": "dd2c651c-059d-41f8-8fee-0cd455a36ffc",
+    "name": "UPDATES UPDATE ",
+    "url": "http://127.0.0.1:8000/api/v1/maintenance/3/updates/1",
+    "method": "POST",
+    "sortNum": 202500,
+    "created": "2023-05-23T04:13:21.176Z",
+    "modified": "2023-06-01T09:25:39.665Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "formdata",
+      "raw": "",
+      "form": [
+        {
+          "name": "id_status",
+          "value": "1"
+        },
+        {
+          "name": "deskripsi_update",
+          "value": "nananu"
+        }
+      ],
+      "files": [
+        {
+          "name": "image",
+          "value": "c:\\Users\\JACK\\Pictures\\The witcher signs.png"
+        }
+      ]
+    },
+    "tests": []
+  },
+  {
+    "_id": "547d7032-de73-4041-b348-132a2d812de3",
+    "colId": "1fb1d14f-4ec9-49fd-aaa4-002da09a66d0",
+    "containerId": "be614dfe-f978-470c-9880-7cceddcb6d95",
+    "name": "UPDATE",
+    "url": "http://127.0.0.1:8000/api/v1/news/update/3",
+    "method": "POST",
+    "sortNum": 320000,
+    "created": "2023-05-23T04:13:25.017Z",
+    "modified": "2023-05-23T08:17:45.129Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "formdata",
+      "raw": "",
+      "form": [
+        {
+          "name": "title",
+          "value": "xxxx"
+        },
+        {
+          "name": "deskripsi",
+          "value": "sample"
+        }
+      ],
+      "files": [
+        {
+          "name": "image",
+          "value": "c:\\Users\\JACK\\Pictures\\vector-formula-physics-14asd.png"
+        }
+      ]
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODQ4MTQ0MjMsImV4cCI6MTY4NTA3MzYyNCwibmJmIjoxNjg0ODE0NDI0LCJqdGkiOiJIRzJCMlo2RDY0ME9Yd0w4Iiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.0H1QEBRN5B38lo4161LjHNmgply24OUNzZ857UWgwPE"
+    },
+    "tests": []
+  },
+  {
+    "_id": "3ee8bf2f-f5eb-46a4-a474-9fb6185e5be5",
+    "colId": "1fb1d14f-4ec9-49fd-aaa4-002da09a66d0",
+    "containerId": "be614dfe-f978-470c-9880-7cceddcb6d95",
+    "name": "DESTROY Copy",
+    "url": "http://127.0.0.1:8000/api/v1/news/destroy/3",
+    "method": "POST",
+    "sortNum": 330000,
+    "created": "2023-05-23T09:23:19.606Z",
+    "modified": "2023-05-23T09:23:50.328Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODQ4MTQ0MjMsImV4cCI6MTY4NTA3MzYyNCwibmJmIjoxNjg0ODE0NDI0LCJqdGkiOiJIRzJCMlo2RDY0ME9Yd0w4Iiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.0H1QEBRN5B38lo4161LjHNmgply24OUNzZ857UWgwPE"
     },
     "tests": []
   }

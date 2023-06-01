@@ -10,6 +10,7 @@ use App\Http\Controllers\API\RoleController;
 use App\Http\Controllers\API\SatkerController;
 use App\Http\Controllers\API\StatusController;
 use App\Http\Controllers\API\SubsatkerController;
+use App\Http\Controllers\Api\PUpdateController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -24,9 +25,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
 Route::prefix('v1/auth')->group(
     function () {
         Route::post('login', [AuthController::class, 'login']);
@@ -52,8 +50,16 @@ Route::prefix('v1/maintenance')->middleware('auth:api')->group(
         Route::get('show/{maintenance}', [MaintenanceController::class, 'show']);
         Route::post('update/{maintenance}', [MaintenanceController::class, 'update'])->middleware('can:update-maintenance');
         Route::post('destroy/{maintenance}', [MaintenanceController::class, 'destroy'])->middleware('can:delete-maintenance');
+
+        Route::prefix("/{maintenance}/updates")->middleware('auth:api')->group(
+            function () {
+                Route::post('/{pupdate}', [PUpdateController::class, 'update'])->middleware('can:update-maintenance');
+            }
+        );
     }
 );
+
+
 Route::prefix('v1/category')->middleware('auth:api')->group(
     function () {
         Route::get('getall', [CategoryController::class, 'index']);
@@ -61,7 +67,6 @@ Route::prefix('v1/category')->middleware('auth:api')->group(
         Route::get('show/{category}', [CategoryController::class, 'show']);
         Route::post('update/{category}', [CategoryController::class, 'update'])->middleware('can:update-category');
         Route::post('destroy/{category}', [CategoryController::class, 'destroy'])->middleware('can:delete-category');
-        Route::get('search', [CategoryController::class, 'search']);
     }
 );
 Route::prefix('v1/location')->middleware('auth:api')->group(
@@ -81,7 +86,6 @@ Route::prefix('v1/satker')->middleware('auth:api')->group(
         Route::get('show/{satker}', [SatkerController::class, 'show']);
         Route::post('update/{satker}', [SatkerController::class, 'update'])->middleware('can:update-satker');
         Route::post('destroy/{satker}', [SatkerController::class, 'destroy'])->middleware('can:delete-satker');
-        // Route::get('search', [SatkerController::class, 'search']);
     }
 );
 Route::prefix('v1/subsatker')->middleware('auth:api')->group(
@@ -91,7 +95,6 @@ Route::prefix('v1/subsatker')->middleware('auth:api')->group(
         Route::get('show/{subsatker}', [SubsatkerController::class, 'show']);
         Route::post('update/{subsatker}', [SubsatkerController::class, 'update'])->middleware('can:update-subsatker');
         Route::post('destroy/{subsatker}', [SubsatkerController::class, 'destroy'])->middleware('can:delete-subsatker');
-        // Route::get('search', [SubsatkerController::class, 'search']); 
     }
 );
 
@@ -103,7 +106,6 @@ Route::prefix('v1/role')->middleware('auth:api')->group(
         Route::get('show/{role}', [RoleController::class, 'show']);
         Route::post('update/{role}', [RoleController::class, 'update']);
         Route::post('destroy/{role}', [RoleController::class, 'destroy']);
-        // Route::get('search', [SubsatkerController::class, 'search']); 
     }
 );
 
@@ -114,9 +116,9 @@ Route::prefix('v1/statusa')->middleware('auth:api')->group(
         Route::get('show/{statusassets}', [StatusController::class, 'show']);
         Route::post('update/{statusassets}', [StatusController::class, 'update'])->middleware('can:update-statusa');
         Route::post('destroy/{statusassets}', [StatusController::class, 'destroy'])->middleware('can:delete-statusa');
-        // Route::get('search', [SubsatkerController::class, 'search']); 
     }
 );
+
 Route::prefix('v1/news')->middleware('auth:api')->group(
     function () {
         Route::get('getall', [NewsController::class, 'index']);
@@ -124,6 +126,5 @@ Route::prefix('v1/news')->middleware('auth:api')->group(
         Route::get('show/{news}', [NewsController::class, 'show']);
         Route::post('update/{news}', [NewsController::class, 'update'])->middleware('can:update-statusa');
         Route::post('destroy/{news}', [NewsController::class, 'destroy'])->middleware('can:delete-statusa');
-        // Route::get('search', [SubsatkerController::class, 'search']); 
     }
 );

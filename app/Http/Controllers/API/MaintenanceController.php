@@ -28,17 +28,8 @@ class MaintenanceController extends Controller
         return response()->json(MaintenanceResource::collection($maintenances));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
+    /** 
      * Store a newly created resource in storage.
      *
      * @param  \App\Http\Requests\StoremaintenanceRequest  $request
@@ -69,8 +60,6 @@ class MaintenanceController extends Controller
         $asset->id_status = $status_id;
         $asset->save();
         return response()->json(['status' => 'Data Maintenance Berhasil Ditambahkan !'], 201);
-        // return response()->json($input->id_type);
-        // return response()->json(MaintenanceResource::make($maintenance));
     }
 
     /**
@@ -86,16 +75,6 @@ class MaintenanceController extends Controller
         return response()->json(['data' => $maintenances], 200);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\maintenance  $maintenance
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Maintenance $maintenance)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -105,9 +84,10 @@ class MaintenanceController extends Controller
      * @param  \public\image\maintenance\ $imagepath
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatemaintenanceRequest $request, maintenance $maintenance)
+    public function update(UpdatemaintenanceRequest $request, $Maintenance)
     {
         $input = $request->validated();
+        $maintenance = Maintenance::find($Maintenance);
         $maintenance->id_type = $input['id_type'];
         $maintenance->deskripsi = $input['deskripsi'];
         $pupdate = new PUpdate();
@@ -121,30 +101,9 @@ class MaintenanceController extends Controller
         $pupdate->id_maintenance = $maintenance->id;
         $pupdate->id_status = $input['id_status'];
         $pupdate->deskripsi = $input['deskripsi_update'];
-        $pupdate->save();
+        $pupdate->update();
         return response()->json(['status' => 'Data Maintenance Berhasil Diupdate !'], 201);
     }
-
-    // public function update_maintenance(UpdatePupdateMaintenanceRequest $request, maintenance $maintenance)
-    // {
-    //     $input = $request->validated();
-    //     $maintenance->id_type = $input['id_type'];
-    //     $maintenance->deskripsi = $input['deskripsi'];
-    //     $pupdate = new PUpdate();
-    //     if (!is_null($input['imagebefore'])) {
-    //         $imagepath = Storage::put('public/images/Maintenance', $request->file('imagebefore'));
-    //         $maintenance->imagebefore = $imagepath;
-    //         $pupdate->image = $imagepath;
-    //     }
-    //     $maintenance->save();
-    //     $pupdate->id_user = Auth::user()->id;
-    //     $pupdate->id_maintenance = $maintenance->id;
-    //     $pupdate->id_status = $input['id_status'];
-    //     $pupdate->deskripsi = $input['deskripsi_update'];
-    //     $pupdate->save();
-    //     return response()->json(['status' => 'Data Maintenance Berhasil Diupdate !'], 201);
-    // }
-
 
     /**
      * Remove the specified resource from storage.
