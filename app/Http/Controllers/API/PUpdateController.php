@@ -8,6 +8,7 @@ use App\Models\PUpdate;
 use App\Http\Requests\StorePUpdateRequest;
 use App\Http\Requests\Updatep_updateRequest;
 use App\Http\Requests\UpdatePupdateMaintenanceRequest;
+use App\Models\Maintenance;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
@@ -24,8 +25,8 @@ class PUpdateController extends Controller
     public function update(UpdatePupdateMaintenanceRequest $request, $Maintenance, $PUpdate)
     {
         $input = $request->validated();
-        $pupdate = PUpdate::find($PUpdate);
-
+        $maintenance = Maintenance::findorfail($Maintenance);
+        $pupdate = $maintenance->pupdates()->findorfail($PUpdate);
         $pupdate->id_user = Auth::user()->id;
         $pupdate->id_status = $input['id_status'];
         $pupdate->deskripsi = $input['deskripsi_update'];

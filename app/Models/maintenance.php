@@ -51,7 +51,7 @@ class Maintenance extends Model
     {
         return $this->belongsTo(TypeMaintenance::class, 'id_type');
     }
-    public function pupdate()
+    public function pupdates()
     {
         return $this->hasmany(PUpdate::class, 'id_maintenance');
     }
