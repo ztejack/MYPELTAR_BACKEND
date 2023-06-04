@@ -20,9 +20,11 @@ class RoleAndPermissionSeeder extends Seeder
     {
         // USERS
         Permission::create(['name' => 'store-users']);
-        Permission::create(['name' => 'edit-users']);
-
+        Permission::create(['name' => 'update-users']);
         Permission::create(['name' => 'delete-users']);
+        Permission::create(['name' => 'getall-users']);
+        Permission::create(['name' => 'search-users']);
+        Permission::create(['name' => 'show-users']);
 
         // MAINTENANCE
         Permission::create(['name' => 'store-maintenance']);
@@ -75,8 +77,11 @@ class RoleAndPermissionSeeder extends Seeder
 
         $superadminRole->givePermissionTo([
             'store-users',
-            'edit-users',
+            'update-users',
             'delete-users',
+            'getall-users',
+            'search-users',
+            'show-users',
 
             'store-assets',
             'update-assets',
@@ -116,7 +121,10 @@ class RoleAndPermissionSeeder extends Seeder
 
         $adminRole->givePermissionTo([
             'store-users',
-            'edit-users',
+            'update-users',
+            'getall-users',
+            'search-users',
+            'show-users',
 
             'store-assets',
             'update-assets',
