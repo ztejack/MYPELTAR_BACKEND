@@ -27,6 +27,8 @@ class AssetResource extends JsonResource
             'lokasi' => $this->lokasi,
             'kategori' => $this->category,
             'status' => $this->status->status,
+            'updated_at' => $this->updated_at,
+            'created_at' => $this->created_at
         ];
     }
 }

@@ -92,7 +92,7 @@
       ],
       "auth": {
         "type": "bearer",
-        "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODU2MDU3ODgsImV4cCI6MTY4NTg2NDk4OCwibmJmIjoxNjg1NjA1Nzg4LCJqdGkiOiJLSUlydEZQNldPNmR4cXdKIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.-EJK8p1pGqkvYFzNTnofcTqsQMDcQpzh3CRUOxZi3Gg"
+        "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODU2OTQwOTksImV4cCI6MTY4NTk1MzI5OSwibmJmIjoxNjg1Njk0MDk5LCJqdGkiOiJDUHZjZnMwbjhnSDdmeXVrIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.uJtO6DSep1NEl0K3zHDB_2a5sn6FSyUKgieoHAqIQHA"
       },
       "options": {
         "baseUrl": "http://127.0.0.1:8000/api/v1/"

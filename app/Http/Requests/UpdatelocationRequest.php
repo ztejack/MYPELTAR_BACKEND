@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Exceptions\HttpResponseException;
 
 class UpdatelocationRequest extends FormRequest
 {
@@ -31,5 +33,13 @@ class UpdatelocationRequest extends FormRequest
             'unit' => 'required'
         ];
         return $rule;
+    }
+    protected function failedValidation(Validator $validator)
+    {
+        $errors = $validator->errors()->messages();
+        throw new HttpResponseException(response()->json([
+            'message' => 'The given data was invalid.',
+            'errors' => $errors,
+        ], 422));
     }
 }

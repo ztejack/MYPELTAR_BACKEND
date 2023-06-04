@@ -19,10 +19,12 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $news = News::orderBy(
-            request('column') ? request('column') : 'update_at',
-            request('direction') ? request('directio') : 'desc'
-        )->paginate(50);
+        $news = NewsResource::collection(
+            News::orderBy(
+                request('column') ? request('column') : 'updated_at',
+                request('direction') ? request('directio') : 'desc'
+            )->paginate(50)
+        );
 
         return response()->json([
             'status' => 'success',
@@ -82,7 +84,7 @@ class NewsController extends Controller
             $imagepath = Storage::put('public/images/News', $request->file('image'));
             $news->image = $imagepath;
         }
-        $news->save();
+        $news->update();
         return response()->json(['status' => 'Data News berhasil Diupdate'], 201);
     }
 

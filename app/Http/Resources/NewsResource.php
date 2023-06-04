@@ -17,7 +17,7 @@ class NewsResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'user' => $this->publiser,
+            'user' => $this->publiser->name,
             'title' => $this->title,
             'deskripsi' => $this->deskripsi,
             'image' => ($this->image == null) ? null : asset(Storage::url($this->image)),

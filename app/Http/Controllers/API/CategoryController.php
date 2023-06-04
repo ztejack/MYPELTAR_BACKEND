@@ -20,18 +20,16 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return response()->json([
-            'data' => Category::all()
-        ]);
-    }
+        $category = Category::collection(
+            Category::orderBy(
+                request('column') ? request('column') : 'updated_at',
+                request('direction') ? request('direction') : 'desc'
+            )->paginate(50)
+        );
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
+        return response()->json([
+            'data' => $category,
+        ], 200);
     }
 
     /**
@@ -66,16 +64,6 @@ class CategoryController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\category  $category
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(category $category)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -88,7 +76,7 @@ class CategoryController extends Controller
     {
         $input = $request->validated();
         $category->kategori = $input['kategori'];
-        $category->id_subsatker = $input['subsatker'];
+        $category->id_subsatker = $input['id_subsatker'];
         $category->update();
         return response()->json([
             'status' => 'Kategori Berhasil Diupdate !'
@@ -114,12 +102,14 @@ class CategoryController extends Controller
             'status' => 'Kategori Berhasil Dihapus !'
         ], 200);
     }
+
     public function search(Request $request)
     {
         $query = $request->input('Kategori');
-        $categories = Category::where('kategori', 'like', $query)->get();
+        $categori = Category::query();
+        $categoryes = $categori->where('kategori', 'like', '%' . $query . '%')->get();
         return response()->json([
-            'data' => $categories,
+            'data' => $categoryes,
         ], 200);
     }
 }

@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Exceptions\HttpResponseException;
 
 class StorecategoryRequest extends FormRequest
 {
@@ -30,8 +32,16 @@ class StorecategoryRequest extends FormRequest
     {
         $rule = [
             'kategori' => 'required|string',
-            'subsatker' => 'required|integer'
+            'id_subsatker' => 'required|integer'
         ];
         return $rule;
+    }
+    protected function failedValidation(Validator $validator)
+    {
+        $errors = $validator->errors()->messages();
+        throw new HttpResponseException(response()->json([
+            'message' => 'The given data was invalid.',
+            'errors' => $errors,
+        ], 422));
     }
 }

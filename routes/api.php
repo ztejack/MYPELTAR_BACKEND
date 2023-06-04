@@ -65,6 +65,7 @@ Route::prefix('v1/category')->middleware('auth:api')->group(
         Route::get('getall', [CategoryController::class, 'index']);
         Route::post('store', [CategoryController::class, 'store'])->middleware('can:store-category');
         Route::get('show/{category}', [CategoryController::class, 'show']);
+        Route::get('search', [CategoryController::class, 'search']);
         Route::post('update/{category}', [CategoryController::class, 'update'])->middleware('can:update-category');
         Route::post('destroy/{category}', [CategoryController::class, 'destroy'])->middleware('can:delete-category');
     }

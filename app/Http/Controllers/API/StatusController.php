@@ -16,18 +16,11 @@ class StatusController extends Controller
      */
     public function index()
     {
-        $statusa = Status::all();
+        $statusa = Status::orderBy(
+            request('column') ? request('column') : 'updated_at',
+            request('direction') ? request('direction') : 'desc'
+        )->paginate(50);
         return response()->json(['data' => $statusa]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -41,6 +34,7 @@ class StatusController extends Controller
         $input = $request->validated();
         $statusa = new Status();
         $statusa->status = $input['status'];
+        $statusa->statustype = $input['statustype'];
         $statusa->save();
         return response()->json([
             'status' => 'Status Berhasil Ditambahkan !'
@@ -56,17 +50,6 @@ class StatusController extends Controller
     public function show(Status $status)
     {
         return response()->json(['data' => $status], 200);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Status  $status
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Status $status)
-    {
-        //
     }
 
     /**

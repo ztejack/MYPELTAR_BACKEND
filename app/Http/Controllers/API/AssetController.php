@@ -121,7 +121,6 @@ class AssetController extends Controller
         $category = Category::find($input['id_kategori']);
         $asset->category()->attach($category);
 
-        // return response()->json(['status' => 'Asset Berhasil Ditambahkan !'], 201);
         return response()->json(['status' => 'Asset Berhasil Ditambahkan !'], 201);
     }
 
@@ -159,9 +158,9 @@ class AssetController extends Controller
         $asset->id_lokasi = $input['id_lokasi'];
         $asset->id_status = $input['id_status'];
 
-        $category = Category::find($asset->kategori);
-        $asset->kategori()->detach($category);
-        $asset->kategori()->attach($input["id_kategori"]);
+        $category = Category::find($asset->category);
+        $asset->category()->detach($category);
+        $asset->category()->attach($input["id_kategori"]);
 
         $asset->update();
         return response()->json(['status' => 'Asset Berhasil Diupdate !'], 201);
