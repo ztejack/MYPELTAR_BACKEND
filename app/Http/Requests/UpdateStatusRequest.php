@@ -27,6 +27,15 @@ class UpdateStatusRequest extends FormRequest
     {
         return [
             'status' => 'required',
+            'statustype' => [
+                'required',
+                function ($attribute, $value, $fail) {
+                    if ($value !== 'ASST' && $value !== 'MTNC' && $value !== 'UNVER') {
+                        $fail('The field1 must be either "ASST", "MTNC" or "UNVER".');
+                    }
+                },
+                'string'
+            ],
         ];
     }
     protected function failedValidation(Validator $validator)

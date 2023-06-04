@@ -31,7 +31,15 @@ class StoreStatusRequest extends FormRequest
     {
         $rule = [
             'status' => 'required|string',
-            'statustype' => 'required|string'
+            'statustype' => [
+                'required',
+                function ($attribute, $value, $fail) {
+                    if ($value !== 'ASST' && $value !== 'MTNC' && $value !== 'UNVER') {
+                        $fail('The field1 must be either "ASST", "MTNC" or "UNVER".');
+                    }
+                },
+                'string'
+            ],
         ];
         return $rule;
     }

@@ -651,12 +651,12 @@
     "method": "POST",
     "sortNum": 250000,
     "created": "2023-05-03T19:44:37.610Z",
-    "modified": "2023-06-04T10:27:36.069Z",
+    "modified": "2023-06-04T10:59:58.028Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"status\":\"createtest\",\n  \"statustype\":\"ASST\"\n}",
+      "raw": "{\n  \"status\":\"createtest\",\n  \"statustype\":\"UNVER\"\n}",
       "form": []
     },
     "tests": []
@@ -716,17 +716,13 @@
     "method": "POST",
     "sortNum": 255000,
     "created": "2023-05-03T19:44:37.613Z",
-    "modified": "2023-05-03T19:44:37.613Z",
+    "modified": "2023-06-04T10:42:12.137Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"status\":\"mekanix\"\n}",
+      "raw": "{\n  \"status\":\"mekanix\",\n  \"statustype\":\"MTNC\"\n  \n}",
       "form": []
-    },
-    "auth": {
-      "type": "bearer",
-      "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2Nzg2OTg1MjUsImV4cCI6MTY3ODk1NzcyNSwibmJmIjoxNjc4Njk4NTI1LCJqdGkiOiJ5OWJLQWF5a0p0anB6YjZtIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.715FOeTTYBE5Xf7-1RxTCoYfJUBWr8pfSiQTtrJw3Rg"
     },
     "tests": []
   },
@@ -775,13 +771,9 @@
     "method": "POST",
     "sortNum": 257500,
     "created": "2023-05-03T19:44:37.616Z",
-    "modified": "2023-05-03T19:44:37.616Z",
+    "modified": "2023-06-04T12:23:32.362Z",
     "headers": [],
     "params": [],
-    "auth": {
-      "type": "bearer",
-      "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2Nzk3MzEzMTcsImV4cCI6MTY3OTk5MDUxNywibmJmIjoxNjc5NzMxMzE3LCJqdGkiOiJNTXZJbGpEYlBmaDdreXZBIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.JVr5jXWworHUV5bgU8dVQO-lFUdiuvn8QOtG8-0nyLQ"
-    },
     "tests": []
   },
   {

@@ -31,6 +31,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             StatusSeeder::class,
             TypeMaintenanceSeeder::class,
+            ApiKeySeeder::class,
         ]);
         News::factory(5)->create();
         Satker::factory(5)->create();

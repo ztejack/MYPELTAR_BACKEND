@@ -68,8 +68,6 @@ class RoleAndPermissionSeeder extends Seeder
         Permission::create(['name' => 'update-statusa']);
         Permission::create(['name' => 'delete-statusa']);
 
-
-
         $superadminRole = Role::create(['name' => 'SuperAdmin']);
         $adminRole = Role::create(['name' => 'Admin']);
         $inspeksiRole = Role::create(['name' => 'Inspeksi']);

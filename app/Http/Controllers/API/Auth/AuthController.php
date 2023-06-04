@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\ApiKeyResource;
 use App\Http\Resources\UserResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -37,7 +38,8 @@ class AuthController extends Controller
             'authorisation' => [
                 'token' => $token,
                 'type' => 'bearer',
-            ]
+            ],
+            'api-key' => new ApiKeyResource($user->apiKey)
         ], 200);
     }
 
