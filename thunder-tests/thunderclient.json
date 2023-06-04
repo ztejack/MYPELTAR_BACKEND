@@ -22,11 +22,11 @@
     "colId": "1fb1d14f-4ec9-49fd-aaa4-002da09a66d0",
     "containerId": "89d7fc9b-0e5c-4e0d-aaa5-b2ffd604130e",
     "name": "GETALL",
-    "url": "http://127.0.0.1:8000/api/v1/asset/getall?page=1&nama_asset&stockcode",
+    "url": "http://127.0.0.1:8000/api/v1/asset/getall?page=1",
     "method": "GET",
     "sortNum": 10000,
     "created": "2023-05-03T19:44:37.578Z",
-    "modified": "2023-05-06T17:20:24.453Z",
+    "modified": "2023-06-02T08:24:55.652Z",
     "headers": [],
     "params": [
       {
@@ -37,18 +37,16 @@
       {
         "name": "nama_asset",
         "value": "",
+        "isDisabled": true,
         "isPath": false
       },
       {
         "name": "stockcode",
         "value": "",
+        "isDisabled": true,
         "isPath": false
       }
     ],
-    "auth": {
-      "type": "bearer",
-      "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODMzODc0MjksImV4cCI6MTY4MzY0NjYzMCwibmJmIjoxNjgzMzg3NDMwLCJqdGkiOiJGeWZabE1mQ1IwSHV0RmlhIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.c8R1D3ekc6rOYMmL12LXpNO13wzGrJg2fY9EqrokNVQ"
-    },
     "tests": []
   },
   {
@@ -56,17 +54,13 @@
     "colId": "1fb1d14f-4ec9-49fd-aaa4-002da09a66d0",
     "containerId": "ef350bbc-b8b4-4d15-a882-ffab6d8b0dca",
     "name": "Profile",
-    "url": "http://127.0.0.1:8000/api/profile",
-    "method": "POST",
+    "url": "auth/profile",
+    "method": "GET",
     "sortNum": 20000,
     "created": "2023-05-03T19:44:37.579Z",
-    "modified": "2023-05-03T19:44:37.579Z",
+    "modified": "2023-06-02T08:22:52.479Z",
     "headers": [],
     "params": [],
-    "auth": {
-      "type": "bearer",
-      "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjc3MzgxNjQ3LCJleHAiOjE2NzczODUyNDcsIm5iZiI6MTY3NzM4MTY0NywianRpIjoiRnNlUUU4V0dlSVljeHk0VSIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.XC5s8yizrqM_W-w9rEafW7y60Pw_RD2LNQU5tec-JcI"
-    },
     "tests": []
   },
   {
@@ -92,15 +86,26 @@
     "colId": "1fb1d14f-4ec9-49fd-aaa4-002da09a66d0",
     "containerId": "ef350bbc-b8b4-4d15-a882-ffab6d8b0dca",
     "name": "Login",
-    "url": "http://127.0.0.1:8000/api/v1/auth/login",
+    "url": "auth/login",
     "method": "POST",
     "sortNum": 50000,
     "created": "2023-05-03T19:44:37.581Z",
-    "modified": "2023-05-03T19:44:37.581Z",
+    "modified": "2023-05-31T13:59:02.444Z",
     "headers": [
       {
+        "name": "Accept",
+        "value": "*/*",
+        "isDisabled": true
+      },
+      {
+        "name": "User-Agent",
+        "value": "Thunder Client (https://www.thunderclient.com)",
+        "isDisabled": true
+      },
+      {
         "name": "apiKey",
-        "value": "2N9S0lvFF7T9qaPaP4YkPmmgI8sYswGHqZ8sPcg1"
+        "value": "2N9S0lvFF7T9qaPaP4YkPmmgI8sYswGHqZ8sPcg1",
+        "isDisabled": true
       }
     ],
     "params": [
@@ -192,17 +197,13 @@
     "method": "POST",
     "sortNum": 90000,
     "created": "2023-05-03T19:44:37.585Z",
-    "modified": "2023-05-05T18:39:28.073Z",
+    "modified": "2023-06-02T08:34:35.462Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
       "raw": "{\n  \"stockcode\": \"20202020045\",\n  \"serialnumber\": \"22aa-a564-kasd-asdg\",\n  \"nama_asset\": \"Gearbox\",\n  \"merk\": \"merktern\",\n  \"model\": \"carbonite\",\n  \"spesifikasi\": \"blablablablabla\",\n  \"deskripsi\": \"blablablablabla\",\n  \"id_lokasi\": 2,\n  \"id_kategori\": [\n    1,\n    2\n  ],\n  \"id_status\":2\n}",
       "form": []
-    },
-    "auth": {
-      "type": "bearer",
-      "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODMzMDYxNzcsImV4cCI6MTY4MzU2NTM3NywibmJmIjoxNjgzMzA2MTc3LCJqdGkiOiJrZVBZb3BIV2hneXRnS2JnIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.DMamWqV0suVG3Tt4YdaRcIW070mrWlyhq4F_NJ7u3ns"
     },
     "tests": []
   },
@@ -215,13 +216,9 @@
     "method": "GET",
     "sortNum": 100000,
     "created": "2023-05-03T19:44:37.586Z",
-    "modified": "2023-05-03T19:44:37.586Z",
+    "modified": "2023-06-02T08:40:15.151Z",
     "headers": [],
     "params": [],
-    "auth": {
-      "type": "bearer",
-      "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvcmVmcmVzaCIsImlhdCI6MTY3ODczMjYxOCwiZXhwIjoxNjc4OTkxODYyLCJuYmYiOjE2Nzg3MzI2NjIsImp0aSI6ImJlMUlQTHJIbjZ3WlNIQjMiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.TfJUSxEr4fxDvXgJ2zhdtwhoAEkNxnqYP8-AKxiHsBw"
-    },
     "tests": []
   },
   {
@@ -247,17 +244,13 @@
     "colId": "1fb1d14f-4ec9-49fd-aaa4-002da09a66d0",
     "containerId": "89d7fc9b-0e5c-4e0d-aaa5-b2ffd604130e",
     "name": "GET",
-    "url": "http://127.0.0.1:8000/api/v1/asset/show/10",
+    "url": "http://127.0.0.1:8000/api/v1/asset/show/2",
     "method": "GET",
     "sortNum": 110000,
     "created": "2023-05-03T19:44:37.588Z",
-    "modified": "2023-05-06T10:08:45.098Z",
+    "modified": "2023-06-02T08:32:34.659Z",
     "headers": [],
     "params": [],
-    "auth": {
-      "type": "bearer",
-      "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODMzMDYxNzcsImV4cCI6MTY4MzU2NTM3NywibmJmIjoxNjgzMzA2MTc3LCJqdGkiOiJrZVBZb3BIV2hneXRnS2JnIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.DMamWqV0suVG3Tt4YdaRcIW070mrWlyhq4F_NJ7u3ns"
-    },
     "tests": []
   },
   {
@@ -269,17 +262,13 @@
     "method": "POST",
     "sortNum": 120000,
     "created": "2023-05-03T19:44:37.589Z",
-    "modified": "2023-05-03T19:44:37.589Z",
+    "modified": "2023-06-02T08:29:27.136Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
       "raw": "{\n  \"stockcode\": \"20202020045\",\n  \"serialnumber\": \"22aa-a564-aasd-asdg\",\n  \"nama_asset\": \"Gearbos\",\n  \"merk\": \"merktern\",\n  \"model\": \"carbonite\",\n  \"spesifikasi\": \"blablablablabla\",\n  \"deskripsi\": \"blablablablabla\",\n  \"id_lokasi\": 2,\n  \"id_kategori\": [\n    1,\n    2\n  ],\n  \"id_status\":2\n}",
       "form": []
-    },
-    "auth": {
-      "type": "bearer",
-      "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2NzgyOTA2MTUsImV4cCI6MTY3ODU0OTgxNSwibmJmIjoxNjc4MjkwNjE1LCJqdGkiOiJSSmhFMk1WMXh6NnlHOG1kIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.JMwVpjxa88zzsn3PiN9o47pBpAtusGZADiu1eqCnzQE"
     },
     "tests": []
   },
@@ -292,17 +281,13 @@
     "method": "POST",
     "sortNum": 130000,
     "created": "2023-05-03T19:44:37.590Z",
-    "modified": "2023-05-03T19:44:37.590Z",
+    "modified": "2023-06-02T08:40:59.153Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
       "raw": "{\n  \"kategori\":\"mesin\",\n  \"id_subsatker\":2\n}",
       "form": []
-    },
-    "auth": {
-      "type": "bearer",
-      "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2Nzg3MzI2MTgsImV4cCI6MTY3ODk5MTgxOCwibmJmIjoxNjc4NzMyNjE4LCJqdGkiOiJ5bmhUb3lGWEVJbUg3Q0h6Iiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.aAxYNHONuUz8Q0GnaFPAoyoqA05ItFGuHw5J5d9ZumM"
     },
     "tests": []
   },
@@ -374,17 +359,13 @@
     "method": "POST",
     "sortNum": 150000,
     "created": "2023-05-03T19:44:37.594Z",
-    "modified": "2023-05-03T19:44:37.594Z",
+    "modified": "2023-06-02T15:32:47.967Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"kategori\" : \"Mekanik\",\n  \"subsatker\":\"3\"\n}",
+      "raw": "{\n  \"kategori\" : \"Mekanik\",\n  \"id_subsatker\":\"3\"\n}",
       "form": []
-    },
-    "auth": {
-      "type": "bearer",
-      "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2Nzg2OTg1MjUsImV4cCI6MTY3ODk1NzcyNSwibmJmIjoxNjc4Njk4NTI1LCJqdGkiOiJ5OWJLQWF5a0p0anB6YjZtIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.715FOeTTYBE5Xf7-1RxTCoYfJUBWr8pfSiQTtrJw3Rg"
     },
     "tests": []
   },
@@ -420,13 +401,9 @@
     "method": "POST",
     "sortNum": 160000,
     "created": "2023-05-03T19:44:37.596Z",
-    "modified": "2023-05-03T19:44:37.596Z",
+    "modified": "2023-06-02T15:33:35.640Z",
     "headers": [],
     "params": [],
-    "auth": {
-      "type": "bearer",
-      "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2Nzk3MzEzMTcsImV4cCI6MTY3OTk5MDUxNywibmJmIjoxNjc5NzMxMzE3LCJqdGkiOiJNTXZJbGpEYlBmaDdreXZBIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.JVr5jXWworHUV5bgU8dVQO-lFUdiuvn8QOtG8-0nyLQ"
-    },
     "tests": []
   },
   {
@@ -456,17 +433,13 @@
     "method": "GET",
     "sortNum": 170000,
     "created": "2023-05-03T19:44:37.598Z",
-    "modified": "2023-05-03T19:44:37.598Z",
+    "modified": "2023-06-02T15:32:14.226Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"Kategori\":\"nisi\"\n}",
+      "raw": "{\n  \"Kategori\":\"I\"\n}",
       "form": []
-    },
-    "auth": {
-      "type": "bearer",
-      "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2Nzg2OTg1MjUsImV4cCI6MTY3ODk1NzcyNSwibmJmIjoxNjc4Njk4NTI1LCJqdGkiOiJ5OWJLQWF5a0p0anB6YjZtIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.715FOeTTYBE5Xf7-1RxTCoYfJUBWr8pfSiQTtrJw3Rg"
     },
     "tests": []
   },
@@ -502,13 +475,9 @@
     "method": "GET",
     "sortNum": 190000,
     "created": "2023-05-03T19:44:37.600Z",
-    "modified": "2023-05-03T19:44:37.600Z",
+    "modified": "2023-06-02T15:41:14.335Z",
     "headers": [],
     "params": [],
-    "auth": {
-      "type": "bearer",
-      "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2Nzg2OTg1MjUsImV4cCI6MTY3ODk1NzcyNSwibmJmIjoxNjc4Njk4NTI1LCJqdGkiOiJ5OWJLQWF5a0p0anB6YjZtIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.715FOeTTYBE5Xf7-1RxTCoYfJUBWr8pfSiQTtrJw3Rg"
-    },
     "tests": []
   },
   {
@@ -520,17 +489,13 @@
     "method": "POST",
     "sortNum": 200000,
     "created": "2023-05-03T19:44:37.601Z",
-    "modified": "2023-05-03T19:44:37.601Z",
+    "modified": "2023-06-02T15:42:27.854Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
       "raw": "{\n  \"unit\": \"Gedung Utama\"\n}",
       "form": []
-    },
-    "auth": {
-      "type": "bearer",
-      "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2Nzg2OTg1MjUsImV4cCI6MTY3ODk1NzcyNSwibmJmIjoxNjc4Njk4NTI1LCJqdGkiOiJ5OWJLQWF5a0p0anB6YjZtIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.715FOeTTYBE5Xf7-1RxTCoYfJUBWr8pfSiQTtrJw3Rg"
     },
     "tests": []
   },
@@ -557,21 +522,17 @@
     "colId": "1fb1d14f-4ec9-49fd-aaa4-002da09a66d0",
     "containerId": "71615ae6-ddd9-46ac-8bf3-19faa3c65798",
     "name": "UPDATE",
-    "url": "http://127.0.0.1:8000/api/v1/location/update/1",
+    "url": "http://127.0.0.1:8000/api/v1/location/update/2",
     "method": "POST",
     "sortNum": 220000,
     "created": "2023-05-03T19:44:37.603Z",
-    "modified": "2023-05-03T19:44:37.603Z",
+    "modified": "2023-06-04T10:01:26.002Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"unit\":\"Kantor\"\n}",
+      "raw": "{\n  \"unit\":\"Kantor1\"\n}",
       "form": []
-    },
-    "auth": {
-      "type": "bearer",
-      "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2Nzg2OTg1MjUsImV4cCI6MTY3ODk1NzcyNSwibmJmIjoxNjc4Njk4NTI1LCJqdGkiOiJ5OWJLQWF5a0p0anB6YjZtIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.715FOeTTYBE5Xf7-1RxTCoYfJUBWr8pfSiQTtrJw3Rg"
     },
     "tests": []
   },
@@ -584,13 +545,9 @@
     "method": "POST",
     "sortNum": 230000,
     "created": "2023-05-03T19:44:37.604Z",
-    "modified": "2023-05-03T19:44:37.604Z",
+    "modified": "2023-06-04T09:58:40.222Z",
     "headers": [],
     "params": [],
-    "auth": {
-      "type": "bearer",
-      "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2Nzg2OTg1MjUsImV4cCI6MTY3ODk1NzcyNSwibmJmIjoxNjc4Njk4NTI1LCJqdGkiOiJ5OWJLQWF5a0p0anB6YjZtIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.715FOeTTYBE5Xf7-1RxTCoYfJUBWr8pfSiQTtrJw3Rg"
-    },
     "tests": []
   },
   {
@@ -602,13 +559,9 @@
     "method": "GET",
     "sortNum": 240000,
     "created": "2023-05-03T19:44:37.605Z",
-    "modified": "2023-05-03T19:44:37.605Z",
+    "modified": "2023-06-04T09:58:58.597Z",
     "headers": [],
     "params": [],
-    "auth": {
-      "type": "bearer",
-      "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2Nzg2OTg1MjUsImV4cCI6MTY3ODk1NzcyNSwibmJmIjoxNjc4Njk4NTI1LCJqdGkiOiJ5OWJLQWF5a0p0anB6YjZtIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.715FOeTTYBE5Xf7-1RxTCoYfJUBWr8pfSiQTtrJw3Rg"
-    },
     "tests": []
   },
   {
@@ -638,13 +591,9 @@
     "method": "GET",
     "sortNum": 240000,
     "created": "2023-05-03T19:44:37.607Z",
-    "modified": "2023-05-03T19:44:37.607Z",
+    "modified": "2023-06-04T10:23:43.494Z",
     "headers": [],
     "params": [],
-    "auth": {
-      "type": "bearer",
-      "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2Nzg2OTg1MjUsImV4cCI6MTY3ODk1NzcyNSwibmJmIjoxNjc4Njk4NTI1LCJqdGkiOiJ5OWJLQWF5a0p0anB6YjZtIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.715FOeTTYBE5Xf7-1RxTCoYfJUBWr8pfSiQTtrJw3Rg"
-    },
     "tests": []
   },
   {
@@ -702,17 +651,13 @@
     "method": "POST",
     "sortNum": 250000,
     "created": "2023-05-03T19:44:37.610Z",
-    "modified": "2023-05-03T19:44:37.610Z",
+    "modified": "2023-06-04T10:27:36.069Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"status\":\"createtest\"\n}",
+      "raw": "{\n  \"status\":\"createtest\",\n  \"statustype\":\"ASST\"\n}",
       "form": []
-    },
-    "auth": {
-      "type": "bearer",
-      "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2Nzg2OTg1MjUsImV4cCI6MTY3ODk1NzcyNSwibmJmIjoxNjc4Njk4NTI1LCJqdGkiOiJ5OWJLQWF5a0p0anB6YjZtIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.715FOeTTYBE5Xf7-1RxTCoYfJUBWr8pfSiQTtrJw3Rg"
     },
     "tests": []
   },
@@ -926,13 +871,9 @@
     "method": "GET",
     "sortNum": 275000,
     "created": "2023-05-03T19:44:37.621Z",
-    "modified": "2023-05-05T18:44:20.499Z",
+    "modified": "2023-06-01T07:50:59.280Z",
     "headers": [],
     "params": [],
-    "auth": {
-      "type": "bearer",
-      "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODMzMDYxNzcsImV4cCI6MTY4MzU2NTM3NywibmJmIjoxNjgzMzA2MTc3LCJqdGkiOiJrZVBZb3BIV2hneXRnS2JnIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.DMamWqV0suVG3Tt4YdaRcIW070mrWlyhq4F_NJ7u3ns"
-    },
     "tests": []
   },
   {
@@ -944,7 +885,7 @@
     "method": "POST",
     "sortNum": 280000,
     "created": "2023-05-03T19:44:37.622Z",
-    "modified": "2023-05-05T17:46:28.185Z",
+    "modified": "2023-05-31T14:13:18.692Z",
     "headers": [],
     "params": [],
     "body": {
@@ -964,20 +905,16 @@
           "value": "2"
         },
         {
-          "name": "fotoafter",
+          "name": "imageafter",
           "value": "asd"
         }
       ],
       "files": [
         {
-          "name": "fotobefore",
+          "name": "imagebefore",
           "value": "..\\..\\..\\..\\Personal\\DSC_5877-Editbw.jpg"
         }
       ]
-    },
-    "auth": {
-      "type": "bearer",
-      "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODMzMDYxNzcsImV4cCI6MTY4MzU2NTM3NywibmJmIjoxNjgzMzA2MTc3LCJqdGkiOiJrZVBZb3BIV2hneXRnS2JnIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.DMamWqV0suVG3Tt4YdaRcIW070mrWlyhq4F_NJ7u3ns"
     },
     "tests": []
   },
@@ -1004,16 +941,16 @@
     "colId": "1fb1d14f-4ec9-49fd-aaa4-002da09a66d0",
     "containerId": "dd2c651c-059d-41f8-8fee-0cd455a36ffc",
     "name": "DESTROY",
-    "url": "http://127.0.0.1:8000/api/v1/maintenance/destroy/3",
+    "url": "http://127.0.0.1:8000/api/v1/maintenance/destroy/5001",
     "method": "POST",
     "sortNum": 290000,
     "created": "2023-05-05T18:42:29.453Z",
-    "modified": "2023-05-05T18:44:28.863Z",
+    "modified": "2023-05-10T06:37:10.004Z",
     "headers": [],
     "params": [],
     "auth": {
       "type": "bearer",
-      "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODMzMDYxNzcsImV4cCI6MTY4MzU2NTM3NywibmJmIjoxNjgzMzA2MTc3LCJqdGkiOiJrZVBZb3BIV2hneXRnS2JnIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.DMamWqV0suVG3Tt4YdaRcIW070mrWlyhq4F_NJ7u3ns"
+      "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODM2OTk5MTQsImV4cCI6MTY4Mzk1OTExNCwibmJmIjoxNjgzNjk5OTE0LCJqdGkiOiJ2bjhsZ2c4akN5MWlrTEZvIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.owzc0s2WDwOvWZfTGGCTNZ7aLH7DKAmagA70wsyaAok"
     },
     "tests": []
   },
@@ -1026,7 +963,7 @@
     "method": "POST",
     "sortNum": 135000,
     "created": "2023-05-05T19:45:00.470Z",
-    "modified": "2023-05-05T19:56:59.332Z",
+    "modified": "2023-05-17T07:53:15.879Z",
     "headers": [],
     "params": [],
     "body": {
@@ -1036,7 +973,7 @@
     },
     "auth": {
       "type": "bearer",
-      "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODMzMTY1OTAsImV4cCI6MTY4MzU3NTc5MCwibmJmIjoxNjgzMzE2NTkwLCJqdGkiOiJnVTBrWHVhM1ozdHBzbE84Iiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.CRokZxoCUss2Ja50s6K2zrf56NmC13Y1ltGLdf8RPbM"
+      "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODQzMDgzNDUsImV4cCI6MTY4NDU2NzU0NSwibmJmIjoxNjg0MzA4MzQ1LCJqdGkiOiJkcTZWUndJR3pwU1FxV0QxIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.vXe4_2kYkeIrNgbIoUfngRQ2-tGFJbqWhE204Lhq-Tk"
     },
     "tests": []
   },
@@ -1103,6 +1040,154 @@
       "type": "bearer",
       "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODMzODc0MjksImV4cCI6MTY4MzY0NjYzMCwibmJmIjoxNjgzMzg3NDMwLCJqdGkiOiJGeWZabE1mQ1IwSHV0RmlhIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.c8R1D3ekc6rOYMmL12LXpNO13wzGrJg2fY9EqrokNVQ"
     },
+    "tests": []
+  },
+  {
+    "_id": "c0ed8286-0a79-4c85-a298-26746b3510a3",
+    "colId": "1fb1d14f-4ec9-49fd-aaa4-002da09a66d0",
+    "containerId": "be614dfe-f978-470c-9880-7cceddcb6d95",
+    "name": "GET",
+    "url": "http://127.0.0.1:8000/api/v1/news/show/3",
+    "method": "GET",
+    "sortNum": 300000,
+    "created": "2023-05-17T07:26:38.960Z",
+    "modified": "2023-06-04T10:07:05.509Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "e8e3af6a-4e1c-4b8a-9a61-6d0a675a61ac",
+    "colId": "1fb1d14f-4ec9-49fd-aaa4-002da09a66d0",
+    "containerId": "be614dfe-f978-470c-9880-7cceddcb6d95",
+    "name": "STORE",
+    "url": "http://127.0.0.1:8000/api/v1/news/store",
+    "method": "POST",
+    "sortNum": 310000,
+    "created": "2023-05-23T04:05:30.717Z",
+    "modified": "2023-05-23T04:09:05.037Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "formdata",
+      "raw": "",
+      "form": [
+        {
+          "name": "title",
+          "value": "new NEWS"
+        },
+        {
+          "name": "deskripsi",
+          "value": "manot"
+        }
+      ],
+      "files": [
+        {
+          "name": "image",
+          "value": "..\\..\\..\\..\\Personal\\DSC_5877-Editbw.jpg"
+        }
+      ]
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODQ4MTQ0MjMsImV4cCI6MTY4NTA3MzYyNCwibmJmIjoxNjg0ODE0NDI0LCJqdGkiOiJIRzJCMlo2RDY0ME9Yd0w4Iiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.0H1QEBRN5B38lo4161LjHNmgply24OUNzZ857UWgwPE"
+    },
+    "tests": []
+  },
+  {
+    "_id": "df1eb182-bdce-4eec-907f-cca02b0e04e5",
+    "colId": "1fb1d14f-4ec9-49fd-aaa4-002da09a66d0",
+    "containerId": "dd2c651c-059d-41f8-8fee-0cd455a36ffc",
+    "name": "UPDATES UPDATE ",
+    "url": "http://127.0.0.1:8000/api/v1/maintenance/3/updates/1",
+    "method": "POST",
+    "sortNum": 202500,
+    "created": "2023-05-23T04:13:21.176Z",
+    "modified": "2023-06-01T10:45:36.027Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "formdata",
+      "raw": "",
+      "form": [
+        {
+          "name": "id_status",
+          "value": "1"
+        },
+        {
+          "name": "deskripsi_update",
+          "value": "nananu"
+        }
+      ],
+      "files": [
+        {
+          "name": "image",
+          "value": "c:\\Users\\JACK\\Pictures\\The witcher signs.png"
+        }
+      ]
+    },
+    "tests": []
+  },
+  {
+    "_id": "547d7032-de73-4041-b348-132a2d812de3",
+    "colId": "1fb1d14f-4ec9-49fd-aaa4-002da09a66d0",
+    "containerId": "be614dfe-f978-470c-9880-7cceddcb6d95",
+    "name": "UPDATE",
+    "url": "http://127.0.0.1:8000/api/v1/news/update/1",
+    "method": "POST",
+    "sortNum": 320000,
+    "created": "2023-05-23T04:13:25.017Z",
+    "modified": "2023-06-04T10:12:37.839Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "formdata",
+      "raw": "",
+      "form": [
+        {
+          "name": "title",
+          "value": "xxxx"
+        },
+        {
+          "name": "deskripsi",
+          "value": "sample"
+        }
+      ],
+      "files": [
+        {
+          "name": "image",
+          "value": "c:\\Users\\JACK\\Pictures\\vector-formula-physics-14asd.png"
+        }
+      ]
+    },
+    "tests": []
+  },
+  {
+    "_id": "3ee8bf2f-f5eb-46a4-a474-9fb6185e5be5",
+    "colId": "1fb1d14f-4ec9-49fd-aaa4-002da09a66d0",
+    "containerId": "be614dfe-f978-470c-9880-7cceddcb6d95",
+    "name": "DESTROY",
+    "url": "http://127.0.0.1:8000/api/v1/news/destroy/3",
+    "method": "POST",
+    "sortNum": 330000,
+    "created": "2023-05-23T09:23:19.606Z",
+    "modified": "2023-06-04T10:12:13.945Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "97e80549-e40b-4ce0-be14-1fdfab323b8b",
+    "colId": "1fb1d14f-4ec9-49fd-aaa4-002da09a66d0",
+    "containerId": "be614dfe-f978-470c-9880-7cceddcb6d95",
+    "name": "GETALL",
+    "url": "http://127.0.0.1:8000/api/v1/news/getall",
+    "method": "GET",
+    "sortNum": 305000,
+    "created": "2023-06-04T10:07:11.332Z",
+    "modified": "2023-06-04T10:07:18.776Z",
+    "headers": [],
+    "params": [],
     "tests": []
   }
 ]

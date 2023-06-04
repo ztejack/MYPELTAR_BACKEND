@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Exceptions\HttpResponseException;
 
 class UpdateStatusRequest extends FormRequest
 {
@@ -26,5 +28,13 @@ class UpdateStatusRequest extends FormRequest
         return [
             'status' => 'required',
         ];
+    }
+    protected function failedValidation(Validator $validator)
+    {
+        $errors = $validator->errors()->messages();
+        throw new HttpResponseException(response()->json([
+            'message' => 'The given data was invalid.',
+            'errors' => $errors,
+        ], 422));
     }
 }

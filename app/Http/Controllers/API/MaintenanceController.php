@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Maintenance;
 use App\Http\Requests\StoremaintenanceRequest;
 use App\Http\Requests\UpdatemaintenanceRequest;
+use App\Http\Requests\UpdatePupdateMaintenanceRequest;
 use App\Http\Resources\AssetResource;
 use App\Http\Resources\MaintenanceResource;
 use App\Models\Asset;
@@ -27,17 +28,8 @@ class MaintenanceController extends Controller
         return response()->json(MaintenanceResource::collection($maintenances));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
+    /** 
      * Store a newly created resource in storage.
      *
      * @param  \App\Http\Requests\StoremaintenanceRequest  $request
@@ -48,7 +40,7 @@ class MaintenanceController extends Controller
         $status_id = 4;
         $input = $request->validated();
         $maintenance = new Maintenance();
-        $maintenance->id_user_inspektor = Auth::user()->id;
+        $maintenance->id_user_inspeksi = Auth::user()->id;
         $pupdate = new PUpdate();
         if (!is_null($input['imagebefore'])) {
             $imagepath = Storage::put('public/images/Maintenance', $request->file('imagebefore'));
@@ -68,8 +60,6 @@ class MaintenanceController extends Controller
         $asset->id_status = $status_id;
         $asset->save();
         return response()->json(['status' => 'Data Maintenance Berhasil Ditambahkan !'], 201);
-        // return response()->json($input->id_type);
-        // return response()->json(MaintenanceResource::make($maintenance));
     }
 
     /**
@@ -85,16 +75,6 @@ class MaintenanceController extends Controller
         return response()->json(['data' => $maintenances], 200);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\maintenance  $maintenance
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Maintenance $maintenance)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -104,9 +84,10 @@ class MaintenanceController extends Controller
      * @param  \public\image\maintenance\ $imagepath
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatemaintenanceRequest $request, maintenance $maintenance)
+    public function update(UpdatemaintenanceRequest $request, $Maintenance)
     {
         $input = $request->validated();
+        $maintenance = Maintenance::find($Maintenance);
         $maintenance->id_type = $input['id_type'];
         $maintenance->deskripsi = $input['deskripsi'];
         $pupdate = new PUpdate();
@@ -120,12 +101,8 @@ class MaintenanceController extends Controller
         $pupdate->id_maintenance = $maintenance->id;
         $pupdate->id_status = $input['id_status'];
         $pupdate->deskripsi = $input['deskripsi_update'];
-        $pupdate->save();
+        $pupdate->update();
         return response()->json(['status' => 'Data Maintenance Berhasil Diupdate !'], 201);
-    }
-
-    function deleteimage()
-    {
     }
 
     /**
@@ -136,9 +113,18 @@ class MaintenanceController extends Controller
      */
     public function destroy(Maintenance $maintenance)
     {
-        // note:
-        // Rubah Kondisi Status Asset
         try {
+            if (Storage::exists($maintenance->imagebefore)) {
+                Storage::delete($maintenance->imagebefore);
+            }
+            if (Storage::exists($maintenance->imageafter)) {
+                Storage::delete($maintenance->imageafter);
+            }
+            foreach ($maintenance->pupdate as $update) {
+                if (Storage::exists($update->image)) {
+                    Storage::delete($update->image);
+                }
+            }
             $maintenance->delete();
         } catch (\Exception $e) {
             return response()->json([

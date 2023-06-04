@@ -92,6 +92,10 @@ class RoleAndPermissionSeeder extends Seeder
             'update-maintenance',
             'delete-maintenance',
 
+            'store-location',
+            'update-location',
+            'delete-location',
+
             'store-satker',
             'update-satker',
             'delete-satker',
@@ -123,6 +127,10 @@ class RoleAndPermissionSeeder extends Seeder
             'store-banner',
             'update-banner',
             'delete-banner',
+
+            'store-location',
+            'update-location',
+            'delete-location',
 
             'store-maintenance',
             'update-maintenance',

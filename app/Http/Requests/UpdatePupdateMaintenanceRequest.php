@@ -2,11 +2,13 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Maintenance;
+use App\Models\PUpdate;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class StorenewsRequest extends FormRequest
+class UpdatePupdateMaintenanceRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -15,7 +17,9 @@ class StorenewsRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        $maintenance = Maintenance::findOrFail($this->route('maintenance'));
+        $pUpdate = PUpdate::findOrFail($this->route('pupdate'));
+        return $maintenance->id === $pUpdate->id_maintenance;
     }
 
     /**
@@ -31,8 +35,8 @@ class StorenewsRequest extends FormRequest
         } else {
             $rules['image'] = '';
         }
-        $rules['title'] = 'required';
-        $rules['deskripsi'] = 'required|string';
+        $rules['id_status'] = 'required';
+        $rules['deskripsi_update'] = 'required|string';
         return $rules;
     }
     protected function failedValidation(Validator $validator)

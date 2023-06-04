@@ -16,7 +16,15 @@ class LocationController extends Controller
      */
     public function index()
     {
-        return response()->json([Location::all()]);
+        $location = Location::orderBy(
+            request('column') ? request('column') : 'updated_at',
+            request('direction') ? request('direction') : 'desc'
+        )->paginate(50);
+
+        return response()->json(
+            $location,
+            200
+        );
     }
 
     /**
@@ -82,7 +90,6 @@ class LocationController extends Controller
         $location->update();
         return response()->json([
             'status' => 'Lokasi Berhasil Diupdate !',
-            'location' => $location
         ], 200);
     }
 

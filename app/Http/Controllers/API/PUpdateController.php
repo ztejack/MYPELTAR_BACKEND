@@ -1,78 +1,42 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\Storep_updateRequest;
 use App\Models\PUpdate;
 use App\Http\Requests\StorePUpdateRequest;
 use App\Http\Requests\Updatep_updateRequest;
-use App\Http\Requests\UpdatePUpdateRequest;
+use App\Http\Requests\UpdatePupdateMaintenanceRequest;
+use App\Models\Maintenance;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class PUpdateController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StorePUpdateRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Storep_updateRequest $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\PUpdate  $PUpdate
-     * @return \Illuminate\Http\Response
-     */
-    public function show(PUpdate $PUpdate)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\PUpdate  $PUpdate
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(PUpdate $PUpdate)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdatePUpdateRequest  $request
+     * @param  \App\Http\Requests\UpdatePupdateMaintenanceRequest  $request
      * @param  \App\Models\PUpdate  $PUpdate
      * @return \Illuminate\Http\Response
      */
-    public function update(Updatep_updateRequest $request, PUpdate $PUpdate)
+    public function update(UpdatePupdateMaintenanceRequest $request, $Maintenance, $PUpdate)
     {
-        //
+        $input = $request->validated();
+        $maintenance = Maintenance::findorfail($Maintenance);
+        $pupdate = $maintenance->pupdates()->findorfail($PUpdate);
+        $pupdate->id_user = Auth::user()->id;
+        $pupdate->id_status = $input['id_status'];
+        $pupdate->deskripsi = $input['deskripsi_update'];
+        if (!is_null($input['image'])) {
+            $imagepath = Storage::put('public/images/Maintenance', $request->file('image'));
+            $pupdate->image = $imagepath;
+        }
+        if ($pupdate->update()) {
+            return response()->json(['status' => 'Data Update Maintenance Berhasil Diperbarui !'], 201);
+        };
     }
 
     /**

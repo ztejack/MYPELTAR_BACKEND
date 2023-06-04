@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Storage;
 
-class PUpdateResource extends JsonResource
+class NewsResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -17,12 +17,12 @@ class PUpdateResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'user' => $this->users->name,
-            'status' => $this->status->status,
+            'user' => $this->publiser->name,
+            'title' => $this->title,
             'deskripsi' => $this->deskripsi,
             'image' => ($this->image == null) ? null : asset(Storage::url($this->image)),
             'created_at' => $this->created_at,
-            'update_at' => $this->updated_at
+            'updated_at' => $this->updated_at,
         ];
     }
 }

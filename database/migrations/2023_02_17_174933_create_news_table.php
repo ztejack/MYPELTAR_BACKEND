@@ -13,9 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('newsies', function (Blueprint $table) {
+        Schema::create('news', function (Blueprint $table) {
             $table->id('id');
-            $table->string('path');
+            $table->string('title');
+            $table->string('image');
             $table->string('deskripsi');
             $table->foreignId('id_user')->default(false)->references('id')->on('users');;
             $table->timestamps();
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('banner');
+        Schema::dropIfExists('news');
     }
 };
