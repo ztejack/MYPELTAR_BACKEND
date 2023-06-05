@@ -62,11 +62,12 @@ class StatusController extends Controller
     public function update(UpdateStatusRequest $request, Status $status)
     {
         $input = $request->validated();
-        $status->unit = $input['status'];
+        $status->status = $input['status'];
+        $status->statustype = $input['statustype'];
+
         $status->update();
         return response()->json([
             'status' => 'Status Berhasil Diupdate !',
-            'statusasset' => $status
         ], 200);
     }
 

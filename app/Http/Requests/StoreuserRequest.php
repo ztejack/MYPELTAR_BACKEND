@@ -6,7 +6,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class UpdateStatusRequest extends FormRequest
+class StoreuserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,18 +25,19 @@ class UpdateStatusRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'status' => 'required',
-            'statustype' => [
-                'required',
-                function ($attribute, $value, $fail) {
-                    if ($value !== 'ASST' && $value !== 'MTNC' && $value !== 'UNVER') {
-                        $fail('The field1 must be either "ASST", "MTNC" or "UNVER".');
-                    }
-                },
-                'string'
-            ],
+        return $this->customrule();
+    }
+    public function customrule()
+    {
+        $rule = [
+            'name' => 'required|string',
+            'email' => 'required|unique:users,email|email',
+            'username' => 'required|unique:users,username|string',
+            'id_satker' => 'required',
+            'id_subsatker' => 'required',
+            'id_role' => 'required',
         ];
+        return $rule;
     }
     protected function failedValidation(Validator $validator)
     {

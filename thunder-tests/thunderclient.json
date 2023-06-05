@@ -90,7 +90,7 @@
     "method": "POST",
     "sortNum": 50000,
     "created": "2023-05-03T19:44:37.581Z",
-    "modified": "2023-05-31T13:59:02.444Z",
+    "modified": "2023-06-04T22:14:04.249Z",
     "headers": [
       {
         "name": "Accept",
@@ -126,6 +126,10 @@
       "type": "json",
       "raw": "{\n  \"username\" : \"superuser\",\n  \"password\" : \"123456789\"\n}",
       "form": []
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODU5MTY4MzAsImV4cCI6MTY4NjE3NjAzMCwibmJmIjoxNjg1OTE2ODMwLCJqdGkiOiJlcnFvSnh1QmdLV0loclB5Iiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.Zne-kvtm5mbRhYYbZUTlk5hy-QZl9AJGZ10VQO9luME"
     },
     "tests": []
   },
@@ -573,13 +577,9 @@
     "method": "GET",
     "sortNum": 240000,
     "created": "2023-05-03T19:44:37.606Z",
-    "modified": "2023-05-03T19:44:37.606Z",
+    "modified": "2023-06-04T21:04:20.440Z",
     "headers": [],
     "params": [],
-    "auth": {
-      "type": "bearer",
-      "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2Nzg2OTg1MjUsImV4cCI6MTY3ODk1NzcyNSwibmJmIjoxNjc4Njk4NTI1LCJqdGkiOiJ5OWJLQWF5a0p0anB6YjZtIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.715FOeTTYBE5Xf7-1RxTCoYfJUBWr8pfSiQTtrJw3Rg"
-    },
     "tests": []
   },
   {
@@ -651,12 +651,12 @@
     "method": "POST",
     "sortNum": 250000,
     "created": "2023-05-03T19:44:37.610Z",
-    "modified": "2023-06-04T10:27:36.069Z",
+    "modified": "2023-06-04T10:59:58.028Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"status\":\"createtest\",\n  \"statustype\":\"ASST\"\n}",
+      "raw": "{\n  \"status\":\"createtest\",\n  \"statustype\":\"UNVER\"\n}",
       "form": []
     },
     "tests": []
@@ -716,17 +716,13 @@
     "method": "POST",
     "sortNum": 255000,
     "created": "2023-05-03T19:44:37.613Z",
-    "modified": "2023-05-03T19:44:37.613Z",
+    "modified": "2023-06-04T10:42:12.137Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"status\":\"mekanix\"\n}",
+      "raw": "{\n  \"status\":\"mekanix\",\n  \"statustype\":\"MTNC\"\n  \n}",
       "form": []
-    },
-    "auth": {
-      "type": "bearer",
-      "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2Nzg2OTg1MjUsImV4cCI6MTY3ODk1NzcyNSwibmJmIjoxNjc4Njk4NTI1LCJqdGkiOiJ5OWJLQWF5a0p0anB6YjZtIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.715FOeTTYBE5Xf7-1RxTCoYfJUBWr8pfSiQTtrJw3Rg"
     },
     "tests": []
   },
@@ -775,13 +771,9 @@
     "method": "POST",
     "sortNum": 257500,
     "created": "2023-05-03T19:44:37.616Z",
-    "modified": "2023-05-03T19:44:37.616Z",
+    "modified": "2023-06-04T12:23:32.362Z",
     "headers": [],
     "params": [],
-    "auth": {
-      "type": "bearer",
-      "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2Nzk3MzEzMTcsImV4cCI6MTY3OTk5MDUxNywibmJmIjoxNjc5NzMxMzE3LCJqdGkiOiJNTXZJbGpEYlBmaDdreXZBIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.JVr5jXWworHUV5bgU8dVQO-lFUdiuvn8QOtG8-0nyLQ"
-    },
     "tests": []
   },
   {
@@ -1186,6 +1178,231 @@
     "sortNum": 305000,
     "created": "2023-06-04T10:07:11.332Z",
     "modified": "2023-06-04T10:07:18.776Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "dd5dfceb-9d9a-444a-a025-79d5d73da243",
+    "colId": "1fb1d14f-4ec9-49fd-aaa4-002da09a66d0",
+    "containerId": "1ebe2584-4cdc-4de7-98d7-0b0ad1118df2",
+    "name": "GET",
+    "url": "http://127.0.0.1:8000/api/v1/user/show/5",
+    "method": "GET",
+    "sortNum": 10000,
+    "created": "2023-06-04T20:50:54.362Z",
+    "modified": "2023-06-04T21:21:22.207Z",
+    "headers": [
+      {
+        "name": "Accept",
+        "value": "*/*",
+        "isDisabled": true
+      },
+      {
+        "name": "User-Agent",
+        "value": "Thunder Client (https://www.thunderclient.com)",
+        "isDisabled": true
+      },
+      {
+        "name": "MYP-API-KEY",
+        "value": "KA5eUCfXqQU1WoNxM0mXI3Q3q0wBDaRu"
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "7f246bd5-15e4-4227-8e09-7b6ad16ead48",
+    "colId": "1fb1d14f-4ec9-49fd-aaa4-002da09a66d0",
+    "containerId": "1ebe2584-4cdc-4de7-98d7-0b0ad1118df2",
+    "name": "STORE",
+    "url": "http://127.0.0.1:8000/api/v1/user/store",
+    "method": "POST",
+    "sortNum": 20000,
+    "created": "2023-06-04T20:51:03.373Z",
+    "modified": "2023-06-04T21:17:36.010Z",
+    "headers": [
+      {
+        "name": "Accept",
+        "value": "*/*",
+        "isDisabled": true
+      },
+      {
+        "name": "User-Agent",
+        "value": "Thunder Client (https://www.thunderclient.com)",
+        "isDisabled": true
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\":\"jack\",\n  \"email\":\"jack@xxx.com\",\n  \"username\":\"jack7\",\n  \"id_role\":\"2\",\n  \"id_subsatker\":\"1\",\n  \"id_satker\":\"1\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "1b6b7ddf-0445-4264-8f3c-3f6197ddd2d1",
+    "colId": "1fb1d14f-4ec9-49fd-aaa4-002da09a66d0",
+    "containerId": "1ebe2584-4cdc-4de7-98d7-0b0ad1118df2",
+    "name": "UPDATE ",
+    "url": "http://127.0.0.1:8000/api/v1/user/update/1",
+    "method": "POST",
+    "sortNum": 22500,
+    "created": "2023-06-04T22:03:02.377Z",
+    "modified": "2023-06-04T22:20:46.430Z",
+    "headers": [
+      {
+        "name": "Accept",
+        "value": "*/*",
+        "isDisabled": true
+      },
+      {
+        "name": "User-Agent",
+        "value": "Thunder Client (https://www.thunderclient.com)",
+        "isDisabled": true
+      },
+      {
+        "name": "MYP-APi-KEY",
+        "value": "KA5eUCfXqQU1WoNxM0mXI3Q3q0wBDaRu",
+        "isDisabled": true
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "formdata",
+      "raw": "",
+      "form": [
+        {
+          "name": "name",
+          "value": "xxxx"
+        },
+        {
+          "name": "email",
+          "value": "jack@mail.com"
+        },
+        {
+          "name": "username",
+          "value": "Jack"
+        },
+        {
+          "name": "id_role",
+          "value": "2"
+        },
+        {
+          "name": "id_subsatker",
+          "value": "3"
+        },
+        {
+          "name": "id_satker",
+          "value": "1"
+        }
+      ],
+      "files": [
+        {
+          "name": "image",
+          "value": "c:\\Users\\JACK\\Pictures\\vector-formula-physics-14asd.png"
+        }
+      ]
+    },
+    "tests": []
+  },
+  {
+    "_id": "5c29bf7d-f0bc-414b-a95d-3defeb953f80",
+    "colId": "1fb1d14f-4ec9-49fd-aaa4-002da09a66d0",
+    "containerId": "1ebe2584-4cdc-4de7-98d7-0b0ad1118df2",
+    "name": "DESTROY",
+    "url": "http://127.0.0.1:8000/api/v1/user/destroy/5",
+    "method": "POST",
+    "sortNum": 25000,
+    "created": "2023-06-04T22:03:06.102Z",
+    "modified": "2023-06-04T22:41:08.363Z",
+    "headers": [
+      {
+        "name": "Accept",
+        "value": "*/*",
+        "isDisabled": true
+      },
+      {
+        "name": "User-Agent",
+        "value": "Thunder Client (https://www.thunderclient.com)",
+        "isDisabled": true
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "f4cd5086-3da3-4a2a-8103-915328a25e27",
+    "colId": "1fb1d14f-4ec9-49fd-aaa4-002da09a66d0",
+    "containerId": "1ebe2584-4cdc-4de7-98d7-0b0ad1118df2",
+    "name": "SEARCH",
+    "url": "http://127.0.0.1:8000/api/v1/user/search?page=1&nama_asset&stockcode&merk&model&code_asset&serialnumber&kategori=Tempora.",
+    "method": "GET",
+    "sortNum": 5000,
+    "created": "2023-06-04T22:03:21.133Z",
+    "modified": "2023-06-04T22:04:10.263Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "page",
+        "value": "1",
+        "isPath": false
+      },
+      {
+        "name": "nama_asset",
+        "value": "",
+        "isPath": false
+      },
+      {
+        "name": "stockcode",
+        "value": "",
+        "isPath": false
+      },
+      {
+        "name": "merk",
+        "value": "",
+        "isPath": false
+      },
+      {
+        "name": "model",
+        "value": "",
+        "isPath": false
+      },
+      {
+        "name": "code_asset",
+        "value": "",
+        "isPath": false
+      },
+      {
+        "name": "serialnumber",
+        "value": "",
+        "isPath": false
+      },
+      {
+        "name": "kategori",
+        "value": "Tempora.",
+        "isPath": false
+      },
+      {
+        "name": "status",
+        "value": "Baik",
+        "isDisabled": true,
+        "isPath": false
+      }
+    ],
+    "tests": []
+  },
+  {
+    "_id": "11da8b06-f85e-4f43-9402-678985f60622",
+    "colId": "1fb1d14f-4ec9-49fd-aaa4-002da09a66d0",
+    "containerId": "1ebe2584-4cdc-4de7-98d7-0b0ad1118df2",
+    "name": "GETALL",
+    "url": "http://127.0.0.1:8000/api/v1/user/getall",
+    "method": "GET",
+    "sortNum": 2500,
+    "created": "2023-06-04T22:04:36.840Z",
+    "modified": "2023-06-04T22:05:39.884Z",
     "headers": [],
     "params": [],
     "tests": []

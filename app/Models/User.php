@@ -92,4 +92,8 @@ class User extends Authenticatable implements JWTSubject
     {
         return $this->belongsToMany(Maintenance::class);
     }
+    public function apiKey()
+    {
+        return $this->hasOne(ApiKey::class);
+    }
 }
