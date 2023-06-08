@@ -42,6 +42,6 @@ class DatabaseSeeder extends Seeder
 
         Maintenance::factory(5000)->create();
         // PCategory::factory(5)->create();
-        PUpdate::factory(20)->create();
+        // PUpdate::factory(20)->create();
     }
 }

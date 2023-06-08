@@ -22,7 +22,7 @@ class PUpdateFactory extends Factory
             'id_maintenance' => mt_rand(1, 50),
             'id_status' => mt_rand(4, 6),
             'deskripsi' => $this->faker->sentence(mt_rand(1, 4)),
-            'image' => $this->faker->sentence(4)
+            'image' => 'public/images/News/example.png'
         ];
     }
 }
