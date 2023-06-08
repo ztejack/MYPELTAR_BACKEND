@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Maintenance;
+use App\Models\PUpdate;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -27,5 +29,12 @@ class MaintenanceFactory extends Factory
             'created_at' => now(),
             'updated_at' => now(),
         ];
+    }
+    public function configure()
+    {
+        return $this->afterCreating(function (Maintenance $maintenance) {
+            $rule = PUpdate::factory()->count(2)->create();
+            $maintenance->pUpdates()->saveMany($rule);
+        });
     }
 }
