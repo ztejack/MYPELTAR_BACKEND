@@ -63,9 +63,12 @@ Route::prefix('v1/maintenance')->middleware('auth:api')->group(
         Route::post('update/{maintenance}', [MaintenanceController::class, 'update'])->middleware(['can:update-maintenance', 'api.key']);
         Route::post('destroy/{maintenance}', [MaintenanceController::class, 'destroy'])->middleware(['can:delete-maintenance', 'api.key']);
 
-        Route::prefix("/{maintenance}/updates")->middleware('auth:api')->group(
+        Route::prefix("/{maintenance}/history")->middleware('auth:api')->group(
             function () {
-                Route::post('/{pupdate}', [PUpdateController::class, 'update'])->middleware(['can:update-maintenance', 'api.key']);
+                Route::post('update/{pupdate}', [PUpdateController::class, 'update'])->middleware(['can:update-maintenance', 'api.key']);
+                Route::post('show/{pupdate}', [PUpdateController::class, 'update'])->middleware(['can:update-maintenance', 'api.key']);
+                Route::post('store', [PUpdateController::class, 'update'])->middleware(['can:update-maintenance', 'api.key']);
+                Route::post('destroy/{pupdate}', [PUpdateController::class, 'update'])->middleware(['can:update-maintenance', 'api.key']);
             }
         );
     }
