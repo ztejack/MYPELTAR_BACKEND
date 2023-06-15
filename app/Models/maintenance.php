@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Maintenance extends Model
 {
+    protected $table = 'maintenances';
     use HasFactory;
     /**
      * The attributes that are mass assignable.

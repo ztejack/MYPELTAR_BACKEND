@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,7 +19,7 @@ class PUpdateFactory extends Factory
     {
         return [
             // 'id_asset' => mt_rand(1, 5),
-            'id_user' => mt_rand(1, 3),
+            'id_user' => User::pluck('id')->random(),
             'id_maintenance' => mt_rand(1, 50),
             'id_status' => mt_rand(4, 6),
             'deskripsi' => $this->faker->sentence(mt_rand(1, 4)),

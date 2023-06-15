@@ -105,12 +105,12 @@
         },
         {
           "name": "MYP-API-KEY",
-          "value": "KA5eUCfXqQU1WoNxM0mXI3Q3q0wBDaRu"
+          "value": "xCzmbACxnnvx7vYhUXAc4ksKsG2FJldS"
         }
       ],
       "auth": {
         "type": "bearer",
-        "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODU5MTIwMzAsImV4cCI6MTY4NjE3MTIzMCwibmJmIjoxNjg1OTEyMDMwLCJqdGkiOiIxbDJ4bG1LZVZJaFNJQ09HIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.3zioNQSB0KEM8PhcD7fwya5mjo6vt1yArVxZcr_6gnE"
+        "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODY4MjUxNjEsImV4cCI6MTY4NzA4NDM2MSwibmJmIjoxNjg2ODI1MTYxLCJqdGkiOiJnQXJhRXE1QTdPZVdMWnBHIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.p-iJP__xqZl-lJPcvaUBgcJ61umAW1G6crOieRyn6b8"
       },
       "options": {
         "baseUrl": "http://127.0.0.1:8000/api/v1/"
