@@ -11,6 +11,7 @@ use App\Http\Resources\AssetResource;
 use App\Http\Resources\MaintenanceResource;
 use App\Models\Asset;
 use App\Models\PUpdate;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use LdapRecord\Query\Events\Paginate;
@@ -28,6 +29,16 @@ class MaintenanceController extends Controller
         return response()->json(MaintenanceResource::collection($maintenances));
     }
 
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function self_get()
+    {
+        $maintenances = User::maintenance()->where('id_user_inspeksi',Auth::user()->id)->latest()->paginate(50);
+        return response()->json(MaintenanceResource::collection($maintenances));
+    }
 
     /** 
      * Store a newly created resource in storage.
@@ -74,7 +85,6 @@ class MaintenanceController extends Controller
         $maintenances = MaintenanceResource::make($maintenance);
         return response()->json(['data' => $maintenances], 200);
     }
-
 
     /**
      * Update the specified resource in storage.

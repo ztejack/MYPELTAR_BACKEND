@@ -48,8 +48,9 @@ class AssetFactory extends Factory
     public function configure()
     {
         return $this->afterCreating(function (Asset $asset) {
-            $roles = Category::factory()->count(2)->create();
-            $asset->category()->attach($roles);
+            // $roles = Category::factory()->count(2)->create();
+            $roles = Category::inRandomOrder()->first();
+            $asset->category()->attach($roles, ['created_at' => now(), 'updated_at' => now()]);
         });
     }
 }

@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Asset;
+use App\Models\Category;
 use App\Models\Location;
 use App\Models\Maintenance;
 use App\Models\News;
@@ -36,7 +37,7 @@ class DatabaseSeeder extends Seeder
         News::factory(5)->create();
         Satker::factory(5)->create();
         Subsatker::factory(5)->create();
-        // Category::factory(5)->create();
+        Category::factory(5)->create();
         Location::factory(5)->create();
         Asset::factory(5)->create();
 

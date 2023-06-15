@@ -58,6 +58,7 @@ Route::prefix('v1/asset')->middleware('auth:api')->group(
 Route::prefix('v1/maintenance')->middleware('auth:api')->group(
     function () {
         Route::get('getall', [MaintenanceController::class, 'index']);
+        Route::get('self_get', [MaintenanceController::class, 'self_get']);
         Route::post('store', [MaintenanceController::class, 'store'])->middleware(['can:store-maintenance', 'api.key']);
         Route::get('show/{maintenance}', [MaintenanceController::class, 'show']);
         Route::post('update/{maintenance}', [MaintenanceController::class, 'update'])->middleware(['can:update-maintenance', 'api.key']);

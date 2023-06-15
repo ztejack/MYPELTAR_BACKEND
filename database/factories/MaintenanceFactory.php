@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Maintenance;
 use App\Models\PUpdate;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -20,7 +21,7 @@ class MaintenanceFactory extends Factory
     public function definition()
     {
         return [
-            'id_user_inspeksi' => 3,
+            'id_user_inspeksi' => User::pluck('id')->random(),
             'id_asset' => mt_rand(1, 5),
             'id_type' => mt_rand(1, 2),
             'deskripsi' => $this->faker->sentence(mt_rand(2, 10)),
@@ -34,7 +35,7 @@ class MaintenanceFactory extends Factory
     {
         return $this->afterCreating(function (Maintenance $maintenance) {
             $rule = PUpdate::factory()->count(2)->create();
-            $maintenance->pUpdates()->saveMany($rule);
+            $maintenance->pUpdates()->saveMany($rule, ['created_at' => now(), 'updated_at' => now()]);
         });
     }
 }
