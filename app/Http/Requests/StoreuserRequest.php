@@ -29,15 +29,20 @@ class StoreuserRequest extends FormRequest
     }
     public function customrule()
     {
-        $rule = [
+        $rules = [
             'name' => 'required|string',
             'email' => 'required|unique:users,email|email',
             'username' => 'required|unique:users,username|string',
             'id_satker' => 'required',
             'id_subsatker' => 'required',
-            'id_role' => 'required',
         ];
-        return $rule;
+        $rules = [];
+        if (!is_null($this->input('id_role'))) {
+            $rules['id_role'] = 'not_in:1';
+        } else {
+            $rules['id_role'] = '';
+        }
+        return $rules;
     }
     protected function failedValidation(Validator $validator)
     {

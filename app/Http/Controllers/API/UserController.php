@@ -15,55 +15,51 @@ use Illuminate\Support\Str;
 
 class UserController extends Controller
 {
-    // public function search(Request $request)
-    // {
-    //     $Userss = Users::query();
+    public function search(Request $request)
+    {
+        $Userss = User::query();
 
-    //     // Apply filters
-    //     if ($request->has('nama_Users') && $request->input('nama_Users') != null) {
-    //         $Userss->where('name', 'like', '%' . $request->input('nama_Users') . '%');
-    //     }
-    //     if ($request->has('merk') && $request->input('merk') != null) {
-    //         $Userss->where('merk', 'like', '%' . $request->input('merk') . '%');
-    //     }
-    //     if ($request->has('model') && $request->input('model') != null) {
-    //         $Userss->where('model', 'like', '%' . $request->input('model') . '%');
-    //     }
+        // Apply filters
+        if ($request->has('name') && $request->input('name') != null) {
+            $Userss->where('name', 'like', '%' . $request->input('name') . '%');
+        }
+        if ($request->has('username') && $request->input('username') != null) {
+            $Userss->where('username', 'like', '%' . $request->input('username') . '%');
+        }
+        if ($request->has('email') && $request->input('email') != null) {
+            $Userss->where('email', 'like', '%' . $request->input('email') . '%');
+        }
+        if ($request->has('satker') && $request->input('satker') != null) {
+            $Userss->where('satker', $request->input('satker'));
+        }
+        if ($request->has('subsatker') && $request->input('subsatker') != null) {
+            $Userss->where('subsatker', $request->input('subsatker'));
+        }
+        if ($request->has('satker') && $request->input('satker') != null) {
+            $satkerTerm = $request->input('satker');
+            $Userss->whereHas('satkers', function ($query) use ($satkerTerm) {
+                $query->where('satker', $satkerTerm);
+            });
+        }
+        if ($request->has('subsatker') && $request->input('subsatker') != null) {
+            $subsatkerTerm = $request->input('subsatker');
+            $Userss->whereHas('subsatker', function ($query) use ($subsatkerTerm) {
+                $query->where('subsatker',  $subsatkerTerm);
+            });
+        }
 
-    //     if ($request->has('code_Users') && $request->input('code_Users') != null) {
-    //         $Userss->where('code_Users', $request->input('code_Users'));
-    //     }
-    //     if ($request->has('stockcode') && $request->input('stockcode') != null) {
-    //         $Userss->where('stockcode', $request->input('stockcode'));
-    //     }
-    //     if ($request->has('serialnumber') && $request->input('serialnumber') != null) {
-    //         $Userss->where('serialnumber', $request->input('serialnumber'));
-    //     }
-    //     if ($request->has('kategori') && $request->input('kategori') != null) {
-    //         $kategoriTerm = $request->input('kategori');
-    //         $Userss->whereHas('category', function ($query) use ($kategoriTerm) {
-    //             $query->where('kategori', $kategoriTerm);
-    //         });
-    //     }
-    //     if ($request->has('status') && $request->input('status') != null) {
-    //         $statusTerm = $request->input('status');
-    //         $Userss->whereHas('status', function ($query) use ($statusTerm) {
-    //             $query->where('status',  $statusTerm);
-    //         });
-    //     }
+        // Get results
+        $Userss = $Userss->get();
 
-    //     // Get results
-    //     $Userss = $Userss->get();
-
-    //     if ($Userss->isEmpty()) {
-    //         return response()->json(['message' => 'No results found.'], 404);
-    //     } else {
-    //         $Userss = UsersResource::collection(
-    //             $Userss
-    //         );
-    //         return response()->json($Userss, 200);
-    //     }
-    // }
+        if ($Userss->isEmpty()) {
+            return response()->json(['message' => 'No results found.'], 404);
+        } else {
+            $Userss = UserResource::collection(
+                $Userss
+            );
+            return response()->json($Userss, 200);
+        }
+    }
 
     /**
      * 
@@ -104,7 +100,11 @@ class UserController extends Controller
         $user->id_subsatker = $input['id_subsatker'];
         $user->password = '12345678';
         // return $role;
-        $user->assignRole($input['id_role']);
+        if (!is_null($input['id_role'])) {
+            $user->assignRole($input['']);
+        }else{
+            $user->assignRole($input['id_role']);
+        }
         $user->save();
         $apikey = new ApiKey();
         $apikey->apikey = Str::random(32);
@@ -133,14 +133,14 @@ class UserController extends Controller
         return response()->json(['data' => $userr], 200);
     }
 
-    // /**
-    //  * @group Users
-    //  * Update the specified resource in storage.
-    //  *
-    //  * @param  \App\Http\Requests\UpdateuserRequest  $request
-    //  * @param  \App\Models\User  $user
-    //  * @return \Illuminate\Http\Response
-    //  */
+    /**
+     * @group Users
+     * Update the specified resource in storage.
+     *
+     * @param  \App\Http\Requests\UpdateuserRequest  $request
+     * @param  \App\Models\User  $user
+     * @return \Illuminate\Http\Response
+     */
     public function update(UpdateuserRequest $request, User $user)
     {
         $input = $request->validated();
