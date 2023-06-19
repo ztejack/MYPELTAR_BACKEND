@@ -19,8 +19,10 @@ class UserResource extends JsonResource
             'email' => $this->email,
             'username' => $this->username,
             'role' => $this->getRoleNames(),
-            'subsatker' => Subsatker_PResource::make($this->subsatker),
-            'satker' => Satker_PResource::make($this->subsatker->satker),
+            'subsatker' => $this->subsatker->subsatker,
+            'satker' => $this->subsatker->satker->satker,
+            // 'subsatker' => Subsatker_PResource::make($this->subsatker),
+            // 'satker' => Satker_PResource::make($this->subsatker->satker),
         ];
     }
 }
