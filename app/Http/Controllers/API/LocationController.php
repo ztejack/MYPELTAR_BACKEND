@@ -7,6 +7,9 @@ use App\Models\Location;
 use App\Http\Requests\StorelocationRequest;
 use App\Http\Requests\UpdatelocationRequest;
 
+/**
+ * @group Location
+ */
 class LocationController extends Controller
 {
     /**

@@ -15,15 +15,30 @@ use App\Models\StatusAssets;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 
+/**
+ * @group Assets
+ */
 class AssetController extends Controller
 {
-    /**
-     * @group Assets
-     */
+    
     // public function __construct()
     // {
     //     $this->middleware('auth:api', ['except' => ['index', 'show']]);
     // }
+    /**
+     * Search
+     * 
+     * search a collection of data asset
+     * @queryParam page int The paginate of collection asset. Example: 1
+     * @queryParam name string The name of the  asset. Example: Printer Epsen L310
+     * @queryParam merk string required The merk of the user. Example: Epsen
+     * @queryParam model string required The model of the user. Example: Printer & Scanner
+     * @queryParam code_asset string required The code_asset of the user. Example: AST0010
+     * @queryParam stockcode string required The stockcode of the user. Example: 202015602
+     * @queryParam serialnumber string required The serialnumber of the user. Example: hjk4h65...
+     * @queryParam kategori string required The kategori of the user. Example: printer
+     * @queryParam status string required The status of the user. Example: baik
+     */
 
     public function search(Request $request)
     {
@@ -39,7 +54,6 @@ class AssetController extends Controller
         if ($request->has('model') && $request->input('model') != null) {
             $assets->where('model', 'like', '%' . $request->input('model') . '%');
         }
-
         if ($request->has('code_asset') && $request->input('code_asset') != null) {
             $assets->where('code_asset', $request->input('code_asset'));
         }
@@ -52,13 +66,13 @@ class AssetController extends Controller
         if ($request->has('kategori') && $request->input('kategori') != null) {
             $kategoriTerm = $request->input('kategori');
             $assets->whereHas('category', function ($query) use ($kategoriTerm) {
-                $query->where('kategori', $kategoriTerm);
+                $query->where('kategori', 'like', '%' . $kategoriTerm . '%');
             });
         }
         if ($request->has('status') && $request->input('status') != null) {
             $statusTerm = $request->input('status');
             $assets->whereHas('status', function ($query) use ($statusTerm) {
-                $query->where('status',  $statusTerm);
+                $query->where('status','like', '%' . $statusTerm . '%');
             });
         }
 
@@ -73,12 +87,13 @@ class AssetController extends Controller
             );
             return response()->json($assets, 200);
         }
+
+        // $assets->whereHas('category', function ($query))
     }
 
     /**
-     * 
-     * @group Assets
-     * Display a listing of the resource.
+     * a
+     * Display a listing of the resoursce ~Aset~.
      *
      * @return \Illuminate\Http\Response
      */
@@ -98,7 +113,6 @@ class AssetController extends Controller
     }
 
     /**
-     * @group Assets
      * Store a newly created resource in storage.
      *
      * @param  \App\Http\Requests\StoreassetRequest  $request

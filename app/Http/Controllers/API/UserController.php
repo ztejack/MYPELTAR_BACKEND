@@ -12,7 +12,9 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Str;
-
+/**
+ * @group Users
+ */
 class UserController extends Controller
 {
     public function search(Request $request)
@@ -64,6 +66,7 @@ class UserController extends Controller
     /**
      * 
      * @group Users
+     * @authenticate
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response

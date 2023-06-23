@@ -19,7 +19,7 @@ return [
     /*
      * The base URL displayed in the docs. If this is empty, Scribe will use the value of config('app.url').
      */
-    'base_url' => null,
+    'base_url' => 'http://localhost:8000',
 
     /*
      * Tell Scribe what routes to generate documentation for.
@@ -75,6 +75,8 @@ return [
                 'headers' => [
                     'Content-Type' => 'application/json',
                     'Accept' => 'application/json',
+                    'MYP-API-KEY' => '{YOUR_API_KEY}',
+
                 ],
 
                 /*
@@ -87,7 +89,7 @@ return [
                      * API calls will be made only for routes in this group matching these HTTP methods (GET, POST, etc).
                      * List the methods here or use '*' to mean all methods. Leave empty to disable API calls.
                      */
-                    'methods' => ['GET'],
+                    'methods' => ['*'],
 
                     /*
                      * Laravel config variables which should be set for the API call.
@@ -138,7 +140,7 @@ return [
      * - "static" will generate a static HTMl page in the /public/docs folder,
      * - "laravel" will generate the documentation as a Blade view, so you can add routing and authentication.
      */
-    'type' => 'static',
+    'type' => 'laravel',
 
     /*
      * Settings for `static` type output.
@@ -177,7 +179,7 @@ return [
         /*
          * Middleware to attach to the docs endpoint (if `add_routes` is true).
          */
-        'middleware' => [],
+        'middleware' => ['api'],
     ],
 
     'try_it_out' => [
@@ -191,7 +193,7 @@ return [
          * The base URL for the API tester to use (for example, you can set this to your staging URL).
          * Leave as null to use the current app URL (config(app.url)).
          */
-        'base_url' => null,
+        'base_url' => 'http://localhost:8000',
 
         /**
          * Fetch a CSRF token before each request, and add it as an X-XSRF-TOKEN header. Needed if you're using Laravel Sanctum.
@@ -235,24 +237,20 @@ return [
          * This will NOT be included in the generated documentation.
          * If this value is empty, Scribe will use a random value.
          */
-        'use_value' => env('SCRIBE_AUTH_KEY'),
+        'use_value' => env('SCRIBE_AUTH_KEY_BEARER'),
 
         /*
          * Placeholder your users will see for the auth parameter in the example requests.
          * Set this to null if you want Scribe to use a random value as placeholder instead.
          */
         'placeholder' => '{YOUR_AUTH_KEY}',
+        
         /*
          * Any extra authentication-related info for your users. For instance, you can describe how to find or generate their auth credentials.
          * Markdown and HTML are supported.
          */
         'extra_info' => 'You can retrieve your token by visiting your dashboard and clicking <b>Generate API token</b>.',
-
-        /*
-         * Any extra authentication-related info for your users. For instance, you can describe how to find or generate their auth credentials.
-         * Markdown and HTML are supported.
-         */
-        // 'extra_info' => 'You can retrieve your token by visiting your dashboard and clicking <b>Generate API token</b>.',
+       
     ],
 
     /*
@@ -303,7 +301,7 @@ INTRO
      * Setting `laravel.add_routes` to true (above) will also add a route for the spec.
      */
     'openapi' => [
-        'enabled' => true,
+        'enabled' => false,
 
         /*
          * Manually override some generated content in the spec. Dot notation is supported.
@@ -370,7 +368,7 @@ INTRO
          * If you would like the package to generate the same example values for parameters on each run,
          * set this to any number (eg. 1234)
          */
-        'faker_seed' => null,
+        'faker_seed' => 1234,
 
         /*
          * With API resources and transformers, Scribe tries to generate example models to use in your API responses.

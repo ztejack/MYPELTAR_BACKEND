@@ -7,6 +7,10 @@ use App\Models\Role;
 use App\Http\Requests\StoreroleRequest;
 use App\Http\Requests\UpdateroleRequest;
 
+/**
+ * 
+ * @group Role
+ */
 class RoleController extends Controller
 {
     /**

@@ -8,6 +8,9 @@ use App\Http\Requests\StoresubsatkerRequest;
 use App\Http\Requests\UpdatesubsatkerRequest;
 use App\Http\Resources\SubsatkerResource;
 
+/**
+ * @group Sub Satuan Kerja
+ */
 class SubsatkerController extends Controller
 {
     /**

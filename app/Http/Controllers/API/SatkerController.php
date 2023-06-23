@@ -8,6 +8,9 @@ use App\Http\Requests\StoresatkerRequest;
 use App\Http\Requests\UpdatesatkerRequest;
 use App\Http\Resources\SatkerResource;
 
+/**
+ * @group Satuan Kerja
+ */
 class SatkerController extends Controller
 {
     /**

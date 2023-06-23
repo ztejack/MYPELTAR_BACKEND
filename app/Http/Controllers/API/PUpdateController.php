@@ -14,6 +14,9 @@ use App\Models\Maintenance;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
+/**
+ * @group Maintenance
+ */
 class PUpdateController extends Controller
 {
     /**

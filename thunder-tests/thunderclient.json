@@ -72,13 +72,9 @@
     "method": "POST",
     "sortNum": 30000,
     "created": "2023-05-03T19:44:37.580Z",
-    "modified": "2023-05-03T19:44:37.580Z",
+    "modified": "2023-06-23T09:48:17.931Z",
     "headers": [],
     "params": [],
-    "auth": {
-      "type": "bearer",
-      "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvcmVmcmVzaCIsImlhdCI6MTY3Nzk5NzQxMywiZXhwIjoxNjc4MjU2Njg3LCJuYmYiOjE2Nzc5OTc0ODcsImp0aSI6IjFBZ0tiNXdnaHNGMkYzeG0iLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.k-fPu-3ENKbh8Ahqix4SLJcXv77P9dLe5Un5_NTRcx8"
-    },
     "tests": []
   },
   {
@@ -90,7 +86,7 @@
     "method": "POST",
     "sortNum": 50000,
     "created": "2023-05-03T19:44:37.581Z",
-    "modified": "2023-06-04T22:14:04.249Z",
+    "modified": "2023-06-20T15:49:01.162Z",
     "headers": [
       {
         "name": "Accept",
@@ -129,7 +125,7 @@
     },
     "auth": {
       "type": "bearer",
-      "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODU5MTY4MzAsImV4cCI6MTY4NjE3NjAzMCwibmJmIjoxNjg1OTE2ODMwLCJqdGkiOiJlcnFvSnh1QmdLV0loclB5Iiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.Zne-kvtm5mbRhYYbZUTlk5hy-QZl9AJGZ10VQO9luME"
+      "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODcyNzYxMzIsImV4cCI6MTY4NzUzNTMzMiwibmJmIjoxNjg3Mjc2MTMyLCJqdGkiOiJTWDUwRHpmYWdqdzladExiIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.LiDZ5QFbzsgGsmhmxv7LDU-cGTtrHeQoTnzPRQSTfuE"
     },
     "tests": []
   },
@@ -142,13 +138,9 @@
     "method": "POST",
     "sortNum": 60000,
     "created": "2023-05-03T19:44:37.582Z",
-    "modified": "2023-05-03T19:44:37.582Z",
+    "modified": "2023-06-20T14:01:10.900Z",
     "headers": [],
     "params": [],
-    "auth": {
-      "type": "bearer",
-      "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2Nzg3MzI2MTgsImV4cCI6MTY3ODk5MTgxOCwibmJmIjoxNjc4NzMyNjE4LCJqdGkiOiJ5bmhUb3lGWEVJbUg3Q0h6Iiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.aAxYNHONuUz8Q0GnaFPAoyoqA05ItFGuHw5J5d9ZumM"
-    },
     "tests": []
   },
   {
@@ -975,11 +967,11 @@
     "colId": "1fb1d14f-4ec9-49fd-aaa4-002da09a66d0",
     "containerId": "89d7fc9b-0e5c-4e0d-aaa5-b2ffd604130e",
     "name": "SEARCH",
-    "url": "http://127.0.0.1:8000/api/v1/asset/search?page=1&nama_asset&stockcode&merk&model&code_asset&serialnumber&kategori=Tempora.",
+    "url": "http://127.0.0.1:8000/api/v1/asset/search?page=1&nama_asset&stockcode&merk&model&code_asset&serialnumber&kategori=Pariat",
     "method": "GET",
     "sortNum": 50000,
     "created": "2023-05-06T15:40:28.558Z",
-    "modified": "2023-05-06T18:50:28.952Z",
+    "modified": "2023-06-20T16:02:41.441Z",
     "headers": [],
     "params": [
       {
@@ -1019,20 +1011,16 @@
       },
       {
         "name": "kategori",
-        "value": "Tempora.",
+        "value": "Pariat",
         "isPath": false
       },
       {
         "name": "status",
-        "value": "Baik",
+        "value": "dalam perbaikan",
         "isDisabled": true,
         "isPath": false
       }
     ],
-    "auth": {
-      "type": "bearer",
-      "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODMzODc0MjksImV4cCI6MTY4MzY0NjYzMCwibmJmIjoxNjgzMzg3NDMwLCJqdGkiOiJGeWZabE1mQ1IwSHV0RmlhIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.c8R1D3ekc6rOYMmL12LXpNO13wzGrJg2fY9EqrokNVQ"
-    },
     "tests": []
   },
   {
