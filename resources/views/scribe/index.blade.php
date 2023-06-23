@@ -95,23 +95,26 @@
                 </li>
                                     <ul id="tocify-subheader-assets" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="assets-GETapi-v1-asset-getall">
-                                <a href="#assets-GETapi-v1-asset-getall">a
-Display a listing of the resoursce ~Aset~.</a>
+                                <a href="#assets-GETapi-v1-asset-getall">Get All Assets
+Display a listing of the Assets.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="assets-GETapi-v1-asset-search">
-                                <a href="#assets-GETapi-v1-asset-search">Search</a>
+                                <a href="#assets-GETapi-v1-asset-search">Search the specified Assets</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="assets-POSTapi-v1-asset-store">
-                                <a href="#assets-POSTapi-v1-asset-store">Store a newly created resource in storage.</a>
+                                <a href="#assets-POSTapi-v1-asset-store">Create an Assets
+Store a newly created Assets.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="assets-GETapi-v1-asset-show--asset_id-">
-                                <a href="#assets-GETapi-v1-asset-show--asset_id-">Display the specified resource.</a>
+                                <a href="#assets-GETapi-v1-asset-show--asset_id-">Get Assets by ID
+Display the specified Assets.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="assets-POSTapi-v1-asset-update--asset_id-">
-                                <a href="#assets-POSTapi-v1-asset-update--asset_id-">Update the specified resource in storage.</a>
+                                <a href="#assets-POSTapi-v1-asset-update--asset_id-">Update Assets
+Update the specified Assets.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="assets-POSTapi-v1-asset-destroy--asset_id-">
-                                <a href="#assets-POSTapi-v1-asset-destroy--asset_id-">Remove the specified resource from storage.</a>
+                                <a href="#assets-POSTapi-v1-asset-destroy--asset_id-">Delete the specified Assets from storage.</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -1158,8 +1161,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
     
 
-                                <h2 id="assets-GETapi-v1-asset-getall">a
-Display a listing of the resoursce ~Aset~.</h2>
+                                <h2 id="assets-GETapi-v1-asset-getall">Get All Assets
+Display a listing of the Assets.</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -1173,7 +1176,7 @@ Display a listing of the resoursce ~Aset~.</h2>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/v1/asset/getall" \
+    --get "http://localhost:8000/api/v1/asset/getall?page=1&amp;limit=20" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -1184,6 +1187,13 @@ Display a listing of the resoursce ~Aset~.</h2>
     <pre><code class="language-javascript">const url = new URL(
     "http://localhost:8000/api/v1/asset/getall"
 );
+
+const params = {
+    "page": "1",
+    "limit": "20",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
 
 const headers = {
     "Authorization": "Bearer {YOUR_AUTH_KEY}",
@@ -1209,6 +1219,10 @@ $response = $client-&gt;get(
             'Accept' =&gt; 'application/json',
             'MYP-API-KEY' =&gt; '{YOUR_API_KEY}',
         ],
+        'query' =&gt; [
+            'page' =&gt; '1',
+            'limit' =&gt; '20',
+        ],
     ]
 );
 $body = $response-&gt;getBody();
@@ -1220,6 +1234,10 @@ print_r(json_decode((string) $body));</code></pre></div>
 import json
 
 url = 'http://localhost:8000/api/v1/asset/getall'
+params = {
+  'page': '1',
+  'limit': '20',
+}
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
@@ -1227,26 +1245,38 @@ headers = {
   'MYP-API-KEY': '{YOUR_API_KEY}'
 }
 
-response = requests.request('GET', url, headers=headers)
+response = requests.request('GET', url, headers=headers, params=params)
 response.json()</code></pre></div>
 
 </span>
 
 <span id="example-responses-GETapi-v1-asset-getall">
             <blockquote>
-            <p>Example response (403):</p>
+            <p>Example response (200, Ok):</p>
         </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-access-control-allow-origin: *
- </code></pre></details>         <pre>
+                <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;error&quot;: &quot;UnAuthenticated&quot;
+  &quot;status&quot;: &quot;success&quot;,
+  &quot;asset&quot;: [
+    {
+      &quot;id&quot;: 2,
+      &quot;stockcode&quot;: &quot;26&quot;,
+      &quot;code_asset&quot;: &quot;AST23060002&quot;,
+      &quot;serialnumber&quot;: &quot;FAKESerial00002&quot;,
+      &quot;nama_asset&quot;: &quot;Dr. Felipe Green&quot;,
+      &quot;merk&quot;: &quot;Quos.&quot;,
+      &quot;model&quot;: &quot;Perspiciatis nisi.&quot;,
+      &quot;spesifikasi&quot;: &quot;Magnam est quis.&quot;,
+      &quot;deskripsi&quot;: &quot;Dolores ipsam dignissimos.&quot;,
+      &quot;lokasi&quot;: &quot;RCD2&quot;,
+      &quot;kategori&quot;: [
+        &quot;Pariatur.&quot;
+      ],
+      &quot;status&quot;: &quot;Pending&quot;,
+      &quot;updated_at&quot;: &quot;2023-06-15T10:33:27.000000Z&quot;,
+      &quot;created_at&quot;: &quot;2023-06-15T10:31:00.000000Z&quot;
+    },
 }</code>
  </pre>
     </span>
@@ -1341,9 +1371,32 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>{YOUR_API_KEY}</code></p>
             </div>
-                        </form>
+                            <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>page</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               name="page"                data-endpoint="GETapi-v1-asset-getall"
+               value="1"
+               data-component="query">
+    <br>
+<p>The paginate of collection asset. Example: <code>1</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>limit</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               name="limit"                data-endpoint="GETapi-v1-asset-getall"
+               value="20"
+               data-component="query">
+    <br>
+<p>The count of collection asset per page. default <code>20</code> per page Example: <code>20</code></p>
+            </div>
+                </form>
 
-                    <h2 id="assets-GETapi-v1-asset-search">Search</h2>
+                    <h2 id="assets-GETapi-v1-asset-search">Search the specified Assets</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -1357,7 +1410,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/v1/asset/search?page=1&amp;name=Printer+Epsen+L310&amp;merk=Epsen&amp;model=Printer+%26+Scanner&amp;code_asset=AST0010&amp;stockcode=202015602&amp;serialnumber=hjk4h65...&amp;kategori=printer&amp;status=baik" \
+    --get "http://localhost:8000/api/v1/asset/search?page=1&amp;limit=20&amp;name=Printer+Epsen+L310&amp;merk=Epsen&amp;model=Printer+%26+Scanner&amp;code_asset=AST0010&amp;stockcode=202015602&amp;serialnumber=hjk4h65...&amp;kategori=printer&amp;status=baik" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -1371,6 +1424,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 const params = {
     "page": "1",
+    "limit": "20",
     "name": "Printer Epsen L310",
     "merk": "Epsen",
     "model": "Printer &amp; Scanner",
@@ -1409,6 +1463,7 @@ $response = $client-&gt;get(
         ],
         'query' =&gt; [
             'page' =&gt; '1',
+            'limit' =&gt; '20',
             'name' =&gt; 'Printer Epsen L310',
             'merk' =&gt; 'Epsen',
             'model' =&gt; 'Printer &amp; Scanner',
@@ -1431,6 +1486,7 @@ import json
 url = 'http://localhost:8000/api/v1/asset/search'
 params = {
   'page': '1',
+  'limit': '20',
   'name': 'Printer Epsen L310',
   'merk': 'Epsen',
   'model': 'Printer &amp; Scanner',
@@ -1454,20 +1510,30 @@ response.json()</code></pre></div>
 
 <span id="example-responses-GETapi-v1-asset-search">
             <blockquote>
-            <p>Example response (403):</p>
+            <p>Example response (200, Ok):</p>
         </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-access-control-allow-origin: *
- </code></pre></details>         <pre>
+                <pre>
 
-<code class="language-json" style="max-height: 300px;">{
-    &quot;error&quot;: &quot;UnAuthenticated&quot;
-}</code>
+<code class="language-json" style="max-height: 300px;">[
+    {
+      &quot;id&quot;: 2,
+      &quot;stockcode&quot;: &quot;26&quot;,
+      &quot;code_asset&quot;: &quot;AST23060002&quot;,
+      &quot;serialnumber&quot;: &quot;FAKESerial00002&quot;,
+      &quot;nama_asset&quot;: &quot;Dr. Felipe Green&quot;,
+      &quot;merk&quot;: &quot;Quos.&quot;,
+      &quot;model&quot;: &quot;Perspiciatis nisi.&quot;,
+      &quot;spesifikasi&quot;: &quot;Magnam est quis.&quot;,
+      &quot;deskripsi&quot;: &quot;Dolores ipsam dignissimos.&quot;,
+      &quot;lokasi&quot;: &quot;RCD2&quot;,
+      &quot;kategori&quot;: [
+        &quot;Pariatur.&quot;
+      ],
+      &quot;status&quot;: &quot;Pending&quot;,
+      &quot;updated_at&quot;: &quot;2023-06-15T10:33:27.000000Z&quot;,
+      &quot;created_at&quot;: &quot;2023-06-15T10:31:00.000000Z&quot;
+    },
+]</code>
  </pre>
     </span>
 <span id="execution-results-GETapi-v1-asset-search" hidden>
@@ -1574,6 +1640,17 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>The paginate of collection asset. Example: <code>1</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>limit</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               name="limit"                data-endpoint="GETapi-v1-asset-search"
+               value="20"
+               data-component="query">
+    <br>
+<p>The count of collection asset per page. default <code>20</code> per page Example: <code>20</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
@@ -1663,7 +1740,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                 </form>
 
-                    <h2 id="assets-POSTapi-v1-asset-store">Store a newly created resource in storage.</h2>
+                    <h2 id="assets-POSTapi-v1-asset-store">Create an Assets
+Store a newly created Assets.</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -1785,19 +1863,30 @@ response.json()</code></pre></div>
 
 <span id="example-responses-POSTapi-v1-asset-store">
             <blockquote>
-            <p>Example response (403):</p>
+            <p>Example response (200, Ok):</p>
         </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-access-control-allow-origin: *
- </code></pre></details>         <pre>
+                <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;error&quot;: &quot;UnAuthenticated&quot;
+  &#039;status&#039; =&gt; &#039;success&#039;,
+  &#039;message&#039; =&gt; &#039;Asset Berhasil Ditambahkan !&#039;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (422, Unprocessable Content):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;The given data was invalid.&quot;,
+    &quot;errors&quot;: {
+        &quot;stockcode&quot;: [
+            &quot;The stockcode has already been taken.&quot;
+        ],
+        &quot;serialnumber&quot;: [
+            &quot;The serialnumber has already been taken.&quot;
+        ]
+    }
 }</code>
  </pre>
     </span>
@@ -2005,7 +2094,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="assets-GETapi-v1-asset-show--asset_id-">Display the specified resource.</h2>
+                    <h2 id="assets-GETapi-v1-asset-show--asset_id-">Get Assets by ID
+Display the specified Assets.</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -2080,19 +2170,29 @@ response.json()</code></pre></div>
 
 <span id="example-responses-GETapi-v1-asset-show--asset_id-">
             <blockquote>
-            <p>Example response (403):</p>
+            <p>Example response (200, Ok):</p>
         </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-access-control-allow-origin: *
- </code></pre></details>         <pre>
+                <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;error&quot;: &quot;UnAuthenticated&quot;
+    &quot;data&quot;: {
+        &quot;id&quot;: 4,
+        &quot;stockcode&quot;: &quot;178&quot;,
+        &quot;code_asset&quot;: &quot;AST23060004&quot;,
+        &quot;serialnumber&quot;: &quot;FAKESerial00004&quot;,
+        &quot;nama_asset&quot;: &quot;Ben Carter&quot;,
+        &quot;merk&quot;: &quot;Ut molestiae eveniet alias.&quot;,
+        &quot;model&quot;: &quot;Explicabo earum quibusdam.&quot;,
+        &quot;spesifikasi&quot;: &quot;At.&quot;,
+        &quot;deskripsi&quot;: &quot;Sint et beatae.&quot;,
+        &quot;lokasi&quot;: &quot;RCD1&quot;,
+        &quot;kategori&quot;: [
+            &quot;Sit.&quot;
+        ],
+        &quot;status&quot;: &quot;Baik&quot;,
+        &quot;updated_at&quot;: &quot;2023-06-15T10:31:00.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2023-06-15T10:31:00.000000Z&quot;
+    }
 }</code>
  </pre>
     </span>
@@ -2201,7 +2301,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="assets-POSTapi-v1-asset-update--asset_id-">Update the specified resource in storage.</h2>
+                    <h2 id="assets-POSTapi-v1-asset-update--asset_id-">Update Assets
+Update the specified Assets.</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -2555,7 +2656,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="assets-POSTapi-v1-asset-destroy--asset_id-">Remove the specified resource from storage.</h2>
+                    <h2 id="assets-POSTapi-v1-asset-destroy--asset_id-">Delete the specified Assets from storage.</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>

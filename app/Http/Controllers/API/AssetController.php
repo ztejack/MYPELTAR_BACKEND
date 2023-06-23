@@ -13,6 +13,7 @@ use App\Models\Location;
 use App\Models\PCategory;
 use App\Models\StatusAssets;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Validation\ValidationException;
 
 /**
@@ -26,10 +27,11 @@ class AssetController extends Controller
     //     $this->middleware('auth:api', ['except' => ['index', 'show']]);
     // }
     /**
-     * Search
+     * Search the specified Assets
      * 
      * search a collection of data asset
      * @queryParam page int The paginate of collection asset. Example: 1
+     * @queryParam limit int The count of collection asset per page. default `20` per page Example: 20
      * @queryParam name string The name of the  asset. Example: Printer Epsen L310
      * @queryParam merk string required The merk of the user. Example: Epsen
      * @queryParam model string required The model of the user. Example: Printer & Scanner
@@ -38,10 +40,33 @@ class AssetController extends Controller
      * @queryParam serialnumber string required The serialnumber of the user. Example: hjk4h65...
      * @queryParam kategori string required The kategori of the user. Example: printer
      * @queryParam status string required The status of the user. Example: baik
+     * 
+     * @response 200 scenario="Ok" 
+     * [
+     *     {
+     *       "id": 2,
+     *       "stockcode": "26",
+     *       "code_asset": "AST23060002",
+     *       "serialnumber": "FAKESerial00002",
+     *       "nama_asset": "Dr. Felipe Green",
+     *       "merk": "Quos.",
+     *       "model": "Perspiciatis nisi.",
+     *       "spesifikasi": "Magnam est quis.",
+     *       "deskripsi": "Dolores ipsam dignissimos.",
+     *       "lokasi": "RCD2",
+     *       "kategori": [
+     *         "Pariatur."
+     *       ],
+     *       "status": "Pending",
+     *       "updated_at": "2023-06-15T10:33:27.000000Z",
+     *       "created_at": "2023-06-15T10:31:00.000000Z"
+     *     },
+     * ]
      */
 
     public function search(Request $request)
     {
+        $limit = $request->query('limit', 20);
         $assets = Asset::query();
 
         // Apply filters
@@ -82,8 +107,19 @@ class AssetController extends Controller
         if ($assets->isEmpty()) {
             return response()->json(['message' => 'No results found.'], 404);
         } else {
+            $orderByColumn = request('column', 'updated_at');
+            $orderByDirection = request('direction', 'desc');
+            $orderedAssets = $assets->sortBy($orderByColumn);
+
+            if ($orderByDirection === 'desc') {
+                $orderedAssets = $orderedAssets->reverse();
+            }
+            $currentPage = LengthAwarePaginator::resolveCurrentPage();
+            $pagedData = $orderedAssets->slice(($currentPage - 1) * $limit, $limit)->all();
+            $paginatedAssets = new LengthAwarePaginator($pagedData, $orderedAssets->count(), $limit, $currentPage);
+
             $assets = AssetResource::collection(
-                $assets
+                $paginatedAssets
             );
             return response()->json($assets, 200);
         }
@@ -92,18 +128,46 @@ class AssetController extends Controller
     }
 
     /**
-     * a
-     * Display a listing of the resoursce ~Aset~.
-     *
+     * Get All Assets
+     * Display a listing of the Assets.
+     * 
+     * @queryParam page int The paginate of collection asset. Example: 1
+     * @queryParam limit int The count of collection asset per page. default `20` per page Example: 20
+     * 
+     * @response 200 scenario="Ok" 
+     * {
+     *   "status": "success",
+     *   "asset": [
+     *     {
+     *       "id": 2,
+     *       "stockcode": "26",
+     *       "code_asset": "AST23060002",
+     *       "serialnumber": "FAKESerial00002",
+     *       "nama_asset": "Dr. Felipe Green",
+     *       "merk": "Quos.",
+     *       "model": "Perspiciatis nisi.",
+     *       "spesifikasi": "Magnam est quis.",
+     *       "deskripsi": "Dolores ipsam dignissimos.",
+     *       "lokasi": "RCD2",
+     *       "kategori": [
+     *         "Pariatur."
+     *       ],
+     *       "status": "Pending",
+     *       "updated_at": "2023-06-15T10:33:27.000000Z",
+     *       "created_at": "2023-06-15T10:31:00.000000Z"
+     *     },
+     * }
+     * 
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
     {
+        $limit = $request->query('limit', 20);
         $assets = AssetResource::collection(
             Asset::orderBy(
                 request('column') ? request('column') : 'updated_at',
                 request('direction') ? request('direction') : 'desc'
-            )->paginate(50)
+            )->paginate($limit)
         );
 
         return response()->json([
@@ -113,7 +177,27 @@ class AssetController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Create an Assets
+     * Store a newly created Assets.
+     * 
+     * @response 200 scenario="Ok" 
+     * {
+     *   'status' => 'success',
+     *   'message' => 'Asset Berhasil Ditambahkan !'
+     * }
+     * 
+     * @response 422 scenario="Unprocessable Content"
+     * {
+     *   "message": "The given data was invalid.",
+     *   "errors": {
+     *     "stockcode": [
+     *       "The stockcode has already been taken."
+     *     ],
+     *     "serialnumber": [
+     *       "The serialnumber has already been taken."
+     *     ]
+     *   }
+     * }
      *
      * @param  \App\Http\Requests\StoreassetRequest  $request
      * @return \Illuminate\Http\Response
@@ -135,12 +219,37 @@ class AssetController extends Controller
         $category = Category::find($input['id_kategori']);
         $asset->category()->attach($category);
 
-        return response()->json(['status' => 'Asset Berhasil Ditambahkan !'], 201);
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Asset Berhasil Ditambahkan !'
+        ], 201);
     }
 
     /**
-     * @group Assets
-     * Display the specified resource.
+     * Get Assets by ID
+     * Display the specified Assets.
+     * 
+     * @response 200 scenario="Ok" 
+     * {
+     *   "data": {
+     *     "id": 4,
+     *     "stockcode": "178",
+     *     "code_asset": "AST23060004",
+     *     "serialnumber": "FAKESerial00004",
+     *     "nama_asset": "Ben Carter",
+     *     "merk": "Ut molestiae eveniet alias.",
+     *     "model": "Explicabo earum quibusdam.",
+     *     "spesifikasi": "At.",
+     *     "deskripsi": "Sint et beatae.",
+     *     "lokasi": "RCD1",
+     *     "kategori": [
+     *       "Sit."
+     *     ],
+     *     "status": "Baik",
+     *     "updated_at": "2023-06-15T10:31:00.000000Z",
+     *     "created_at": "2023-06-15T10:31:00.000000Z"
+     *   }
+     * }
      *
      * @param  \App\Models\Asset  $asset
      * @return \Illuminate\Http\Response
@@ -152,8 +261,8 @@ class AssetController extends Controller
     }
 
     /**
-     * @group Assets
-     * Update the specified resource in storage.
+     * Update Assets
+     * Update the specified Assets.
      *
      * @param  \App\Http\Requests\UpdateassetRequest  $request
      * @param  \App\Models\asset  $asset
@@ -181,13 +290,34 @@ class AssetController extends Controller
     }
 
     /**
-     * @group Assets
-     * Remove the specified resource from storage.
+     * 
+     * Delete the specified Assets from storage.
      *
      * @param  \App\Models\asset  $asset
      * @return \Illuminate\Http\Response
      */
     public function destroy(asset $asset)
+    {
+        try {
+            $asset->delete();
+        } catch (\Exception $e) {
+            return response()->json([
+                'error' => 'Failed to delete resource',
+            ], 500);
+        }
+        return response()->json([
+            'status' => 'Asset Berhasil Dihapus !',
+        ], 200);
+    }
+
+    /**
+     * 
+     * Delete the specified Assets from storage.
+     *
+     * @param  \App\Models\asset  $asset
+     * @return \Illuminate\Http\Response
+     */
+    public function hostory(asset $asset)
     {
         try {
             $asset->delete();

@@ -11,8 +11,8 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: |-
-        a
-        Display a listing of the resoursce ~Aset~.
+        Get All Assets
+        Display a listing of the Assets.
       description: ''
       authenticated: true
       custom: []
@@ -23,20 +23,55 @@ endpoints:
       MYP-API-KEY: '{YOUR_API_KEY}'
     urlParameters: []
     cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
+    queryParameters:
+      page:
+        name: page
+        description: 'The paginate of collection asset.'
+        required: false
+        example: 1
+        type: integer
+        custom: []
+      limit:
+        name: limit
+        description: 'The count of collection asset per page. default `20` per page'
+        required: false
+        example: 20
+        type: integer
+        custom: []
+    cleanQueryParameters:
+      page: 1
+      limit: 20
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
     responses:
       -
-        status: 403
-        content: '{"error":"UnAuthenticated"}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
+        status: 200
+        content: |-
+          {
+            "status": "success",
+            "asset": [
+              {
+                "id": 2,
+                "stockcode": "26",
+                "code_asset": "AST23060002",
+                "serialnumber": "FAKESerial00002",
+                "nama_asset": "Dr. Felipe Green",
+                "merk": "Quos.",
+                "model": "Perspiciatis nisi.",
+                "spesifikasi": "Magnam est quis.",
+                "deskripsi": "Dolores ipsam dignissimos.",
+                "lokasi": "RCD2",
+                "kategori": [
+                  "Pariatur."
+                ],
+                "status": "Pending",
+                "updated_at": "2023-06-15T10:33:27.000000Z",
+                "created_at": "2023-06-15T10:31:00.000000Z"
+              },
+          }
+        headers: []
+        description: Ok
         custom: []
     responseFields: []
     auth:
@@ -56,7 +91,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: Search
+      title: 'Search the specified Assets'
       description: 'search a collection of data asset'
       authenticated: true
       custom: []
@@ -73,6 +108,13 @@ endpoints:
         description: 'The paginate of collection asset.'
         required: false
         example: 1
+        type: integer
+        custom: []
+      limit:
+        name: limit
+        description: 'The count of collection asset per page. default `20` per page'
+        required: false
+        example: 20
         type: integer
         custom: []
       name:
@@ -133,6 +175,7 @@ endpoints:
         custom: []
     cleanQueryParameters:
       page: 1
+      limit: 20
       name: 'Printer Epsen L310'
       merk: Epsen
       model: 'Printer & Scanner'
@@ -146,13 +189,30 @@ endpoints:
     fileParameters: []
     responses:
       -
-        status: 403
-        content: '{"error":"UnAuthenticated"}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
+        status: 200
+        content: |-
+          [
+              {
+                "id": 2,
+                "stockcode": "26",
+                "code_asset": "AST23060002",
+                "serialnumber": "FAKESerial00002",
+                "nama_asset": "Dr. Felipe Green",
+                "merk": "Quos.",
+                "model": "Perspiciatis nisi.",
+                "spesifikasi": "Magnam est quis.",
+                "deskripsi": "Dolores ipsam dignissimos.",
+                "lokasi": "RCD2",
+                "kategori": [
+                  "Pariatur."
+                ],
+                "status": "Pending",
+                "updated_at": "2023-06-15T10:33:27.000000Z",
+                "created_at": "2023-06-15T10:31:00.000000Z"
+              },
+          ]
+        headers: []
+        description: Ok
         custom: []
     responseFields: []
     auth:
@@ -172,7 +232,9 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Store a newly created resource in storage.'
+      title: |-
+        Create an Assets
+        Store a newly created Assets.
       description: ''
       authenticated: true
       custom: []
@@ -269,13 +331,31 @@ endpoints:
     fileParameters: []
     responses:
       -
-        status: 403
-        content: '{"error":"UnAuthenticated"}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
+        status: 200
+        content: |-
+          {
+            'status' => 'success',
+            'message' => 'Asset Berhasil Ditambahkan !'
+          }
+        headers: []
+        description: Ok
+        custom: []
+      -
+        status: 422
+        content: |-
+          {
+            "message": "The given data was invalid.",
+            "errors": {
+              "stockcode": [
+                "The stockcode has already been taken."
+              ],
+              "serialnumber": [
+                "The serialnumber has already been taken."
+              ]
+            }
+          }
+        headers: []
+        description: 'Unprocessable Content'
         custom: []
     responseFields: []
     auth:
@@ -295,7 +375,9 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Display the specified resource.'
+      title: |-
+        Get Assets by ID
+        Display the specified Assets.
       description: ''
       authenticated: true
       custom: []
@@ -321,13 +403,30 @@ endpoints:
     fileParameters: []
     responses:
       -
-        status: 403
-        content: '{"error":"UnAuthenticated"}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
+        status: 200
+        content: |-
+          {
+            "data": {
+              "id": 4,
+              "stockcode": "178",
+              "code_asset": "AST23060004",
+              "serialnumber": "FAKESerial00004",
+              "nama_asset": "Ben Carter",
+              "merk": "Ut molestiae eveniet alias.",
+              "model": "Explicabo earum quibusdam.",
+              "spesifikasi": "At.",
+              "deskripsi": "Sint et beatae.",
+              "lokasi": "RCD1",
+              "kategori": [
+                "Sit."
+              ],
+              "status": "Baik",
+              "updated_at": "2023-06-15T10:31:00.000000Z",
+              "created_at": "2023-06-15T10:31:00.000000Z"
+            }
+          }
+        headers: []
+        description: Ok
         custom: []
     responseFields: []
     auth:
@@ -347,7 +446,9 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Update the specified resource in storage.'
+      title: |-
+        Update Assets
+        Update the specified Assets.
       description: ''
       authenticated: true
       custom: []
@@ -478,7 +579,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Remove the specified resource from storage.'
+      title: 'Delete the specified Assets from storage.'
       description: ''
       authenticated: true
       custom: []

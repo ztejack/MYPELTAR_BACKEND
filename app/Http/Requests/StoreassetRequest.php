@@ -30,8 +30,8 @@ class StoreassetRequest extends FormRequest
     public function customrule()
     {
         $rule = [
-            'stockcode' => 'required|string',
-            'serialnumber' => 'required',
+            'stockcode' => 'required|string|unique:assets',
+            'serialnumber' => 'required|unique:assets',
             'nama_asset' => 'min:6',
             'merk' => 'required|string',
             'model' => 'string',
