@@ -14,6 +14,7 @@ use App\Models\PCategory;
 use App\Models\StatusAssets;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\ValidationException;
 
 /**
@@ -215,6 +216,10 @@ class AssetController extends Controller
         $asset->deskripsi = $input['deskripsi'];
         $asset->id_lokasi = $input['id_lokasi'];
         $asset->id_status = $input['id_status'];
+        if (!is_null($input['image'])) {
+            $image = Storage::put('public/images/Asset', $request->file('image'));
+            $asset->image = $image;
+        }
         $asset->save();
         $category = Category::find($input['id_kategori']);
         $asset->category()->attach($category);
@@ -280,6 +285,13 @@ class AssetController extends Controller
         $asset->deskripsi = $input['deskripsi'];
         $asset->id_lokasi = $input['id_lokasi'];
         $asset->id_status = $input['id_status'];
+        if ($request->hasFile('image')) {
+            if (Storage::exists($asset->image)) {
+                Storage::delete($asset->image);
+            }
+            $imagepath = Storage::put('public/images/Asset', $request->file('image'));
+            $asset->image = $imagepath;
+        }
 
         $category = Category::find($asset->category);
         $asset->category()->detach($category);
@@ -320,6 +332,9 @@ class AssetController extends Controller
     public function hostory(asset $asset)
     {
         try {
+            if (Storage::exists($asset->image)) {
+                Storage::delete($asset->image);
+            }
             $asset->delete();
         } catch (\Exception $e) {
             return response()->json([

@@ -29,8 +29,8 @@ class StoreassetRequest extends FormRequest
     }
     public function customrule()
     {
-        $rule = [
-            'stockcode' => 'required|string|unique:assets',
+        $rules = [
+            'stockcode' => 'required|string|unique:assets', 
             'serialnumber' => 'required|unique:assets',
             'nama_asset' => 'min:6',
             'merk' => 'required|string',
@@ -38,10 +38,15 @@ class StoreassetRequest extends FormRequest
             'spesifikasi' => 'string',
             'deskripsi' => 'string',
             'id_lokasi' => 'required|integer',
-            'id_kategori' => 'array',
+            'id_kategori' => 'required',
             'id_status' => 'required|integer',
         ];
-        return $rule;
+        if (!is_null($this->input('image'))) {
+            $rules['image'] = 'image|mimes:jpeg,png,jpg|max:2048';
+        } else {
+            $rules['image'] = '';
+        }
+        return $rules;
     }
     protected function failedValidation(Validator $validator)
     {

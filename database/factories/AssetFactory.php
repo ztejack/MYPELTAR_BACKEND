@@ -38,6 +38,7 @@ class AssetFactory extends Factory
             'name' => fake()->name(),
             'merk' => $this->faker->sentence(mt_rand(1, 3)),
             'model' => $this->faker->sentence(mt_rand(1, 3)),
+            'image' => 'public/images/News/example.png',
             'spesifikasi' => $this->faker->sentence(mt_rand(1, 3)),
             'deskripsi' => $this->faker->sentence(mt_rand(1, 3)),
             'id_lokasi' => mt_rand(1, 5),

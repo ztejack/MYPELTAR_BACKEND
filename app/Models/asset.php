@@ -20,6 +20,7 @@ class Asset extends Model
         'name',
         'merk',
         'model',
+        'image',
         'spesifikasi',
         'deskripsi',
         'id_lokasi',

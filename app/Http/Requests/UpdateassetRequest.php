@@ -29,7 +29,7 @@ class UpdateassetRequest extends FormRequest
     }
     public function customrule()
     {
-        $rule = [
+        $rules = [
             'stockcode' => 'required|string',
             // 'code_ast' => 'required|string',
             'serialnumber' => 'required',
@@ -42,7 +42,12 @@ class UpdateassetRequest extends FormRequest
             'id_kategori' => 'array',
             'id_status' => 'integer',
         ];
-        return $rule;
+        if (!is_null($this->input('image'))) {
+            $rules['image'] = 'image|mimes:jpeg,png,jpg|max:2048';
+        } else {
+            $rules['image'] = '';
+        }
+        return $rules;
     }
     protected function failedValidation(Validator $validator)
     {

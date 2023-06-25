@@ -198,13 +198,60 @@
     "method": "POST",
     "sortNum": 90000,
     "created": "2023-05-03T19:44:37.585Z",
-    "modified": "2023-06-02T08:34:35.462Z",
+    "modified": "2023-06-25T14:30:28.326Z",
     "headers": [],
     "params": [],
     "body": {
-      "type": "json",
-      "raw": "{\n  \"stockcode\": \"20202020045\",\n  \"serialnumber\": \"22aa-a564-kasd-asdg\",\n  \"nama_asset\": \"Gearbox\",\n  \"merk\": \"merktern\",\n  \"model\": \"carbonite\",\n  \"spesifikasi\": \"blablablablabla\",\n  \"deskripsi\": \"blablablablabla\",\n  \"id_lokasi\": 2,\n  \"id_kategori\": [\n    1,\n    2\n  ],\n  \"id_status\":2\n}",
-      "form": []
+      "type": "formdata",
+      "raw": "",
+      "form": [
+        {
+          "name": "stockcode",
+          "value": "20202020040"
+        },
+        {
+          "name": "serialnumber",
+          "value": "22aa-a564-kasd-asd0"
+        },
+        {
+          "name": "nama_asset",
+          "value": "Gearbox"
+        },
+        {
+          "name": "merk",
+          "value": "merktern"
+        },
+        {
+          "name": "model",
+          "value": "carbonite"
+        },
+        {
+          "name": "spesifikasi",
+          "value": "blablablablabla"
+        },
+        {
+          "name": "deskripsi",
+          "value": "blablablablabla"
+        },
+        {
+          "name": "id_lokasi",
+          "value": "2"
+        },
+        {
+          "name": "id_kategori",
+          "value": "1, 2 "
+        },
+        {
+          "name": "id_status",
+          "value": "2"
+        }
+      ],
+      "files": [
+        {
+          "name": "image",
+          "value": "f:\\Media\\Picture\\vector-formula-physics-14.png"
+        }
+      ]
     },
     "tests": []
   },
