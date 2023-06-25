@@ -10,7 +10,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Display a listing of the resource.'
+      title: ''
       description: ''
       authenticated: true
       custom: []
@@ -18,6 +18,7 @@ endpoints:
       Authorization: 'Bearer {YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
+      MYP-API-KEY: '{YOUR_API_KEY}'
     urlParameters: []
     cleanUrlParameters: []
     queryParameters: []
@@ -27,13 +28,11 @@ endpoints:
     fileParameters: []
     responses:
       -
-        status: 401
-        content: '{"error":"API key is missing"}'
+        status: 403
+        content: '{"error":"UnAuthenticated"}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '58'
           access-control-allow-origin: '*'
         description: null
         custom: []
@@ -41,7 +40,51 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODcyMDU3NTIsImV4cCI6MTY4NzQ2NDk1MiwibmJmIjoxNjg3MjA1NzUyLCJqdGkiOiJIMk1GckJnVXJwMFp1eDY4Iiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.fW1-5L_aaV8rtE9-l8x4J3SXfuYmp8c24rV0TiT406o'
+      - 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODcyNzExOTUsImV4cCI6MTY4NzUzMDM5NSwibmJmIjoxNjg3MjcxMTk1LCJqdGkiOiJzV1g4MlBvSlVqenhrWExjIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.ViztGT25kym3L_e4FkzUhj7c3YSDwuume17jJ2L2GpY'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/user/search
+    metadata:
+      groupName: Users
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      MYP-API-KEY: '{YOUR_API_KEY}'
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 403
+        content: '{"error":"UnAuthenticated"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODcyNzExOTUsImV4cCI6MTY4NzUzMDM5NSwibmJmIjoxNjg3MjcxMTk1LCJqdGkiOiJzV1g4MlBvSlVqenhrWExjIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.ViztGT25kym3L_e4FkzUhj7c3YSDwuume17jJ2L2GpY'
     controller: null
     method: null
     route: null
@@ -63,67 +106,36 @@ endpoints:
       Authorization: 'Bearer {YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
+      MYP-API-KEY: '{YOUR_API_KEY}'
     urlParameters: []
     cleanUrlParameters: []
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      name:
-        name: name
-        description: ''
-        required: true
-        example: qui
-        type: string
-        custom: []
-      email:
-        name: email
-        description: 'Must be a valid email address.'
-        required: true
-        example: georgiana43@example.net
-        type: string
-        custom: []
-      username:
-        name: username
-        description: ''
-        required: true
-        example: fugiat
-        type: string
-        custom: []
-      id_satker:
-        name: id_satker
-        description: ''
-        required: true
-        example: quia
-        type: string
-        custom: []
-      id_subsatker:
-        name: id_subsatker
-        description: ''
-        required: true
-        example: voluptatibus
-        type: string
-        custom: []
       id_role:
         name: id_role
         description: ''
-        required: true
-        example: sunt
+        required: false
+        example: null
         type: string
         custom: []
-    cleanBodyParameters:
-      name: qui
-      email: georgiana43@example.net
-      username: fugiat
-      id_satker: quia
-      id_subsatker: voluptatibus
-      id_role: sunt
+    cleanBodyParameters: []
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 403
+        content: '{"error":"UnAuthenticated"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODcyMDU3NTIsImV4cCI6MTY4NzQ2NDk1MiwibmJmIjoxNjg3MjA1NzUyLCJqdGkiOiJIMk1GckJnVXJwMFp1eDY4Iiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.fW1-5L_aaV8rtE9-l8x4J3SXfuYmp8c24rV0TiT406o'
+      - 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODcyNzExOTUsImV4cCI6MTY4NzUzMDM5NSwibmJmIjoxNjg3MjcxMTk1LCJqdGkiOiJzV1g4MlBvSlVqenhrWExjIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.ViztGT25kym3L_e4FkzUhj7c3YSDwuume17jJ2L2GpY'
     controller: null
     method: null
     route: null
@@ -145,6 +157,7 @@ endpoints:
       Authorization: 'Bearer {YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
+      MYP-API-KEY: '{YOUR_API_KEY}'
     urlParameters:
       user_id:
         name: user_id
@@ -162,13 +175,11 @@ endpoints:
     fileParameters: []
     responses:
       -
-        status: 401
-        content: '{"error":"API key is missing"}'
+        status: 403
+        content: '{"error":"UnAuthenticated"}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '57'
           access-control-allow-origin: '*'
         description: null
         custom: []
@@ -176,7 +187,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODcyMDU3NTIsImV4cCI6MTY4NzQ2NDk1MiwibmJmIjoxNjg3MjA1NzUyLCJqdGkiOiJIMk1GckJnVXJwMFp1eDY4Iiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.fW1-5L_aaV8rtE9-l8x4J3SXfuYmp8c24rV0TiT406o'
+      - 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODcyNzExOTUsImV4cCI6MTY4NzUzMDM5NSwibmJmIjoxNjg3MjcxMTk1LCJqdGkiOiJzV1g4MlBvSlVqenhrWExjIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.ViztGT25kym3L_e4FkzUhj7c3YSDwuume17jJ2L2GpY'
     controller: null
     method: null
     route: null
@@ -198,6 +209,7 @@ endpoints:
       Authorization: 'Bearer {YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
+      MYP-API-KEY: '{YOUR_API_KEY}'
     urlParameters:
       user_id:
         name: user_id
@@ -213,12 +225,21 @@ endpoints:
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 403
+        content: '{"error":"UnAuthenticated"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODcyMDU3NTIsImV4cCI6MTY4NzQ2NDk1MiwibmJmIjoxNjg3MjA1NzUyLCJqdGkiOiJIMk1GckJnVXJwMFp1eDY4Iiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.fW1-5L_aaV8rtE9-l8x4J3SXfuYmp8c24rV0TiT406o'
+      - 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODcyNzExOTUsImV4cCI6MTY4NzUzMDM5NSwibmJmIjoxNjg3MjcxMTk1LCJqdGkiOiJzV1g4MlBvSlVqenhrWExjIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.ViztGT25kym3L_e4FkzUhj7c3YSDwuume17jJ2L2GpY'
     controller: null
     method: null
     route: null

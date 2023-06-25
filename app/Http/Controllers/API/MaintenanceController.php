@@ -16,6 +16,10 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use LdapRecord\Query\Events\Paginate;
 
+
+/**
+ * @group Maintenance
+ */
 class MaintenanceController extends Controller
 {
     /**

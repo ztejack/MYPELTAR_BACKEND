@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Status;
 use App\Http\Requests\StoreStatusRequest;
 use App\Http\Requests\UpdateStatusRequest;
-
+/**
+ * @group Status
+ */
 class StatusController extends Controller
 {
     /**

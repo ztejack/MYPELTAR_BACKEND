@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\Storage;
 
 class AssetResource extends JsonResource
 {
@@ -22,10 +23,11 @@ class AssetResource extends JsonResource
             'nama_asset' => $this->name,
             'merk' => $this->merk,
             'model' => $this->model,
+            'image' => ($this->image == null) ? null : asset(Storage::url($this->image)),
             'spesifikasi' => $this->spesifikasi,
             'deskripsi' => $this->deskripsi,
-            'lokasi' => $this->lokasi,
-            'kategori' => $this->category,
+            'lokasi' => $this->lokasi->unit,
+            'kategori' => $this->category->pluck('kategori'),
             'status' => $this->status->status,
             'updated_at' => $this->updated_at,
             'created_at' => $this->created_at

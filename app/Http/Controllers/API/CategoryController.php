@@ -11,6 +11,9 @@ use App\Models\Asset;
 use App\Models\User;
 use Illuminate\Http\Request;
 
+/**
+ * @group Category
+ */
 class CategoryController extends Controller
 {
     /**

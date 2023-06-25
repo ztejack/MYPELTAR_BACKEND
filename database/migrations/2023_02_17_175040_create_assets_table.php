@@ -34,6 +34,7 @@ return new class extends Migration
             $table->string('merk');
             $table->string('model')->nullable();
             $table->string('spesifikasi');
+            $table->string('image')->nullable();
             $table->string('deskripsi');
             $table->foreignId('id_lokasi')->default(false)->references('id')->on('locations')->onDelete('cascade');
             // $table->foreignId('id_kategori')->default(false)->references('id')->on('categories'); //many to many wait

@@ -40,7 +40,6 @@ class DatabaseSeeder extends Seeder
         Category::factory(5)->create();
         Location::factory(5)->create();
         Asset::factory(5)->create();
-
         Maintenance::factory(5000)->create();
         // PCategory::factory(5)->create();
         // PUpdate::factory(20)->create();

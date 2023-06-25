@@ -10,6 +10,9 @@ use App\Http\Resources\NewsResource;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
+/**
+ * @group News
+ */
 class NewsController extends Controller
 {
     /**
