@@ -109,14 +109,12 @@ class UserController extends Controller
             $user->assignRole($input['id_role']);
         }
         $user->save();
-        $apikey = new ApiKey();
-        $apikey->apikey = Str::random(32);
 
         $expirationDate = Carbon::now()->addDays(30);
 
-        APIKey::create([
+        ApiKey::create([
             'user_id' => $user->id,
-            'api_key' => $apikey,
+            'api_key' => Str::random(32),
             'expiration_date' => $expirationDate,
         ]);
 

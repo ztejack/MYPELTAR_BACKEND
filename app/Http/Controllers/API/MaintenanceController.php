@@ -45,6 +45,7 @@ class MaintenanceController extends Controller
     }
 
     /** 
+     * @Group Inspeksi
      * Store a newly created resource in storage.
      *
      * @param  \App\Http\Requests\StoremaintenanceRequest  $request
@@ -91,6 +92,7 @@ class MaintenanceController extends Controller
     }
 
     /**
+     * @Group Inspeksi
      * Update the specified resource in storage.
      *
      * @param  \App\Http\Requests\UpdatemaintenanceRequest  $request

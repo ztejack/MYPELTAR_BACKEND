@@ -26,9 +26,11 @@ class RoleAndPermissionSeeder extends Seeder
         Permission::create(['name' => 'search-users']);
         Permission::create(['name' => 'show-users']);
 
+        // INSPEKSI
+        Permission::create(['name' => 'store-inspeksi']);
+        Permission::create(['name' => 'update-inspeksi']);
+
         // MAINTENANCE
-        Permission::create(['name' => 'store-maintenance']);
-        Permission::create(['name' => 'update-maintenance']);
         Permission::create(['name' => 'delete-maintenance']);
 
         //SATKER
@@ -91,8 +93,8 @@ class RoleAndPermissionSeeder extends Seeder
             'update-banner',
             'delete-banner',
 
-            'store-maintenance',
-            'update-maintenance',
+            'store-inspeksi',
+            'update-inspeksi',
             'delete-maintenance',
 
             'store-location',
@@ -138,8 +140,8 @@ class RoleAndPermissionSeeder extends Seeder
             'update-location',
             'delete-location',
 
-            'store-maintenance',
-            'update-maintenance',
+            'store-inspeksi',
+            'update-inspeksi',
             'delete-maintenance',
 
             'store-satker',
@@ -160,15 +162,15 @@ class RoleAndPermissionSeeder extends Seeder
         ]);
 
         $inspeksiRole->givePermissionTo([
-            'store-maintenance',
-            'update-maintenance',
+            'store-inspeksi',
+            'update-inspeksi',
             'delete-maintenance',
         ]);
 
         $maintenanceRole->givePermissionTo([
-            // 'store-maintenance',
+            // 'store-inspeksi',
             // 'delete-maintenance',
-            'update-maintenance',
+            'update-inspeksi',
         ]);
     }
 }
