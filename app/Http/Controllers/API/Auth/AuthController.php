@@ -5,10 +5,13 @@ namespace App\Http\Controllers\API\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\ApiKeyResource;
 use App\Http\Resources\UserResource;
+use App\Models\ApiKey;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 /**
  * @group AUTH
@@ -51,10 +54,8 @@ class AuthController extends Controller
      *      }
      * }
      */
-
     public function login(Request $request)
     {
-        
         $validatedData = Validator::make($request->all(),[
             'username' => ['required',Rule::exists('users', 'username')],
         ]);
@@ -86,7 +87,7 @@ class AuthController extends Controller
                 'token' => $token,
                 'type' => 'bearer',
             ],
-            'api-key' => new ApiKeyResource($user->apiKey)
+            'api-key' => new ApiKeyResource($user->apikey)
         ], 200);
     }
 
@@ -120,19 +121,43 @@ class AuthController extends Controller
      *      "authorisation" : { 
      *          "token" : "eyJ0eXAiO . . .",
      *          "type" : "bearer" 
-     *      }, 
+     *      },
+     *      "api-key" : {
+     *          "api_key" : "c4ksKs . . .", 
+     *          "expiration_date" : "2023-07-15 17:31:00"
+     *      }
      * }
      */
     public function refresh()
     {
-        return response()->json([
-            'status' => 'success',
-            'user' => new UserResource(Auth::user()),
-            'authorisation' => [
-                'token' => Auth::refresh(),
-                'type' => 'bearer',
-            ]
-        ], 200);
+        try {
+            $user = Auth::user();
+            $apikey = ApiKey::where('user_id','like',$user->id);
+            $apikey->delete();
+
+            $expirationDate = Carbon::now()->addDays(30);
+            APIKey::create([
+                'user_id' => $user->id,
+                'api_key' => Str::random(32),
+                'expiration_date' => $expirationDate,
+            ]);
+            
+            return response()->json([
+                'status' => 'success',
+                'user' => new UserResource(Auth::user()),
+                'authorisation' => [
+                    'token' => Auth::refresh(),
+                    'type' => 'bearer',
+                ],
+                'api-key' => new ApiKeyResource($user->apikey)
+            ], 200);
+        } catch (\Throwable $th) {
+            // Handle the exception
+            return response()->json([
+                'status' => 'error',
+                'message' => 'An error occurred while creating the API key.'
+            ], 500);
+        }
     }
 
     /**

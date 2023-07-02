@@ -12,7 +12,7 @@ use App\Http\Controllers\API\StatusController;
 use App\Http\Controllers\API\SubsatkerController;
 use App\Http\Controllers\Api\PUpdateController;
 use App\Http\Controllers\API\UserController;
-use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -45,6 +45,7 @@ Route::prefix('v1/user')->middleware(['auth:api', 'api.key'])->group(
         Route::post('destroy/{user}', [UserController::class, 'destroy'])->middleware('can:delete-users');
     }
 );
+
 Route::prefix('v1/asset')->middleware('auth:api')->group(
     function () {
         Route::get('getall', [AssetController::class, 'index']);
@@ -55,13 +56,14 @@ Route::prefix('v1/asset')->middleware('auth:api')->group(
         Route::post('destroy/{asset}', [AssetController::class, 'destroy'])->middleware(['can:delete-assets', 'api.key']);
     }
 );
+
 Route::prefix('v1/maintenance')->middleware('auth:api')->group(
     function () {
         Route::get('getall', [MaintenanceController::class, 'index']);
         Route::get('self_get', [MaintenanceController::class, 'self_get']);
-        Route::post('store', [MaintenanceController::class, 'store'])->middleware(['can:store-maintenance', 'api.key']);
+        // Route::post('store', [MaintenanceController::class, 'store'])->middleware(['can:store-maintenance', 'api.key']);
         Route::get('show/{maintenance}', [MaintenanceController::class, 'show']);
-        Route::post('update/{maintenance}', [MaintenanceController::class, 'update'])->middleware(['can:update-maintenance', 'api.key']);
+        // Route::post('update/{maintenance}', [MaintenanceController::class, 'update'])->middleware(['can:update-maintenance', 'api.key']);
         Route::post('destroy/{maintenance}', [MaintenanceController::class, 'destroy'])->middleware(['can:delete-maintenance', 'api.key']);
 
         Route::prefix("/{maintenance}/history")->middleware('auth:api')->group(
@@ -75,6 +77,12 @@ Route::prefix('v1/maintenance')->middleware('auth:api')->group(
     }
 );
 
+Route::prefix('v1/inspeksi')->middleware('auth:api')->group(
+    function () {
+        Route::post('store', [MaintenanceController::class, 'store'])->middleware(['can:store-inspeksi', 'api.key']);
+        Route::post('update/{maintenance}', [MaintenanceController::class, 'update'])->middleware(['can:update-inspeksi', 'api.key']);
+    }
+);
 
 Route::prefix('v1/category')->middleware('auth:api')->group(
     function () {
@@ -86,6 +94,7 @@ Route::prefix('v1/category')->middleware('auth:api')->group(
         Route::post('destroy/{category}', [CategoryController::class, 'destroy'])->middleware(['can:delete-category', 'api.key']);
     }
 );
+
 Route::prefix('v1/location')->middleware('auth:api')->group(
     function () {
         Route::get('getall', [LocationController::class, 'index']);
@@ -96,6 +105,7 @@ Route::prefix('v1/location')->middleware('auth:api')->group(
         Route::get('search', [LocationController::class, 'search']);
     }
 );
+
 Route::prefix('v1/satker')->middleware('auth:api')->group(
     function () {
         Route::get('getall', [SatkerController::class, 'index']);
@@ -105,6 +115,7 @@ Route::prefix('v1/satker')->middleware('auth:api')->group(
         Route::post('destroy/{satker}', [SatkerController::class, 'destroy'])->middleware(['can:delete-satker', 'api.key']);
     }
 );
+
 Route::prefix('v1/subsatker')->middleware('auth:api')->group(
     function () {
         Route::get('getall', [SubsatkerController::class, 'index']);
