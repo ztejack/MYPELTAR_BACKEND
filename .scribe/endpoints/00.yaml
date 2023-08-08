@@ -173,6 +173,10 @@ endpoints:
                    "token" : "eyJ0eXAiO . . .",
                    "type" : "bearer"
                },
+               "api-key" : {
+                   "api_key" : "c4ksKs . . .",
+                   "expiration_date" : "2023-07-15 17:31:00"
+               }
           }
         headers: []
         description: Ok

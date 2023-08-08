@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use Faker\Guesser\Name;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -18,8 +19,8 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->name(),
-            'email' => $this->faker->unique()->safeEmail(),
+            'name' => Fake()->name(),
+            'email' => Fake()->safeEmail(),
             'email_verified_at' => now(),
             'password' => bcrypt('123456'), // password
             'remember_token' => Str::random(10),

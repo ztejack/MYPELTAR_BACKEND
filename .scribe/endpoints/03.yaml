@@ -91,88 +91,6 @@ endpoints:
     custom: []
   -
     httpMethods:
-      - POST
-    uri: api/v1/maintenance/store
-    metadata:
-      groupName: Maintenance
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Store a newly created resource in storage.'
-      description: ''
-      authenticated: true
-      custom: []
-    headers:
-      Authorization: 'Bearer {YOUR_AUTH_KEY}'
-      Content-Type: application/json
-      Accept: application/json
-      MYP-API-KEY: '{YOUR_API_KEY}'
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      imagebefore:
-        name: imagebefore
-        description: ''
-        required: false
-        example: null
-        type: string
-        custom: []
-      id_asset:
-        name: id_asset
-        description: ''
-        required: true
-        example: consequatur
-        type: string
-        custom: []
-      id_type:
-        name: id_type
-        description: ''
-        required: true
-        example: consequatur
-        type: string
-        custom: []
-      deskripsi:
-        name: deskripsi
-        description: ''
-        required: false
-        example: consequatur
-        type: string
-        custom: []
-      imageafter:
-        name: imageafter
-        description: ''
-        required: false
-        example: null
-        type: string
-        custom: []
-    cleanBodyParameters:
-      id_asset: consequatur
-      id_type: consequatur
-      deskripsi: consequatur
-    fileParameters: []
-    responses:
-      -
-        status: 403
-        content: '{"error":"UnAuthenticated"}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
-        custom: []
-    responseFields: []
-    auth:
-      - headers
-      - Authorization
-      - 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODcyNzExOTUsImV4cCI6MTY4NzUzMDM5NSwibmJmIjoxNjg3MjcxMTk1LCJqdGkiOiJzV1g4MlBvSlVqenhrWExjIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.ViztGT25kym3L_e4FkzUhj7c3YSDwuume17jJ2L2GpY'
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
       - GET
     uri: 'api/v1/maintenance/show/{maintenance_id}'
     metadata:
@@ -203,97 +121,6 @@ endpoints:
     cleanQueryParameters: []
     bodyParameters: []
     cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        status: 403
-        content: '{"error":"UnAuthenticated"}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
-        custom: []
-    responseFields: []
-    auth:
-      - headers
-      - Authorization
-      - 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODcyNzExOTUsImV4cCI6MTY4NzUzMDM5NSwibmJmIjoxNjg3MjcxMTk1LCJqdGkiOiJzV1g4MlBvSlVqenhrWExjIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.ViztGT25kym3L_e4FkzUhj7c3YSDwuume17jJ2L2GpY'
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - POST
-    uri: 'api/v1/maintenance/update/{maintenance}'
-    metadata:
-      groupName: Maintenance
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Update the specified resource in storage.'
-      description: ''
-      authenticated: true
-      custom: []
-    headers:
-      Authorization: 'Bearer {YOUR_AUTH_KEY}'
-      Content-Type: application/json
-      Accept: application/json
-      MYP-API-KEY: '{YOUR_API_KEY}'
-    urlParameters:
-      maintenance:
-        name: maintenance
-        description: ''
-        required: true
-        example: consequatur
-        type: string
-        custom: []
-    cleanUrlParameters:
-      maintenance: consequatur
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      imagebefore:
-        name: imagebefore
-        description: ''
-        required: false
-        example: null
-        type: string
-        custom: []
-      id_type:
-        name: id_type
-        description: ''
-        required: true
-        example: consequatur
-        type: string
-        custom: []
-      deskripsi:
-        name: deskripsi
-        description: ''
-        required: false
-        example: consequatur
-        type: string
-        custom: []
-      deskripsi_update:
-        name: deskripsi_update
-        description: ''
-        required: false
-        example: consequatur
-        type: string
-        custom: []
-      id_status:
-        name: id_status
-        description: ''
-        required: true
-        example: consequatur
-        type: string
-        custom: []
-    cleanBodyParameters:
-      id_type: consequatur
-      deskripsi: consequatur
-      deskripsi_update: consequatur
-      id_status: consequatur
     fileParameters: []
     responses:
       -
@@ -670,6 +497,179 @@ endpoints:
     cleanBodyParameters:
       id_status: consequatur
       deskripsi_update: consequatur
+    fileParameters: []
+    responses:
+      -
+        status: 403
+        content: '{"error":"UnAuthenticated"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODcyNzExOTUsImV4cCI6MTY4NzUzMDM5NSwibmJmIjoxNjg3MjcxMTk1LCJqdGkiOiJzV1g4MlBvSlVqenhrWExjIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.ViztGT25kym3L_e4FkzUhj7c3YSDwuume17jJ2L2GpY'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/inspeksi/store
+    metadata:
+      groupName: Maintenance
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      MYP-API-KEY: '{YOUR_API_KEY}'
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      imagebefore:
+        name: imagebefore
+        description: ''
+        required: false
+        example: null
+        type: string
+        custom: []
+      id_asset:
+        name: id_asset
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+      id_type:
+        name: id_type
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+      deskripsi:
+        name: deskripsi
+        description: ''
+        required: false
+        example: consequatur
+        type: string
+        custom: []
+      imageafter:
+        name: imageafter
+        description: ''
+        required: false
+        example: null
+        type: string
+        custom: []
+    cleanBodyParameters:
+      id_asset: consequatur
+      id_type: consequatur
+      deskripsi: consequatur
+    fileParameters: []
+    responses:
+      -
+        status: 403
+        content: '{"error":"UnAuthenticated"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODcyNzExOTUsImV4cCI6MTY4NzUzMDM5NSwibmJmIjoxNjg3MjcxMTk1LCJqdGkiOiJzV1g4MlBvSlVqenhrWExjIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.ViztGT25kym3L_e4FkzUhj7c3YSDwuume17jJ2L2GpY'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/v1/inspeksi/update/{maintenance}'
+    metadata:
+      groupName: Maintenance
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      MYP-API-KEY: '{YOUR_API_KEY}'
+    urlParameters:
+      maintenance:
+        name: maintenance
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+    cleanUrlParameters:
+      maintenance: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      imagebefore:
+        name: imagebefore
+        description: ''
+        required: false
+        example: null
+        type: string
+        custom: []
+      id_type:
+        name: id_type
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+      deskripsi:
+        name: deskripsi
+        description: ''
+        required: false
+        example: consequatur
+        type: string
+        custom: []
+      deskripsi_update:
+        name: deskripsi_update
+        description: ''
+        required: false
+        example: consequatur
+        type: string
+        custom: []
+      id_status:
+        name: id_status
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+    cleanBodyParameters:
+      id_type: consequatur
+      deskripsi: consequatur
+      deskripsi_update: consequatur
+      id_status: consequatur
     fileParameters: []
     responses:
       -

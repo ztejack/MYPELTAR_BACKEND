@@ -72,7 +72,7 @@
             "name": "Maintenance",
             "containerId": "",
             "created": "2023-05-03T19:44:37.585Z",
-            "sortNum": 100000
+            "sortNum": 35000
         },
         {
             "_id": "be614dfe-f978-470c-9880-7cceddcb6d95",
@@ -100,7 +100,7 @@
             "name": "Inspeksi",
             "containerId": "",
             "created": "2023-06-17T13:48:26.558Z",
-            "sortNum": 150000
+            "sortNum": 37500
         }
     ],
     "settings": {
@@ -111,15 +111,15 @@
             },
             {
                 "name": "MYP-API-KEY",
-                "value": "vuNlW4oXS8D80vZJBFK77Otc1UYBf2Xs"
+                "value": "{{MYP_API}}"
             }
         ],
         "auth": {
             "type": "bearer",
-            "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvcmVmcmVzaCIsImlhdCI6MTY4ODMxMjM2MiwiZXhwIjoxNjg4NTcxNTk1LCJuYmYiOjE2ODgzMTIzOTUsImp0aSI6IkRQQ0VaNnJmMlA4ZmVGUUUiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.sMe9n18GntTCQX8LW_DCEwglarli9jGnDQnHpkc4GoY"
+            "bearer": "{{bearer_token}}"
         },
         "options": {
-            "baseUrl": "http://127.0.0.1:8000/api/v1/"
+            "baseUrl": "http://127.0.0.1:8000/api/{{version_auth}}/"
         }
     },
     "requests": [
@@ -146,11 +146,11 @@
             "colId": "1fb1d14f-4ec9-49fd-aaa4-002da09a66d0",
             "containerId": "89d7fc9b-0e5c-4e0d-aaa5-b2ffd604130e",
             "name": "GETALL",
-            "url": "http://127.0.0.1:8000/api/v1/asset/getall?page=1&limit=2",
+            "url": "http://127.0.0.1:8000/api/{{version_auth}}/asset/getall?page=1&limit=2",
             "method": "GET",
             "sortNum": 10000,
             "created": "2023-05-03T19:44:37.578Z",
-            "modified": "2023-06-23T21:55:29.550Z",
+            "modified": "2023-07-20T22:38:02.167Z",
             "headers": [],
             "params": [
                 {
@@ -176,6 +176,10 @@
                     "isPath": false
                 }
             ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{bearer_token}}"
+            },
             "tests": []
         },
         {
@@ -211,11 +215,11 @@
             "colId": "1fb1d14f-4ec9-49fd-aaa4-002da09a66d0",
             "containerId": "ef350bbc-b8b4-4d15-a882-ffab6d8b0dca",
             "name": "Login",
-            "url": "auth/login",
+            "url": "http://127.0.0.1:8000/api/v1/auth/login",
             "method": "POST",
             "sortNum": 50000,
             "created": "2023-05-03T19:44:37.581Z",
-            "modified": "2023-06-20T15:49:01.162Z",
+            "modified": "2023-08-06T20:18:29.057Z",
             "headers": [
                 {
                     "name": "Accept",
