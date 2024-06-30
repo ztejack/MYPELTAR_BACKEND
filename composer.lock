@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ddc755c8939576dc52a786d1dd9e4f55",
+    "content-hash": "10338c828245832d35e146dd72a31190",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3615,6 +3615,69 @@
             "time": "2023-01-12T18:13:24+00:00"
         },
         {
+            "name": "rap2hpoutre/laravel-log-viewer",
+            "version": "v2.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rap2hpoutre/laravel-log-viewer.git",
+                "reference": "52e7c703a1e83cdae450f406c7d8472332dfb34e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rap2hpoutre/laravel-log-viewer/zipball/52e7c703a1e83cdae450f406c7d8472332dfb34e",
+                "reference": "52e7c703a1e83cdae450f406c7d8472332dfb34e",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "4.2.*|5.*|^6.0|^7.0|^8.0|^9.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "3.7.*|^7.0",
+                "phpunit/phpunit": "^7|^9.5.10"
+            },
+            "type": "laravel-package",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Rap2hpoutre\\LaravelLogViewer\\LaravelLogViewerServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Rap2hpoutre\\LaravelLogViewer\\": "src/"
+                },
+                "classmap": [
+                    "src/controllers"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "rap2hpoutre",
+                    "email": "raphaelht@gmail.com"
+                }
+            ],
+            "description": "A Laravel log reader",
+            "keywords": [
+                "laravel",
+                "log",
+                "log-reader",
+                "log-viewer",
+                "logging",
+                "lumen"
+            ],
+            "support": {
+                "issues": "https://github.com/rap2hpoutre/laravel-log-viewer/issues",
+                "source": "https://github.com/rap2hpoutre/laravel-log-viewer/tree/v2.2.0"
+            },
+            "time": "2022-04-06T15:15:40+00:00"
+        },
+        {
             "name": "spatie/laravel-permission",
             "version": "5.10.0",
             "source": {
@@ -3695,6 +3758,65 @@
                 }
             ],
             "time": "2023-03-22T02:57:36+00:00"
+        },
+        {
+            "name": "spatie/laravel-sluggable",
+            "version": "3.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-sluggable.git",
+                "reference": "041af2533fe2206715e9a4a9cad2cab6cb796655"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-sluggable/zipball/041af2533fe2206715e9a4a9cad2cab6cb796655",
+                "reference": "041af2533fe2206715e9a4a9cad2cab6cb796655",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "^8.0|^9.0|^10.0",
+                "illuminate/support": "^8.0|^9.0|^10.0",
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^6.23|^7.0|^8.0",
+                "pestphp/pest": "^1.20",
+                "spatie/laravel-translatable": "^5.0|^6.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\Sluggable\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Generate slugs when saving Eloquent models",
+            "homepage": "https://github.com/spatie/laravel-sluggable",
+            "keywords": [
+                "laravel-sluggable",
+                "spatie"
+            ],
+            "support": {
+                "source": "https://github.com/spatie/laravel-sluggable/tree/3.5.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/spatie",
+                    "type": "github"
+                }
+            ],
+            "time": "2023-05-29T09:42:35+00:00"
         },
         {
             "name": "stella-maris/clock",
@@ -6735,6 +6857,69 @@
                 }
             ],
             "time": "2023-05-05T19:52:38+00:00"
+        },
+        {
+            "name": "laravel/envoy",
+            "version": "v2.9.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/envoy.git",
+                "reference": "a9b9da0fb5eb6625d90a164b828e94ab81472eb2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/envoy/zipball/a9b9da0fb5eb6625d90a164b828e94ab81472eb2",
+                "reference": "a9b9da0fb5eb6625d90a164b828e94ab81472eb2",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.0|^7.0",
+                "illuminate/support": "^6.0|^7.0|^8.0|^9.0|^10.0|^11.0",
+                "php": "^7.2|^8.0",
+                "symfony/console": "^4.3|^5.0|^6.0|^7.0",
+                "symfony/process": "^4.3|^5.0|^6.0|^7.0"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^1.10",
+                "phpunit/phpunit": "^8.0|^9.0|^10.4"
+            },
+            "suggest": {
+                "ext-posix": "Required to determine the System user on Unix systems."
+            },
+            "bin": [
+                "bin/envoy"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laravel\\Envoy\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                }
+            ],
+            "description": "Elegant SSH tasks for PHP.",
+            "keywords": [
+                "laravel",
+                "ssh"
+            ],
+            "support": {
+                "issues": "https://github.com/laravel/envoy/issues",
+                "source": "https://github.com/laravel/envoy/tree/v2.9.0"
+            },
+            "time": "2024-01-16T17:18:44+00:00"
         },
         {
             "name": "laravel/sail",

@@ -26,6 +26,15 @@ class Asset extends Model
         'id_lokasi',
         'id_status',
     ];
+    /**
+     * Get the route key for the model.
+     *
+     * @return string
+     */
+    // public function getRouteKeyName()
+    // {
+    //     return 'code_ast';
+    // }
     protected static function boot()
     {
         parent::boot();

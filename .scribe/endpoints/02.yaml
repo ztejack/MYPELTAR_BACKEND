@@ -307,9 +307,9 @@ endpoints:
       id_kategori:
         name: id_kategori
         description: ''
-        required: false
-        example: null
-        type: object
+        required: true
+        example: consequatur
+        type: string
         custom: []
       id_status:
         name: id_status
@@ -317,6 +317,13 @@ endpoints:
         required: true
         example: 17
         type: integer
+        custom: []
+      image:
+        name: image
+        description: ''
+        required: false
+        example: null
+        type: string
         custom: []
     cleanBodyParameters:
       stockcode: consequatur
@@ -327,6 +334,7 @@ endpoints:
       spesifikasi: consequatur
       deskripsi: consequatur
       id_lokasi: 17
+      id_kategori: consequatur
       id_status: 17
     fileParameters: []
     responses:
@@ -539,6 +547,13 @@ endpoints:
         required: false
         example: 17
         type: integer
+        custom: []
+      image:
+        name: image
+        description: ''
+        required: false
+        example: null
+        type: string
         custom: []
     cleanBodyParameters:
       stockcode: consequatur

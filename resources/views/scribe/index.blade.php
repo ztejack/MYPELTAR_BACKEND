@@ -176,14 +176,8 @@ Update the specified Assets.</a>
                                                                                 <li class="tocify-item level-2" data-unique="maintenance-GETapi-v1-maintenance-self_get">
                                 <a href="#maintenance-GETapi-v1-maintenance-self_get">Display a listing of the resource.</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="maintenance-POSTapi-v1-maintenance-store">
-                                <a href="#maintenance-POSTapi-v1-maintenance-store">Store a newly created resource in storage.</a>
-                            </li>
                                                                                 <li class="tocify-item level-2" data-unique="maintenance-GETapi-v1-maintenance-show--maintenance_id-">
                                 <a href="#maintenance-GETapi-v1-maintenance-show--maintenance_id-">Display the specified resource.</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="maintenance-POSTapi-v1-maintenance-update--maintenance-">
-                                <a href="#maintenance-POSTapi-v1-maintenance-update--maintenance-">Update the specified resource in storage.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="maintenance-POSTapi-v1-maintenance-destroy--maintenance_id-">
                                 <a href="#maintenance-POSTapi-v1-maintenance-destroy--maintenance_id-">Remove the specified resource from storage.</a>
@@ -199,6 +193,12 @@ Update the specified Assets.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="maintenance-POSTapi-v1-maintenance--maintenance--history-destroy--pupdate-">
                                 <a href="#maintenance-POSTapi-v1-maintenance--maintenance--history-destroy--pupdate-">Update the specified resource in storage.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="maintenance-POSTapi-v1-inspeksi-store">
+                                <a href="#maintenance-POSTapi-v1-inspeksi-store">POST api/v1/inspeksi/store</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="maintenance-POSTapi-v1-inspeksi-update--maintenance-">
+                                <a href="#maintenance-POSTapi-v1-inspeksi-update--maintenance-">POST api/v1/inspeksi/update/{maintenance}</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -342,7 +342,7 @@ Update the specified Assets.</a>
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: June 24, 2023</li>
+        <li>Last updated: July 2, 2023</li>
     </ul>
 </div>
 
@@ -874,6 +874,10 @@ response.json()</code></pre></div>
          &quot;token&quot; : &quot;eyJ0eXAiO . . .&quot;,
          &quot;type&quot; : &quot;bearer&quot;
      },
+     &quot;api-key&quot; : {
+         &quot;api_key&quot; : &quot;c4ksKs . . .&quot;,
+         &quot;expiration_date&quot; : &quot;2023-07-15 17:31:00&quot;
+     }
 }</code>
  </pre>
     </span>
@@ -1769,6 +1773,7 @@ Store a newly created Assets.</h2>
     \"spesifikasi\": \"consequatur\",
     \"deskripsi\": \"consequatur\",
     \"id_lokasi\": 17,
+    \"id_kategori\": \"consequatur\",
     \"id_status\": 17
 }"
 </code></pre></div>
@@ -1795,6 +1800,7 @@ let body = {
     "spesifikasi": "consequatur",
     "deskripsi": "consequatur",
     "id_lokasi": 17,
+    "id_kategori": "consequatur",
     "id_status": 17
 };
 
@@ -1825,6 +1831,7 @@ $response = $client-&gt;post(
             'spesifikasi' =&gt; 'consequatur',
             'deskripsi' =&gt; 'consequatur',
             'id_lokasi' =&gt; 17,
+            'id_kategori' =&gt; 'consequatur',
             'id_status' =&gt; 17,
         ],
     ]
@@ -1847,6 +1854,7 @@ payload = {
     "spesifikasi": "consequatur",
     "deskripsi": "consequatur",
     "id_lokasi": 17,
+    "id_kategori": "consequatur",
     "id_status": 17
 }
 headers = {
@@ -2072,14 +2080,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_kategori</code></b>&nbsp;&nbsp;
-<small>object</small>&nbsp;
-<i>optional</i> &nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
                 <input type="text" style="display: none"
                name="id_kategori"                data-endpoint="POSTapi-v1-asset-store"
-               value=""
+               value="consequatur"
                data-component="body">
     <br>
-
+<p>Example: <code>consequatur</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_status</code></b>&nbsp;&nbsp;
@@ -2091,6 +2099,17 @@ You can check the Dev Tools console for debugging information.</code></pre>
                data-component="body">
     <br>
 <p>Example: <code>17</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>image</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+               name="image"                data-endpoint="POSTapi-v1-asset-store"
+               value=""
+               data-component="body">
+    <br>
+
         </div>
         </form>
 
@@ -2653,6 +2672,17 @@ You can check the Dev Tools console for debugging information.</code></pre>
                data-component="body">
     <br>
 <p>Example: <code>17</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>image</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+               name="image"                data-endpoint="POSTapi-v1-asset-update--asset_id-"
+               value=""
+               data-component="body">
+    <br>
+
         </div>
         </form>
 
@@ -5466,269 +5496,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="maintenance-POSTapi-v1-maintenance-store">Store a newly created resource in storage.</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-
-
-<span id="example-requests-POSTapi-v1-maintenance-store">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/v1/maintenance/store" \
-    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --header "MYP-API-KEY: {YOUR_API_KEY}" \
-    --data "{
-    \"id_asset\": \"consequatur\",
-    \"id_type\": \"consequatur\",
-    \"deskripsi\": \"consequatur\"
-}"
-</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/v1/maintenance/store"
-);
-
-const headers = {
-    "Authorization": "Bearer {YOUR_AUTH_KEY}",
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-    "MYP-API-KEY": "{YOUR_API_KEY}",
-};
-
-let body = {
-    "id_asset": "consequatur",
-    "id_type": "consequatur",
-    "deskripsi": "consequatur"
-};
-
-fetch(url, {
-    method: "POST",
-    headers,
-    body: JSON.stringify(body),
-}).then(response =&gt; response.json());</code></pre></div>
-
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$response = $client-&gt;post(
-    'http://localhost:8000/api/v1/maintenance/store',
-    [
-        'headers' =&gt; [
-            'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-            'MYP-API-KEY' =&gt; '{YOUR_API_KEY}',
-        ],
-        'json' =&gt; [
-            'id_asset' =&gt; 'consequatur',
-            'id_type' =&gt; 'consequatur',
-            'deskripsi' =&gt; 'consequatur',
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://localhost:8000/api/v1/maintenance/store'
-payload = {
-    "id_asset": "consequatur",
-    "id_type": "consequatur",
-    "deskripsi": "consequatur"
-}
-headers = {
-  'Authorization': 'Bearer {YOUR_AUTH_KEY}',
-  'Content-Type': 'application/json',
-  'Accept': 'application/json',
-  'MYP-API-KEY': '{YOUR_API_KEY}'
-}
-
-response = requests.request('POST', url, headers=headers, json=payload)
-response.json()</code></pre></div>
-
-</span>
-
-<span id="example-responses-POSTapi-v1-maintenance-store">
-            <blockquote>
-            <p>Example response (403):</p>
-        </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-access-control-allow-origin: *
- </code></pre></details>         <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;error&quot;: &quot;UnAuthenticated&quot;
-}</code>
- </pre>
-    </span>
-<span id="execution-results-POSTapi-v1-maintenance-store" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-POSTapi-v1-maintenance-store"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-v1-maintenance-store"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-POSTapi-v1-maintenance-store" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-v1-maintenance-store">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-POSTapi-v1-maintenance-store" data-method="POST"
-      data-path="api/v1/maintenance/store"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-maintenance-store', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-v1-maintenance-store"
-                    onclick="tryItOut('POSTapi-v1-maintenance-store');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-v1-maintenance-store"
-                    onclick="cancelTryOut('POSTapi-v1-maintenance-store');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-v1-maintenance-store"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-black">POST</small>
-            <b><code>api/v1/maintenance/store</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-               name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-maintenance-store"
-               value="Bearer {YOUR_AUTH_KEY}"
-               data-component="header">
-    <br>
-<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-               name="Content-Type"                data-endpoint="POSTapi-v1-maintenance-store"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-               name="Accept"                data-endpoint="POSTapi-v1-maintenance-store"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>MYP-API-KEY</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-               name="MYP-API-KEY"                data-endpoint="POSTapi-v1-maintenance-store"
-               value="{YOUR_API_KEY}"
-               data-component="header">
-    <br>
-<p>Example: <code>{YOUR_API_KEY}</code></p>
-            </div>
-                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-        <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>imagebefore</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text" style="display: none"
-               name="imagebefore"                data-endpoint="POSTapi-v1-maintenance-store"
-               value=""
-               data-component="body">
-    <br>
-
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>id_asset</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-               name="id_asset"                data-endpoint="POSTapi-v1-maintenance-store"
-               value="consequatur"
-               data-component="body">
-    <br>
-<p>Example: <code>consequatur</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>id_type</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-               name="id_type"                data-endpoint="POSTapi-v1-maintenance-store"
-               value="consequatur"
-               data-component="body">
-    <br>
-<p>Example: <code>consequatur</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>deskripsi</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text" style="display: none"
-               name="deskripsi"                data-endpoint="POSTapi-v1-maintenance-store"
-               value="consequatur"
-               data-component="body">
-    <br>
-<p>Example: <code>consequatur</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>imageafter</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text" style="display: none"
-               name="imageafter"                data-endpoint="POSTapi-v1-maintenance-store"
-               value=""
-               data-component="body">
-    <br>
-
-        </div>
-        </form>
-
                     <h2 id="maintenance-GETapi-v1-maintenance-show--maintenance_id-">Display the specified resource.</h2>
 
 <p>
@@ -5924,285 +5691,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>The ID of the maintenance. Example: <code>1</code></p>
             </div>
                     </form>
-
-                    <h2 id="maintenance-POSTapi-v1-maintenance-update--maintenance-">Update the specified resource in storage.</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-
-
-<span id="example-requests-POSTapi-v1-maintenance-update--maintenance-">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/v1/maintenance/update/consequatur" \
-    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --header "MYP-API-KEY: {YOUR_API_KEY}" \
-    --data "{
-    \"id_type\": \"consequatur\",
-    \"deskripsi\": \"consequatur\",
-    \"deskripsi_update\": \"consequatur\",
-    \"id_status\": \"consequatur\"
-}"
-</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/v1/maintenance/update/consequatur"
-);
-
-const headers = {
-    "Authorization": "Bearer {YOUR_AUTH_KEY}",
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-    "MYP-API-KEY": "{YOUR_API_KEY}",
-};
-
-let body = {
-    "id_type": "consequatur",
-    "deskripsi": "consequatur",
-    "deskripsi_update": "consequatur",
-    "id_status": "consequatur"
-};
-
-fetch(url, {
-    method: "POST",
-    headers,
-    body: JSON.stringify(body),
-}).then(response =&gt; response.json());</code></pre></div>
-
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$response = $client-&gt;post(
-    'http://localhost:8000/api/v1/maintenance/update/consequatur',
-    [
-        'headers' =&gt; [
-            'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-            'MYP-API-KEY' =&gt; '{YOUR_API_KEY}',
-        ],
-        'json' =&gt; [
-            'id_type' =&gt; 'consequatur',
-            'deskripsi' =&gt; 'consequatur',
-            'deskripsi_update' =&gt; 'consequatur',
-            'id_status' =&gt; 'consequatur',
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://localhost:8000/api/v1/maintenance/update/consequatur'
-payload = {
-    "id_type": "consequatur",
-    "deskripsi": "consequatur",
-    "deskripsi_update": "consequatur",
-    "id_status": "consequatur"
-}
-headers = {
-  'Authorization': 'Bearer {YOUR_AUTH_KEY}',
-  'Content-Type': 'application/json',
-  'Accept': 'application/json',
-  'MYP-API-KEY': '{YOUR_API_KEY}'
-}
-
-response = requests.request('POST', url, headers=headers, json=payload)
-response.json()</code></pre></div>
-
-</span>
-
-<span id="example-responses-POSTapi-v1-maintenance-update--maintenance-">
-            <blockquote>
-            <p>Example response (403):</p>
-        </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-access-control-allow-origin: *
- </code></pre></details>         <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;error&quot;: &quot;UnAuthenticated&quot;
-}</code>
- </pre>
-    </span>
-<span id="execution-results-POSTapi-v1-maintenance-update--maintenance-" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-POSTapi-v1-maintenance-update--maintenance-"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-v1-maintenance-update--maintenance-"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-POSTapi-v1-maintenance-update--maintenance-" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-v1-maintenance-update--maintenance-">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-POSTapi-v1-maintenance-update--maintenance-" data-method="POST"
-      data-path="api/v1/maintenance/update/{maintenance}"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-maintenance-update--maintenance-', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-v1-maintenance-update--maintenance-"
-                    onclick="tryItOut('POSTapi-v1-maintenance-update--maintenance-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-v1-maintenance-update--maintenance-"
-                    onclick="cancelTryOut('POSTapi-v1-maintenance-update--maintenance-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-v1-maintenance-update--maintenance-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-black">POST</small>
-            <b><code>api/v1/maintenance/update/{maintenance}</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-               name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-maintenance-update--maintenance-"
-               value="Bearer {YOUR_AUTH_KEY}"
-               data-component="header">
-    <br>
-<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-               name="Content-Type"                data-endpoint="POSTapi-v1-maintenance-update--maintenance-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-               name="Accept"                data-endpoint="POSTapi-v1-maintenance-update--maintenance-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>MYP-API-KEY</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-               name="MYP-API-KEY"                data-endpoint="POSTapi-v1-maintenance-update--maintenance-"
-               value="{YOUR_API_KEY}"
-               data-component="header">
-    <br>
-<p>Example: <code>{YOUR_API_KEY}</code></p>
-            </div>
-                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>maintenance</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-               name="maintenance"                data-endpoint="POSTapi-v1-maintenance-update--maintenance-"
-               value="consequatur"
-               data-component="url">
-    <br>
-<p>Example: <code>consequatur</code></p>
-            </div>
-                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-        <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>imagebefore</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text" style="display: none"
-               name="imagebefore"                data-endpoint="POSTapi-v1-maintenance-update--maintenance-"
-               value=""
-               data-component="body">
-    <br>
-
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>id_type</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-               name="id_type"                data-endpoint="POSTapi-v1-maintenance-update--maintenance-"
-               value="consequatur"
-               data-component="body">
-    <br>
-<p>Example: <code>consequatur</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>deskripsi</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text" style="display: none"
-               name="deskripsi"                data-endpoint="POSTapi-v1-maintenance-update--maintenance-"
-               value="consequatur"
-               data-component="body">
-    <br>
-<p>Example: <code>consequatur</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>deskripsi_update</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text" style="display: none"
-               name="deskripsi_update"                data-endpoint="POSTapi-v1-maintenance-update--maintenance-"
-               value="consequatur"
-               data-component="body">
-    <br>
-<p>Example: <code>consequatur</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>id_status</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-               name="id_status"                data-endpoint="POSTapi-v1-maintenance-update--maintenance-"
-               value="consequatur"
-               data-component="body">
-    <br>
-<p>Example: <code>consequatur</code></p>
-        </div>
-        </form>
 
                     <h2 id="maintenance-POSTapi-v1-maintenance-destroy--maintenance_id-">Remove the specified resource from storage.</h2>
 
@@ -7422,6 +6910,548 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                name="deskripsi_update"                data-endpoint="POSTapi-v1-maintenance--maintenance--history-destroy--pupdate-"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Example: <code>consequatur</code></p>
+        </div>
+        </form>
+
+                    <h2 id="maintenance-POSTapi-v1-inspeksi-store">POST api/v1/inspeksi/store</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-v1-inspeksi-store">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost:8000/api/v1/inspeksi/store" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --header "MYP-API-KEY: {YOUR_API_KEY}" \
+    --data "{
+    \"id_asset\": \"consequatur\",
+    \"id_type\": \"consequatur\",
+    \"deskripsi\": \"consequatur\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/v1/inspeksi/store"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "MYP-API-KEY": "{YOUR_API_KEY}",
+};
+
+let body = {
+    "id_asset": "consequatur",
+    "id_type": "consequatur",
+    "deskripsi": "consequatur"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://localhost:8000/api/v1/inspeksi/store',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'MYP-API-KEY' =&gt; '{YOUR_API_KEY}',
+        ],
+        'json' =&gt; [
+            'id_asset' =&gt; 'consequatur',
+            'id_type' =&gt; 'consequatur',
+            'deskripsi' =&gt; 'consequatur',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8000/api/v1/inspeksi/store'
+payload = {
+    "id_asset": "consequatur",
+    "id_type": "consequatur",
+    "deskripsi": "consequatur"
+}
+headers = {
+  'Authorization': 'Bearer {YOUR_AUTH_KEY}',
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'MYP-API-KEY': '{YOUR_API_KEY}'
+}
+
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1-inspeksi-store">
+            <blockquote>
+            <p>Example response (403):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;error&quot;: &quot;UnAuthenticated&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-v1-inspeksi-store" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1-inspeksi-store"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-inspeksi-store"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1-inspeksi-store" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1-inspeksi-store">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-v1-inspeksi-store" data-method="POST"
+      data-path="api/v1/inspeksi/store"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-inspeksi-store', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v1-inspeksi-store"
+                    onclick="tryItOut('POSTapi-v1-inspeksi-store');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v1-inspeksi-store"
+                    onclick="cancelTryOut('POSTapi-v1-inspeksi-store');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v1-inspeksi-store"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/inspeksi/store</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-inspeksi-store"
+               value="Bearer {YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="POSTapi-v1-inspeksi-store"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="POSTapi-v1-inspeksi-store"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>MYP-API-KEY</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="MYP-API-KEY"                data-endpoint="POSTapi-v1-inspeksi-store"
+               value="{YOUR_API_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>{YOUR_API_KEY}</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>imagebefore</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+               name="imagebefore"                data-endpoint="POSTapi-v1-inspeksi-store"
+               value=""
+               data-component="body">
+    <br>
+
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>id_asset</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="id_asset"                data-endpoint="POSTapi-v1-inspeksi-store"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>id_type</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="id_type"                data-endpoint="POSTapi-v1-inspeksi-store"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>deskripsi</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+               name="deskripsi"                data-endpoint="POSTapi-v1-inspeksi-store"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>imageafter</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+               name="imageafter"                data-endpoint="POSTapi-v1-inspeksi-store"
+               value=""
+               data-component="body">
+    <br>
+
+        </div>
+        </form>
+
+                    <h2 id="maintenance-POSTapi-v1-inspeksi-update--maintenance-">POST api/v1/inspeksi/update/{maintenance}</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-v1-inspeksi-update--maintenance-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost:8000/api/v1/inspeksi/update/consequatur" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --header "MYP-API-KEY: {YOUR_API_KEY}" \
+    --data "{
+    \"id_type\": \"consequatur\",
+    \"deskripsi\": \"consequatur\",
+    \"deskripsi_update\": \"consequatur\",
+    \"id_status\": \"consequatur\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/v1/inspeksi/update/consequatur"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "MYP-API-KEY": "{YOUR_API_KEY}",
+};
+
+let body = {
+    "id_type": "consequatur",
+    "deskripsi": "consequatur",
+    "deskripsi_update": "consequatur",
+    "id_status": "consequatur"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://localhost:8000/api/v1/inspeksi/update/consequatur',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'MYP-API-KEY' =&gt; '{YOUR_API_KEY}',
+        ],
+        'json' =&gt; [
+            'id_type' =&gt; 'consequatur',
+            'deskripsi' =&gt; 'consequatur',
+            'deskripsi_update' =&gt; 'consequatur',
+            'id_status' =&gt; 'consequatur',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8000/api/v1/inspeksi/update/consequatur'
+payload = {
+    "id_type": "consequatur",
+    "deskripsi": "consequatur",
+    "deskripsi_update": "consequatur",
+    "id_status": "consequatur"
+}
+headers = {
+  'Authorization': 'Bearer {YOUR_AUTH_KEY}',
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'MYP-API-KEY': '{YOUR_API_KEY}'
+}
+
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1-inspeksi-update--maintenance-">
+            <blockquote>
+            <p>Example response (403):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;error&quot;: &quot;UnAuthenticated&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-v1-inspeksi-update--maintenance-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1-inspeksi-update--maintenance-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-inspeksi-update--maintenance-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1-inspeksi-update--maintenance-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1-inspeksi-update--maintenance-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-v1-inspeksi-update--maintenance-" data-method="POST"
+      data-path="api/v1/inspeksi/update/{maintenance}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-inspeksi-update--maintenance-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v1-inspeksi-update--maintenance-"
+                    onclick="tryItOut('POSTapi-v1-inspeksi-update--maintenance-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v1-inspeksi-update--maintenance-"
+                    onclick="cancelTryOut('POSTapi-v1-inspeksi-update--maintenance-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v1-inspeksi-update--maintenance-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/inspeksi/update/{maintenance}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-inspeksi-update--maintenance-"
+               value="Bearer {YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="POSTapi-v1-inspeksi-update--maintenance-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="POSTapi-v1-inspeksi-update--maintenance-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>MYP-API-KEY</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="MYP-API-KEY"                data-endpoint="POSTapi-v1-inspeksi-update--maintenance-"
+               value="{YOUR_API_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>{YOUR_API_KEY}</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>maintenance</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="maintenance"                data-endpoint="POSTapi-v1-inspeksi-update--maintenance-"
+               value="consequatur"
+               data-component="url">
+    <br>
+<p>Example: <code>consequatur</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>imagebefore</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+               name="imagebefore"                data-endpoint="POSTapi-v1-inspeksi-update--maintenance-"
+               value=""
+               data-component="body">
+    <br>
+
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>id_type</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="id_type"                data-endpoint="POSTapi-v1-inspeksi-update--maintenance-"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>deskripsi</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+               name="deskripsi"                data-endpoint="POSTapi-v1-inspeksi-update--maintenance-"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>deskripsi_update</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+               name="deskripsi_update"                data-endpoint="POSTapi-v1-inspeksi-update--maintenance-"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>id_status</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="id_status"                data-endpoint="POSTapi-v1-inspeksi-update--maintenance-"
                value="consequatur"
                data-component="body">
     <br>

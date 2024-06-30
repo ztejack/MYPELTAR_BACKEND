@@ -54,7 +54,7 @@ class Maintenance extends Model
     }
     public function pupdates()
     {
-        return $this->hasmany(PUpdate::class, 'id_maintenance');
+        return $this->hasmany(PMaintenanceUpdate::class, 'id_maintenance');
     }
     public function asset()
     {
@@ -63,5 +63,9 @@ class Maintenance extends Model
     public function status()
     {
         return $this->belongsTo(Status::class);
+    }
+    public function inspeksi()
+    {
+        return $this->belongsToMany(Inspeksi::class, 'p_inspeksi_maintenance', 'maintenance_id', 'inspeksi_id');
     }
 }

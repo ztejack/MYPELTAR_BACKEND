@@ -1,0 +1,1796 @@
+{
+    "info": {
+        "_postman_id": "a8760047-e22f-45b8-b42d-6b92e71bc73a",
+        "name": "ALPHA",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+        {
+            "name": "AUTH",
+            "item": [
+                {
+                    "name": "Profile",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/profile",
+                            "path": [
+                                "api",
+                                "profile"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjc3MzgxNjQ3LCJleHAiOjE2NzczODUyNDcsIm5iZiI6MTY3NzM4MTY0NywianRpIjoiRnNlUUU4V0dlSVljeHk0VSIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.XC5s8yizrqM_W-w9rEafW7y60Pw_RD2LNQU5tec-JcI",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Logout",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/v1/auth/logout",
+                            "path": [
+                                "api",
+                                "v1",
+                                "auth",
+                                "logout"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvcmVmcmVzaCIsImlhdCI6MTY3Nzk5NzQxMywiZXhwIjoxNjc4MjU2Njg3LCJuYmYiOjE2Nzc5OTc0ODcsImp0aSI6IjFBZ0tiNXdnaHNGMkYzeG0iLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.k-fPu-3ENKbh8Ahqix4SLJcXv77P9dLe5Un5_NTRcx8",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Login",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/v1/auth/login",
+                            "query": [
+                                {
+                                    "key": "username",
+                                    "value": "einstein",
+                                    "disabled": true
+                                },
+                                {
+                                    "key": "password",
+                                    "value": "password",
+                                    "disabled": true
+                                }
+                            ],
+                            "variable": [],
+                            "path": [
+                                "api",
+                                "v1",
+                                "auth",
+                                "login"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "header": [
+                            {
+                                "key": "apiKey",
+                                "value": "2N9S0lvFF7T9qaPaP4YkPmmgI8sYswGHqZ8sPcg1"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"username\" : \"superuser\",\n  \"password\" : \"123456789\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Refresh",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/v1/auth/refresh",
+                            "path": [
+                                "api",
+                                "v1",
+                                "auth",
+                                "refresh"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2Nzg3MzI2MTgsImV4cCI6MTY3ODk5MTgxOCwibmJmIjoxNjc4NzMyNjE4LCJqdGkiOiJ5bmhUb3lGWEVJbUg3Q0h6Iiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.aAxYNHONuUz8Q0GnaFPAoyoqA05ItFGuHw5J5d9ZumM",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Profile",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/v1/auth/profile",
+                            "path": [
+                                "api",
+                                "v1",
+                                "auth",
+                                "profile"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2Nzc5OTc4NTIsImV4cCI6MTY3ODI1NzA1MiwibmJmIjoxNjc3OTk3ODUyLCJqdGkiOiJSSnY4VnBpMDIyVjIxb3BKIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.hrBnphiIQqtuvD9ks6bD45irPgb8yoNY_SZuuK3kpcs",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "TEST",
+            "item": [
+                {
+                    "name": "TEST GET",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/get-user",
+                            "path": [
+                                "api",
+                                "get-user"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzIiwianRpIjoiNDU3NzZiYzVhYTkwYTBlODc2ZDM1ZDMxODBiMGJmYjBjMDliMDZkNTgxYzUzYTQ0MDMxM2YzMmU2ODU4MDI0ZjBmMGE1MTcwZTZlMjg0ZjYiLCJpYXQiOjE2NzYzMTcxNDQuMTc0NTUzLCJuYmYiOjE2NzYzMTcxNDQuMTc0NTY2LCJleHAiOjE3MDc4NTMxNDQuMTYyNjIsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.R0_LLHlRIBKFS7_gvXxY0EFuRogRlEzxy90M9wc4FIiSzduR0pZPmFfAWIk2vElowb56VuZYlyY1FMS8sJDowuPvMzbIbAvbe2sUtvUDpLAxjq7alvosjLxt-bRMKKkodutBRX1_mKHBQkibbw7iUAlYFQJHUWCvtzXXtv-R8Bf0CdXi9a-0c1kH-_WPO5AGOsS5oQJA-59HdQ29IAhcAh1fp6zxCSPWN_k7aFR9SPIsNDxMwBOOx_Vgm9gXN9UTdLYoT-XybDiiGHfd95k-7CjIFySOuZX01KUcdw6osxknNTvuE9vrBY_uXHMF2VqEcu7R6Ch0QdYLzg-pxhnBV9SRaZlnVOwwHIuvwWzovLj_z3I1Wm9Np4vi8RH84GwBEpZ1e28BGws1MAYB9HvFtjX76qrhiz9jECMsjz8koerNy0urSV60dLQIqEwq3baPpVURbHOu04xO5k6UDBo9VwvO489bT7ppMTaYFQANN41MjaKaEXTShbuvGsKGVRqORBGUuxDmGwjJzlSOCZnj0d4WNKGyqYYwwgYaM6tmbYIdbsdcx7-MBBdja-a23HeOiG7Yy_SFIazqWk-NjK_vEKeCr4SV_ig4MiQwUjhHWJOnhxWTe_NI867EIYIJHFMbKVEUDNnIr40R927ZUOlph_861cT1G8A0r9tJGfLgfzE",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "TESTMULTIPLETEST",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/v1/asset/postd",
+                            "path": [
+                                "api",
+                                "v1",
+                                "asset",
+                                "postd"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"stockcode\": \"20202020045\",\n  \"serialnumber\": \"22aa-a564-aasd-asdg\",\n  \"nama_asset\": \"Gearbox\",\n  \"merk\": \"merktern\",\n  \"model\": \"carbonite\",\n  \"spesifikasi\": \"blablablablabla\",\n  \"deskripsi\": \"blablablablabla\",\n  \"id_lokasi\": 2,\n  \"id_kategori\": [\n    1,\n    2\n  ]\n}"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2NzgxODA2ODcsImV4cCI6MTY3ODQzOTg4NywibmJmIjoxNjc4MTgwNjg3LCJqdGkiOiJKM21kRGVZTjRBbnYxVmphIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.geqsKd47xCff4VwYIxvREKVdVTNsErePNJXakk7nOJk",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Aset",
+            "item": [
+                {
+                    "name": "GETALL",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/v1/asset/getall",
+                            "path": [
+                                "api",
+                                "v1",
+                                "asset",
+                                "getall"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2Nzg2OTg1MjUsImV4cCI6MTY3ODk1NzcyNSwibmJmIjoxNjc4Njk4NTI1LCJqdGkiOiJ5OWJLQWF5a0p0anB6YjZtIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.715FOeTTYBE5Xf7-1RxTCoYfJUBWr8pfSiQTtrJw3Rg",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "STORE",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/v1/asset/store",
+                            "path": [
+                                "api",
+                                "v1",
+                                "asset",
+                                "store"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"stockcode\": \"20202020045\",\n  \"serialnumber\": \"22aa-a564-kasd-asdg\",\n  \"nama_asset\": \"Gearbox\",\n  \"merk\": \"merktern\",\n  \"model\": \"carbonite\",\n  \"spesifikasi\": \"blablablablabla\",\n  \"deskripsi\": \"blablablablabla\",\n  \"id_lokasi\": 2,\n  \"id_kategori\": [\n    1,\n    2\n  ],\n  \"id_status\":2\n}"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2Nzg5NTc4MDUsImV4cCI6MTY3OTIxNzAwNSwibmJmIjoxNjc4OTU3ODA1LCJqdGkiOiJJdjd1WmN3TzdsSWd2WXg4Iiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.BsuHcshZbKA5ASxjKnSUdNLSEUSAE37H9oDlSirHdOc",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "GET",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/v1/asset/show/2",
+                            "path": [
+                                "api",
+                                "v1",
+                                "asset",
+                                "show",
+                                "2"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODA0MTMzMjcsImV4cCI6MTY4MDY3MjUyNywibmJmIjoxNjgwNDEzMzI3LCJqdGkiOiJhZnpTRFpmemFPQng4N1p2Iiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.vNePlGQXY5z-aZcVQnWl1WsblKD9ds20WFKlkg248Rk",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "UPDATE",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/v1/asset/update/2",
+                            "path": [
+                                "api",
+                                "v1",
+                                "asset",
+                                "update",
+                                "2"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"stockcode\": \"20202020045\",\n  \"serialnumber\": \"22aa-a564-aasd-asdg\",\n  \"nama_asset\": \"Gearbos\",\n  \"merk\": \"merktern\",\n  \"model\": \"carbonite\",\n  \"spesifikasi\": \"blablablablabla\",\n  \"deskripsi\": \"blablablablabla\",\n  \"id_lokasi\": 2,\n  \"id_kategori\": [\n    1,\n    2\n  ],\n  \"id_status\":2\n}"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2NzgyOTA2MTUsImV4cCI6MTY3ODU0OTgxNSwibmJmIjoxNjc4MjkwNjE1LCJqdGkiOiJSSmhFMk1WMXh6NnlHOG1kIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.JMwVpjxa88zzsn3PiN9o47pBpAtusGZADiu1eqCnzQE",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Category",
+            "item": [
+                {
+                    "name": "GETALL",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/v1/category/getall",
+                            "path": [
+                                "api",
+                                "v1",
+                                "category",
+                                "getall"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvcmVmcmVzaCIsImlhdCI6MTY3ODczMjYxOCwiZXhwIjoxNjc4OTkxODYyLCJuYmYiOjE2Nzg3MzI2NjIsImp0aSI6ImJlMUlQTHJIbjZ3WlNIQjMiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.TfJUSxEr4fxDvXgJ2zhdtwhoAEkNxnqYP8-AKxiHsBw",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "STORE",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/v1/category/store",
+                            "path": [
+                                "api",
+                                "v1",
+                                "category",
+                                "store"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"kategori\":\"mesin\",\n  \"id_subsatker\":2\n}"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2Nzg3MzI2MTgsImV4cCI6MTY3ODk5MTgxOCwibmJmIjoxNjc4NzMyNjE4LCJqdGkiOiJ5bmhUb3lGWEVJbUg3Q0h6Iiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.aAxYNHONuUz8Q0GnaFPAoyoqA05ItFGuHw5J5d9ZumM",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "SHOW",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/v1/category/show/1",
+                            "path": [
+                                "api",
+                                "v1",
+                                "category",
+                                "show",
+                                "1"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2Nzg2OTg1MjUsImV4cCI6MTY3ODk1NzcyNSwibmJmIjoxNjc4Njk4NTI1LCJqdGkiOiJ5OWJLQWF5a0p0anB6YjZtIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.715FOeTTYBE5Xf7-1RxTCoYfJUBWr8pfSiQTtrJw3Rg",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "UPDATE",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/v1/category/update/2",
+                            "path": [
+                                "api",
+                                "v1",
+                                "category",
+                                "update",
+                                "2"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"kategori\" : \"Mekanik\",\n  \"subsatker\":\"3\"\n}"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2Nzg2OTg1MjUsImV4cCI6MTY3ODk1NzcyNSwibmJmIjoxNjc4Njk4NTI1LCJqdGkiOiJ5OWJLQWF5a0p0anB6YjZtIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.715FOeTTYBE5Xf7-1RxTCoYfJUBWr8pfSiQTtrJw3Rg",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "DESTROY",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/v1/category/destroy/2",
+                            "path": [
+                                "api",
+                                "v1",
+                                "category",
+                                "destroy",
+                                "2"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2Nzk3MzEzMTcsImV4cCI6MTY3OTk5MDUxNywibmJmIjoxNjc5NzMxMzE3LCJqdGkiOiJNTXZJbGpEYlBmaDdreXZBIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.JVr5jXWworHUV5bgU8dVQO-lFUdiuvn8QOtG8-0nyLQ",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "SEARCH",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/v1/category/search/",
+                            "path": [
+                                "api",
+                                "v1",
+                                "category",
+                                "search"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"Kategori\":\"nisi\"\n}"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2Nzg2OTg1MjUsImV4cCI6MTY3ODk1NzcyNSwibmJmIjoxNjc4Njk4NTI1LCJqdGkiOiJ5OWJLQWF5a0p0anB6YjZtIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.715FOeTTYBE5Xf7-1RxTCoYfJUBWr8pfSiQTtrJw3Rg",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Location",
+            "item": [
+                {
+                    "name": "GETALL",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/v1/location/getall",
+                            "path": [
+                                "api",
+                                "v1",
+                                "location",
+                                "getall"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2Nzg2OTg1MjUsImV4cCI6MTY3ODk1NzcyNSwibmJmIjoxNjc4Njk4NTI1LCJqdGkiOiJ5OWJLQWF5a0p0anB6YjZtIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.715FOeTTYBE5Xf7-1RxTCoYfJUBWr8pfSiQTtrJw3Rg",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "STORE",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/v1/location/store",
+                            "path": [
+                                "api",
+                                "v1",
+                                "location",
+                                "store"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"unit\": \"Gedung Utama\"\n}"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2Nzg2OTg1MjUsImV4cCI6MTY3ODk1NzcyNSwibmJmIjoxNjc4Njk4NTI1LCJqdGkiOiJ5OWJLQWF5a0p0anB6YjZtIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.715FOeTTYBE5Xf7-1RxTCoYfJUBWr8pfSiQTtrJw3Rg",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "SHOW",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/v1/location/show/3",
+                            "path": [
+                                "api",
+                                "v1",
+                                "location",
+                                "show",
+                                "3"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2Nzg2OTg1MjUsImV4cCI6MTY3ODk1NzcyNSwibmJmIjoxNjc4Njk4NTI1LCJqdGkiOiJ5OWJLQWF5a0p0anB6YjZtIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.715FOeTTYBE5Xf7-1RxTCoYfJUBWr8pfSiQTtrJw3Rg",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "UPDATE",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/v1/location/update/1",
+                            "path": [
+                                "api",
+                                "v1",
+                                "location",
+                                "update",
+                                "1"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"unit\":\"Kantor\"\n}"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2Nzg2OTg1MjUsImV4cCI6MTY3ODk1NzcyNSwibmJmIjoxNjc4Njk4NTI1LCJqdGkiOiJ5OWJLQWF5a0p0anB6YjZtIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.715FOeTTYBE5Xf7-1RxTCoYfJUBWr8pfSiQTtrJw3Rg",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "DESTROY",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/v1/location/destroy/1",
+                            "path": [
+                                "api",
+                                "v1",
+                                "location",
+                                "destroy",
+                                "1"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2Nzg2OTg1MjUsImV4cCI6MTY3ODk1NzcyNSwibmJmIjoxNjc4Njk4NTI1LCJqdGkiOiJ5OWJLQWF5a0p0anB6YjZtIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.715FOeTTYBE5Xf7-1RxTCoYfJUBWr8pfSiQTtrJw3Rg",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Satker",
+            "item": [
+                {
+                    "name": "GetAll",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/v1/satker/getall",
+                            "path": [
+                                "api",
+                                "v1",
+                                "satker",
+                                "getall"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2Nzg2OTg1MjUsImV4cCI6MTY3ODk1NzcyNSwibmJmIjoxNjc4Njk4NTI1LCJqdGkiOiJ5OWJLQWF5a0p0anB6YjZtIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.715FOeTTYBE5Xf7-1RxTCoYfJUBWr8pfSiQTtrJw3Rg",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "STORE",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/v1/satker/store",
+                            "path": [
+                                "api",
+                                "v1",
+                                "satker",
+                                "store"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"satker\":\"IT\"\n}"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2Nzg2OTg1MjUsImV4cCI6MTY3ODk1NzcyNSwibmJmIjoxNjc4Njk4NTI1LCJqdGkiOiJ5OWJLQWF5a0p0anB6YjZtIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.715FOeTTYBE5Xf7-1RxTCoYfJUBWr8pfSiQTtrJw3Rg",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Show",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/v1/satker/show/1",
+                            "path": [
+                                "api",
+                                "v1",
+                                "satker",
+                                "show",
+                                "1"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2Nzg2OTg1MjUsImV4cCI6MTY3ODk1NzcyNSwibmJmIjoxNjc4Njk4NTI1LCJqdGkiOiJ5OWJLQWF5a0p0anB6YjZtIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.715FOeTTYBE5Xf7-1RxTCoYfJUBWr8pfSiQTtrJw3Rg",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "UPDATE",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/v1/satker/update/1",
+                            "path": [
+                                "api",
+                                "v1",
+                                "satker",
+                                "update",
+                                "1"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"satker\":\"dummly\"\n}"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2Nzg2OTg1MjUsImV4cCI6MTY3ODk1NzcyNSwibmJmIjoxNjc4Njk4NTI1LCJqdGkiOiJ5OWJLQWF5a0p0anB6YjZtIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.715FOeTTYBE5Xf7-1RxTCoYfJUBWr8pfSiQTtrJw3Rg",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "DESTROY",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/v1/satker/destroy/1",
+                            "path": [
+                                "api",
+                                "v1",
+                                "satker",
+                                "destroy",
+                                "1"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2Nzg2OTg1MjUsImV4cCI6MTY3ODk1NzcyNSwibmJmIjoxNjc4Njk4NTI1LCJqdGkiOiJ5OWJLQWF5a0p0anB6YjZtIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.715FOeTTYBE5Xf7-1RxTCoYfJUBWr8pfSiQTtrJw3Rg",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Subsatker",
+            "item": [
+                {
+                    "name": "GetAll",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/v1/subsatker/getall",
+                            "path": [
+                                "api",
+                                "v1",
+                                "subsatker",
+                                "getall"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2Nzg2OTg1MjUsImV4cCI6MTY3ODk1NzcyNSwibmJmIjoxNjc4Njk4NTI1LCJqdGkiOiJ5OWJLQWF5a0p0anB6YjZtIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.715FOeTTYBE5Xf7-1RxTCoYfJUBWr8pfSiQTtrJw3Rg",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "STORE",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/v1/subsatker/store",
+                            "path": [
+                                "api",
+                                "v1",
+                                "subsatker",
+                                "store"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"subsatker\":\"mekanik\",\n  \"satker\":\"2\"\n}"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2Nzg2OTg1MjUsImV4cCI6MTY3ODk1NzcyNSwibmJmIjoxNjc4Njk4NTI1LCJqdGkiOiJ5OWJLQWF5a0p0anB6YjZtIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.715FOeTTYBE5Xf7-1RxTCoYfJUBWr8pfSiQTtrJw3Rg",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "UPDATE",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/v1/subsatker/update/8",
+                            "path": [
+                                "api",
+                                "v1",
+                                "subsatker",
+                                "update",
+                                "8"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"satker\":\"5\",\n  \"subsatker\":\"mekanix\"\n}"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2Nzg2OTg1MjUsImV4cCI6MTY3ODk1NzcyNSwibmJmIjoxNjc4Njk4NTI1LCJqdGkiOiJ5OWJLQWF5a0p0anB6YjZtIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.715FOeTTYBE5Xf7-1RxTCoYfJUBWr8pfSiQTtrJw3Rg",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "DESTROY",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/v1/subsatker/destroy/5",
+                            "path": [
+                                "api",
+                                "v1",
+                                "subsatker",
+                                "destroy",
+                                "5"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2Nzg2OTg1MjUsImV4cCI6MTY3ODk1NzcyNSwibmJmIjoxNjc4Njk4NTI1LCJqdGkiOiJ5OWJLQWF5a0p0anB6YjZtIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.715FOeTTYBE5Xf7-1RxTCoYfJUBWr8pfSiQTtrJw3Rg",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Show",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/v1/subsatker/show/8",
+                            "path": [
+                                "api",
+                                "v1",
+                                "subsatker",
+                                "show",
+                                "8"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2Nzg2OTg1MjUsImV4cCI6MTY3ODk1NzcyNSwibmJmIjoxNjc4Njk4NTI1LCJqdGkiOiJ5OWJLQWF5a0p0anB6YjZtIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.715FOeTTYBE5Xf7-1RxTCoYfJUBWr8pfSiQTtrJw3Rg",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Role",
+            "item": [
+                {
+                    "name": "GETALL",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/v1/role/getall",
+                            "path": [
+                                "api",
+                                "v1",
+                                "role",
+                                "getall"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvcmVmcmVzaCIsImlhdCI6MTY3ODczMjYxOCwiZXhwIjoxNjc4OTkxODYyLCJuYmYiOjE2Nzg3MzI2NjIsImp0aSI6ImJlMUlQTHJIbjZ3WlNIQjMiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.TfJUSxEr4fxDvXgJ2zhdtwhoAEkNxnqYP8-AKxiHsBw",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "STORE",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/v1/category/store",
+                            "path": [
+                                "api",
+                                "v1",
+                                "category",
+                                "store"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"kategori\":\"mesin\",\n  \"id_subsatker\":2\n}"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2Nzg3MzI2MTgsImV4cCI6MTY3ODk5MTgxOCwibmJmIjoxNjc4NzMyNjE4LCJqdGkiOiJ5bmhUb3lGWEVJbUg3Q0h6Iiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.aAxYNHONuUz8Q0GnaFPAoyoqA05ItFGuHw5J5d9ZumM",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "SHOW",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/v1/category/show/1",
+                            "path": [
+                                "api",
+                                "v1",
+                                "category",
+                                "show",
+                                "1"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2Nzg2OTg1MjUsImV4cCI6MTY3ODk1NzcyNSwibmJmIjoxNjc4Njk4NTI1LCJqdGkiOiJ5OWJLQWF5a0p0anB6YjZtIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.715FOeTTYBE5Xf7-1RxTCoYfJUBWr8pfSiQTtrJw3Rg",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "UPDATE",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/v1/category/update/2",
+                            "path": [
+                                "api",
+                                "v1",
+                                "category",
+                                "update",
+                                "2"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"kategori\" : \"Mekanik\",\n  \"subsatker\":\"3\"\n}"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2Nzg2OTg1MjUsImV4cCI6MTY3ODk1NzcyNSwibmJmIjoxNjc4Njk4NTI1LCJqdGkiOiJ5OWJLQWF5a0p0anB6YjZtIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.715FOeTTYBE5Xf7-1RxTCoYfJUBWr8pfSiQTtrJw3Rg",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "DESTROY",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/v1/category/destroy/1",
+                            "path": [
+                                "api",
+                                "v1",
+                                "category",
+                                "destroy",
+                                "1"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2Nzg2OTg1MjUsImV4cCI6MTY3ODk1NzcyNSwibmJmIjoxNjc4Njk4NTI1LCJqdGkiOiJ5OWJLQWF5a0p0anB6YjZtIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.715FOeTTYBE5Xf7-1RxTCoYfJUBWr8pfSiQTtrJw3Rg",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "SEARCH",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/v1/category/search/",
+                            "path": [
+                                "api",
+                                "v1",
+                                "category",
+                                "search"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"Kategori\":\"nisi\"\n}"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2Nzg2OTg1MjUsImV4cCI6MTY3ODk1NzcyNSwibmJmIjoxNjc4Njk4NTI1LCJqdGkiOiJ5OWJLQWF5a0p0anB6YjZtIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.715FOeTTYBE5Xf7-1RxTCoYfJUBWr8pfSiQTtrJw3Rg",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "StatusAsset",
+            "item": [
+                {
+                    "name": "GetAll",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/v1/statusa/getall",
+                            "path": [
+                                "api",
+                                "v1",
+                                "statusa",
+                                "getall"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2Nzg2OTg1MjUsImV4cCI6MTY3ODk1NzcyNSwibmJmIjoxNjc4Njk4NTI1LCJqdGkiOiJ5OWJLQWF5a0p0anB6YjZtIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.715FOeTTYBE5Xf7-1RxTCoYfJUBWr8pfSiQTtrJw3Rg",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "STORE",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/v1/statusa/store",
+                            "path": [
+                                "api",
+                                "v1",
+                                "statusa",
+                                "store"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"status\":\"createtest\"\n}"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2Nzg2OTg1MjUsImV4cCI6MTY3ODk1NzcyNSwibmJmIjoxNjc4Njk4NTI1LCJqdGkiOiJ5OWJLQWF5a0p0anB6YjZtIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.715FOeTTYBE5Xf7-1RxTCoYfJUBWr8pfSiQTtrJw3Rg",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "UPDATE",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/v1/statusa/update/1",
+                            "path": [
+                                "api",
+                                "v1",
+                                "statusa",
+                                "update",
+                                "1"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"status\":\"mekanix\"\n}"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2Nzg2OTg1MjUsImV4cCI6MTY3ODk1NzcyNSwibmJmIjoxNjc4Njk4NTI1LCJqdGkiOiJ5OWJLQWF5a0p0anB6YjZtIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.715FOeTTYBE5Xf7-1RxTCoYfJUBWr8pfSiQTtrJw3Rg",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "DESTROY",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/v1/statusa/destroy/1",
+                            "path": [
+                                "api",
+                                "v1",
+                                "statusa",
+                                "destroy",
+                                "1"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2Nzk3MzEzMTcsImV4cCI6MTY3OTk5MDUxNywibmJmIjoxNjc5NzMxMzE3LCJqdGkiOiJNTXZJbGpEYlBmaDdreXZBIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.JVr5jXWworHUV5bgU8dVQO-lFUdiuvn8QOtG8-0nyLQ",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Show",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/v1/statusa/show/3",
+                            "path": [
+                                "api",
+                                "v1",
+                                "statusa",
+                                "show",
+                                "3"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2Nzk3MzEzMTcsImV4cCI6MTY3OTk5MDUxNywibmJmIjoxNjc5NzMxMzE3LCJqdGkiOiJNTXZJbGpEYlBmaDdreXZBIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.JVr5jXWworHUV5bgU8dVQO-lFUdiuvn8QOtG8-0nyLQ",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Maintenance",
+            "item": [
+                {
+                    "name": "GETALL",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/v1/maintenance/getall",
+                            "path": [
+                                "api",
+                                "v1",
+                                "maintenance",
+                                "getall"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODA0MTMzMjcsImV4cCI6MTY4MDY3MjUyNywibmJmIjoxNjgwNDEzMzI3LCJqdGkiOiJhZnpTRFpmemFPQng4N1p2Iiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.vNePlGQXY5z-aZcVQnWl1WsblKD9ds20WFKlkg248Rk",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "STORE",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/v1/maintenance/store",
+                            "path": [
+                                "api",
+                                "v1",
+                                "maintenance",
+                                "store"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "id_asset",
+                                    "value": "2",
+                                    "type": "default"
+                                },
+                                {
+                                    "key": "id_type",
+                                    "value": "2",
+                                    "type": "default"
+                                },
+                                {
+                                    "key": "deskripsi",
+                                    "value": "2",
+                                    "type": "default"
+                                },
+                                {
+                                    "key": "fotoafter",
+                                    "value": "asd",
+                                    "type": "default"
+                                },
+                                {
+                                    "key": "fotobefore",
+                                    "src": "e:\\Personal\\DSC_5877-Editbw.jpg",
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODA0MTMzMjcsImV4cCI6MTY4MDY3MjUyNywibmJmIjoxNjgwNDEzMzI3LCJqdGkiOiJhZnpTRFpmemFPQng4N1p2Iiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.vNePlGQXY5z-aZcVQnWl1WsblKD9ds20WFKlkg248Rk",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "GET",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/v1/maintenance/show/6",
+                            "path": [
+                                "api",
+                                "v1",
+                                "maintenance",
+                                "show",
+                                "6"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODA0MTMzMjcsImV4cCI6MTY4MDY3MjUyNywibmJmIjoxNjgwNDEzMzI3LCJqdGkiOiJhZnpTRFpmemFPQng4N1p2Iiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.vNePlGQXY5z-aZcVQnWl1WsblKD9ds20WFKlkg248Rk",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -22,14 +22,14 @@ use Illuminate\Validation\ValidationException;
  */
 class AssetController extends Controller
 {
-    
+
     // public function __construct()
     // {
     //     $this->middleware('auth:api', ['except' => ['index', 'show']]);
     // }
     /**
      * Search the specified Assets
-     * 
+     *
      * search a collection of data asset
      * @queryParam page int The paginate of collection asset. Example: 1
      * @queryParam limit int The count of collection asset per page. default `20` per page Example: 20
@@ -41,8 +41,8 @@ class AssetController extends Controller
      * @queryParam serialnumber string required The serialnumber of the user. Example: hjk4h65...
      * @queryParam kategori string required The kategori of the user. Example: printer
      * @queryParam status string required The status of the user. Example: baik
-     * 
-     * @response 200 scenario="Ok" 
+     *
+     * @response 200 scenario="Ok"
      * [
      *     {
      *       "id": 2,
@@ -69,7 +69,8 @@ class AssetController extends Controller
     {
         $limit = $request->query('limit', 20);
         $assets = Asset::query();
-
+        // return $assets->get();
+        $a = [];
         // Apply filters
         if ($request->has('nama_asset') && $request->input('nama_asset') != null) {
             $assets->where('name', 'like', '%' . $request->input('nama_asset') . '%');
@@ -81,7 +82,7 @@ class AssetController extends Controller
             $assets->where('model', 'like', '%' . $request->input('model') . '%');
         }
         if ($request->has('code_asset') && $request->input('code_asset') != null) {
-            $assets->where('code_asset', $request->input('code_asset'));
+            $assets->where('code_ast', $request->input('code_asset'));
         }
         if ($request->has('stockcode') && $request->input('stockcode') != null) {
             $assets->where('stockcode', $request->input('stockcode'));
@@ -98,13 +99,12 @@ class AssetController extends Controller
         if ($request->has('status') && $request->input('status') != null) {
             $statusTerm = $request->input('status');
             $assets->whereHas('status', function ($query) use ($statusTerm) {
-                $query->where('status','like', '%' . $statusTerm . '%');
+                $query->where('status', 'like', '%' . $statusTerm . '%');
             });
         }
-
         // Get results
         $assets = $assets->get();
-
+        return $assets;
         if ($assets->isEmpty()) {
             return response()->json(['message' => 'No results found.'], 404);
         } else {
@@ -131,11 +131,11 @@ class AssetController extends Controller
     /**
      * Get All Assets
      * Display a listing of the Assets.
-     * 
+     *
      * @queryParam page int The paginate of collection asset. Example: 1
      * @queryParam limit int The count of collection asset per page. default `20` per page Example: 20
-     * 
-     * @response 200 scenario="Ok" 
+     *
+     * @response 200 scenario="Ok"
      * {
      *   "status": "success",
      *   "asset": [
@@ -158,7 +158,7 @@ class AssetController extends Controller
      *       "created_at": "2023-06-15T10:31:00.000000Z"
      *     },
      * }
-     * 
+     *
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
@@ -180,13 +180,13 @@ class AssetController extends Controller
     /**
      * Create an Assets
      * Store a newly created Assets.
-     * 
-     * @response 200 scenario="Ok" 
+     *
+     * @response 200 scenario="Ok"
      * {
      *   'status' => 'success',
      *   'message' => 'Asset Berhasil Ditambahkan !'
      * }
-     * 
+     *
      * @response 422 scenario="Unprocessable Content"
      * {
      *   "message": "The given data was invalid.",
@@ -233,8 +233,8 @@ class AssetController extends Controller
     /**
      * Get Assets by ID
      * Display the specified Assets.
-     * 
-     * @response 200 scenario="Ok" 
+     *
+     * @response 200 scenario="Ok"
      * {
      *   "data": {
      *     "id": 4,
@@ -302,7 +302,7 @@ class AssetController extends Controller
     }
 
     /**
-     * 
+     *
      * Delete the specified Assets from storage.
      *
      * @param  \App\Models\asset  $asset
@@ -323,26 +323,13 @@ class AssetController extends Controller
     }
 
     /**
-     * 
-     * Delete the specified Assets from storage.
+     *
+     * History the specified Assets from storage.
      *
      * @param  \App\Models\asset  $asset
      * @return \Illuminate\Http\Response
      */
-    public function hostory(asset $asset)
+    public function history(asset $asset)
     {
-        try {
-            if (Storage::exists($asset->image)) {
-                Storage::delete($asset->image);
-            }
-            $asset->delete();
-        } catch (\Exception $e) {
-            return response()->json([
-                'error' => 'Failed to delete resource',
-            ], 500);
-        }
-        return response()->json([
-            'status' => 'Asset Berhasil Dihapus !',
-        ], 200);
     }
 }

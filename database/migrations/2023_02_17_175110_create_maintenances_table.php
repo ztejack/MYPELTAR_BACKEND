@@ -20,7 +20,7 @@ return new class extends Migration
         Schema::create('maintenances', function (Blueprint $table) {
             $table->id('id');
             $table->foreignId('id_asset')->default(false)->references('id')->on('assets')->onDelete('cascade');
-            $table->foreignId('id_user_inspeksi')->default(false)->references('id')->on('users');
+            $table->foreignId('id_user')->default(false)->references('id')->on('users');
             $table->foreignId('id_type')->default(false)->references('id')->on('type_maintenances');
             $table->string('deskripsi')->default(false);
             $table->string('imagebefore')->default(false);
@@ -28,7 +28,7 @@ return new class extends Migration
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
         });
-        Schema::create('p_updates', function (Blueprint $table) {
+        Schema::create('p_maintenance_updates', function (Blueprint $table) {
             $table->id();
             // $table->foreignId('id_asset')->default(false)->references('id')->on('assets')->onDelete('cascade');
             $table->foreignId('id_user')->default(false)->references('id')->on('users');
