@@ -12,6 +12,8 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Str;
+use Ramsey\Uuid\Rfc4122\UuidV4;
+
 /**
  * @group Users
  */
@@ -64,7 +66,7 @@ class UserController extends Controller
     }
 
     /**
-     * 
+     *
      * @group Users
      * @authenticate
      * Display a listing of the resource.
@@ -95,17 +97,20 @@ class UserController extends Controller
      */
     public function store(StoreuserRequest $request)
     {
+        // dd($request->validated());
         $input = $request->validated();
+        // dd($input);
         $user = new User();
         $user->name = $input['name'];
         $user->email = $input['email'];
         $user->username = $input['username'];
         $user->id_subsatker = $input['id_subsatker'];
         $user->password = '12345678';
+        $user->uuid = UuidV4::uuid4()->getHex();
         // return $role;
         if (!is_null($input['id_role'])) {
             $user->assignRole($input['']);
-        }else{
+        } else {
             $user->assignRole($input['id_role']);
         }
         $user->save();

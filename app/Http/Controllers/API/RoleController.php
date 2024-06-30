@@ -6,9 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Models\Role;
 use App\Http\Requests\StoreroleRequest;
 use App\Http\Requests\UpdateroleRequest;
+use Illuminate\Support\Facades\Gate;
 
 /**
- * 
+ *
  * @group Role
  */
 class RoleController extends Controller
@@ -37,7 +38,7 @@ class RoleController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * 
+     *
      * @param  \App\Http\Requests\StoreroleRequest  $request
      * @return \Illuminate\Http\Response
      */

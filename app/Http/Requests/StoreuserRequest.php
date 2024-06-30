@@ -36,7 +36,7 @@ class StoreuserRequest extends FormRequest
             'id_satker' => 'required',
             'id_subsatker' => 'required',
         ];
-        $rules = [];
+        // $rules = [];
         if (!is_null($this->input('id_role'))) {
             $rules['id_role'] = 'not_in:1';
         } else {

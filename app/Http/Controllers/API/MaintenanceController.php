@@ -10,8 +10,11 @@ use App\Http\Requests\UpdatePupdateMaintenanceRequest;
 use App\Http\Resources\AssetResource;
 use App\Http\Resources\MaintenanceResource;
 use App\Models\Asset;
+use App\Models\Inspeksi;
+use App\Models\PMaintenanceUpdate;
 use App\Models\PUpdate;
 use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use LdapRecord\Query\Events\Paginate;
@@ -40,11 +43,11 @@ class MaintenanceController extends Controller
      */
     public function self_get()
     {
-        $maintenances = User::maintenance()->where('id_user_inspeksi',Auth::user()->id)->latest()->paginate(50);
+        $maintenances = User::maintenance()->where('id_user_inspeksi', Auth::user()->id)->latest()->paginate(50);
         return response()->json(MaintenanceResource::collection($maintenances));
     }
 
-    /** 
+    /**
      * @Group Inspeksi
      * Store a newly created resource in storage.
      *
@@ -57,7 +60,7 @@ class MaintenanceController extends Controller
         $input = $request->validated();
         $maintenance = new Maintenance();
         $maintenance->id_user_inspeksi = Auth::user()->id;
-        $pupdate = new PUpdate();
+        $pupdate = new PMaintenanceUpdate();
         if (!is_null($input['imagebefore'])) {
             $imagepath = Storage::put('public/images/Maintenance', $request->file('imagebefore'));
             $maintenance->imagebefore = $imagepath;
@@ -106,7 +109,7 @@ class MaintenanceController extends Controller
         $maintenance = Maintenance::find($Maintenance);
         $maintenance->id_type = $input['id_type'];
         $maintenance->deskripsi = $input['deskripsi'];
-        $pupdate = new PUpdate();
+        $pupdate = new PMaintenanceUpdate();
         if (!is_null($input['imagebefore'])) {
             $imagepath = Storage::put('public/images/Maintenance', $request->file('imagebefore'));
             $maintenance->imagebefore = $imagepath;
@@ -150,5 +153,16 @@ class MaintenanceController extends Controller
         return response()->json([
             'status' => 'Track Maintenance Berhasil Dihapus !',
         ], 200);
+    }
+
+    public function maintenance_aplly(Request $request, Maintenance $maintenance)
+    {
+        $inspeksi = new Inspeksi;
+        $inspeksi->id_user = Auth::user()->id;
+        $inspeksi->id_asset = $request['asset'];
+
+        $inspeksi->save();
+        $maintenance->inspeksi()->attach($inspeksi->id);
+        return response()->json([$maintenance, $inspeksi]);
     }
 }

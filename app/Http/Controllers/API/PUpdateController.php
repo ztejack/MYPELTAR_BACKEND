@@ -11,6 +11,7 @@ use App\Http\Requests\UpdateHistoryMaintenanceRequest;
 use App\Http\Requests\Updatep_updateRequest;
 use App\Models\Asset;
 use App\Models\Maintenance;
+use App\Models\PMaintenanceUpdate;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
@@ -31,7 +32,7 @@ class PUpdateController extends Controller
         return response()->json(['data' => $maintenance->pupdates()], 200);
     }
 
-    /** 
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \App\Http\Requests\StoreHistoryMaintenanceRequest  $request
@@ -40,7 +41,7 @@ class PUpdateController extends Controller
     public function store(StoreHistoryMaintenanceRequest $request, Maintenance $maintenance)
     {
         $input = $request->validated();
-        $pupdate = new PUpdate();
+        $pupdate = new PMaintenanceUpdate();
         if (!is_null($input['imagebefore'])) {
             $imagepath = Storage::put('public/images/Maintenance', $request->file('imagebefore'));
             $pupdate->image = $imagepath;
@@ -88,7 +89,7 @@ class PUpdateController extends Controller
      * @param  \App\Models\PUpdate  $PUpdate
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PUpdate $PUpdate)
+    public function destroy(PMaintenanceUpdate $PUpdate)
     {
         //
     }

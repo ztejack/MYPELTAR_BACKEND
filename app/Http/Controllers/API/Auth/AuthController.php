@@ -28,40 +28,48 @@ class AuthController extends Controller
 
     /**
      * Log in.
-     * 
+     *
      * @Unauthenticated
-     * 
+     *
      * Otherwise, the request will fail with a 422 error, and a response listing the Wrong credential.
-     * 
+     *
      * @bodyParam   username    string  required    The username of the  user.      Example: username
      * @bodyParam   password    string  required    The password of the  user.   Example: secret
-     * 
+     *
      * @response 422 scenario="Unprocessable Content" {"status":"fails","message": "Wrong Username"}
-     * @responseField username The username of this User must be `string` 
+     * @responseField username The username of this User must be `string`
      * @responseField password The password of this User must be `string`
      * @responseField status Map of each request their status (`success` or `fails`).
      *
-     * @response 200 scenario="Ok" 
+     * @response 200 scenario="Ok"
      * {
-     *      "status" : "success", 
-     *      "user" : `User Object` , 
-     *      "authorisation" : { 
+     *      "status" : "success",
+     *      "user" : `User Object` ,
+     *      "authorisation" : {
      *          "token" : "eyJ0eXAiO . . .",
-     *          "type" : "bearer" }, 
+     *          "type" : "bearer" },
      *      "api-key" : {
-     *          "api_key" : "c4ksKs . . .", 
+     *          "api_key" : "c4ksKs . . .",
      *          "expiration_date" : "2023-07-15 17:31:00"
      *      }
      * }
      */
     public function login(Request $request)
     {
-        $validatedData = Validator::make($request->all(),[
-            'username' => ['required',Rule::exists('users', 'username')],
+        // return response()->json([
+        //     'status' => 'success',
+        //     $request
+        // ]);
+        $validatedData = Validator::make($request->all(), [
+            'username' => ['required', Rule::exists('users', 'username')],
         ]);
         if ($validatedData->fails()) {
             return response()->json([
-                'status'=>'fails',
+                'status' => 'fails',
+                // test
+                // 'username' =>  $request->get('username'),
+                // 'resquest' => $request,
+                // test
                 'message' => 'Wrong Username',
             ], 422);
         };
@@ -70,11 +78,10 @@ class AuthController extends Controller
             'username' => $request->get('username'),
             'password' => $request->get('password'),
         ];
-        
         $token = Auth::attempt($credentials, true);
         if (!$token) {
             return response()->json([
-                'status'=>'fails',
+                'status' => 'fails',
                 'message' => 'Wrong Password',
             ], 422);
         }
@@ -87,15 +94,15 @@ class AuthController extends Controller
                 'token' => $token,
                 'type' => 'bearer',
             ],
-            'api-key' => new ApiKeyResource($user->apikey)
+            // 'api-key' => new ApiKeyResource($user->apikey)
         ], 200);
     }
 
     /**
-     * Log out 
-     * 
+     * Log out
+     *
      * Log out the user and delete the token.
-     * 
+     *
      * @response 200 scenario="Ok"
      * {
      *  "status": "success",
@@ -110,20 +117,20 @@ class AuthController extends Controller
             'message' => 'Successfully logged out',
         ], 200);
     }
-    
+
     /**
-     * Refresh 
+     * Refresh
      *
-     * @response 200 scenario="Ok" 
+     * @response 200 scenario="Ok"
      * {
-     *      "status" : "success", 
-     *      "user" : `User Object` , 
-     *      "authorisation" : { 
+     *      "status" : "success",
+     *      "user" : `User Object` ,
+     *      "authorisation" : {
      *          "token" : "eyJ0eXAiO . . .",
-     *          "type" : "bearer" 
+     *          "type" : "bearer"
      *      },
      *      "api-key" : {
-     *          "api_key" : "c4ksKs . . .", 
+     *          "api_key" : "c4ksKs . . .",
      *          "expiration_date" : "2023-07-15 17:31:00"
      *      }
      * }
@@ -132,7 +139,7 @@ class AuthController extends Controller
     {
         try {
             $user = Auth::user();
-            $apikey = ApiKey::where('user_id','like',$user->id);
+            $apikey = ApiKey::where('user_id', 'like', $user->id);
             $apikey->delete();
 
             $expirationDate = Carbon::now()->addDays(30);
@@ -141,7 +148,7 @@ class AuthController extends Controller
                 'api_key' => Str::random(32),
                 'expiration_date' => $expirationDate,
             ]);
-            
+
             return response()->json([
                 'status' => 'success',
                 'user' => new UserResource(Auth::user()),
@@ -161,11 +168,11 @@ class AuthController extends Controller
     }
 
     /**
-     * Profile 
-     * 
+     * Profile
+     *
      * Give respons of profile the user.
-     * 
-     * @response 200 scenario="Ok" 
+     *
+     * @response 200 scenario="Ok"
      * {
      *   "status": "success",
      *   "user": {

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\WEB\Auth\AuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login_view');
 });
+
+Route::prefix('auth')->group(function () {
+    Route::post('login', [AuthController::class, 'login'])->name('login');
+    Route::get('login', [AuthController::class, 'login_view'])->name('login_view');
+});
+//log-viewers
+Route::get('log-viewers', [\Rap2hpoutre\LaravelLogViewer\LogViewerController::class, 'index']);
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -44,8 +44,8 @@ class RoleAndPermissionSeeder extends Seeder
         Permission::create(['name' => 'delete-subsatker']);
 
         // ROLES
-        Permission::create(['name' => 'assign-role']);
-        Permission::create(['name' => 'remove-role']);
+        // Permission::create(['name' => 'assign-role']);
+        // Permission::create(['name' => 'remove-role']);
 
         //ASSET
         Permission::create(['name' => 'store-assets']);
@@ -71,6 +71,9 @@ class RoleAndPermissionSeeder extends Seeder
         Permission::create(['name' => 'store-statusa']);
         Permission::create(['name' => 'update-statusa']);
         Permission::create(['name' => 'delete-statusa']);
+
+        // ROLE
+        Permission::create(['name' => 'roleManagement']);
 
         $superadminRole = Role::create(['name' => 'SuperAdmin']);
         $adminRole = Role::create(['name' => 'Admin']);
@@ -117,8 +120,7 @@ class RoleAndPermissionSeeder extends Seeder
             'update-statusa',
             'delete-statusa',
 
-            'assign-role',
-            'remove-role'
+            'roleManagement'
         ]);
 
         $adminRole->givePermissionTo([
@@ -159,6 +161,7 @@ class RoleAndPermissionSeeder extends Seeder
             'store-statusa',
             'update-statusa',
             'delete-statusa',
+            'roleManagement'
         ]);
 
         $inspeksiRole->givePermissionTo([

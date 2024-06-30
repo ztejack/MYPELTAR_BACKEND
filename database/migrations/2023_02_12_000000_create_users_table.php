@@ -13,8 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
+        Schema::create('clients', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->uuid('uuid');
+            $table->longText('api_key')->unique();
+            $table->timestamps();
+        });
         Schema::create('users', function (Blueprint $table) {
             $table->id('id');
+            $table->uuid('uuid');
+            $table->string('slug')->unique();
             $table->string('name');
             $table->foreignId('id_subsatker')->default(false)->references('id')->on('subsatkers');
             $table->string('username');
@@ -32,6 +41,7 @@ return new class extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('clients');
         Schema::dropIfExists('users');
     }
 };

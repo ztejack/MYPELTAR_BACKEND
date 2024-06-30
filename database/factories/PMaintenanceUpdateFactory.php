@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\p_update>
  */
-class PUpdateFactory extends Factory
+class PMaintenanceUpdateFactory extends Factory
 {
     /**
      * Define the model's default state.

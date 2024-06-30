@@ -10,14 +10,17 @@ use Laravel\Sanctum\HasApiTokens;
 use LdapRecord\Laravel\Auth\LdapAuthenticatable;
 use LdapRecord\Laravel\Auth\AuthenticatesWithLdap;
 use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject;
+use Ramsey\Uuid\Rfc4122\UuidV4;
 use Spatie\Permission\Traits\HasRoles;
+use Spatie\Sluggable\HasSlug;
+use Spatie\Sluggable\SlugOptions;
 
 // class User extends Authenticatable implements LdapAuthenticatable, JWTSubject
 class User extends Authenticatable implements JWTSubject
 {
 
     // use   Notifiable, AuthenticatesWithLdap;
-    use Notifiable, HasApiTokens, HasFactory, HasRoles;
+    use Notifiable, HasApiTokens, HasFactory, HasRoles, HasSlug;
 
     /**
      * The attributes that are mass assignable.
@@ -28,6 +31,7 @@ class User extends Authenticatable implements JWTSubject
         'name',
         'email',
         'username',
+        'uuid',
         'id_role',
         'id_subsatker',
     ];
@@ -41,7 +45,23 @@ class User extends Authenticatable implements JWTSubject
         'password',
         'remember_token',
     ];
-
+    /**
+     * Get the options for generating the slug.
+     */
+    public function getSlugOptions(): SlugOptions
+    {
+        // return SlugOptions::create()
+        //     ->generateSlugsFrom('name')
+        //     ->saveSlugsTo('slug');
+        return SlugOptions::create()
+            ->generateSlugsFrom(['username', 'uuid'])
+            ->saveSlugsTo('slug')
+            ->usingLanguage('nl');;
+    }
+    public function getRouteKeyName()
+    {
+        return 'uuid';
+    }
     /**
      * The attributes that should be cast.
      *
@@ -70,6 +90,14 @@ class User extends Authenticatable implements JWTSubject
     {
         return [];
     }
+    public static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($user) {
+            $user->uuid = UuidV4::uuid4()->getHex();
+        });
+    }
 
     /**
      * Return a model value array, containing any relation model.
@@ -92,8 +120,12 @@ class User extends Authenticatable implements JWTSubject
     {
         return $this->belongsToMany(Maintenance::class);
     }
-    public function apiKey()
+    public function inspeksi()
     {
-        return $this->hasOne(ApiKey::class);
+        return $this->belongsToMany(Inspeksi::class);
     }
+    // public function apiKey()
+    // {
+    //     return $this->hasOne(ApiKey::class);
+    // }
 }
