@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\LoginRequest;
 use App\Http\Resources\ApiKeyResource;
 use App\Http\Resources\UserResource;
 use App\Models\ApiKey;
@@ -33,11 +34,11 @@ class AuthController extends Controller
      *
      * Otherwise, the request will fail with a 422 error, and a response listing the Wrong credential.
      *
-     * @bodyParam   username    string  required    The username of the  user.      Example: username
+     * @bodyParam   login    string  required    The Email or Username of the  user.      Example: exampleuser / example@example.com
      * @bodyParam   password    string  required    The password of the  user.   Example: secret
      *
-     * @response 422 scenario="Unprocessable Content" {"status":"fails","message": "Wrong Username"}
-     * @responseField username The username of this User must be `string`
+     * @response 404 scenario="Unprocessable Content" {"status":"fails","message": "Wrong username"}
+     * @responseField login The login of this User must be `string` login mean using email or username of user
      * @responseField password The password of this User must be `string`
      * @responseField status Map of each request their status (`success` or `fails`).
      *
@@ -47,39 +48,21 @@ class AuthController extends Controller
      *      "user" : `User Object` ,
      *      "authorisation" : {
      *          "token" : "eyJ0eXAiO . . .",
-     *          "type" : "bearer" },
-     *      "api-key" : {
-     *          "api_key" : "c4ksKs . . .",
-     *          "expiration_date" : "2023-07-15 17:31:00"
-     *      }
+     *          "type" : "bearer" }
      * }
      */
-    public function login(Request $request)
+    public function login(LoginRequest $request)
     {
-        // return response()->json([
-        //     'status' => 'success',
-        //     $request
-        // ]);
-        $validatedData = Validator::make($request->all(), [
-            'username' => ['required', Rule::exists('users', 'username')],
-        ]);
-        if ($validatedData->fails()) {
-            return response()->json([
-                'status' => 'fails',
-                // test
-                // 'username' =>  $request->get('username'),
-                // 'resquest' => $request,
-                // test
-                'message' => 'Wrong Username',
-            ], 422);
-        };
 
-        $credentials = [
-            'username' => $request->get('username'),
-            'password' => $request->get('password'),
-        ];
-        $token = Auth::attempt($credentials, true);
-        if (!$token) {
+        $login = $request->input('login');
+        $password = $request->input('password');
+
+        // Check if login is email or username
+        $credentials = filter_var($login, FILTER_VALIDATE_EMAIL) ?
+            ['email' => $login, 'password' => $password] :
+            ['username' => $login, 'password' => $password];
+
+        if (!$token = Auth::attempt($credentials, true)) {
             return response()->json([
                 'status' => 'fails',
                 'message' => 'Wrong Password',
@@ -128,10 +111,6 @@ class AuthController extends Controller
      *      "authorisation" : {
      *          "token" : "eyJ0eXAiO . . .",
      *          "type" : "bearer"
-     *      },
-     *      "api-key" : {
-     *          "api_key" : "c4ksKs . . .",
-     *          "expiration_date" : "2023-07-15 17:31:00"
      *      }
      * }
      */
@@ -139,15 +118,6 @@ class AuthController extends Controller
     {
         try {
             $user = Auth::user();
-            $apikey = ApiKey::where('user_id', 'like', $user->id);
-            $apikey->delete();
-
-            $expirationDate = Carbon::now()->addDays(30);
-            APIKey::create([
-                'user_id' => $user->id,
-                'api_key' => Str::random(32),
-                'expiration_date' => $expirationDate,
-            ]);
 
             return response()->json([
                 'status' => 'success',
@@ -156,13 +126,12 @@ class AuthController extends Controller
                     'token' => Auth::refresh(),
                     'type' => 'bearer',
                 ],
-                'api-key' => new ApiKeyResource($user->apikey)
             ], 200);
         } catch (\Throwable $th) {
             // Handle the exception
             return response()->json([
                 'status' => 'error',
-                'message' => 'An error occurred while creating the API key.'
+                'message' => 'An error occurred while refresh token.'
             ], 500);
         }
     }

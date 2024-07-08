@@ -1,12 +1,12 @@
-name: Category
+name: Maintenance
 description: ''
 endpoints:
   -
     httpMethods:
       - GET
-    uri: api/v1/category/getall
+    uri: api/v1/maintenance/getall
     metadata:
-      groupName: Category
+      groupName: Maintenance
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
@@ -15,7 +15,7 @@ endpoints:
       authenticated: true
       custom: []
     headers:
-      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      MYP_API_KEY: '{YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
       MYP-API-KEY: '{YOUR_API_KEY}'
@@ -28,79 +28,21 @@ endpoints:
     fileParameters: []
     responses:
       -
-        status: 403
-        content: '{"error":"UnAuthenticated"}'
+        status: 200
+        content: '[{"id":4864,"user_inspektor":null,"asset":{"id":5,"stockcode":"106","code_asset":"AST24070005","serialnumber":"FAKESerial00005","nama_asset":"Marietta Hermiston I","merk":"Eum illum ut.","model":"Qui.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","spesifikasi":"Eum aperiam vel.","deskripsi":"Aut illo fugit.","lokasi":"RCD2","kategori":["Corrupti quia."],"status":"Dalam Perbaikan","updated_at":"2024-06-30T19:46:54.000000Z","created_at":"2024-06-30T19:46:54.000000Z"},"type":{"id":1,"type":"Inspeksi"},"imagebefore":"http:\/\/myapi.peltar.id\/storage\/Molestias est molestias non doloremque.","imageafter":"http:\/\/myapi.peltar.id\/Et nam cumque nisi omnis.","history":[{"id":9727,"user":"Admin","status":"Pending","deskripsi":"Corporis non et necessitatibus.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:46.000000Z","update_at":"2024-06-30T19:47:46.000000Z"},{"id":9728,"user":"AdminInspeksi","status":"Dalam Perbaikan","deskripsi":"Quis dignissimos odio sint quaerat.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:46.000000Z","update_at":"2024-06-30T19:47:46.000000Z"}]},{"id":4865,"user_inspektor":null,"asset":{"id":3,"stockcode":"21","code_asset":"AST24070003","serialnumber":"FAKESerial00003","nama_asset":"Yvonne Fay Jr.","merk":"Modi.","model":"Beatae.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","spesifikasi":"Qui.","deskripsi":"Quae neque sapiente laudantium.","lokasi":"RCD2","kategori":["Dolore dolore."],"status":"Dalam Perbaikan","updated_at":"2024-06-30T19:46:54.000000Z","created_at":"2024-06-30T19:46:54.000000Z"},"type":{"id":1,"type":"Inspeksi"},"imagebefore":"http:\/\/myapi.peltar.id\/storage\/Eum aliquid delectus dolor esse.","imageafter":"http:\/\/myapi.peltar.id\/Et voluptates saepe qui laborum.","history":[{"id":9729,"user":"Admin","status":"Pending","deskripsi":"Quam et soluta a.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:46.000000Z","update_at":"2024-06-30T19:47:46.000000Z"},{"id":9730,"user":"AdminMaintenance","status":"Pending","deskripsi":"Eum.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:46.000000Z","update_at":"2024-06-30T19:47:46.000000Z"}]},{"id":4866,"user_inspektor":null,"asset":{"id":1,"stockcode":"114","code_asset":"AST24070001","serialnumber":"FAKESerial00001","nama_asset":"Lloyd Casper","merk":"Eos maxime omnis architecto et.","model":"Consequuntur laboriosam.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","spesifikasi":"Dolorem quas consectetur fuga.","deskripsi":"Nihil dolorum.","lokasi":"Quo neque.","kategori":["Aut."],"status":"Rusak","updated_at":"2024-06-30T19:46:54.000000Z","created_at":"2024-06-30T19:46:54.000000Z"},"type":{"id":1,"type":"Inspeksi"},"imagebefore":"http:\/\/myapi.peltar.id\/storage\/Dolorem corrupti quia numquam animi aspernatur.","imageafter":"http:\/\/myapi.peltar.id\/Distinctio cumque id in quae suscipit eaque.","history":[{"id":9731,"user":"SuperUser","status":"Dalam Perbaikan","deskripsi":"Non voluptatem architecto numquam.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:46.000000Z","update_at":"2024-06-30T19:47:46.000000Z"},{"id":9732,"user":"Admin","status":"Pending","deskripsi":"Suscipit.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:46.000000Z","update_at":"2024-06-30T19:47:46.000000Z"}]},{"id":4867,"user_inspektor":null,"asset":{"id":4,"stockcode":"163","code_asset":"AST24070004","serialnumber":"FAKESerial00004","nama_asset":"Prof. Manuel Denesik III","merk":"Quis sunt.","model":"Quia.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","spesifikasi":"Rerum voluptas.","deskripsi":"Iure totam.","lokasi":"RCD1","kategori":["Aut."],"status":"Dalam Perbaikan","updated_at":"2024-06-30T19:46:54.000000Z","created_at":"2024-06-30T19:46:54.000000Z"},"type":{"id":2,"type":"Breakdown"},"imagebefore":"http:\/\/myapi.peltar.id\/storage\/Rerum quos fuga.","imageafter":"http:\/\/myapi.peltar.id\/Quam delectus laudantium sequi ut.","history":[{"id":9733,"user":"AdminMaintenance","status":"Dalam Perbaikan","deskripsi":"Placeat exercitationem.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:46.000000Z","update_at":"2024-06-30T19:47:46.000000Z"},{"id":9734,"user":"AdminMaintenance","status":"Pending","deskripsi":"Ex quod.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:46.000000Z","update_at":"2024-06-30T19:47:46.000000Z"}]},{"id":4868,"user_inspektor":null,"asset":{"id":1,"stockcode":"114","code_asset":"AST24070001","serialnumber":"FAKESerial00001","nama_asset":"Lloyd Casper","merk":"Eos maxime omnis architecto et.","model":"Consequuntur laboriosam.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","spesifikasi":"Dolorem quas consectetur fuga.","deskripsi":"Nihil dolorum.","lokasi":"Quo neque.","kategori":["Aut."],"status":"Rusak","updated_at":"2024-06-30T19:46:54.000000Z","created_at":"2024-06-30T19:46:54.000000Z"},"type":{"id":1,"type":"Inspeksi"},"imagebefore":"http:\/\/myapi.peltar.id\/storage\/Vero necessitatibus nisi placeat aut corporis adipisci.","imageafter":"http:\/\/myapi.peltar.id\/Perspiciatis non aliquam exercitationem ad.","history":[{"id":9735,"user":"Admin","status":"Dalam Perbaikan","deskripsi":"Sint.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:46.000000Z","update_at":"2024-06-30T19:47:46.000000Z"},{"id":9736,"user":"Admin","status":"Pending","deskripsi":"Error.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:46.000000Z","update_at":"2024-06-30T19:47:46.000000Z"}]},{"id":4869,"user_inspektor":null,"asset":{"id":3,"stockcode":"21","code_asset":"AST24070003","serialnumber":"FAKESerial00003","nama_asset":"Yvonne Fay Jr.","merk":"Modi.","model":"Beatae.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","spesifikasi":"Qui.","deskripsi":"Quae neque sapiente laudantium.","lokasi":"RCD2","kategori":["Dolore dolore."],"status":"Dalam Perbaikan","updated_at":"2024-06-30T19:46:54.000000Z","created_at":"2024-06-30T19:46:54.000000Z"},"type":{"id":2,"type":"Breakdown"},"imagebefore":"http:\/\/myapi.peltar.id\/storage\/Provident voluptatibus aspernatur at.","imageafter":"http:\/\/myapi.peltar.id\/Molestias non qui.","history":[{"id":9737,"user":"SuperUser","status":"Dalam Perbaikan","deskripsi":"Ea quod architecto voluptatem aspernatur.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:46.000000Z","update_at":"2024-06-30T19:47:46.000000Z"},{"id":9738,"user":"SuperUser","status":"Selesai","deskripsi":"Sed.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:46.000000Z","update_at":"2024-06-30T19:47:46.000000Z"}]},{"id":4870,"user_inspektor":null,"asset":{"id":5,"stockcode":"106","code_asset":"AST24070005","serialnumber":"FAKESerial00005","nama_asset":"Marietta Hermiston I","merk":"Eum illum ut.","model":"Qui.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","spesifikasi":"Eum aperiam vel.","deskripsi":"Aut illo fugit.","lokasi":"RCD2","kategori":["Corrupti quia."],"status":"Dalam Perbaikan","updated_at":"2024-06-30T19:46:54.000000Z","created_at":"2024-06-30T19:46:54.000000Z"},"type":{"id":1,"type":"Inspeksi"},"imagebefore":"http:\/\/myapi.peltar.id\/storage\/Est blanditiis veniam dolor odit.","imageafter":"http:\/\/myapi.peltar.id\/Vel quam enim inventore ex.","history":[{"id":9739,"user":"AdminMaintenance","status":"Dalam Perbaikan","deskripsi":"Delectus ipsum.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:46.000000Z","update_at":"2024-06-30T19:47:46.000000Z"},{"id":9740,"user":"AdminInspeksi","status":"Pending","deskripsi":"Perspiciatis consectetur est dicta.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:46.000000Z","update_at":"2024-06-30T19:47:46.000000Z"}]},{"id":4871,"user_inspektor":null,"asset":{"id":5,"stockcode":"106","code_asset":"AST24070005","serialnumber":"FAKESerial00005","nama_asset":"Marietta Hermiston I","merk":"Eum illum ut.","model":"Qui.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","spesifikasi":"Eum aperiam vel.","deskripsi":"Aut illo fugit.","lokasi":"RCD2","kategori":["Corrupti quia."],"status":"Dalam Perbaikan","updated_at":"2024-06-30T19:46:54.000000Z","created_at":"2024-06-30T19:46:54.000000Z"},"type":{"id":1,"type":"Inspeksi"},"imagebefore":"http:\/\/myapi.peltar.id\/storage\/Autem voluptate qui.","imageafter":"http:\/\/myapi.peltar.id\/Sit dolorem molestiae.","history":[{"id":9741,"user":"Admin","status":"Pending","deskripsi":"Cum possimus consequatur distinctio.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:46.000000Z","update_at":"2024-06-30T19:47:46.000000Z"},{"id":9742,"user":"Admin","status":"Selesai","deskripsi":"Ut architecto cumque quo.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:46.000000Z","update_at":"2024-06-30T19:47:46.000000Z"}]},{"id":4872,"user_inspektor":null,"asset":{"id":5,"stockcode":"106","code_asset":"AST24070005","serialnumber":"FAKESerial00005","nama_asset":"Marietta Hermiston I","merk":"Eum illum ut.","model":"Qui.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","spesifikasi":"Eum aperiam vel.","deskripsi":"Aut illo fugit.","lokasi":"RCD2","kategori":["Corrupti quia."],"status":"Dalam Perbaikan","updated_at":"2024-06-30T19:46:54.000000Z","created_at":"2024-06-30T19:46:54.000000Z"},"type":{"id":1,"type":"Inspeksi"},"imagebefore":"http:\/\/myapi.peltar.id\/storage\/Voluptatem quibusdam laborum eveniet.","imageafter":"http:\/\/myapi.peltar.id\/Alias delectus commodi vel labore.","history":[{"id":9743,"user":"AdminInspeksi","status":"Selesai","deskripsi":"Velit quas reprehenderit quis.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:46.000000Z","update_at":"2024-06-30T19:47:46.000000Z"},{"id":9744,"user":"Admin","status":"Selesai","deskripsi":"Non asperiores cumque.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:46.000000Z","update_at":"2024-06-30T19:47:46.000000Z"}]},{"id":4873,"user_inspektor":null,"asset":{"id":2,"stockcode":"33","code_asset":"AST24070002","serialnumber":"FAKESerial00002","nama_asset":"Maggie Frami","merk":"Laboriosam repudiandae.","model":"Quo doloribus.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","spesifikasi":"Enim illum non.","deskripsi":"Non hic eius.","lokasi":"Eveniet.","kategori":["Aut."],"status":"Rusak","updated_at":"2024-06-30T19:46:54.000000Z","created_at":"2024-06-30T19:46:54.000000Z"},"type":{"id":2,"type":"Breakdown"},"imagebefore":"http:\/\/myapi.peltar.id\/storage\/In ut voluptatem sunt aliquid.","imageafter":"http:\/\/myapi.peltar.id\/Voluptas voluptatem sint ullam nostrum.","history":[{"id":9745,"user":"Admin","status":"Dalam Perbaikan","deskripsi":"Et aperiam.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:46.000000Z","update_at":"2024-06-30T19:47:47.000000Z"},{"id":9746,"user":"SuperUser","status":"Pending","deskripsi":"Recusandae quaerat.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"}]},{"id":4874,"user_inspektor":null,"asset":{"id":4,"stockcode":"163","code_asset":"AST24070004","serialnumber":"FAKESerial00004","nama_asset":"Prof. Manuel Denesik III","merk":"Quis sunt.","model":"Quia.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","spesifikasi":"Rerum voluptas.","deskripsi":"Iure totam.","lokasi":"RCD1","kategori":["Aut."],"status":"Dalam Perbaikan","updated_at":"2024-06-30T19:46:54.000000Z","created_at":"2024-06-30T19:46:54.000000Z"},"type":{"id":1,"type":"Inspeksi"},"imagebefore":"http:\/\/myapi.peltar.id\/storage\/Dignissimos est totam eum.","imageafter":"http:\/\/myapi.peltar.id\/Exercitationem esse.","history":[{"id":9747,"user":"Admin","status":"Pending","deskripsi":"Tenetur soluta est voluptate.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"},{"id":9748,"user":"AdminMaintenance","status":"Selesai","deskripsi":"Modi et.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"}]},{"id":4875,"user_inspektor":null,"asset":{"id":3,"stockcode":"21","code_asset":"AST24070003","serialnumber":"FAKESerial00003","nama_asset":"Yvonne Fay Jr.","merk":"Modi.","model":"Beatae.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","spesifikasi":"Qui.","deskripsi":"Quae neque sapiente laudantium.","lokasi":"RCD2","kategori":["Dolore dolore."],"status":"Dalam Perbaikan","updated_at":"2024-06-30T19:46:54.000000Z","created_at":"2024-06-30T19:46:54.000000Z"},"type":{"id":1,"type":"Inspeksi"},"imagebefore":"http:\/\/myapi.peltar.id\/storage\/Dolor repudiandae libero suscipit vel dolor.","imageafter":"http:\/\/myapi.peltar.id\/Reiciendis repudiandae quaerat quia similique impedit nobis.","history":[{"id":9749,"user":"AdminInspeksi","status":"Pending","deskripsi":"Reiciendis et qui soluta delectus.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"},{"id":9750,"user":"Admin","status":"Selesai","deskripsi":"Ullam quod sed minus.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"}]},{"id":4876,"user_inspektor":null,"asset":{"id":1,"stockcode":"114","code_asset":"AST24070001","serialnumber":"FAKESerial00001","nama_asset":"Lloyd Casper","merk":"Eos maxime omnis architecto et.","model":"Consequuntur laboriosam.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","spesifikasi":"Dolorem quas consectetur fuga.","deskripsi":"Nihil dolorum.","lokasi":"Quo neque.","kategori":["Aut."],"status":"Rusak","updated_at":"2024-06-30T19:46:54.000000Z","created_at":"2024-06-30T19:46:54.000000Z"},"type":{"id":1,"type":"Inspeksi"},"imagebefore":"http:\/\/myapi.peltar.id\/storage\/Sint vero numquam harum.","imageafter":"http:\/\/myapi.peltar.id\/Non incidunt ullam quaerat ad.","history":[{"id":9751,"user":"AdminInspeksi","status":"Pending","deskripsi":"Officiis dolorum autem nihil.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"},{"id":9752,"user":"AdminInspeksi","status":"Pending","deskripsi":"At dolor omnis eos aut.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"}]},{"id":4877,"user_inspektor":null,"asset":{"id":5,"stockcode":"106","code_asset":"AST24070005","serialnumber":"FAKESerial00005","nama_asset":"Marietta Hermiston I","merk":"Eum illum ut.","model":"Qui.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","spesifikasi":"Eum aperiam vel.","deskripsi":"Aut illo fugit.","lokasi":"RCD2","kategori":["Corrupti quia."],"status":"Dalam Perbaikan","updated_at":"2024-06-30T19:46:54.000000Z","created_at":"2024-06-30T19:46:54.000000Z"},"type":{"id":1,"type":"Inspeksi"},"imagebefore":"http:\/\/myapi.peltar.id\/storage\/Nisi doloribus sit voluptate iste.","imageafter":"http:\/\/myapi.peltar.id\/Culpa officiis culpa similique accusamus tenetur.","history":[{"id":9753,"user":"Admin","status":"Dalam Perbaikan","deskripsi":"Qui aut.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"},{"id":9754,"user":"Admin","status":"Dalam Perbaikan","deskripsi":"Cupiditate id.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"}]},{"id":4878,"user_inspektor":null,"asset":{"id":1,"stockcode":"114","code_asset":"AST24070001","serialnumber":"FAKESerial00001","nama_asset":"Lloyd Casper","merk":"Eos maxime omnis architecto et.","model":"Consequuntur laboriosam.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","spesifikasi":"Dolorem quas consectetur fuga.","deskripsi":"Nihil dolorum.","lokasi":"Quo neque.","kategori":["Aut."],"status":"Rusak","updated_at":"2024-06-30T19:46:54.000000Z","created_at":"2024-06-30T19:46:54.000000Z"},"type":{"id":2,"type":"Breakdown"},"imagebefore":"http:\/\/myapi.peltar.id\/storage\/Veritatis sed nobis fugit dolor ea.","imageafter":"http:\/\/myapi.peltar.id\/Tenetur qui nobis doloribus animi corrupti voluptatem.","history":[{"id":9755,"user":"Admin","status":"Selesai","deskripsi":"Delectus ipsum dolorem.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"},{"id":9756,"user":"Admin","status":"Selesai","deskripsi":"Qui consequatur adipisci.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"}]},{"id":4879,"user_inspektor":null,"asset":{"id":4,"stockcode":"163","code_asset":"AST24070004","serialnumber":"FAKESerial00004","nama_asset":"Prof. Manuel Denesik III","merk":"Quis sunt.","model":"Quia.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","spesifikasi":"Rerum voluptas.","deskripsi":"Iure totam.","lokasi":"RCD1","kategori":["Aut."],"status":"Dalam Perbaikan","updated_at":"2024-06-30T19:46:54.000000Z","created_at":"2024-06-30T19:46:54.000000Z"},"type":{"id":1,"type":"Inspeksi"},"imagebefore":"http:\/\/myapi.peltar.id\/storage\/Possimus vel facere ut enim.","imageafter":"http:\/\/myapi.peltar.id\/Delectus qui reprehenderit.","history":[{"id":9757,"user":"AdminInspeksi","status":"Dalam Perbaikan","deskripsi":"Molestiae est.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"},{"id":9758,"user":"Admin","status":"Pending","deskripsi":"Dolorem quo.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"}]},{"id":4880,"user_inspektor":null,"asset":{"id":5,"stockcode":"106","code_asset":"AST24070005","serialnumber":"FAKESerial00005","nama_asset":"Marietta Hermiston I","merk":"Eum illum ut.","model":"Qui.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","spesifikasi":"Eum aperiam vel.","deskripsi":"Aut illo fugit.","lokasi":"RCD2","kategori":["Corrupti quia."],"status":"Dalam Perbaikan","updated_at":"2024-06-30T19:46:54.000000Z","created_at":"2024-06-30T19:46:54.000000Z"},"type":{"id":2,"type":"Breakdown"},"imagebefore":"http:\/\/myapi.peltar.id\/storage\/Ea hic occaecati cum quo.","imageafter":"http:\/\/myapi.peltar.id\/Omnis consequuntur minima.","history":[{"id":9759,"user":"AdminInspeksi","status":"Selesai","deskripsi":"Placeat ipsam autem quisquam.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"},{"id":9760,"user":"SuperUser","status":"Dalam Perbaikan","deskripsi":"Commodi officiis.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"}]},{"id":4881,"user_inspektor":null,"asset":{"id":5,"stockcode":"106","code_asset":"AST24070005","serialnumber":"FAKESerial00005","nama_asset":"Marietta Hermiston I","merk":"Eum illum ut.","model":"Qui.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","spesifikasi":"Eum aperiam vel.","deskripsi":"Aut illo fugit.","lokasi":"RCD2","kategori":["Corrupti quia."],"status":"Dalam Perbaikan","updated_at":"2024-06-30T19:46:54.000000Z","created_at":"2024-06-30T19:46:54.000000Z"},"type":{"id":2,"type":"Breakdown"},"imagebefore":"http:\/\/myapi.peltar.id\/storage\/Praesentium repellendus iste.","imageafter":"http:\/\/myapi.peltar.id\/Inventore atque eius dolorem.","history":[{"id":9761,"user":"Admin","status":"Dalam Perbaikan","deskripsi":"Labore.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"},{"id":9762,"user":"SuperUser","status":"Selesai","deskripsi":"Repudiandae dolorem non.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"}]},{"id":4882,"user_inspektor":null,"asset":{"id":1,"stockcode":"114","code_asset":"AST24070001","serialnumber":"FAKESerial00001","nama_asset":"Lloyd Casper","merk":"Eos maxime omnis architecto et.","model":"Consequuntur laboriosam.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","spesifikasi":"Dolorem quas consectetur fuga.","deskripsi":"Nihil dolorum.","lokasi":"Quo neque.","kategori":["Aut."],"status":"Rusak","updated_at":"2024-06-30T19:46:54.000000Z","created_at":"2024-06-30T19:46:54.000000Z"},"type":{"id":1,"type":"Inspeksi"},"imagebefore":"http:\/\/myapi.peltar.id\/storage\/Accusantium id repellendus.","imageafter":"http:\/\/myapi.peltar.id\/Dolorum in et quia sint.","history":[{"id":9763,"user":"Admin","status":"Pending","deskripsi":"Sint impedit cum.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"},{"id":9764,"user":"SuperUser","status":"Selesai","deskripsi":"Quia voluptate.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"}]},{"id":4883,"user_inspektor":null,"asset":{"id":4,"stockcode":"163","code_asset":"AST24070004","serialnumber":"FAKESerial00004","nama_asset":"Prof. Manuel Denesik III","merk":"Quis sunt.","model":"Quia.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","spesifikasi":"Rerum voluptas.","deskripsi":"Iure totam.","lokasi":"RCD1","kategori":["Aut."],"status":"Dalam Perbaikan","updated_at":"2024-06-30T19:46:54.000000Z","created_at":"2024-06-30T19:46:54.000000Z"},"type":{"id":1,"type":"Inspeksi"},"imagebefore":"http:\/\/myapi.peltar.id\/storage\/Voluptatem quis aliquid qui dolores.","imageafter":"http:\/\/myapi.peltar.id\/Maiores nihil at similique nihil.","history":[{"id":9765,"user":"Admin","status":"Dalam Perbaikan","deskripsi":"Aut et unde.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"},{"id":9766,"user":"AdminMaintenance","status":"Pending","deskripsi":"Eveniet at nobis.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"}]},{"id":4884,"user_inspektor":null,"asset":{"id":2,"stockcode":"33","code_asset":"AST24070002","serialnumber":"FAKESerial00002","nama_asset":"Maggie Frami","merk":"Laboriosam repudiandae.","model":"Quo doloribus.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","spesifikasi":"Enim illum non.","deskripsi":"Non hic eius.","lokasi":"Eveniet.","kategori":["Aut."],"status":"Rusak","updated_at":"2024-06-30T19:46:54.000000Z","created_at":"2024-06-30T19:46:54.000000Z"},"type":{"id":2,"type":"Breakdown"},"imagebefore":"http:\/\/myapi.peltar.id\/storage\/Beatae nemo earum sit.","imageafter":"http:\/\/myapi.peltar.id\/Quo reprehenderit consectetur atque qui quidem.","history":[{"id":9767,"user":"AdminMaintenance","status":"Dalam Perbaikan","deskripsi":"Sed sunt.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"},{"id":9768,"user":"Admin","status":"Selesai","deskripsi":"Qui sed.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"}]},{"id":4885,"user_inspektor":null,"asset":{"id":4,"stockcode":"163","code_asset":"AST24070004","serialnumber":"FAKESerial00004","nama_asset":"Prof. Manuel Denesik III","merk":"Quis sunt.","model":"Quia.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","spesifikasi":"Rerum voluptas.","deskripsi":"Iure totam.","lokasi":"RCD1","kategori":["Aut."],"status":"Dalam Perbaikan","updated_at":"2024-06-30T19:46:54.000000Z","created_at":"2024-06-30T19:46:54.000000Z"},"type":{"id":1,"type":"Inspeksi"},"imagebefore":"http:\/\/myapi.peltar.id\/storage\/Porro accusantium ut labore.","imageafter":"http:\/\/myapi.peltar.id\/Dignissimos ab.","history":[{"id":9769,"user":"SuperUser","status":"Dalam Perbaikan","deskripsi":"At natus.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"},{"id":9770,"user":"Admin","status":"Dalam Perbaikan","deskripsi":"Ut in excepturi dicta.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"}]},{"id":4886,"user_inspektor":null,"asset":{"id":5,"stockcode":"106","code_asset":"AST24070005","serialnumber":"FAKESerial00005","nama_asset":"Marietta Hermiston I","merk":"Eum illum ut.","model":"Qui.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","spesifikasi":"Eum aperiam vel.","deskripsi":"Aut illo fugit.","lokasi":"RCD2","kategori":["Corrupti quia."],"status":"Dalam Perbaikan","updated_at":"2024-06-30T19:46:54.000000Z","created_at":"2024-06-30T19:46:54.000000Z"},"type":{"id":1,"type":"Inspeksi"},"imagebefore":"http:\/\/myapi.peltar.id\/storage\/Aperiam quo.","imageafter":"http:\/\/myapi.peltar.id\/Impedit necessitatibus quaerat.","history":[{"id":9771,"user":"AdminInspeksi","status":"Selesai","deskripsi":"Et numquam est.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"},{"id":9772,"user":"AdminMaintenance","status":"Dalam Perbaikan","deskripsi":"Odit porro officiis dolores repellendus.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"}]},{"id":4887,"user_inspektor":null,"asset":{"id":2,"stockcode":"33","code_asset":"AST24070002","serialnumber":"FAKESerial00002","nama_asset":"Maggie Frami","merk":"Laboriosam repudiandae.","model":"Quo doloribus.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","spesifikasi":"Enim illum non.","deskripsi":"Non hic eius.","lokasi":"Eveniet.","kategori":["Aut."],"status":"Rusak","updated_at":"2024-06-30T19:46:54.000000Z","created_at":"2024-06-30T19:46:54.000000Z"},"type":{"id":2,"type":"Breakdown"},"imagebefore":"http:\/\/myapi.peltar.id\/storage\/Ea pariatur.","imageafter":"http:\/\/myapi.peltar.id\/Dicta qui.","history":[{"id":9773,"user":"Admin","status":"Pending","deskripsi":"Repellat rerum.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"},{"id":9774,"user":"SuperUser","status":"Selesai","deskripsi":"Ut ea ut amet.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"}]},{"id":4888,"user_inspektor":null,"asset":{"id":4,"stockcode":"163","code_asset":"AST24070004","serialnumber":"FAKESerial00004","nama_asset":"Prof. Manuel Denesik III","merk":"Quis sunt.","model":"Quia.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","spesifikasi":"Rerum voluptas.","deskripsi":"Iure totam.","lokasi":"RCD1","kategori":["Aut."],"status":"Dalam Perbaikan","updated_at":"2024-06-30T19:46:54.000000Z","created_at":"2024-06-30T19:46:54.000000Z"},"type":{"id":2,"type":"Breakdown"},"imagebefore":"http:\/\/myapi.peltar.id\/storage\/Aut praesentium natus.","imageafter":"http:\/\/myapi.peltar.id\/Voluptatum in repudiandae ducimus et architecto.","history":[{"id":9775,"user":"SuperUser","status":"Selesai","deskripsi":"Voluptate molestias.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"},{"id":9776,"user":"AdminInspeksi","status":"Selesai","deskripsi":"Culpa commodi.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"}]},{"id":4889,"user_inspektor":null,"asset":{"id":5,"stockcode":"106","code_asset":"AST24070005","serialnumber":"FAKESerial00005","nama_asset":"Marietta Hermiston I","merk":"Eum illum ut.","model":"Qui.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","spesifikasi":"Eum aperiam vel.","deskripsi":"Aut illo fugit.","lokasi":"RCD2","kategori":["Corrupti quia."],"status":"Dalam Perbaikan","updated_at":"2024-06-30T19:46:54.000000Z","created_at":"2024-06-30T19:46:54.000000Z"},"type":{"id":2,"type":"Breakdown"},"imagebefore":"http:\/\/myapi.peltar.id\/storage\/Repellendus sed.","imageafter":"http:\/\/myapi.peltar.id\/Similique et cum quaerat.","history":[{"id":9777,"user":"AdminMaintenance","status":"Pending","deskripsi":"Rerum ut atque.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"},{"id":9778,"user":"SuperUser","status":"Dalam Perbaikan","deskripsi":"Fugit modi est id et.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"}]},{"id":4890,"user_inspektor":null,"asset":{"id":1,"stockcode":"114","code_asset":"AST24070001","serialnumber":"FAKESerial00001","nama_asset":"Lloyd Casper","merk":"Eos maxime omnis architecto et.","model":"Consequuntur laboriosam.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","spesifikasi":"Dolorem quas consectetur fuga.","deskripsi":"Nihil dolorum.","lokasi":"Quo neque.","kategori":["Aut."],"status":"Rusak","updated_at":"2024-06-30T19:46:54.000000Z","created_at":"2024-06-30T19:46:54.000000Z"},"type":{"id":1,"type":"Inspeksi"},"imagebefore":"http:\/\/myapi.peltar.id\/storage\/Qui tempore officiis ipsa cumque minus beatae.","imageafter":"http:\/\/myapi.peltar.id\/Sed deserunt tempora rerum incidunt.","history":[{"id":9779,"user":"Admin","status":"Pending","deskripsi":"Aut tempora.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"},{"id":9780,"user":"Admin","status":"Dalam Perbaikan","deskripsi":"In repellat.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"}]},{"id":4891,"user_inspektor":null,"asset":{"id":4,"stockcode":"163","code_asset":"AST24070004","serialnumber":"FAKESerial00004","nama_asset":"Prof. Manuel Denesik III","merk":"Quis sunt.","model":"Quia.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","spesifikasi":"Rerum voluptas.","deskripsi":"Iure totam.","lokasi":"RCD1","kategori":["Aut."],"status":"Dalam Perbaikan","updated_at":"2024-06-30T19:46:54.000000Z","created_at":"2024-06-30T19:46:54.000000Z"},"type":{"id":1,"type":"Inspeksi"},"imagebefore":"http:\/\/myapi.peltar.id\/storage\/Vel sint.","imageafter":"http:\/\/myapi.peltar.id\/Animi aut dolor quia sint.","history":[{"id":9781,"user":"SuperUser","status":"Dalam Perbaikan","deskripsi":"Ut quasi.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"},{"id":9782,"user":"Admin","status":"Selesai","deskripsi":"Dolorum quia ex nesciunt.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"}]},{"id":4892,"user_inspektor":null,"asset":{"id":2,"stockcode":"33","code_asset":"AST24070002","serialnumber":"FAKESerial00002","nama_asset":"Maggie Frami","merk":"Laboriosam repudiandae.","model":"Quo doloribus.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","spesifikasi":"Enim illum non.","deskripsi":"Non hic eius.","lokasi":"Eveniet.","kategori":["Aut."],"status":"Rusak","updated_at":"2024-06-30T19:46:54.000000Z","created_at":"2024-06-30T19:46:54.000000Z"},"type":{"id":1,"type":"Inspeksi"},"imagebefore":"http:\/\/myapi.peltar.id\/storage\/Explicabo explicabo facere aliquid.","imageafter":"http:\/\/myapi.peltar.id\/Enim laudantium ea quia id.","history":[{"id":9783,"user":"AdminInspeksi","status":"Pending","deskripsi":"Et tenetur quis quam.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"},{"id":9784,"user":"SuperUser","status":"Selesai","deskripsi":"Aliquid aperiam.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"}]},{"id":4893,"user_inspektor":null,"asset":{"id":5,"stockcode":"106","code_asset":"AST24070005","serialnumber":"FAKESerial00005","nama_asset":"Marietta Hermiston I","merk":"Eum illum ut.","model":"Qui.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","spesifikasi":"Eum aperiam vel.","deskripsi":"Aut illo fugit.","lokasi":"RCD2","kategori":["Corrupti quia."],"status":"Dalam Perbaikan","updated_at":"2024-06-30T19:46:54.000000Z","created_at":"2024-06-30T19:46:54.000000Z"},"type":{"id":1,"type":"Inspeksi"},"imagebefore":"http:\/\/myapi.peltar.id\/storage\/Ab consequatur.","imageafter":"http:\/\/myapi.peltar.id\/Assumenda et veritatis.","history":[{"id":9785,"user":"SuperUser","status":"Pending","deskripsi":"Blanditiis quo.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"},{"id":9786,"user":"SuperUser","status":"Dalam Perbaikan","deskripsi":"Nihil et distinctio.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"}]},{"id":4894,"user_inspektor":null,"asset":{"id":3,"stockcode":"21","code_asset":"AST24070003","serialnumber":"FAKESerial00003","nama_asset":"Yvonne Fay Jr.","merk":"Modi.","model":"Beatae.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","spesifikasi":"Qui.","deskripsi":"Quae neque sapiente laudantium.","lokasi":"RCD2","kategori":["Dolore dolore."],"status":"Dalam Perbaikan","updated_at":"2024-06-30T19:46:54.000000Z","created_at":"2024-06-30T19:46:54.000000Z"},"type":{"id":2,"type":"Breakdown"},"imagebefore":"http:\/\/myapi.peltar.id\/storage\/Omnis aut modi non aut ut.","imageafter":"http:\/\/myapi.peltar.id\/Quibusdam sint.","history":[{"id":9787,"user":"AdminInspeksi","status":"Selesai","deskripsi":"Quis illum a est expedita.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"},{"id":9788,"user":"SuperUser","status":"Pending","deskripsi":"Rerum omnis.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"}]},{"id":4895,"user_inspektor":null,"asset":{"id":4,"stockcode":"163","code_asset":"AST24070004","serialnumber":"FAKESerial00004","nama_asset":"Prof. Manuel Denesik III","merk":"Quis sunt.","model":"Quia.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","spesifikasi":"Rerum voluptas.","deskripsi":"Iure totam.","lokasi":"RCD1","kategori":["Aut."],"status":"Dalam Perbaikan","updated_at":"2024-06-30T19:46:54.000000Z","created_at":"2024-06-30T19:46:54.000000Z"},"type":{"id":1,"type":"Inspeksi"},"imagebefore":"http:\/\/myapi.peltar.id\/storage\/Fugit molestiae quam repellendus.","imageafter":"http:\/\/myapi.peltar.id\/Rerum iusto consequatur.","history":[{"id":9789,"user":"SuperUser","status":"Pending","deskripsi":"Voluptas dolores culpa ipsum.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"},{"id":9790,"user":"SuperUser","status":"Selesai","deskripsi":"Quidem optio nulla consectetur.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"}]},{"id":4896,"user_inspektor":null,"asset":{"id":1,"stockcode":"114","code_asset":"AST24070001","serialnumber":"FAKESerial00001","nama_asset":"Lloyd Casper","merk":"Eos maxime omnis architecto et.","model":"Consequuntur laboriosam.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","spesifikasi":"Dolorem quas consectetur fuga.","deskripsi":"Nihil dolorum.","lokasi":"Quo neque.","kategori":["Aut."],"status":"Rusak","updated_at":"2024-06-30T19:46:54.000000Z","created_at":"2024-06-30T19:46:54.000000Z"},"type":{"id":2,"type":"Breakdown"},"imagebefore":"http:\/\/myapi.peltar.id\/storage\/Nisi quas.","imageafter":"http:\/\/myapi.peltar.id\/Vitae aperiam amet aliquid asperiores debitis.","history":[{"id":9791,"user":"AdminInspeksi","status":"Pending","deskripsi":"Est libero molestiae.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"},{"id":9792,"user":"SuperUser","status":"Pending","deskripsi":"Quod sit qui voluptas dolorum.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"}]},{"id":4897,"user_inspektor":null,"asset":{"id":2,"stockcode":"33","code_asset":"AST24070002","serialnumber":"FAKESerial00002","nama_asset":"Maggie Frami","merk":"Laboriosam repudiandae.","model":"Quo doloribus.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","spesifikasi":"Enim illum non.","deskripsi":"Non hic eius.","lokasi":"Eveniet.","kategori":["Aut."],"status":"Rusak","updated_at":"2024-06-30T19:46:54.000000Z","created_at":"2024-06-30T19:46:54.000000Z"},"type":{"id":1,"type":"Inspeksi"},"imagebefore":"http:\/\/myapi.peltar.id\/storage\/Rem quisquam dolorem consequatur.","imageafter":"http:\/\/myapi.peltar.id\/Pariatur autem voluptas.","history":[{"id":9793,"user":"SuperUser","status":"Dalam Perbaikan","deskripsi":"Illo et.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"},{"id":9794,"user":"AdminMaintenance","status":"Dalam Perbaikan","deskripsi":"Quia totam placeat aut qui.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"}]},{"id":4898,"user_inspektor":null,"asset":{"id":3,"stockcode":"21","code_asset":"AST24070003","serialnumber":"FAKESerial00003","nama_asset":"Yvonne Fay Jr.","merk":"Modi.","model":"Beatae.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","spesifikasi":"Qui.","deskripsi":"Quae neque sapiente laudantium.","lokasi":"RCD2","kategori":["Dolore dolore."],"status":"Dalam Perbaikan","updated_at":"2024-06-30T19:46:54.000000Z","created_at":"2024-06-30T19:46:54.000000Z"},"type":{"id":1,"type":"Inspeksi"},"imagebefore":"http:\/\/myapi.peltar.id\/storage\/Asperiores saepe itaque architecto.","imageafter":"http:\/\/myapi.peltar.id\/Explicabo officiis sunt sint.","history":[{"id":9795,"user":"SuperUser","status":"Selesai","deskripsi":"Voluptas voluptatem excepturi dolorem.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"},{"id":9796,"user":"AdminInspeksi","status":"Pending","deskripsi":"Quisquam non maxime aut.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"}]},{"id":4899,"user_inspektor":null,"asset":{"id":2,"stockcode":"33","code_asset":"AST24070002","serialnumber":"FAKESerial00002","nama_asset":"Maggie Frami","merk":"Laboriosam repudiandae.","model":"Quo doloribus.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","spesifikasi":"Enim illum non.","deskripsi":"Non hic eius.","lokasi":"Eveniet.","kategori":["Aut."],"status":"Rusak","updated_at":"2024-06-30T19:46:54.000000Z","created_at":"2024-06-30T19:46:54.000000Z"},"type":{"id":1,"type":"Inspeksi"},"imagebefore":"http:\/\/myapi.peltar.id\/storage\/Deleniti minus est.","imageafter":"http:\/\/myapi.peltar.id\/Natus quidem voluptatem.","history":[{"id":9797,"user":"AdminMaintenance","status":"Dalam Perbaikan","deskripsi":"Quisquam similique non.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"},{"id":9798,"user":"AdminInspeksi","status":"Dalam Perbaikan","deskripsi":"Aut.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"}]},{"id":4900,"user_inspektor":null,"asset":{"id":1,"stockcode":"114","code_asset":"AST24070001","serialnumber":"FAKESerial00001","nama_asset":"Lloyd Casper","merk":"Eos maxime omnis architecto et.","model":"Consequuntur laboriosam.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","spesifikasi":"Dolorem quas consectetur fuga.","deskripsi":"Nihil dolorum.","lokasi":"Quo neque.","kategori":["Aut."],"status":"Rusak","updated_at":"2024-06-30T19:46:54.000000Z","created_at":"2024-06-30T19:46:54.000000Z"},"type":{"id":2,"type":"Breakdown"},"imagebefore":"http:\/\/myapi.peltar.id\/storage\/Quaerat inventore laudantium dolor perspiciatis.","imageafter":"http:\/\/myapi.peltar.id\/Dolor et ut eos sed.","history":[{"id":9799,"user":"AdminMaintenance","status":"Selesai","deskripsi":"Accusamus dolorem maxime.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"},{"id":9800,"user":"SuperUser","status":"Selesai","deskripsi":"Et impedit consectetur eum et.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"}]},{"id":4901,"user_inspektor":null,"asset":{"id":4,"stockcode":"163","code_asset":"AST24070004","serialnumber":"FAKESerial00004","nama_asset":"Prof. Manuel Denesik III","merk":"Quis sunt.","model":"Quia.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","spesifikasi":"Rerum voluptas.","deskripsi":"Iure totam.","lokasi":"RCD1","kategori":["Aut."],"status":"Dalam Perbaikan","updated_at":"2024-06-30T19:46:54.000000Z","created_at":"2024-06-30T19:46:54.000000Z"},"type":{"id":2,"type":"Breakdown"},"imagebefore":"http:\/\/myapi.peltar.id\/storage\/Perspiciatis pariatur.","imageafter":"http:\/\/myapi.peltar.id\/Possimus non accusamus inventore.","history":[{"id":9801,"user":"SuperUser","status":"Selesai","deskripsi":"Et quo quis.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"},{"id":9802,"user":"SuperUser","status":"Pending","deskripsi":"Qui hic.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"}]},{"id":4902,"user_inspektor":null,"asset":{"id":2,"stockcode":"33","code_asset":"AST24070002","serialnumber":"FAKESerial00002","nama_asset":"Maggie Frami","merk":"Laboriosam repudiandae.","model":"Quo doloribus.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","spesifikasi":"Enim illum non.","deskripsi":"Non hic eius.","lokasi":"Eveniet.","kategori":["Aut."],"status":"Rusak","updated_at":"2024-06-30T19:46:54.000000Z","created_at":"2024-06-30T19:46:54.000000Z"},"type":{"id":1,"type":"Inspeksi"},"imagebefore":"http:\/\/myapi.peltar.id\/storage\/Temporibus officia ipsam sint nobis.","imageafter":"http:\/\/myapi.peltar.id\/Neque corporis.","history":[{"id":9803,"user":"Admin","status":"Pending","deskripsi":"Facere nulla voluptas.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"},{"id":9804,"user":"SuperUser","status":"Selesai","deskripsi":"Aut nulla eaque illum.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"}]},{"id":4903,"user_inspektor":null,"asset":{"id":5,"stockcode":"106","code_asset":"AST24070005","serialnumber":"FAKESerial00005","nama_asset":"Marietta Hermiston I","merk":"Eum illum ut.","model":"Qui.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","spesifikasi":"Eum aperiam vel.","deskripsi":"Aut illo fugit.","lokasi":"RCD2","kategori":["Corrupti quia."],"status":"Dalam Perbaikan","updated_at":"2024-06-30T19:46:54.000000Z","created_at":"2024-06-30T19:46:54.000000Z"},"type":{"id":1,"type":"Inspeksi"},"imagebefore":"http:\/\/myapi.peltar.id\/storage\/Et vero totam.","imageafter":"http:\/\/myapi.peltar.id\/Totam accusantium.","history":[{"id":9805,"user":"SuperUser","status":"Selesai","deskripsi":"Dolorem vel.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"},{"id":9806,"user":"AdminInspeksi","status":"Selesai","deskripsi":"Atque soluta.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"}]},{"id":4904,"user_inspektor":null,"asset":{"id":4,"stockcode":"163","code_asset":"AST24070004","serialnumber":"FAKESerial00004","nama_asset":"Prof. Manuel Denesik III","merk":"Quis sunt.","model":"Quia.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","spesifikasi":"Rerum voluptas.","deskripsi":"Iure totam.","lokasi":"RCD1","kategori":["Aut."],"status":"Dalam Perbaikan","updated_at":"2024-06-30T19:46:54.000000Z","created_at":"2024-06-30T19:46:54.000000Z"},"type":{"id":1,"type":"Inspeksi"},"imagebefore":"http:\/\/myapi.peltar.id\/storage\/Doloribus quia aut.","imageafter":"http:\/\/myapi.peltar.id\/Tempore nobis aut minima.","history":[{"id":9807,"user":"SuperUser","status":"Selesai","deskripsi":"Fuga qui placeat.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"},{"id":9808,"user":"AdminInspeksi","status":"Selesai","deskripsi":"Necessitatibus rem nihil consectetur aut.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"}]},{"id":4905,"user_inspektor":null,"asset":{"id":5,"stockcode":"106","code_asset":"AST24070005","serialnumber":"FAKESerial00005","nama_asset":"Marietta Hermiston I","merk":"Eum illum ut.","model":"Qui.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","spesifikasi":"Eum aperiam vel.","deskripsi":"Aut illo fugit.","lokasi":"RCD2","kategori":["Corrupti quia."],"status":"Dalam Perbaikan","updated_at":"2024-06-30T19:46:54.000000Z","created_at":"2024-06-30T19:46:54.000000Z"},"type":{"id":1,"type":"Inspeksi"},"imagebefore":"http:\/\/myapi.peltar.id\/storage\/Excepturi aut qui voluptates adipisci iure ut.","imageafter":"http:\/\/myapi.peltar.id\/Aut voluptatem voluptas aut quo.","history":[{"id":9809,"user":"SuperUser","status":"Selesai","deskripsi":"Ea.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"},{"id":9810,"user":"AdminInspeksi","status":"Pending","deskripsi":"Et perferendis nesciunt.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"}]},{"id":4906,"user_inspektor":null,"asset":{"id":4,"stockcode":"163","code_asset":"AST24070004","serialnumber":"FAKESerial00004","nama_asset":"Prof. Manuel Denesik III","merk":"Quis sunt.","model":"Quia.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","spesifikasi":"Rerum voluptas.","deskripsi":"Iure totam.","lokasi":"RCD1","kategori":["Aut."],"status":"Dalam Perbaikan","updated_at":"2024-06-30T19:46:54.000000Z","created_at":"2024-06-30T19:46:54.000000Z"},"type":{"id":2,"type":"Breakdown"},"imagebefore":"http:\/\/myapi.peltar.id\/storage\/Ipsam quo consequuntur sit maiores.","imageafter":"http:\/\/myapi.peltar.id\/Fuga blanditiis pariatur totam ut.","history":[{"id":9811,"user":"AdminMaintenance","status":"Dalam Perbaikan","deskripsi":"Facere magni.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"},{"id":9812,"user":"AdminMaintenance","status":"Dalam Perbaikan","deskripsi":"Eius.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"}]},{"id":4907,"user_inspektor":null,"asset":{"id":2,"stockcode":"33","code_asset":"AST24070002","serialnumber":"FAKESerial00002","nama_asset":"Maggie Frami","merk":"Laboriosam repudiandae.","model":"Quo doloribus.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","spesifikasi":"Enim illum non.","deskripsi":"Non hic eius.","lokasi":"Eveniet.","kategori":["Aut."],"status":"Rusak","updated_at":"2024-06-30T19:46:54.000000Z","created_at":"2024-06-30T19:46:54.000000Z"},"type":{"id":1,"type":"Inspeksi"},"imagebefore":"http:\/\/myapi.peltar.id\/storage\/Sequi non provident et.","imageafter":"http:\/\/myapi.peltar.id\/Perspiciatis quo voluptas.","history":[{"id":9813,"user":"AdminInspeksi","status":"Pending","deskripsi":"Omnis sint alias et aut cumque.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"},{"id":9814,"user":"Admin","status":"Pending","deskripsi":"Excepturi cum.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"}]},{"id":4908,"user_inspektor":null,"asset":{"id":5,"stockcode":"106","code_asset":"AST24070005","serialnumber":"FAKESerial00005","nama_asset":"Marietta Hermiston I","merk":"Eum illum ut.","model":"Qui.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","spesifikasi":"Eum aperiam vel.","deskripsi":"Aut illo fugit.","lokasi":"RCD2","kategori":["Corrupti quia."],"status":"Dalam Perbaikan","updated_at":"2024-06-30T19:46:54.000000Z","created_at":"2024-06-30T19:46:54.000000Z"},"type":{"id":1,"type":"Inspeksi"},"imagebefore":"http:\/\/myapi.peltar.id\/storage\/Beatae nisi esse.","imageafter":"http:\/\/myapi.peltar.id\/Nobis in voluptas.","history":[{"id":9815,"user":"AdminMaintenance","status":"Selesai","deskripsi":"Sit.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"},{"id":9816,"user":"Admin","status":"Pending","deskripsi":"Neque illum ipsum aut possimus.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"}]},{"id":4909,"user_inspektor":null,"asset":{"id":2,"stockcode":"33","code_asset":"AST24070002","serialnumber":"FAKESerial00002","nama_asset":"Maggie Frami","merk":"Laboriosam repudiandae.","model":"Quo doloribus.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","spesifikasi":"Enim illum non.","deskripsi":"Non hic eius.","lokasi":"Eveniet.","kategori":["Aut."],"status":"Rusak","updated_at":"2024-06-30T19:46:54.000000Z","created_at":"2024-06-30T19:46:54.000000Z"},"type":{"id":1,"type":"Inspeksi"},"imagebefore":"http:\/\/myapi.peltar.id\/storage\/Quis id qui.","imageafter":"http:\/\/myapi.peltar.id\/Natus cumque illum aut et.","history":[{"id":9817,"user":"Admin","status":"Pending","deskripsi":"Eius quia harum.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"},{"id":9818,"user":"AdminInspeksi","status":"Selesai","deskripsi":"Eos.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"}]},{"id":4910,"user_inspektor":null,"asset":{"id":3,"stockcode":"21","code_asset":"AST24070003","serialnumber":"FAKESerial00003","nama_asset":"Yvonne Fay Jr.","merk":"Modi.","model":"Beatae.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","spesifikasi":"Qui.","deskripsi":"Quae neque sapiente laudantium.","lokasi":"RCD2","kategori":["Dolore dolore."],"status":"Dalam Perbaikan","updated_at":"2024-06-30T19:46:54.000000Z","created_at":"2024-06-30T19:46:54.000000Z"},"type":{"id":2,"type":"Breakdown"},"imagebefore":"http:\/\/myapi.peltar.id\/storage\/Eos animi ea ab vel.","imageafter":"http:\/\/myapi.peltar.id\/Nostrum et.","history":[{"id":9819,"user":"AdminInspeksi","status":"Pending","deskripsi":"Corporis at sit.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"},{"id":9820,"user":"AdminInspeksi","status":"Pending","deskripsi":"Aut quia corporis aut.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"}]},{"id":4911,"user_inspektor":null,"asset":{"id":2,"stockcode":"33","code_asset":"AST24070002","serialnumber":"FAKESerial00002","nama_asset":"Maggie Frami","merk":"Laboriosam repudiandae.","model":"Quo doloribus.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","spesifikasi":"Enim illum non.","deskripsi":"Non hic eius.","lokasi":"Eveniet.","kategori":["Aut."],"status":"Rusak","updated_at":"2024-06-30T19:46:54.000000Z","created_at":"2024-06-30T19:46:54.000000Z"},"type":{"id":2,"type":"Breakdown"},"imagebefore":"http:\/\/myapi.peltar.id\/storage\/Repudiandae molestias et molestias.","imageafter":"http:\/\/myapi.peltar.id\/Atque porro ipsa tempora et.","history":[{"id":9821,"user":"AdminMaintenance","status":"Selesai","deskripsi":"Id.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"},{"id":9822,"user":"SuperUser","status":"Pending","deskripsi":"Quibusdam commodi qui.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"}]},{"id":4912,"user_inspektor":null,"asset":{"id":5,"stockcode":"106","code_asset":"AST24070005","serialnumber":"FAKESerial00005","nama_asset":"Marietta Hermiston I","merk":"Eum illum ut.","model":"Qui.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","spesifikasi":"Eum aperiam vel.","deskripsi":"Aut illo fugit.","lokasi":"RCD2","kategori":["Corrupti quia."],"status":"Dalam Perbaikan","updated_at":"2024-06-30T19:46:54.000000Z","created_at":"2024-06-30T19:46:54.000000Z"},"type":{"id":2,"type":"Breakdown"},"imagebefore":"http:\/\/myapi.peltar.id\/storage\/Libero debitis ut sit delectus.","imageafter":"http:\/\/myapi.peltar.id\/Laboriosam velit omnis qui possimus.","history":[{"id":9823,"user":"SuperUser","status":"Selesai","deskripsi":"Voluptas minima consequatur quia ratione.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"},{"id":9824,"user":"AdminMaintenance","status":"Selesai","deskripsi":"Illo laborum corporis debitis.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"}]},{"id":4913,"user_inspektor":null,"asset":{"id":3,"stockcode":"21","code_asset":"AST24070003","serialnumber":"FAKESerial00003","nama_asset":"Yvonne Fay Jr.","merk":"Modi.","model":"Beatae.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","spesifikasi":"Qui.","deskripsi":"Quae neque sapiente laudantium.","lokasi":"RCD2","kategori":["Dolore dolore."],"status":"Dalam Perbaikan","updated_at":"2024-06-30T19:46:54.000000Z","created_at":"2024-06-30T19:46:54.000000Z"},"type":{"id":2,"type":"Breakdown"},"imagebefore":"http:\/\/myapi.peltar.id\/storage\/Aperiam non in.","imageafter":"http:\/\/myapi.peltar.id\/Velit nisi sit voluptates officiis.","history":[{"id":9825,"user":"SuperUser","status":"Pending","deskripsi":"Eveniet odio.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"},{"id":9826,"user":"SuperUser","status":"Selesai","deskripsi":"Quae fugiat a.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:47.000000Z","update_at":"2024-06-30T19:47:47.000000Z"}]}]'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '49'
           access-control-allow-origin: '*'
         description: null
         custom: []
     responseFields: []
     auth:
       - headers
-      - Authorization
-      - 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODcyNzExOTUsImV4cCI6MTY4NzUzMDM5NSwibmJmIjoxNjg3MjcxMTk1LCJqdGkiOiJzV1g4MlBvSlVqenhrWExjIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.ViztGT25kym3L_e4FkzUhj7c3YSDwuume17jJ2L2GpY'
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - POST
-    uri: api/v1/category/store
-    metadata:
-      groupName: Category
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Store a newly created resource in storage.'
-      description: ''
-      authenticated: true
-      custom: []
-    headers:
-      Authorization: 'Bearer {YOUR_AUTH_KEY}'
-      Content-Type: application/json
-      Accept: application/json
-      MYP-API-KEY: '{YOUR_API_KEY}'
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      kategori:
-        name: kategori
-        description: ''
-        required: true
-        example: consequatur
-        type: string
-        custom: []
-      id_subsatker:
-        name: id_subsatker
-        description: ''
-        required: true
-        example: 17
-        type: integer
-        custom: []
-    cleanBodyParameters:
-      kategori: consequatur
-      id_subsatker: 17
-    fileParameters: []
-    responses:
-      -
-        status: 403
-        content: '{"error":"UnAuthenticated"}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
-        custom: []
-    responseFields: []
-    auth:
-      - headers
-      - Authorization
-      - 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODcyNzExOTUsImV4cCI6MTY4NzUzMDM5NSwibmJmIjoxNjg3MjcxMTk1LCJqdGkiOiJzV1g4MlBvSlVqenhrWExjIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.ViztGT25kym3L_e4FkzUhj7c3YSDwuume17jJ2L2GpY'
+      - MYP_API_KEY
+      - 6D563614-B987-4A13-9107-5630CCF7ED21
     controller: null
     method: null
     route: null
@@ -108,61 +50,9 @@ endpoints:
   -
     httpMethods:
       - GET
-    uri: 'api/v1/category/show/{category_id}'
+    uri: 'api/v1/maintenance/maintenance_aplly/{maintenance_id}'
     metadata:
-      groupName: Category
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Display the specified resource.'
-      description: ''
-      authenticated: true
-      custom: []
-    headers:
-      Authorization: 'Bearer {YOUR_AUTH_KEY}'
-      Content-Type: application/json
-      Accept: application/json
-      MYP-API-KEY: '{YOUR_API_KEY}'
-    urlParameters:
-      category_id:
-        name: category_id
-        description: 'The ID of the category.'
-        required: true
-        example: 1
-        type: integer
-        custom: []
-    cleanUrlParameters:
-      category_id: 1
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        status: 403
-        content: '{"error":"UnAuthenticated"}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
-        custom: []
-    responseFields: []
-    auth:
-      - headers
-      - Authorization
-      - 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODcyNzExOTUsImV4cCI6MTY4NzUzMDM5NSwibmJmIjoxNjg3MjcxMTk1LCJqdGkiOiJzV1g4MlBvSlVqenhrWExjIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.ViztGT25kym3L_e4FkzUhj7c3YSDwuume17jJ2L2GpY'
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - GET
-    uri: api/v1/category/search
-    metadata:
-      groupName: Category
+      groupName: Maintenance
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
@@ -171,7 +61,64 @@ endpoints:
       authenticated: true
       custom: []
     headers:
-      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      MYP_API_KEY: '{YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      MYP-API-KEY: '{YOUR_API_KEY}'
+    urlParameters:
+      maintenance_id:
+        name: maintenance_id
+        description: 'The ID of the maintenance.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      maintenance_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 500
+        content: |-
+          {
+              "message": "Server Error"
+          }
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '48'
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - MYP_API_KEY
+      - 6D563614-B987-4A13-9107-5630CCF7ED21
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/maintenance/self_get
+    metadata:
+      groupName: Maintenance
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Display a listing of the resource.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      MYP_API_KEY: '{YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
       MYP-API-KEY: '{YOUR_API_KEY}'
@@ -184,87 +131,78 @@ endpoints:
     fileParameters: []
     responses:
       -
-        status: 403
-        content: '{"error":"UnAuthenticated"}'
+        status: 500
+        content: |-
+          {
+              "message": "Server Error"
+          }
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '47'
           access-control-allow-origin: '*'
         description: null
         custom: []
     responseFields: []
     auth:
       - headers
-      - Authorization
-      - 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODcyNzExOTUsImV4cCI6MTY4NzUzMDM5NSwibmJmIjoxNjg3MjcxMTk1LCJqdGkiOiJzV1g4MlBvSlVqenhrWExjIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.ViztGT25kym3L_e4FkzUhj7c3YSDwuume17jJ2L2GpY'
+      - MYP_API_KEY
+      - 6D563614-B987-4A13-9107-5630CCF7ED21
     controller: null
     method: null
     route: null
     custom: []
   -
     httpMethods:
-      - POST
-    uri: 'api/v1/category/update/{category_id}'
+      - GET
+    uri: 'api/v1/maintenance/show/{maintenance_id}'
     metadata:
-      groupName: Category
+      groupName: Maintenance
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Update the specified resource in storage.'
+      title: 'Display the specified resource.'
       description: ''
       authenticated: true
       custom: []
     headers:
-      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      MYP_API_KEY: '{YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
       MYP-API-KEY: '{YOUR_API_KEY}'
     urlParameters:
-      category_id:
-        name: category_id
-        description: 'The ID of the category.'
+      maintenance_id:
+        name: maintenance_id
+        description: 'The ID of the maintenance.'
         required: true
         example: 1
         type: integer
         custom: []
     cleanUrlParameters:
-      category_id: 1
+      maintenance_id: 1
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters:
-      kategori:
-        name: kategori
-        description: ''
-        required: true
-        example: consequatur
-        type: string
-        custom: []
-      id_subsatker:
-        name: id_subsatker
-        description: ''
-        required: true
-        example: 17
-        type: integer
-        custom: []
-    cleanBodyParameters:
-      kategori: consequatur
-      id_subsatker: 17
+    bodyParameters: []
+    cleanBodyParameters: []
     fileParameters: []
     responses:
       -
-        status: 403
-        content: '{"error":"UnAuthenticated"}'
+        status: 200
+        content: '{"data":{"id":1,"user_inspektor":null,"asset":{"id":2,"stockcode":"33","code_asset":"AST24070002","serialnumber":"FAKESerial00002","nama_asset":"Maggie Frami","merk":"Laboriosam repudiandae.","model":"Quo doloribus.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","spesifikasi":"Enim illum non.","deskripsi":"Non hic eius.","lokasi":"Eveniet.","kategori":["Aut."],"status":"Rusak","updated_at":"2024-06-30T19:46:54.000000Z","created_at":"2024-06-30T19:46:54.000000Z"},"type":{"id":2,"type":"Breakdown"},"imagebefore":"http:\/\/myapi.peltar.id\/storage\/At qui dolor est repellat.","imageafter":"http:\/\/myapi.peltar.id\/Et possimus id.","history":[{"id":1,"user":"AdminMaintenance","status":"Selesai","deskripsi":"Repudiandae eum maxime.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:05.000000Z","update_at":"2024-06-30T19:47:05.000000Z"},{"id":2,"user":"SuperUser","status":"Pending","deskripsi":"Rem voluptas.","image":"http:\/\/myapi.peltar.id\/storage\/images\/News\/example.png","created_at":"2024-06-30T19:47:05.000000Z","update_at":"2024-06-30T19:47:05.000000Z"}]}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '46'
           access-control-allow-origin: '*'
         description: null
         custom: []
     responseFields: []
     auth:
       - headers
-      - Authorization
-      - 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODcyNzExOTUsImV4cCI6MTY4NzUzMDM5NSwibmJmIjoxNjg3MjcxMTk1LCJqdGkiOiJzV1g4MlBvSlVqenhrWExjIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.ViztGT25kym3L_e4FkzUhj7c3YSDwuume17jJ2L2GpY'
+      - MYP_API_KEY
+      - 6D563614-B987-4A13-9107-5630CCF7ED21
     controller: null
     method: null
     route: null
@@ -272,9 +210,9 @@ endpoints:
   -
     httpMethods:
       - POST
-    uri: 'api/v1/category/destroy/{category_id}'
+    uri: 'api/v1/maintenance/destroy/{maintenance_id}'
     metadata:
-      groupName: Category
+      groupName: Maintenance
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
@@ -283,20 +221,20 @@ endpoints:
       authenticated: true
       custom: []
     headers:
-      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      MYP_API_KEY: '{YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
       MYP-API-KEY: '{YOUR_API_KEY}'
     urlParameters:
-      category_id:
-        name: category_id
-        description: 'The ID of the category.'
+      maintenance_id:
+        name: maintenance_id
+        description: 'The ID of the maintenance.'
         required: true
         example: 1
         type: integer
         custom: []
     cleanUrlParameters:
-      category_id: 1
+      maintenance_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -305,18 +243,550 @@ endpoints:
     responses:
       -
         status: 403
-        content: '{"error":"UnAuthenticated"}'
+        content: |-
+          {
+              "message": "This action is unauthorized."
+          }
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '45'
           access-control-allow-origin: '*'
         description: null
         custom: []
     responseFields: []
     auth:
       - headers
-      - Authorization
-      - 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODcyNzExOTUsImV4cCI6MTY4NzUzMDM5NSwibmJmIjoxNjg3MjcxMTk1LCJqdGkiOiJzV1g4MlBvSlVqenhrWExjIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.ViztGT25kym3L_e4FkzUhj7c3YSDwuume17jJ2L2GpY'
+      - MYP_API_KEY
+      - 6D563614-B987-4A13-9107-5630CCF7ED21
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/v1/maintenance/{maintenance}/history/update/{pupdate}'
+    metadata:
+      groupName: Maintenance
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Update the specified resource in storage.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      MYP_API_KEY: '{YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      MYP-API-KEY: '{YOUR_API_KEY}'
+    urlParameters:
+      maintenance:
+        name: maintenance
+        description: 'The maintenance.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+      pupdate:
+        name: pupdate
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+    cleanUrlParameters:
+      maintenance: 1
+      pupdate: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      image:
+        name: image
+        description: ''
+        required: false
+        example: null
+        type: string
+        custom: []
+      id_status:
+        name: id_status
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+      deskripsi_update:
+        name: deskripsi_update
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+    cleanBodyParameters:
+      id_status: consequatur
+      deskripsi_update: consequatur
+    fileParameters: []
+    responses:
+      -
+        status: 403
+        content: |-
+          {
+              "message": "This action is unauthorized."
+          }
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '44'
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - MYP_API_KEY
+      - 6D563614-B987-4A13-9107-5630CCF7ED21
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/v1/maintenance/{maintenance}/history/show/{pupdate}'
+    metadata:
+      groupName: Maintenance
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Update the specified resource in storage.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      MYP_API_KEY: '{YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      MYP-API-KEY: '{YOUR_API_KEY}'
+    urlParameters:
+      maintenance:
+        name: maintenance
+        description: 'The maintenance.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+      pupdate:
+        name: pupdate
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+    cleanUrlParameters:
+      maintenance: 1
+      pupdate: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      image:
+        name: image
+        description: ''
+        required: false
+        example: null
+        type: string
+        custom: []
+      id_status:
+        name: id_status
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+      deskripsi_update:
+        name: deskripsi_update
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+    cleanBodyParameters:
+      id_status: consequatur
+      deskripsi_update: consequatur
+    fileParameters: []
+    responses:
+      -
+        status: 403
+        content: |-
+          {
+              "message": "This action is unauthorized."
+          }
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '43'
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - MYP_API_KEY
+      - 6D563614-B987-4A13-9107-5630CCF7ED21
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/v1/maintenance/{maintenance}/history/store'
+    metadata:
+      groupName: Maintenance
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Update the specified resource in storage.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      MYP_API_KEY: '{YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      MYP-API-KEY: '{YOUR_API_KEY}'
+    urlParameters:
+      maintenance:
+        name: maintenance
+        description: 'The maintenance.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      maintenance: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      image:
+        name: image
+        description: ''
+        required: false
+        example: null
+        type: string
+        custom: []
+      id_status:
+        name: id_status
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+      deskripsi_update:
+        name: deskripsi_update
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+    cleanBodyParameters:
+      id_status: consequatur
+      deskripsi_update: consequatur
+    fileParameters: []
+    responses:
+      -
+        status: 403
+        content: |-
+          {
+              "message": "This action is unauthorized."
+          }
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '42'
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - MYP_API_KEY
+      - 6D563614-B987-4A13-9107-5630CCF7ED21
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/v1/maintenance/{maintenance}/history/destroy/{pupdate}'
+    metadata:
+      groupName: Maintenance
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Update the specified resource in storage.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      MYP_API_KEY: '{YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      MYP-API-KEY: '{YOUR_API_KEY}'
+    urlParameters:
+      maintenance:
+        name: maintenance
+        description: 'The maintenance.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+      pupdate:
+        name: pupdate
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+    cleanUrlParameters:
+      maintenance: 1
+      pupdate: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      image:
+        name: image
+        description: ''
+        required: false
+        example: null
+        type: string
+        custom: []
+      id_status:
+        name: id_status
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+      deskripsi_update:
+        name: deskripsi_update
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+    cleanBodyParameters:
+      id_status: consequatur
+      deskripsi_update: consequatur
+    fileParameters: []
+    responses:
+      -
+        status: 403
+        content: |-
+          {
+              "message": "This action is unauthorized."
+          }
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '41'
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - MYP_API_KEY
+      - 6D563614-B987-4A13-9107-5630CCF7ED21
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/inspeksi/store
+    metadata:
+      groupName: Maintenance
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      MYP_API_KEY: '{YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      MYP-API-KEY: '{YOUR_API_KEY}'
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      imagebefore:
+        name: imagebefore
+        description: ''
+        required: false
+        example: null
+        type: string
+        custom: []
+      id_asset:
+        name: id_asset
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+      id_type:
+        name: id_type
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+      deskripsi:
+        name: deskripsi
+        description: ''
+        required: false
+        example: consequatur
+        type: string
+        custom: []
+      imageafter:
+        name: imageafter
+        description: ''
+        required: false
+        example: null
+        type: string
+        custom: []
+    cleanBodyParameters:
+      id_asset: consequatur
+      id_type: consequatur
+      deskripsi: consequatur
+    fileParameters: []
+    responses:
+      -
+        status: 403
+        content: |-
+          {
+              "message": "This action is unauthorized."
+          }
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '40'
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - MYP_API_KEY
+      - 6D563614-B987-4A13-9107-5630CCF7ED21
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/v1/inspeksi/update/{maintenance}'
+    metadata:
+      groupName: Maintenance
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      MYP_API_KEY: '{YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      MYP-API-KEY: '{YOUR_API_KEY}'
+    urlParameters:
+      maintenance:
+        name: maintenance
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+    cleanUrlParameters:
+      maintenance: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      imagebefore:
+        name: imagebefore
+        description: ''
+        required: false
+        example: null
+        type: string
+        custom: []
+      id_type:
+        name: id_type
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+      deskripsi:
+        name: deskripsi
+        description: ''
+        required: false
+        example: consequatur
+        type: string
+        custom: []
+      deskripsi_update:
+        name: deskripsi_update
+        description: ''
+        required: false
+        example: consequatur
+        type: string
+        custom: []
+      id_status:
+        name: id_status
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+    cleanBodyParameters:
+      id_type: consequatur
+      deskripsi: consequatur
+      deskripsi_update: consequatur
+      id_status: consequatur
+    fileParameters: []
+    responses:
+      -
+        status: 403
+        content: |-
+          {
+              "message": "This action is unauthorized."
+          }
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '39'
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - MYP_API_KEY
+      - 6D563614-B987-4A13-9107-5630CCF7ED21
     controller: null
     method: null
     route: null

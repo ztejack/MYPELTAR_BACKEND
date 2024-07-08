@@ -98,6 +98,11 @@ class User extends Authenticatable implements JWTSubject
             $user->uuid = UuidV4::uuid4()->getHex();
         });
     }
+    public function hasRole($role)
+    {
+        // Assuming roles are stored in a column called 'role'
+        return $this->role === $role;
+    }
 
     /**
      * Return a model value array, containing any relation model.
