@@ -10,6 +10,13 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 class SatkerFactory extends Factory
 {
     /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = Satker::class;
+
+    /**
      * Define the model's default state.
      *
      * @return array<string, mixed>
@@ -17,7 +24,7 @@ class SatkerFactory extends Factory
     public function definition()
     {
         return [
-            'satker' => $this->faker->sentence(1)
+            'satker' => $this->faker->sentence(mt_rand(5, 10)),
         ];
     }
 }
