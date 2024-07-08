@@ -34,13 +34,13 @@ class DatabaseSeeder extends Seeder
             TypeMaintenanceSeeder::class,
             ClientSeeder::class,
         ]);
-        News::factory(5)->create();
-        Satker::factory(5)->create();
-        Subsatker::factory(5)->create();
-        Category::factory(5)->create();
-        Location::factory(5)->create();
-        Asset::factory(5)->create();
-        Maintenance::factory(5000)->create();
+        //News::factory(5)->create();
+        //Satker::factory(5)->create();
+        //Subsatker::factory(5)->create();
+        //Category::factory(5)->create();
+        //Location::factory(5)->create();
+       // Asset::factory(5)->create();
+        //Maintenance::factory(5000)->create();
         // PCategory::factory(5)->create();
         // PUpdate::factory(20)->create();
     }
