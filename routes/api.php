@@ -32,15 +32,27 @@ Route::prefix('v1/auth')->group(
         Route::post('login', [AuthController::class, 'login']);
         Route::post('logout', [AuthController::class, 'logout']);
         Route::post('refresh', [AuthController::class, 'refresh']);
-        Route::get('profile', [AuthController::class, 'profile']);
+        Route::middleware(['api.key'])->group(
+            function () {
+                Route::get('profile', [AuthController::class, 'profile']);
+            }
+        );
     }
 );
-Route::prefix('v1/client')->middleware(['api.key'])->group(
+Route::prefix('v1/client')->middleware(['admin'])->group(
     // Route::prefix('v1/client')->group(
     function () {
-        Route::get('/', [ClientController::class, 'index']);
+        Route::get('getall', [ClientController::class, 'index']);
+        Route::get('/{client}', [ClientController::class, 'search']);
+        Route::post('store', [ClientController::class, 'store']);
     }
 );
+// Route::prefix('v1/client')->middleware(['admin'])->group(
+//     // Route::prefix('v1/client')->group(
+//     function () {
+//         Route::get('/', [ClientController::class, 'index']);
+//     }
+// );
 Route::prefix('v1/user')->middleware(['auth:api', 'api.key'])->group(
     function () {
         Route::get('getall', [UserController::class, 'index'])->middleware('can:getall-users');

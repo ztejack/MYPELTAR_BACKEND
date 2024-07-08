@@ -117,11 +117,11 @@ class UserController extends Controller
 
         $expirationDate = Carbon::now()->addDays(30);
 
-        ApiKey::create([
-            'user_id' => $user->id,
-            'api_key' => Str::random(32),
-            'expiration_date' => $expirationDate,
-        ]);
+        // ApiKey::create([
+        //     'user_id' => $user->id,
+        //     'api_key' => Str::random(32),
+        //     'expiration_date' => $expirationDate,
+        // ]);
 
         return response()->json(['status' => 'Users Berhasil Ditambahkan !'], 201);
     }

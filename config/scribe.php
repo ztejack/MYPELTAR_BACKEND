@@ -19,7 +19,7 @@ return [
     /*
      * The base URL displayed in the docs. If this is empty, Scribe will use the value of config('app.url').
      */
-    'base_url' => 'http://localhost:8000',
+    'base_url' => 'https://myapi.peltar.id',
 
     /*
      * Tell Scribe what routes to generate documentation for.
@@ -193,12 +193,12 @@ return [
          * The base URL for the API tester to use (for example, you can set this to your staging URL).
          * Leave as null to use the current app URL (config(app.url)).
          */
-        'base_url' => 'http://localhost:8000',
+        'base_url' => null,
 
         /**
          * Fetch a CSRF token before each request, and add it as an X-XSRF-TOKEN header. Needed if you're using Laravel Sanctum.
          */
-        'use_csrf' => false,
+        'use_csrf' => true,
 
         /**
          * The URL to fetch the CSRF token from (if `use_csrf` is true).
@@ -225,32 +225,32 @@ return [
          * Where is the auth value meant to be sent in a request?
          * Options: query, body, basic, bearer, header (for custom header)
          */
-        'in' => 'bearer',
+        'in' => 'header',
 
         /*
          * The name of the auth parameter (eg token, key, apiKey) or header (eg Authorization, Api-Key).
          */
-        'name' => 'token',
+        'name' => 'MYP_API_KEY',
 
         /*
          * The value of the parameter to be used by Scribe to authenticate response calls.
          * This will NOT be included in the generated documentation.
          * If this value is empty, Scribe will use a random value.
          */
-        'use_value' => env('SCRIBE_AUTH_KEY_BEARER'),
+        'use_value' => env('SCRIBE_AUTH_KEY_API'),
 
         /*
          * Placeholder your users will see for the auth parameter in the example requests.
          * Set this to null if you want Scribe to use a random value as placeholder instead.
          */
         'placeholder' => '{YOUR_AUTH_KEY}',
-        
+
         /*
          * Any extra authentication-related info for your users. For instance, you can describe how to find or generate their auth credentials.
          * Markdown and HTML are supported.
          */
         'extra_info' => 'You can retrieve your token by visiting your dashboard and clicking <b>Generate API token</b>.',
-       
+
     ],
 
     /*
@@ -261,8 +261,7 @@ This documentation aims to provide all the information you need to work with our
 
 <aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
 You can switch the language used with the tabs at the top right (or from the nav menu at the top left on mobile).</aside>
-INTRO
-    ,
+INTRO,
 
     /*
      * Example requests for each endpoint will be shown in each of these languages.
@@ -349,7 +348,7 @@ INTRO
      * - 'logo' => 'img/logo.png' // for `laravel` type
      *
      */
-    'logo' => false,
+    'logo' => true,
 
     /**
      * Customize the "Last updated" value displayed in the docs by specifying tokens and formats.

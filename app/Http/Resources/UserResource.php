@@ -20,7 +20,7 @@ class UserResource extends JsonResource
             'slug' => $this->slug,
             'email' => $this->email,
             'username' => $this->username,
-            'role' => $this->getRoleNames(),
+            'role' => $this->getRoleNames()->first(),
             'subsatker' => $this->subsatker->subsatker,
             'satker' => $this->subsatker->satker->satker,
             // 'subsatker' => Subsatker_PResource::make($this->subsatker),

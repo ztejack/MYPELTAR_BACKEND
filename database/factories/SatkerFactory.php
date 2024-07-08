@@ -24,7 +24,7 @@ class SatkerFactory extends Factory
     public function definition()
     {
         return [
-            'satker' => $this->faker->sentence(mt_rand(5, 10)),
+            'satker' => $this->faker->sentence(mt_rand(5, 10))
         ];
     }
 }

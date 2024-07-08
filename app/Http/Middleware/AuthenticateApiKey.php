@@ -3,11 +3,11 @@
 namespace App\Http\Middleware;
 
 use App\Models\Client;
-use App\Models\User;
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Crypt;
+use Illuminate\Cache\RateLimiter;
+use Illuminate\Support\Facades\Log;
+use Symfony\Component\HttpFoundation\Response;
 
 class AuthenticateApiKey
 {
@@ -20,23 +20,46 @@ class AuthenticateApiKey
      */
     public function handle(Request $request, Closure $next)
     {
-        $apiKey  = $request->header('MYP-API-KEY');
+        $apiKey = $request->header(config('app.api_key_header', 'MYP-API-KEY'));
 
         if (!$apiKey) {
-            return response()->json(['error' => 'API Key not provided'], 401);
+            Log::warning('API request made without API key');
+            return $this->errorResponse('Missing API Key');
         }
-        // Encrypt the API key obtained from the request header
-        // $apiKey = Crypt::encryptString($encryptedApiKey);
+
+        // Rate limiting
+        $limiter = app(RateLimiter::class);
+        if ($limiter->tooManyAttempts($apiKey, $perMinute = 60)) {
+            Log::warning('Too many requests: ' . $apiKey . ' :: ' . $perMinute);
+            return $this->errorResponse('Too many requests', Response::HTTP_TOO_MANY_REQUESTS);
+        }
+        $limiter->hit($apiKey, 60);
 
         $client = Client::where('api_key', $apiKey)->first();
 
         if (!$client) {
-            return response()->json(['error' => $apiKey], 401);
+            Log::warning('Invalid API key used: ' . $apiKey);
+            return $this->errorResponse('Invalid API Key');
         }
 
         // Store the client in the request for later use if needed
         $request->merge(['client' => $client]);
 
         return $next($request);
+    }
+
+    /**
+     * Return a JSON error response.
+     *
+     * @param string $message
+     * @param int $status
+     * @return \Illuminate\Http\JsonResponse
+     */
+    private function errorResponse($message, $status = Response::HTTP_UNAUTHORIZED)
+    {
+        return response()->json([
+            'status' => 'fails',
+            'message' => $message,
+        ], $status);
     }
 }

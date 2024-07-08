@@ -1,12 +1,12 @@
-name: 'Sub Satuan Kerja'
+name: 'Satuan Kerja'
 description: ''
 endpoints:
   -
     httpMethods:
       - GET
-    uri: api/v1/subsatker/getall
+    uri: api/v1/satker/getall
     metadata:
-      groupName: 'Sub Satuan Kerja'
+      groupName: 'Satuan Kerja'
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
@@ -15,7 +15,7 @@ endpoints:
       authenticated: true
       custom: []
     headers:
-      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      MYP_API_KEY: '{YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
       MYP-API-KEY: '{YOUR_API_KEY}'
@@ -28,19 +28,21 @@ endpoints:
     fileParameters: []
     responses:
       -
-        status: 403
-        content: '{"error":"UnAuthenticated"}'
+        status: 200
+        content: '{"data":[{"id":1,"satker":"Perawatan","created_at":"2024-06-30T19:46:52.000000Z","updated_at":"2024-06-30T19:46:52.000000Z"},{"id":2,"satker":"Vitae.","created_at":"2024-06-30T19:46:54.000000Z","updated_at":"2024-06-30T19:46:54.000000Z"},{"id":3,"satker":"Recusandae consectetur.","created_at":"2024-06-30T19:46:54.000000Z","updated_at":"2024-06-30T19:46:54.000000Z"},{"id":4,"satker":"Quaerat.","created_at":"2024-06-30T19:46:54.000000Z","updated_at":"2024-06-30T19:46:54.000000Z"},{"id":5,"satker":"Consectetur.","created_at":"2024-06-30T19:46:54.000000Z","updated_at":"2024-06-30T19:46:54.000000Z"},{"id":6,"satker":"Similique eum.","created_at":"2024-06-30T19:46:54.000000Z","updated_at":"2024-06-30T19:46:54.000000Z"},{"id":7,"satker":"Temporibus.","created_at":"2024-06-30T19:46:54.000000Z","updated_at":"2024-06-30T19:46:54.000000Z"},{"id":8,"satker":"Possimus.","created_at":"2024-06-30T19:46:54.000000Z","updated_at":"2024-06-30T19:46:54.000000Z"},{"id":9,"satker":"Quis.","created_at":"2024-06-30T19:46:54.000000Z","updated_at":"2024-06-30T19:46:54.000000Z"},{"id":10,"satker":"Atque.","created_at":"2024-06-30T19:46:54.000000Z","updated_at":"2024-06-30T19:46:54.000000Z"},{"id":11,"satker":"Omnis provident.","created_at":"2024-06-30T19:46:54.000000Z","updated_at":"2024-06-30T19:46:54.000000Z"}]}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '27'
           access-control-allow-origin: '*'
         description: null
         custom: []
     responseFields: []
     auth:
       - headers
-      - Authorization
-      - 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODcyNzExOTUsImV4cCI6MTY4NzUzMDM5NSwibmJmIjoxNjg3MjcxMTk1LCJqdGkiOiJzV1g4MlBvSlVqenhrWExjIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.ViztGT25kym3L_e4FkzUhj7c3YSDwuume17jJ2L2GpY'
+      - MYP_API_KEY
+      - 6D563614-B987-4A13-9107-5630CCF7ED21
     controller: null
     method: null
     route: null
@@ -48,9 +50,9 @@ endpoints:
   -
     httpMethods:
       - POST
-    uri: api/v1/subsatker/store
+    uri: api/v1/satker/store
     metadata:
-      groupName: 'Sub Satuan Kerja'
+      groupName: 'Satuan Kerja'
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
@@ -59,7 +61,7 @@ endpoints:
       authenticated: true
       custom: []
     headers:
-      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      MYP_API_KEY: '{YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
       MYP-API-KEY: '{YOUR_API_KEY}'
@@ -68,39 +70,36 @@ endpoints:
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      subsatker:
-        name: subsatker
+      satker:
+        name: satker
         description: ''
         required: true
         example: consequatur
         type: string
         custom: []
-      satker:
-        name: satker
-        description: ''
-        required: true
-        example: 17
-        type: integer
-        custom: []
     cleanBodyParameters:
-      subsatker: consequatur
-      satker: 17
+      satker: consequatur
     fileParameters: []
     responses:
       -
         status: 403
-        content: '{"error":"UnAuthenticated"}'
+        content: |-
+          {
+              "message": "This action is unauthorized."
+          }
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '26'
           access-control-allow-origin: '*'
         description: null
         custom: []
     responseFields: []
     auth:
       - headers
-      - Authorization
-      - 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODcyNzExOTUsImV4cCI6MTY4NzUzMDM5NSwibmJmIjoxNjg3MjcxMTk1LCJqdGkiOiJzV1g4MlBvSlVqenhrWExjIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.ViztGT25kym3L_e4FkzUhj7c3YSDwuume17jJ2L2GpY'
+      - MYP_API_KEY
+      - 6D563614-B987-4A13-9107-5630CCF7ED21
     controller: null
     method: null
     route: null
@@ -108,9 +107,9 @@ endpoints:
   -
     httpMethods:
       - GET
-    uri: 'api/v1/subsatker/show/{subsatker_id}'
+    uri: 'api/v1/satker/show/{satker_id}'
     metadata:
-      groupName: 'Sub Satuan Kerja'
+      groupName: 'Satuan Kerja'
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
@@ -119,20 +118,20 @@ endpoints:
       authenticated: true
       custom: []
     headers:
-      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      MYP_API_KEY: '{YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
       MYP-API-KEY: '{YOUR_API_KEY}'
     urlParameters:
-      subsatker_id:
-        name: subsatker_id
-        description: 'The ID of the subsatker.'
+      satker_id:
+        name: satker_id
+        description: 'The ID of the satker.'
         required: true
         example: 1
         type: integer
         custom: []
     cleanUrlParameters:
-      subsatker_id: 1
+      satker_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -140,19 +139,21 @@ endpoints:
     fileParameters: []
     responses:
       -
-        status: 403
-        content: '{"error":"UnAuthenticated"}'
+        status: 200
+        content: '{"data":{"id":1,"satker":"Perawatan","subSatker":[{"id":1,"subsatker":"IT","id_satker":1,"created_at":"2024-06-30T19:46:52.000000Z","updated_at":"2024-06-30T19:46:52.000000Z"},{"id":2,"subsatker":"Perawatan Listrik","id_satker":1,"created_at":"2024-06-30T19:46:52.000000Z","updated_at":"2024-06-30T19:46:52.000000Z"},{"id":3,"subsatker":"Mekanik","id_satker":1,"created_at":"2024-06-30T19:46:52.000000Z","updated_at":"2024-06-30T19:46:52.000000Z"}]}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '25'
           access-control-allow-origin: '*'
         description: null
         custom: []
     responseFields: []
     auth:
       - headers
-      - Authorization
-      - 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODcyNzExOTUsImV4cCI6MTY4NzUzMDM5NSwibmJmIjoxNjg3MjcxMTk1LCJqdGkiOiJzV1g4MlBvSlVqenhrWExjIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.ViztGT25kym3L_e4FkzUhj7c3YSDwuume17jJ2L2GpY'
+      - MYP_API_KEY
+      - 6D563614-B987-4A13-9107-5630CCF7ED21
     controller: null
     method: null
     route: null
@@ -160,9 +161,9 @@ endpoints:
   -
     httpMethods:
       - POST
-    uri: 'api/v1/subsatker/update/{subsatker_id}'
+    uri: 'api/v1/satker/update/{satker_id}'
     metadata:
-      groupName: 'Sub Satuan Kerja'
+      groupName: 'Satuan Kerja'
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
@@ -171,56 +172,53 @@ endpoints:
       authenticated: true
       custom: []
     headers:
-      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      MYP_API_KEY: '{YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
       MYP-API-KEY: '{YOUR_API_KEY}'
     urlParameters:
-      subsatker_id:
-        name: subsatker_id
-        description: 'The ID of the subsatker.'
+      satker_id:
+        name: satker_id
+        description: 'The ID of the satker.'
         required: true
         example: 1
         type: integer
         custom: []
     cleanUrlParameters:
-      subsatker_id: 1
+      satker_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      subsatker:
-        name: subsatker
+      satker:
+        name: satker
         description: ''
         required: true
         example: consequatur
         type: string
         custom: []
-      satker:
-        name: satker
-        description: ''
-        required: true
-        example: 17
-        type: integer
-        custom: []
     cleanBodyParameters:
-      subsatker: consequatur
-      satker: 17
+      satker: consequatur
     fileParameters: []
     responses:
       -
         status: 403
-        content: '{"error":"UnAuthenticated"}'
+        content: |-
+          {
+              "message": "This action is unauthorized."
+          }
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '24'
           access-control-allow-origin: '*'
         description: null
         custom: []
     responseFields: []
     auth:
       - headers
-      - Authorization
-      - 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODcyNzExOTUsImV4cCI6MTY4NzUzMDM5NSwibmJmIjoxNjg3MjcxMTk1LCJqdGkiOiJzV1g4MlBvSlVqenhrWExjIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.ViztGT25kym3L_e4FkzUhj7c3YSDwuume17jJ2L2GpY'
+      - MYP_API_KEY
+      - 6D563614-B987-4A13-9107-5630CCF7ED21
     controller: null
     method: null
     route: null
@@ -228,9 +226,9 @@ endpoints:
   -
     httpMethods:
       - POST
-    uri: 'api/v1/subsatker/destroy/{subsatker_id}'
+    uri: 'api/v1/satker/destroy/{satker_id}'
     metadata:
-      groupName: 'Sub Satuan Kerja'
+      groupName: 'Satuan Kerja'
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
@@ -239,20 +237,20 @@ endpoints:
       authenticated: true
       custom: []
     headers:
-      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      MYP_API_KEY: '{YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
       MYP-API-KEY: '{YOUR_API_KEY}'
     urlParameters:
-      subsatker_id:
-        name: subsatker_id
-        description: 'The ID of the subsatker.'
+      satker_id:
+        name: satker_id
+        description: 'The ID of the satker.'
         required: true
         example: 1
         type: integer
         custom: []
     cleanUrlParameters:
-      subsatker_id: 1
+      satker_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -261,18 +259,23 @@ endpoints:
     responses:
       -
         status: 403
-        content: '{"error":"UnAuthenticated"}'
+        content: |-
+          {
+              "message": "This action is unauthorized."
+          }
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '23'
           access-control-allow-origin: '*'
         description: null
         custom: []
     responseFields: []
     auth:
       - headers
-      - Authorization
-      - 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODcyNzExOTUsImV4cCI6MTY4NzUzMDM5NSwibmJmIjoxNjg3MjcxMTk1LCJqdGkiOiJzV1g4MlBvSlVqenhrWExjIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.ViztGT25kym3L_e4FkzUhj7c3YSDwuume17jJ2L2GpY'
+      - MYP_API_KEY
+      - 6D563614-B987-4A13-9107-5630CCF7ED21
     controller: null
     method: null
     route: null

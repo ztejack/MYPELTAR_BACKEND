@@ -50,11 +50,7 @@ endpoints:
                "user" : `User Object` ,
                "authorisation" : {
                    "token" : "eyJ0eXAiO . . .",
-                   "type" : "bearer" },
-               "api-key" : {
-                   "api_key" : "c4ksKs . . .",
-                   "expiration_date" : "2023-07-15 17:31:00"
-               }
+                   "type" : "bearer" }
           }
         headers: []
         description: Ok
@@ -106,7 +102,7 @@ endpoints:
       authenticated: true
       custom: []
     headers:
-      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      MYP_API_KEY: '{YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
       MYP-API-KEY: '{YOUR_API_KEY}'
@@ -131,8 +127,8 @@ endpoints:
     responseFields: []
     auth:
       - headers
-      - Authorization
-      - 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODcyNzExOTUsImV4cCI6MTY4NzUzMDM5NSwibmJmIjoxNjg3MjcxMTk1LCJqdGkiOiJzV1g4MlBvSlVqenhrWExjIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.ViztGT25kym3L_e4FkzUhj7c3YSDwuume17jJ2L2GpY'
+      - MYP_API_KEY
+      - 6D563614-B987-4A13-9107-5630CCF7ED21
     controller: null
     method: null
     route: null
@@ -151,7 +147,7 @@ endpoints:
       authenticated: true
       custom: []
     headers:
-      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      MYP_API_KEY: '{YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
       MYP-API-KEY: '{YOUR_API_KEY}'
@@ -184,8 +180,8 @@ endpoints:
     responseFields: []
     auth:
       - headers
-      - Authorization
-      - 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODcyNzExOTUsImV4cCI6MTY4NzUzMDM5NSwibmJmIjoxNjg3MjcxMTk1LCJqdGkiOiJzV1g4MlBvSlVqenhrWExjIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.ViztGT25kym3L_e4FkzUhj7c3YSDwuume17jJ2L2GpY'
+      - MYP_API_KEY
+      - 6D563614-B987-4A13-9107-5630CCF7ED21
     controller: null
     method: null
     route: null
@@ -204,7 +200,7 @@ endpoints:
       authenticated: true
       custom: []
     headers:
-      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      MYP_API_KEY: '{YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
       MYP-API-KEY: '{YOUR_API_KEY}'
@@ -238,8 +234,8 @@ endpoints:
     responseFields: []
     auth:
       - headers
-      - Authorization
-      - 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODcyNzExOTUsImV4cCI6MTY4NzUzMDM5NSwibmJmIjoxNjg3MjcxMTk1LCJqdGkiOiJzV1g4MlBvSlVqenhrWExjIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.ViztGT25kym3L_e4FkzUhj7c3YSDwuume17jJ2L2GpY'
+      - MYP_API_KEY
+      - 6D563614-B987-4A13-9107-5630CCF7ED21
     controller: null
     method: null
     route: null

@@ -1,21 +1,22 @@
-name: Users
+name: Client
 description: ''
 endpoints:
   -
     httpMethods:
       - GET
-    uri: api/v1/user/getall
+    uri: api/v1/client/getall
     metadata:
-      groupName: Users
+      groupName: Client
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: |-
+        Get All Client
+        Display a listing of the Client
       description: ''
-      authenticated: true
+      authenticated: false
       custom: []
     headers:
-      Authorization: 'Bearer {YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
       MYP-API-KEY: '{YOUR_API_KEY}'
@@ -28,19 +29,18 @@ endpoints:
     fileParameters: []
     responses:
       -
-        status: 403
-        content: '{"error":"UnAuthenticated"}'
+        status: 200
+        content: '[{"id":1,"name":"mypeltar_test","uuid":"D70A352AD6964AAC935013278A0ADDEA","api_key":"6D563614-B987-4A13-9107-5630CCF7ED21","created_at":"2024-06-30T19:46:53.000000Z","updated_at":"2024-06-30T19:46:53.000000Z"},{"id":2,"name":"mypeltar_web","uuid":"7DBF7426C0E9458F82DAEBCC991D9886","api_key":"CD0C0258-A560-4EC3-B4B2-C43410E110B7","created_at":"2024-06-30T19:46:53.000000Z","updated_at":"2024-06-30T19:46:53.000000Z"},{"id":3,"name":"mypeltar_android","uuid":"1FA86BD04F0D4FCEB7FD4925C238454B","api_key":"B2FDB24B-A579-47AB-AAA4-FF7DEAA57363","created_at":"2024-06-30T19:46:53.000000Z","updated_at":"2024-06-30T19:46:53.000000Z"},{"id":4,"name":"test","uuid":"044088AD4BEF41478C6D546D77610C62","api_key":"42D2256A-924F-4A18-8DE1-65AB127F987C","created_at":"2024-07-05T04:05:56.000000Z","updated_at":"2024-07-05T04:05:56.000000Z"}]'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '59'
           access-control-allow-origin: '*'
         description: null
         custom: []
     responseFields: []
-    auth:
-      - headers
-      - Authorization
-      - 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODcyNzExOTUsImV4cCI6MTY4NzUzMDM5NSwibmJmIjoxNjg3MjcxMTk1LCJqdGkiOiJzV1g4MlBvSlVqenhrWExjIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.ViztGT25kym3L_e4FkzUhj7c3YSDwuume17jJ2L2GpY'
+    auth: []
     controller: null
     method: null
     route: null
@@ -48,9 +48,9 @@ endpoints:
   -
     httpMethods:
       - GET
-    uri: api/v1/user/search
+    uri: 'api/v1/client/{client_uuid}'
     metadata:
-      groupName: Users
+      groupName: Client
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
@@ -59,12 +59,20 @@ endpoints:
       authenticated: true
       custom: []
     headers:
-      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      MYP_API_KEY: '{YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
       MYP-API-KEY: '{YOUR_API_KEY}'
-    urlParameters: []
-    cleanUrlParameters: []
+    urlParameters:
+      client_uuid:
+        name: client_uuid
+        description: ''
+        required: true
+        example: D70A352AD6964AAC935013278A0ADDEA
+        type: string
+        custom: []
+    cleanUrlParameters:
+      client_uuid: D70A352AD6964AAC935013278A0ADDEA
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -72,19 +80,21 @@ endpoints:
     fileParameters: []
     responses:
       -
-        status: 403
-        content: '{"error":"UnAuthenticated"}'
+        status: 200
+        content: '{"id":1,"name":"mypeltar_test","uuid":"D70A352AD6964AAC935013278A0ADDEA","api_key":"6D563614-B987-4A13-9107-5630CCF7ED21","created_at":"2024-06-30T19:46:53.000000Z","updated_at":"2024-06-30T19:46:53.000000Z"}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '58'
           access-control-allow-origin: '*'
         description: null
         custom: []
     responseFields: []
     auth:
       - headers
-      - Authorization
-      - 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODcyNzExOTUsImV4cCI6MTY4NzUzMDM5NSwibmJmIjoxNjg3MjcxMTk1LCJqdGkiOiJzV1g4MlBvSlVqenhrWExjIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.ViztGT25kym3L_e4FkzUhj7c3YSDwuume17jJ2L2GpY'
+      - MYP_API_KEY
+      - 6D563614-B987-4A13-9107-5630CCF7ED21
     controller: null
     method: null
     route: null
@@ -92,18 +102,18 @@ endpoints:
   -
     httpMethods:
       - POST
-    uri: api/v1/user/store
+    uri: api/v1/client/store
     metadata:
-      groupName: Users
+      groupName: Client
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Store a newly created resource in storage.'
+      title: ''
       description: ''
       authenticated: true
       custom: []
     headers:
-      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      MYP_API_KEY: '{YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
       MYP-API-KEY: '{YOUR_API_KEY}'
@@ -112,134 +122,33 @@ endpoints:
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      id_role:
-        name: id_role
-        description: ''
-        required: false
-        example: null
+      name:
+        name: name
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: vmqeopfuudtdsufvyvddq
         type: string
         custom: []
-    cleanBodyParameters: []
+    cleanBodyParameters:
+      name: vmqeopfuudtdsufvyvddq
     fileParameters: []
     responses:
       -
-        status: 403
-        content: '{"error":"UnAuthenticated"}'
+        status: 200
+        content: '{"name":"vmqeopfuudtdsufvyvddq","api_key":"D3A0D652-57EC-4610-8BC1-F3AF46772569","uuid":"DDF60F1D930A471FB062A6553C088695","updated_at":"2024-07-05T06:09:13.000000Z","created_at":"2024-07-05T06:09:13.000000Z","id":6}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '57'
           access-control-allow-origin: '*'
         description: null
         custom: []
     responseFields: []
     auth:
       - headers
-      - Authorization
-      - 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODcyNzExOTUsImV4cCI6MTY4NzUzMDM5NSwibmJmIjoxNjg3MjcxMTk1LCJqdGkiOiJzV1g4MlBvSlVqenhrWExjIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.ViztGT25kym3L_e4FkzUhj7c3YSDwuume17jJ2L2GpY'
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - GET
-    uri: 'api/v1/user/show/{user_id}'
-    metadata:
-      groupName: Users
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Display the specified resource.'
-      description: ''
-      authenticated: true
-      custom: []
-    headers:
-      Authorization: 'Bearer {YOUR_AUTH_KEY}'
-      Content-Type: application/json
-      Accept: application/json
-      MYP-API-KEY: '{YOUR_API_KEY}'
-    urlParameters:
-      user_id:
-        name: user_id
-        description: 'The ID of the user.'
-        required: true
-        example: 1
-        type: integer
-        custom: []
-    cleanUrlParameters:
-      user_id: 1
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        status: 403
-        content: '{"error":"UnAuthenticated"}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
-        custom: []
-    responseFields: []
-    auth:
-      - headers
-      - Authorization
-      - 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODcyNzExOTUsImV4cCI6MTY4NzUzMDM5NSwibmJmIjoxNjg3MjcxMTk1LCJqdGkiOiJzV1g4MlBvSlVqenhrWExjIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.ViztGT25kym3L_e4FkzUhj7c3YSDwuume17jJ2L2GpY'
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - POST
-    uri: 'api/v1/user/destroy/{user_id}'
-    metadata:
-      groupName: Users
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Remove the specified resource from storage.'
-      description: ''
-      authenticated: true
-      custom: []
-    headers:
-      Authorization: 'Bearer {YOUR_AUTH_KEY}'
-      Content-Type: application/json
-      Accept: application/json
-      MYP-API-KEY: '{YOUR_API_KEY}'
-    urlParameters:
-      user_id:
-        name: user_id
-        description: 'The ID of the user.'
-        required: true
-        example: 1
-        type: integer
-        custom: []
-    cleanUrlParameters:
-      user_id: 1
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        status: 403
-        content: '{"error":"UnAuthenticated"}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
-        custom: []
-    responseFields: []
-    auth:
-      - headers
-      - Authorization
-      - 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE2ODcyNzExOTUsImV4cCI6MTY4NzUzMDM5NSwibmJmIjoxNjg3MjcxMTk1LCJqdGkiOiJzV1g4MlBvSlVqenhrWExjIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.ViztGT25kym3L_e4FkzUhj7c3YSDwuume17jJ2L2GpY'
+      - MYP_API_KEY
+      - 6D563614-B987-4A13-9107-5630CCF7ED21
     controller: null
     method: null
     route: null
