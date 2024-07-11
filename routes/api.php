@@ -4,6 +4,7 @@ use App\Http\Controllers\API\AssetController;
 use App\Http\Controllers\API\Auth\AuthController;
 use App\Http\Controllers\API\Auth\ClientController;
 use App\Http\Controllers\API\CategoryController;
+use App\Http\Controllers\API\InspeksiController;
 use App\Http\Controllers\API\LocationController;
 use App\Http\Controllers\API\MaintenanceController;
 use App\Http\Controllers\API\NewsController;
@@ -11,7 +12,7 @@ use App\Http\Controllers\API\RoleController;
 use App\Http\Controllers\API\SatkerController;
 use App\Http\Controllers\API\StatusController;
 use App\Http\Controllers\API\SubsatkerController;
-use App\Http\Controllers\Api\PUpdateController;
+use App\Http\Controllers\API\PUpdateController;
 use App\Http\Controllers\API\UserController;
 // use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -64,7 +65,7 @@ Route::prefix('v1/user')->middleware(['auth:api', 'api.key'])->group(
     }
 );
 
-Route::prefix('v1/asset')->middleware('auth:api')->group(
+Route::prefix('v1/asset')->middleware('auth:api', 'api.key')->group(
     function () {
         Route::get('getall', [AssetController::class, 'index']);
         Route::get('search', [AssetController::class, 'search']);
@@ -75,12 +76,12 @@ Route::prefix('v1/asset')->middleware('auth:api')->group(
     }
 );
 
-Route::prefix('v1/maintenance')->middleware('auth:api')->group(
+Route::prefix('v1/maintenance')->middleware('auth:api', 'api.key')->group(
     function () {
         Route::get('getall', [MaintenanceController::class, 'index']);
         Route::get('maintenance_aplly/{maintenance}', [MaintenanceController::class, 'maintenance_aplly']);
         Route::get('self_get', [MaintenanceController::class, 'self_get']);
-        // Route::post('store', [MaintenanceController::class, 'store'])->middleware(['can:store-maintenance']);
+        Route::post('store', [MaintenanceController::class, 'store'])->middleware(['can:store-maintenance']);
         Route::get('show/{maintenance}', [MaintenanceController::class, 'show']);
         // Route::post('update/{maintenance}', [MaintenanceController::class, 'update'])->middleware(['can:update-maintenance']);
         Route::post('destroy/{maintenance}', [MaintenanceController::class, 'destroy'])->middleware(['can:delete-maintenance']);
@@ -95,15 +96,22 @@ Route::prefix('v1/maintenance')->middleware('auth:api')->group(
         );
     }
 );
-
-Route::prefix('v1/inspeksi')->middleware('auth:api')->group(
+// change to cretae maintenance
+// Route::prefix('v1/inspeksi')->middleware('auth:api')->group(
+//     function () {
+//         Route::post('store', [MaintenanceController::class, 'store'])->middleware(['can:store-inspeksi']);
+//         Route::post('update/{maintenance}', [MaintenanceController::class, 'update'])->middleware(['can:update-inspeksi']);
+//     }
+// );
+Route::prefix('v1/inspeksi')->middleware('auth:api', 'api.key')->group(
     function () {
-        Route::post('store', [MaintenanceController::class, 'store'])->middleware(['can:store-inspeksi']);
-        Route::post('update/{maintenance}', [MaintenanceController::class, 'update'])->middleware(['can:update-inspeksi']);
+        Route::get('getall', [InspeksiController::class, 'index']);
+        // Route::post('store', [MaintenanceController::class, 'store'])->middleware(['can:store-inspeksi']);
+        // Route::post('update/{maintenance}', [MaintenanceController::class, 'update'])->middleware(['can:update-inspeksi']);
     }
 );
 
-Route::prefix('v1/category')->middleware('auth:api')->group(
+Route::prefix('v1/category')->middleware('auth:api', 'api.key')->group(
     function () {
         Route::get('getall', [CategoryController::class, 'index']);
         Route::post('store', [CategoryController::class, 'store'])->middleware(['can:store-category']);
@@ -114,7 +122,7 @@ Route::prefix('v1/category')->middleware('auth:api')->group(
     }
 );
 
-Route::prefix('v1/location')->middleware('auth:api')->group(
+Route::prefix('v1/location')->middleware('auth:api', 'api.key')->group(
     function () {
         Route::get('getall', [LocationController::class, 'index']);
         Route::post('store', [LocationController::class, 'store'])->middleware(['can:store-location']);
@@ -125,7 +133,7 @@ Route::prefix('v1/location')->middleware('auth:api')->group(
     }
 );
 
-Route::prefix('v1/satker')->middleware('auth:api')->group(
+Route::prefix('v1/satker')->middleware('auth:api', 'api.key')->group(
     function () {
         Route::get('getall', [SatkerController::class, 'index']);
         Route::post('store', [SatkerController::class, 'store'])->middleware(['can:store-satker']);
@@ -135,7 +143,7 @@ Route::prefix('v1/satker')->middleware('auth:api')->group(
     }
 );
 
-Route::prefix('v1/subsatker')->middleware('auth:api')->group(
+Route::prefix('v1/subsatker')->middleware('auth:api', 'api.key')->group(
     function () {
         Route::get('getall', [SubsatkerController::class, 'index']);
         Route::post('store', [SubsatkerController::class, 'store'])->middleware(['can:store-subsatker']);
@@ -146,15 +154,16 @@ Route::prefix('v1/subsatker')->middleware('auth:api')->group(
 );
 
 // nunggu refisi
-Route::prefix('v1/role')->middleware(['auth:api', 'can:roleManagement'])->group(
+Route::prefix('v1/role')->middleware(['auth:api',])->group(
     function () {
         Route::get('getall', [RoleController::class, 'index']);
         Route::get('show/{role}', [RoleController::class, 'show']);
         Route::post('assign/{user}', [RoleController::class, 'assign']);
+        Route::get('permissions', [RoleController::class, 'showPermissions']);
     }
 );
 
-Route::prefix('v1/statusa')->middleware('auth:api')->group(
+Route::prefix('v1/statusa')->middleware('auth:api', 'api.key')->group(
     function () {
         Route::get('getall', [StatusController::class, 'index']);
         Route::post('store', [StatusController::class, 'store'])->middleware(['can:store-statusa']);
@@ -164,7 +173,7 @@ Route::prefix('v1/statusa')->middleware('auth:api')->group(
     }
 );
 
-Route::prefix('v1/news')->middleware('auth:api')->group(
+Route::prefix('v1/news')->middleware('auth:api', 'api.key')->group(
     function () {
         Route::get('getall', [NewsController::class, 'index']);
         Route::post('store', [NewsController::class, 'store']);

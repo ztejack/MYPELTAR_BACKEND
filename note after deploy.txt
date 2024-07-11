@@ -1,0 +1,3 @@
+scribe troubleshot access denied
+sudo chown -R www-data storage/logs/
+sudo chmod g+w -R storage/logs

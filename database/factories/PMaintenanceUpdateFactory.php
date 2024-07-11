@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Maintenance;
+use App\Models\Status;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -20,8 +22,8 @@ class PMaintenanceUpdateFactory extends Factory
         return [
             // 'id_asset' => mt_rand(1, 5),
             'id_user' => User::pluck('id')->random(),
-            'id_maintenance' => mt_rand(1, 50),
-            'id_status' => mt_rand(4, 6),
+            'id_maintenance' => Maintenance::factory(),
+            'id_status' => Status::where('statustype', 'MTNC')->pluck('id')->random(),
             'deskripsi' => $this->faker->sentence(mt_rand(1, 4)),
             'image' => 'public/images/News/example.png'
         ];
