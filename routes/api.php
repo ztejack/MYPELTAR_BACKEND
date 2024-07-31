@@ -74,6 +74,7 @@ Route::prefix('v1/asset')->middleware('auth:api', 'api.key')->group(
         Route::post('', [AssetController::class, 'store']);
         Route::put('{asset}', [AssetController::class, 'update']);
         Route::delete('{asset}', [AssetController::class, 'destroy']);
+
     }
 );
 
@@ -109,6 +110,7 @@ Route::prefix('v1/inspeksi')->middleware('auth:api', 'api.key')->group(
         Route::get('getall', [InspeksiController::class, 'index']);
         // Route::post('store', [MaintenanceController::class, 'store'])->middleware(['can:store-inspeksi']);
         // Route::post('update/{maintenance}', [MaintenanceController::class, 'update'])->middleware(['can:update-inspeksi']);
+
     }
 );
 
