@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Location;
 use App\Http\Requests\StorelocationRequest;
 use App\Http\Requests\UpdatelocationRequest;
+use App\Http\Resources\LocationResource;
 
 /**
  * @group Location
@@ -19,13 +20,18 @@ class LocationController extends Controller
      */
     public function index()
     {
-        $location = Location::orderBy(
-            request('column') ? request('column') : 'updated_at',
-            request('direction') ? request('direction') : 'desc'
-        )->paginate(50);
+        $location = LocationResource::collection(
+            Location::orderBy(
+                request('column') ? request('column') : 'updated_at',
+                request('direction') ? request('direction') : 'desc'
+            )->paginate(50)
+        );
 
         return response()->json(
-            $location,
+            [
+                'status' => 'success',
+                'locations' => $location,
+            ],
             200
         );
     }
@@ -53,7 +59,7 @@ class LocationController extends Controller
         $location->unit = $input['unit'];
         $location->save();
         return response()->json([
-            'status' => 'Lokasi Berhasil Ditambahkan !'
+            'status' => 'Location Successfully Added !'
         ], 201);
     }
 
@@ -92,7 +98,7 @@ class LocationController extends Controller
         $location->unit = $input['unit'];
         $location->update();
         return response()->json([
-            'status' => 'Lokasi Berhasil Diupdate !',
+            'status' => 'Location Successfully Updated !',
         ], 200);
     }
 
@@ -114,7 +120,7 @@ class LocationController extends Controller
             ], 500);
         }
         return response()->json([
-            'status' => 'Lokasi Berhasil Dihapus !'
+            'status' => 'Location Successfully Deleted !'
         ], 200);
     }
 }

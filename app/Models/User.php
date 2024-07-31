@@ -2,13 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use LdapRecord\Laravel\Auth\LdapAuthenticatable;
-use LdapRecord\Laravel\Auth\AuthenticatesWithLdap;
 use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject;
 use Ramsey\Uuid\Rfc4122\UuidV4;
 use Spatie\Permission\Traits\HasRoles;
@@ -20,7 +17,7 @@ class User extends Authenticatable implements JWTSubject
 {
 
     // use   Notifiable, AuthenticatesWithLdap;
-    use Notifiable, HasApiTokens, HasFactory, HasRoles, HasSlug;
+    use  HasFactory, Notifiable, HasRoles, HasApiTokens, HasSlug;
 
     /**
      * The attributes that are mass assignable.
@@ -32,7 +29,6 @@ class User extends Authenticatable implements JWTSubject
         'email',
         'username',
         'uuid',
-        'id_role',
         'id_subsatker',
     ];
 
@@ -100,8 +96,13 @@ class User extends Authenticatable implements JWTSubject
     }
     public function hasRole($role)
     {
-        // Assuming roles are stored in a column called 'role'
         return $this->role === $role;
+    }
+    public function scopeWithRole($query, $roleName)
+    {
+        return $query->whereHas('role', function ($q) use ($roleName) {
+            $q->where('role', $roleName);
+        });
     }
 
     /**
@@ -109,10 +110,10 @@ class User extends Authenticatable implements JWTSubject
      *
      * @return array
      */
-    public function role()
-    {
-        return $this->belongsTo(Role::class, 'id_role');
-    }
+    // public function role()
+    // {
+    //     return $this->belongsTo(Role::class);
+    // }
     public function subsatker()
     {
         return $this->belongsTo(Subsatker::class, 'id_subsatker');

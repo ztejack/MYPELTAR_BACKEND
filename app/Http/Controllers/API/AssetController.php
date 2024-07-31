@@ -72,8 +72,8 @@ class AssetController extends Controller
         // return $assets->get();
         $a = [];
         // Apply filters
-        if ($request->has('nama_asset') && $request->input('nama_asset') != null) {
-            $assets->where('name', 'like', '%' . $request->input('nama_asset') . '%');
+        if ($request->has('asset_name') && $request->input('asset_name') != null) {
+            $assets->where('name', 'like', '%' . $request->input('asset_name') . '%');
         }
         if ($request->has('merk') && $request->input('merk') != null) {
             $assets->where('merk', 'like', '%' . $request->input('merk') . '%');
@@ -81,19 +81,19 @@ class AssetController extends Controller
         if ($request->has('model') && $request->input('model') != null) {
             $assets->where('model', 'like', '%' . $request->input('model') . '%');
         }
-        if ($request->has('code_asset') && $request->input('code_asset') != null) {
-            $assets->where('code_ast', $request->input('code_asset'));
+        if ($request->has('asset_code') && $request->input('asset_code') != null) {
+            $assets->where('code_ast', $request->input('asset_code'));
         }
-        if ($request->has('stockcode') && $request->input('stockcode') != null) {
-            $assets->where('stockcode', $request->input('stockcode'));
+        if ($request->has('stock_code') && $request->input('stock_code') != null) {
+            $assets->where('stockcode', $request->input('stock_code'));
         }
-        if ($request->has('serialnumber') && $request->input('serialnumber') != null) {
-            $assets->where('serialnumber', $request->input('serialnumber'));
+        if ($request->has('serial_number') && $request->input('serial_number') != null) {
+            $assets->where('serialnumber', $request->input('serial_number'));
         }
-        if ($request->has('kategori') && $request->input('kategori') != null) {
-            $kategoriTerm = $request->input('kategori');
+        if ($request->has('category') && $request->input('category') != null) {
+            $kategoriTerm = $request->input('category');
             $assets->whereHas('category', function ($query) use ($kategoriTerm) {
-                $query->where('kategori', 'like', '%' . $kategoriTerm . '%');
+                $query->where('category', 'like', '%' . $kategoriTerm . '%');
             });
         }
         if ($request->has('status') && $request->input('status') != null) {
@@ -207,26 +207,26 @@ class AssetController extends Controller
     {
         $input = $request->validated();
         $asset = new Asset();
-        $asset->stockcode = $input['stockcode'];
-        $asset->serialnumber = $input['serialnumber'];
-        $asset->name = $input['nama_asset'];
-        $asset->merk = $input['merk'];
-        $asset->model = $input['model'];
-        $asset->spesifikasi = $input['spesifikasi'];
-        $asset->deskripsi = $input['deskripsi'];
-        $asset->id_lokasi = $input['id_lokasi'];
-        $asset->id_status = $input['id_status'];
-        if (!is_null($input['image'])) {
+        $asset->stockcode = $request['stockcode'];
+        $asset->serialnumber = $request['serialnumber'];
+        $asset->name = $request['nama_asset'];
+        $asset->merk = $request['merk'];
+        $asset->model = $request['model'];
+        $asset->spesifikasi = $request['spesifikasi'];
+        $asset->deskripsi = $request['deskripsi'];
+        $asset->id_lokasi = $request['id_lokasi'];
+        $asset->id_status = $request['id_status'];
+        if (!is_null($request['image'])) {
             $image = Storage::put('public/images/Asset', $request->file('image'));
             $asset->image = $image;
         }
         $asset->save();
-        $category = Category::find($input['id_kategori']);
+        $category = Category::find($request['id_kategori']);
         $asset->category()->attach($category);
 
         return response()->json([
             'status' => 'success',
-            'message' => 'Asset Berhasil Ditambahkan !'
+            'message' => 'Asset Successfully Added !'
         ], 201);
     }
 
@@ -298,7 +298,7 @@ class AssetController extends Controller
         $asset->category()->attach($input["id_kategori"]);
 
         $asset->update();
-        return response()->json(['status' => 'Asset Berhasil Diupdate !'], 201);
+        return response()->json(['status' => 'Asset Successfully Updated !'], 201);
     }
 
     /**
@@ -318,7 +318,7 @@ class AssetController extends Controller
             ], 500);
         }
         return response()->json([
-            'status' => 'Asset Berhasil Dihapus !',
+            'status' => 'Asset Successfully Deleted !',
         ], 200);
     }
 

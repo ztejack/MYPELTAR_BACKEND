@@ -4,6 +4,8 @@ namespace Database\Factories;
 
 use App\Models\Asset;
 use App\Models\Category;
+use App\Models\Location;
+use App\Models\Status;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -41,17 +43,17 @@ class AssetFactory extends Factory
             'image' => 'public/images/News/example.png',
             'spesifikasi' => $this->faker->sentence(mt_rand(1, 3)),
             'deskripsi' => $this->faker->sentence(mt_rand(1, 3)),
-            'id_lokasi' => mt_rand(1, 5),
+            'id_lokasi' => Location::pluck('id')->random(),
             // 'id_kategori' => mt_rand(1, 5),
-            'id_status' => mt_rand(1, 3),
+            'id_status' => Status::where('statustype', 'ASST')->pluck('id')->random()
         ];
     }
     public function configure()
     {
         return $this->afterCreating(function (Asset $asset) {
-            // $roles = Category::factory()->count(2)->create();
-            $roles = Category::inRandomOrder()->first();
-            $asset->category()->attach($roles, ['created_at' => now(), 'updated_at' => now()]);
+            // $categories = Category::factory()->count(2)->create();
+            $categories = Category::inRandomOrder()->first();
+            $asset->category()->attach($categories, ['created_at' => now(), 'updated_at' => now()]);
         });
     }
 }

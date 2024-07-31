@@ -2,28 +2,23 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Spatie\Permission\Models\Role as SpatieRole;
 
-class Role extends Model
+class Role extends SpatieRole
 {
-    use HasFactory;
+    use HasUuids;
+    protected $primaryKey = 'id';
+    protected $keyType = 'string';
+    public $incrementing = false;
 
     /**
-     * The attributes that are mass assignable.
+     * The attributes that should be cast to native types.
      *
-     * @var array<int, string>
+     * @var array
      */
-    protected $fillable = [
-        'role',
+    protected $casts = [
+        'id' => 'string'
     ];
-    /**
-     * Return a model value array, containing any relation model.
-     *
-     * @return array
-     */
-    public function user()
-    {
-        return $this->belongsToMany(User::class, 'id_role');
-    }
 }

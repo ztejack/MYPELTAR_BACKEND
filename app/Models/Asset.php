@@ -16,6 +16,7 @@ class Asset extends Model
      */
     protected $fillable = [
         'stockcode',
+        'code_ast',
         'serialnumber',
         'name',
         'merk',

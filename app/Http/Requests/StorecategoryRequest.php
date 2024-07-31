@@ -31,8 +31,8 @@ class StorecategoryRequest extends FormRequest
     public function customrule()
     {
         $rule = [
-            'kategori' => 'required|string',
-            'id_subsatker' => 'required|integer'
+            'category' => 'required|string',
+            'subsatker' => 'required|integer'
         ];
         return $rule;
     }

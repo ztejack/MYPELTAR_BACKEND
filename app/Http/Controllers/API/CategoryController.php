@@ -23,15 +23,17 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $category = Category::collection(
+        $category = CategoryResource::collection(
             Category::orderBy(
                 request('column') ? request('column') : 'updated_at',
                 request('direction') ? request('direction') : 'desc'
             )->paginate(50)
         );
 
+
         return response()->json([
-            'data' => $category,
+            'status' => 'success',
+            'category' => $category,
         ], 200);
     }
 
@@ -46,10 +48,10 @@ class CategoryController extends Controller
         // return $request;
         $input = $request->validated();
         $category = new Category();
-        $category->kategori = $input['kategori'];
-        $category->id_subsatker = $input['id_subsatker'];
+        $category->category = $input['category'];
+        $category->id_subsatker = $input['subsatker'];
         $category->save();
-        return response()->json(['status' => 'Kategori Berhasil Ditambahkan !'], 201);
+        return response()->json(['status' => 'Category Successfully Added !'], 201);
     }
 
     /**
@@ -78,11 +80,11 @@ class CategoryController extends Controller
     public function update(UpdatecategoryRequest $request, category $category)
     {
         $input = $request->validated();
-        $category->kategori = $input['kategori'];
-        $category->id_subsatker = $input['id_subsatker'];
+        $category->category = $input['category'];
+        $category->id_subsatker = $input['subsatker'];
         $category->update();
         return response()->json([
-            'status' => 'Kategori Berhasil Diupdate !'
+            'status' => 'Category Successfully Updated !'
         ], 201);
     }
 
@@ -102,7 +104,7 @@ class CategoryController extends Controller
             ], 500);
         }
         return response()->json([
-            'status' => 'Kategori Berhasil Dihapus !'
+            'status' => 'Category Successfully Deleted !'
         ], 200);
     }
 

@@ -4,6 +4,7 @@ use App\Http\Controllers\API\AssetController;
 use App\Http\Controllers\API\Auth\AuthController;
 use App\Http\Controllers\API\Auth\ClientController;
 use App\Http\Controllers\API\CategoryController;
+use App\Http\Controllers\API\InspeksiController;
 use App\Http\Controllers\API\LocationController;
 use App\Http\Controllers\API\MaintenanceController;
 use App\Http\Controllers\API\NewsController;
@@ -11,7 +12,7 @@ use App\Http\Controllers\API\RoleController;
 use App\Http\Controllers\API\SatkerController;
 use App\Http\Controllers\API\StatusController;
 use App\Http\Controllers\API\SubsatkerController;
-use App\Http\Controllers\Api\PUpdateController;
+use App\Http\Controllers\API\PUpdateController;
 use App\Http\Controllers\API\UserController;
 // use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -42,9 +43,10 @@ Route::prefix('v1/auth')->group(
 Route::prefix('v1/client')->middleware(['admin'])->group(
     // Route::prefix('v1/client')->group(
     function () {
-        Route::get('getall', [ClientController::class, 'index']);
-        Route::get('/{client}', [ClientController::class, 'search']);
-        Route::post('store', [ClientController::class, 'store']);
+        Route::get('', [ClientController::class, 'index']);
+        Route::get('{client}', [ClientController::class, 'show']);
+        Route::post('', [ClientController::class, 'store']);
+        Route::delete('{client}', [ClientController::class, 'delete']);
     }
 );
 // Route::prefix('v1/client')->middleware(['admin'])->group(
@@ -55,32 +57,33 @@ Route::prefix('v1/client')->middleware(['admin'])->group(
 // );
 Route::prefix('v1/user')->middleware(['auth:api', 'api.key'])->group(
     function () {
-        Route::get('getall', [UserController::class, 'index']);
+        Route::get('', [UserController::class, 'index']);
         Route::get('search', [UserController::class, 'search']);
-        Route::post('store', [UserController::class, 'store']);
-        Route::get('show/{user}', [UserController::class, 'show']);
-        Route::patch('update/{user}', [UserController::class, 'update']);
-        Route::post('destroy/{user}', [UserController::class, 'destroy']);
+        Route::get('{user}', [UserController::class, 'show']);
+        Route::post('', [UserController::class, 'store']);
+        Route::put('{user}', [UserController::class, 'update']);
+        Route::delete('{user}', [UserController::class, 'destroy']);
     }
 );
 
-Route::prefix('v1/asset')->middleware('auth:api')->group(
+Route::prefix('v1/asset')->middleware('auth:api', 'api.key')->group(
     function () {
-        Route::get('getall', [AssetController::class, 'index']);
+        Route::get('', [AssetController::class, 'index']);
         Route::get('search', [AssetController::class, 'search']);
-        Route::post('store', [AssetController::class, 'store']);
-        Route::get('show/{asset}', [AssetController::class, 'show']);
-        Route::post('update/{asset}', [AssetController::class, 'update']);
-        Route::post('destroy/{asset}', [AssetController::class, 'destroy']);
+        Route::get('{asset}', [AssetController::class, 'show']);
+        Route::post('', [AssetController::class, 'store']);
+        Route::put('{asset}', [AssetController::class, 'update']);
+        Route::delete('{asset}', [AssetController::class, 'destroy']);
+
     }
 );
 
-Route::prefix('v1/maintenance')->middleware('auth:api')->group(
+Route::prefix('v1/maintenance')->middleware('auth:api', 'api.key')->group(
     function () {
-        Route::get('getall', [MaintenanceController::class, 'index']);
+        Route::get('', [MaintenanceController::class, 'index']);
         Route::get('maintenance_aplly/{maintenance}', [MaintenanceController::class, 'maintenance_aplly']);
         Route::get('self_get', [MaintenanceController::class, 'self_get']);
-        // Route::post('store', [MaintenanceController::class, 'store']);
+        Route::post('store', [MaintenanceController::class, 'store']);
         Route::get('show/{maintenance}', [MaintenanceController::class, 'show']);
         // Route::post('update/{maintenance}', [MaintenanceController::class, 'update']);
         Route::post('destroy/{maintenance}', [MaintenanceController::class, 'destroy']);
@@ -95,81 +98,90 @@ Route::prefix('v1/maintenance')->middleware('auth:api')->group(
         );
     }
 );
-
-Route::prefix('v1/inspeksi')->middleware('auth:api')->group(
+// change to cretae maintenance
+// Route::prefix('v1/inspeksi')->middleware('auth:api')->group(
+//     function () {
+//         Route::post('store', [MaintenanceController::class, 'store']);
+//         Route::post('update/{maintenance}', [MaintenanceController::class, 'update'])->middleware(['can:update-inspeksi']);
+//     }
+// );
+Route::prefix('v1/inspeksi')->middleware('auth:api', 'api.key')->group(
     function () {
-        Route::post('store', [MaintenanceController::class, 'store']);
-        Route::post('update/{maintenance}', [MaintenanceController::class, 'update']);
+        Route::get('getall', [InspeksiController::class, 'index']);
+        // Route::post('store', [MaintenanceController::class, 'store'])->middleware(['can:store-inspeksi']);
+        // Route::post('update/{maintenance}', [MaintenanceController::class, 'update'])->middleware(['can:update-inspeksi']);
+
     }
 );
 
-Route::prefix('v1/category')->middleware('auth:api')->group(
+Route::prefix('v1/category')->middleware('auth:api', 'api.key')->group(
     function () {
-        Route::get('getall', [CategoryController::class, 'index']);
-        Route::post('store', [CategoryController::class, 'store']);
-        Route::get('show/{category}', [CategoryController::class, 'show']);
+        Route::get('', [CategoryController::class, 'index']);
+        Route::post('', [CategoryController::class, 'store']);
+        Route::get('/{category}', [CategoryController::class, 'show']);
         Route::get('search', [CategoryController::class, 'search']);
-        Route::post('update/{category}', [CategoryController::class, 'update']);
-        Route::post('destroy/{category}', [CategoryController::class, 'destroy']);
+        Route::put('{category}', [CategoryController::class, 'update']);
+        Route::delete('{category}', [CategoryController::class, 'destroy']);
     }
 );
 
-Route::prefix('v1/location')->middleware('auth:api')->group(
+Route::prefix('v1/location')->middleware('auth:api', 'api.key')->group(
     function () {
-        Route::get('getall', [LocationController::class, 'index']);
-        Route::post('store', [LocationController::class, 'store']);
-        Route::get('show/{location}', [LocationController::class, 'show']);
-        Route::post('update/{location}', [LocationController::class, 'update']);
-        Route::post('destroy/{location}', [LocationController::class, 'destroy']);
+        Route::get('', [LocationController::class, 'index']);
+        Route::post('', [LocationController::class, 'store']);
+        Route::get('{location}', [LocationController::class, 'show']);
+        Route::put('{location}', [LocationController::class, 'update']);
+        Route::delete('{location}', [LocationController::class, 'destroy']);
         Route::get('search', [LocationController::class, 'search']);
     }
 );
 
-Route::prefix('v1/satker')->middleware('auth:api')->group(
+Route::prefix('v1/satker')->middleware('auth:api', 'api.key')->group(
     function () {
-        Route::get('getall', [SatkerController::class, 'index']);
-        Route::post('store', [SatkerController::class, 'store']);
-        Route::get('show/{satker}', [SatkerController::class, 'show']);
-        Route::post('update/{satker}', [SatkerController::class, 'update']);
-        Route::post('destroy/{satker}', [SatkerController::class, 'destroy']);
+        Route::get('', [SatkerController::class, 'index']);
+        Route::post('', [SatkerController::class, 'store']);
+        Route::get('{satker}', [SatkerController::class, 'show']);
+        Route::put('{satker}', [SatkerController::class, 'update']);
+        Route::delete('{satker}', [SatkerController::class, 'destroy']);
     }
 );
 
-Route::prefix('v1/subsatker')->middleware('auth:api')->group(
+Route::prefix('v1/subsatker')->middleware('auth:api', 'api.key')->group(
     function () {
-        Route::get('getall', [SubsatkerController::class, 'index']);
-        Route::post('store', [SubsatkerController::class, 'store']);
-        Route::get('show/{subsatker}', [SubsatkerController::class, 'show']);
-        Route::post('update/{subsatker}', [SubsatkerController::class, 'update']);
-        Route::post('destroy/{subsatker}', [SubsatkerController::class, 'destroy']);
+        Route::get('', [SubsatkerController::class, 'index']);
+        Route::post('', [SubsatkerController::class, 'store']);
+        Route::get('{subsatker}', [SubsatkerController::class, 'show']);
+        Route::put('{subsatker}', [SubsatkerController::class, 'update']);
+        Route::delete('{subsatker}', [SubsatkerController::class, 'destroy']);
     }
 );
 
 // nunggu refisi
-Route::prefix('v1/role')->middleware(['auth:api', 'can:roleManagement'])->group(
+Route::prefix('v1/role')->middleware(['auth:api',])->group(
     function () {
-        Route::get('getall', [RoleController::class, 'index']);
-        Route::get('show/{role}', [RoleController::class, 'show']);
-        Route::post('assign/{user}', [RoleController::class, 'assign']);
+        Route::get('', [RoleController::class, 'index']);
+        Route::get('/{role}', [RoleController::class, 'show']);
+        // Route::post('assign/{user}', [RoleController::class, 'assign']);
+        Route::get('permissions', [RoleController::class, 'showPermissions']);
     }
 );
 
-Route::prefix('v1/statusa')->middleware('auth:api')->group(
+Route::prefix('v1/status')->middleware('auth:api', 'api.key')->group(
     function () {
-        Route::get('getall', [StatusController::class, 'index']);
-        Route::post('store', [StatusController::class, 'store']);
-        Route::get('show/{statusassets}', [StatusController::class, 'show']);
-        Route::post('update/{statusassets}', [StatusController::class, 'update']);
-        Route::post('destroy/{statusassets}', [StatusController::class, 'destroy']);
+        Route::get('', [StatusController::class, 'index']);
+        Route::post('', [StatusController::class, 'store']);
+        Route::get('{status}', [StatusController::class, 'show']);
+        Route::put('{status}', [StatusController::class, 'update']);
+        Route::delete('{status}', [StatusController::class, 'destroy']);
     }
 );
 
-Route::prefix('v1/news')->middleware('auth:api')->group(
+Route::prefix('v1/news')->middleware('auth:api', 'api.key')->group(
     function () {
-        Route::get('getall', [NewsController::class, 'index']);
-        Route::post('store', [NewsController::class, 'store']);
-        Route::get('show/{news}', [NewsController::class, 'show']);
-        Route::post('update/{news}', [NewsController::class, 'update']);
-        Route::post('destroy/{news}', [NewsController::class, 'destroy']);
+        Route::get('', [NewsController::class, 'index']);
+        Route::post('', [NewsController::class, 'store']);
+        Route::get('{news}', [NewsController::class, 'show']);
+        Route::put('{news}', [NewsController::class, 'update']);
+        Route::delete('{news}', [NewsController::class, 'destroy']);
     }
 );
