@@ -30,7 +30,7 @@ class StoreassetRequest extends FormRequest
     public function customrule()
     {
         $rules = [
-            'stockcode' => 'required|string|unique:assets', 
+            'stockcode' => 'required|string|unique:assets',
             'serialnumber' => 'required|unique:assets',
             'nama_asset' => 'min:6',
             'merk' => 'required|string',
@@ -41,7 +41,7 @@ class StoreassetRequest extends FormRequest
             'id_kategori' => 'required',
             'id_status' => 'required|integer',
         ];
-        if (!is_null($this->input('image'))) {
+        if ($this->has('image')) {
             $rules['image'] = 'image|mimes:jpeg,png,jpg|max:2048';
         } else {
             $rules['image'] = '';

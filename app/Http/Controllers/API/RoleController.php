@@ -36,28 +36,28 @@ class RoleController extends Controller
     {
 
         $user = Auth::user();
-        // $roles = $user->getRoleNames(); // ["Admin"]
-        // if ($roles->contains('Admin')) {
-        //     echo "User has Admin role using getRoleNames.";
-        // }
-        // if ($user->hasRole('Admin')) {
-        //     echo "User has Admin role using hasRole.";
-        // } else {
-        //     echo "User does not have Admin role using hasRole.";
-        // }
-        // Check if the current user can view users
-        if (Gate::allows('getall-users')) {
-            echo "can work";
-            // return response()->json($users);
-        } else {
-            echo "can not work";
+        $roles = $user->getRoleNames(); // ["Admin"]
+        if ($roles->contains('Admin')) {
+            echo "User has Admin role using getRoleNames.";
         }
-        // $permissions = $user->getAllPermissions()->pluck('name'); // Mengambil nama-nama izin
+        if ($user->hasRole('Admin')) {
+            echo "User has Admin role using hasRole.";
+        } else {
+            echo "User does not have Admin role using hasRole.";
+        }
+        // Check if the current user can view users
+        // if (Gate::allows('getall-users')) {
+        //     echo "can work";
+        //     // return response()->json($users);
+        // } else {
+        //     echo "can not work";
+        // }
+        $permissions = $user->getAllPermissions()->pluck('name'); // Mengambil nama-nama izin
 
-        // return response()->json([
-        //     'user' => $user->name,
-        //     'permissions' => $permissions
-        // ]);
+        return response()->json([
+            'user' => $user->name,
+            'permissions' => $permissions
+        ]);
     }
 
     /**

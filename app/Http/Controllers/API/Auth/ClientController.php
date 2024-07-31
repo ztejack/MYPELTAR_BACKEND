@@ -29,7 +29,7 @@ class ClientController extends Controller
             $client,
         );
     }
-    public function search(Client $client)
+    public function show(Client $client)
     {
         try {
 
@@ -56,5 +56,18 @@ class ClientController extends Controller
                 'error' => 'Failed to create resource',
             ]);
         }
+    }
+    public function delete(Client $client)
+    {
+        try {
+            $client->delete();
+        } catch (\Throwable $th) {
+            return response()->json([
+                'error' => 'Failed to delete resource',
+            ], 500);
+        }
+        return response()->json([
+            'status' => 'Resource Successfully Deleted!',
+        ], 200);
     }
 }

@@ -45,7 +45,7 @@ class SatkerController extends Controller
         $satker = new Satker();
         $satker->satker = $input['satker'];
         $satker->save();
-        return response()->json(['status' => 'Satker Berhasil Ditambahkan !'], 201);
+        return response()->json(['status' => 'Satker Successfully Added!'], 201);
     }
 
     /**
@@ -83,7 +83,7 @@ class SatkerController extends Controller
         $input = $request->validated();
         $satker->satker = $input['satker'];
         $satker->update();
-        return response()->json(['status' => 'Satker Berhasil Diupdate !'], 201);
+        return response()->json(['status' => 'Satker Successfully Updated !'], 201);
     }
 
     /**
@@ -94,9 +94,6 @@ class SatkerController extends Controller
      */
     public function destroy(satker $satker)
     {
-        // if (!$satker->delete()) {
-        //     return response()->withErrors($satker->errors());
-        // }
         try {
             $satker->delete();
         } catch (\Exception $e) {
@@ -105,7 +102,7 @@ class SatkerController extends Controller
             ], 500);
         }
         return response()->json([
-            'status' => 'Satker Berhasil Dihapus !'
+            'status' => 'Satker Successfully Deleted!'
         ], 200);
     }
 }

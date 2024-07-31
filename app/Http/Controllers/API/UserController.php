@@ -123,7 +123,7 @@ class UserController extends Controller
         //     'expiration_date' => $expirationDate,
         // ]);
 
-        return response()->json(['status' => 'Users Berhasil Ditambahkan !'], 201);
+        return response()->json(['status' => 'Users Successfully Added!'], 201);
     }
 
     /**
@@ -158,7 +158,7 @@ class UserController extends Controller
         $user->removeRole($role->id);
         $user->assignRole($input['id_role']);
         $user->update();
-        return response()->json(['status' => 'Users Berhasil Diupdate !'], 201);
+        return response()->json(['status' => 'Users Successfully Updated !'], 201);
     }
 
     /**
@@ -178,7 +178,7 @@ class UserController extends Controller
             ], 500);
         }
         return response()->json([
-            'status' => 'User Berhasil Dihapus !',
+            'status' => 'Users Successfully Deleted !',
         ], 200);
     }
 }

@@ -25,6 +25,7 @@ class StoresubsatkerRequest extends FormRequest
      */
     public function rules()
     {
+        // dd($this);
         return $this->customrule();
     }
     public function customrule()

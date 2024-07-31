@@ -15,16 +15,16 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        Category::class([
-            'kategori' => 'Block',
+        Category::create([
+            'category' => 'Block',
             'id_subsatker' => 3
         ]);
-        Category::class([
-            'kategori' => 'Jaringan',
+        Category::create([
+            'category' => 'Jaringan',
             'id_subsatker' => 1
         ]);
-        Category::class([
-            'kategori' => 'PowerSupply',
+        Category::create([
+            'category' => 'PowerSupply',
             'id_subsatker' => 2
         ]);
     }

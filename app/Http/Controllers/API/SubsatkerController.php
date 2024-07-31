@@ -43,12 +43,13 @@ class SubsatkerController extends Controller
      */
     public function store(StoresubsatkerRequest $request)
     {
+        // dd($request);
         $input = $request->validated();
         $subsatker = new Subsatker();
         $subsatker->subsatker = $input['subsatker'];
         $subsatker->id_satker = $input['satker'];
         $subsatker->save();
-        return response()->json(['status' => 'Subsatker Berhasil Ditambahkan !'], 201);
+        return response()->json(['status' => 'Subsatker Successfully Added !'], 201);
     }
 
     /**
@@ -87,7 +88,7 @@ class SubsatkerController extends Controller
         $subsatker->subsatker = $input['subsatker'];
         $subsatker->id_satker = $input['satker'];
         $subsatker->update();
-        return response()->json(['status' => 'SubSatker Berhasil Diupdate !'], 201);
+        return response()->json(['status' => 'SubSatker Successfully Updated !'], 201);
     }
 
     /**
@@ -106,7 +107,7 @@ class SubsatkerController extends Controller
             ], 500);
         }
         return response()->json([
-            'status' => 'SubSatker Berhasil Dihapus !'
+            'status' => 'SubSatker Successfully Deleted !'
         ], 200);
     }
 }
