@@ -46,4 +46,14 @@ class UpdateStatusRequest extends FormRequest
             'errors' => $errors,
         ], 422));
     }
+
+    public function withValidator($validator)
+    {
+        $validator->after(function ($validator) {
+            $status = $this->route('status');
+            if ($status && in_array($status->id, [1, 2, 3, 4, 5, 6])) {
+                $validator->errors()->add('id', 'The operation is not allowed for Status ID.');
+            }
+        });
+    }
 }

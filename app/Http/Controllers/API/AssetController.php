@@ -46,14 +46,14 @@ class AssetController extends Controller
      * [
      *     {
      *       "id": 2,
-     *       "stockcode": "26",
-     *       "code_asset": "AST23060002",
+     *       "stock_code": "26",
+     *       "asset_code": "AST23060002",
      *       "serialnumber": "FAKESerial00002",
-     *       "nama_asset": "Dr. Felipe Green",
-     *       "merk": "Quos.",
+     *       "asset_name": "Dr. Felipe Green",
+     *       "brand": "Quos.",
      *       "model": "Perspiciatis nisi.",
-     *       "spesifikasi": "Magnam est quis.",
-     *       "deskripsi": "Dolores ipsam dignissimos.",
+     *       "specifications": "Magnam est quis.",
+     *       "description": "Dolores ipsam dignissimos.",
      *       "lokasi": "RCD2",
      *       "kategori": [
      *         "Pariatur."
@@ -67,65 +67,69 @@ class AssetController extends Controller
 
     public function search(Request $request)
     {
-        $limit = $request->query('limit', 20);
-        $assets = Asset::query();
-        // return $assets->get();
-        $a = [];
-        // Apply filters
-        if ($request->has('asset_name') && $request->input('asset_name') != null) {
-            $assets->where('name', 'like', '%' . $request->input('asset_name') . '%');
-        }
-        if ($request->has('merk') && $request->input('merk') != null) {
-            $assets->where('merk', 'like', '%' . $request->input('merk') . '%');
-        }
-        if ($request->has('model') && $request->input('model') != null) {
-            $assets->where('model', 'like', '%' . $request->input('model') . '%');
-        }
-        if ($request->has('asset_code') && $request->input('asset_code') != null) {
-            $assets->where('code_ast', $request->input('asset_code'));
-        }
-        if ($request->has('stock_code') && $request->input('stock_code') != null) {
-            $assets->where('stockcode', $request->input('stock_code'));
-        }
-        if ($request->has('serial_number') && $request->input('serial_number') != null) {
-            $assets->where('serialnumber', $request->input('serial_number'));
-        }
-        if ($request->has('category') && $request->input('category') != null) {
-            $kategoriTerm = $request->input('category');
-            $assets->whereHas('category', function ($query) use ($kategoriTerm) {
-                $query->where('category', 'like', '%' . $kategoriTerm . '%');
-            });
-        }
-        if ($request->has('status') && $request->input('status') != null) {
-            $statusTerm = $request->input('status');
-            $assets->whereHas('status', function ($query) use ($statusTerm) {
-                $query->where('status', 'like', '%' . $statusTerm . '%');
-            });
-        }
-        // Get results
-        $assets = $assets->get();
-        return $assets;
-        if ($assets->isEmpty()) {
-            return response()->json(['message' => 'No results found.'], 404);
-        } else {
-            $orderByColumn = request('column', 'updated_at');
-            $orderByDirection = request('direction', 'desc');
-            $orderedAssets = $assets->sortBy($orderByColumn);
-
-            if ($orderByDirection === 'desc') {
-                $orderedAssets = $orderedAssets->reverse();
+        try {
+            $limit = $request->query('limit', 20);
+            $assets = Asset::query();
+            // return $assets->get();
+            // $a = [];
+            // Apply filters
+            if ($request->has('asset_name') && $request->input('asset_name') != null) {
+                $assets->where('name', 'like', '%' . $request->input('asset_name') . '%');
             }
-            $currentPage = LengthAwarePaginator::resolveCurrentPage();
-            $pagedData = $orderedAssets->slice(($currentPage - 1) * $limit, $limit)->all();
-            $paginatedAssets = new LengthAwarePaginator($pagedData, $orderedAssets->count(), $limit, $currentPage);
+            if ($request->has('brand') && $request->input('brand') != null) {
+                $assets->where('brand', 'like', '%' . $request->input('brand') . '%');
+            }
+            if ($request->has('model') && $request->input('model') != null) {
+                $assets->where('model', 'like', '%' . $request->input('model') . '%');
+            }
+            if ($request->has('asset_code') && $request->input('asset_code') != null) {
+                $assets->where('code_ast', $request->input('asset_code'));
+            }
+            if ($request->has('stock_code') && $request->input('stock_code') != null) {
+                $assets->where('stockcode', $request->input('stock_code'));
+            }
+            if ($request->has('serial_number') && $request->input('serial_number') != null) {
+                $assets->where('serialnumber', $request->input('serial_number'));
+            }
+            if ($request->has('category') && $request->input('category') != null) {
+                $kategoriTerm = $request->input('category');
+                $assets->whereHas('category', function ($query) use ($kategoriTerm) {
+                    $query->where('category', 'like', '%' . $kategoriTerm . '%');
+                });
+            }
+            if ($request->has('status') && $request->input('status') != null) {
+                $statusTerm = $request->input('status');
+                $assets->whereHas('status', function ($query) use ($statusTerm) {
+                    $query->where('status', 'like', '%' . $statusTerm . '%');
+                });
+            }
+            // Get results
+            $assets = $assets->get();
+            return $assets;
+            if ($assets->isEmpty()) {
+                return response()->json(['message' => 'No results found.'], 404);
+            } else {
+                $orderByColumn = request('column', 'updated_at');
+                $orderByDirection = request('direction', 'desc');
+                $orderedAssets = $assets->sortBy($orderByColumn);
 
-            $assets = AssetResource::collection(
-                $paginatedAssets
-            );
-            return response()->json($assets, 200);
+                if ($orderByDirection === 'desc') {
+                    $orderedAssets = $orderedAssets->reverse();
+                }
+                $currentPage = LengthAwarePaginator::resolveCurrentPage();
+                $pagedData = $orderedAssets->slice(($currentPage - 1) * $limit, $limit)->all();
+                $paginatedAssets = new LengthAwarePaginator($pagedData, $orderedAssets->count(), $limit, $currentPage);
+
+                $assets = AssetResource::collection(
+                    $paginatedAssets
+                );
+                return response()->json($assets, 200);
+            }
+        } catch (\Exception $e) {
+            return response()->json([
+                'error' => 'Failed to Get Resource',
+            ], 500);
         }
-
-        // $assets->whereHas('category', function ($query))
     }
 
     /**
@@ -145,12 +149,12 @@ class AssetController extends Controller
      *       "code_asset": "AST23060002",
      *       "serialnumber": "FAKESerial00002",
      *       "nama_asset": "Dr. Felipe Green",
-     *       "merk": "Quos.",
+     *       "brand": "Quos.",
      *       "model": "Perspiciatis nisi.",
-     *       "spesifikasi": "Magnam est quis.",
-     *       "deskripsi": "Dolores ipsam dignissimos.",
-     *       "lokasi": "RCD2",
-     *       "kategori": [
+     *       "specifications": "Magnam est quis.",
+     *       "description": "Dolores ipsam dignissimos.",
+     *       "LOCATION": "RCD2",
+     *       "category": [
      *         "Pariatur."
      *       ],
      *       "status": "Pending",
@@ -163,18 +167,24 @@ class AssetController extends Controller
      */
     public function index(Request $request)
     {
-        $limit = $request->query('limit', 20);
-        $assets = AssetResource::collection(
-            Asset::orderBy(
-                request('column') ? request('column') : 'updated_at',
-                request('direction') ? request('direction') : 'desc'
-            )->paginate($limit)
-        );
+        try {
+            $limit = $request->query('limit', 20);
+            $assets = AssetResource::collection(
+                Asset::orderBy(
+                    request('column') ? request('column') : 'updated_at',
+                    request('direction') ? request('direction') : 'desc'
+                )->paginate($limit)
+            );
 
-        return response()->json([
-            'status' => 'success',
-            'asset' => $assets,
-        ], 200);
+            return response()->json([
+                'status' => 'success',
+                'data' => $assets,
+            ], 200, [], JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
+        } catch (\Exception $e) {
+            return response()->json([
+                'error' => 'Failed to Get Resource',
+            ], 500);
+        }
     }
 
     /**
@@ -205,29 +215,36 @@ class AssetController extends Controller
      */
     public function store(StoreassetRequest $request)
     {
-        $input = $request->validated();
-        $asset = new Asset();
-        $asset->stockcode = $request['stockcode'];
-        $asset->serialnumber = $request['serialnumber'];
-        $asset->name = $request['nama_asset'];
-        $asset->merk = $request['merk'];
-        $asset->model = $request['model'];
-        $asset->spesifikasi = $request['spesifikasi'];
-        $asset->deskripsi = $request['deskripsi'];
-        $asset->id_lokasi = $request['id_lokasi'];
-        $asset->id_status = $request['id_status'];
-        if (!is_null($request['image'])) {
-            $image = Storage::put('public/images/Asset', $request->file('image'));
-            $asset->image = $image;
-        }
-        $asset->save();
-        $category = Category::find($request['id_kategori']);
-        $asset->category()->attach($category);
+        try {
+            $request->validated();
+            $asset = new Asset();
+            $asset->stockcode = $request['stockcode'];
+            $asset->serialnumber = $request['serialnumber'];
+            $asset->name = $request['stockcode'];
+            $asset->brand = $request['brand'];
+            $asset->model = $request['model'];
+            $asset->specifications = $request['specifications'];
+            $asset->description = $request['description'];
+            $asset->id_location = $request['id_location'];
+            $asset->id_status = $request['id_status'];
+            if (!is_null($request['image'])) {
+                // $image = Storage::put('public/images/Asset', $request->file('image'));
+                $image = $request->file('image')->store('images/Asset', 'public');
+                $asset->image = $image;
+            }
+            $asset->save();
+            $category = Category::find($request['id_category']);
+            $asset->category()->attach($category);
 
-        return response()->json([
-            'status' => 'success',
-            'message' => 'Asset Successfully Added !'
-        ], 201);
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Asset Successfully Added !'
+            ], 201);
+        } catch (\Exception $e) {
+            return response()->json([
+                'error' => 'Failed to Store Resource',
+            ], 500);
+        }
     }
 
     /**
@@ -241,13 +258,13 @@ class AssetController extends Controller
      *     "stockcode": "178",
      *     "code_asset": "AST23060004",
      *     "serialnumber": "FAKESerial00004",
-     *     "nama_asset": "Ben Carter",
-     *     "merk": "Ut molestiae eveniet alias.",
+     *     "asset_name": "Ben Carter",
+     *     "brand": "Ut molestiae eveniet alias.",
      *     "model": "Explicabo earum quibusdam.",
-     *     "spesifikasi": "At.",
-     *     "deskripsi": "Sint et beatae.",
-     *     "lokasi": "RCD1",
-     *     "kategori": [
+     *     "specifications": "At.",
+     *     "description": "Sint et beatae.",
+     *     "location": "RCD1",
+     *     "category": [
      *       "Sit."
      *     ],
      *     "status": "Baik",
@@ -262,7 +279,7 @@ class AssetController extends Controller
     public function show(Asset $asset)
     {
         $assetr = AssetResource::make($asset);
-        return response()->json(['data' => $assetr], 200);
+        return response()->json(['data' => $assetr], 200, [], JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
     }
 
     /**
@@ -275,30 +292,36 @@ class AssetController extends Controller
      */
     public function update(UpdateassetRequest $request, asset $asset)
     {
-        $input = $request->validated();
-        $asset->stockcode = $input['stockcode'];
-        $asset->serialnumber = $input['serialnumber'];
-        $asset->name = $input['nama_asset'];
-        $asset->merk = $input['merk'];
-        $asset->model = $input['model'];
-        $asset->spesifikasi = $input['spesifikasi'];
-        $asset->deskripsi = $input['deskripsi'];
-        $asset->id_lokasi = $input['id_lokasi'];
-        $asset->id_status = $input['id_status'];
-        if ($request->hasFile('image')) {
-            if (Storage::exists($asset->image)) {
-                Storage::delete($asset->image);
+        try {
+            $input = $request->validated();
+            $asset->stockcode = $input['stockcode'];
+            $asset->serialnumber = $input['serialnumber'];
+            $asset->name = $input['asset_name'];
+            $asset->brand = $input['brand'];
+            $asset->model = $input['model'];
+            $asset->specifications = $input['specifications'];
+            $asset->description = $input['description'];
+            $asset->id_location = $input['id_location'];
+            $asset->id_status = $input['id_status'];
+            if ($request->hasFile('image')) {
+                if (Storage::exists($asset->image)) {
+                    Storage::delete($asset->image);
+                }
+                $imagepath = Storage::put('public/images/Asset', $request->file('image'));
+                $asset->image = $imagepath;
             }
-            $imagepath = Storage::put('public/images/Asset', $request->file('image'));
-            $asset->image = $imagepath;
+
+            $category = Category::find($asset->category);
+            $asset->category()->detach($category);
+            $asset->category()->attach($input["id_category"]);
+
+            $asset->update();
+            return response()->json(['status' => 'Asset Successfully Updated !'], 201);
+        } catch (\Exception $e) {
+            return response()->json([
+                'error' => 'Failed to Update Resource',
+            ], 500);
         }
-
-        $category = Category::find($asset->category);
-        $asset->category()->detach($category);
-        $asset->category()->attach($input["id_kategori"]);
-
-        $asset->update();
-        return response()->json(['status' => 'Asset Successfully Updated !'], 201);
     }
 
     /**
@@ -329,7 +352,5 @@ class AssetController extends Controller
      * @param  \App\Models\asset  $asset
      * @return \Illuminate\Http\Response
      */
-    public function history(asset $asset)
-    {
-    }
+    public function history(asset $asset) {}
 }

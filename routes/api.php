@@ -13,9 +13,11 @@ use App\Http\Controllers\API\SatkerController;
 use App\Http\Controllers\API\StatusController;
 use App\Http\Controllers\API\SubsatkerController;
 use App\Http\Controllers\API\PUpdateController;
+use App\Http\Controllers\API\UrgencyController;
 use App\Http\Controllers\API\UserController;
 // use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,12 +51,6 @@ Route::prefix('v1/client')->middleware(['admin'])->group(
         Route::delete('{client}', [ClientController::class, 'delete']);
     }
 );
-// Route::prefix('v1/client')->middleware(['admin'])->group(
-//     // Route::prefix('v1/client')->group(
-//     function () {
-//         Route::get('/', [ClientController::class, 'index']);
-//     }
-// );
 Route::prefix('v1/user')->middleware(['auth:api', 'api.key'])->group(
     function () {
         Route::get('', [UserController::class, 'index']);
@@ -74,31 +70,33 @@ Route::prefix('v1/asset')->middleware('auth:api', 'api.key')->group(
         Route::post('', [AssetController::class, 'store']);
         Route::put('{asset}', [AssetController::class, 'update']);
         Route::delete('{asset}', [AssetController::class, 'destroy']);
-
     }
 );
 
 Route::prefix('v1/maintenance')->middleware('auth:api', 'api.key')->group(
     function () {
         Route::get('', [MaintenanceController::class, 'index']);
+        Route::get('self', [MaintenanceController::class, 'self_get']);
+        Route::post('', [MaintenanceController::class, 'store']);
+        Route::get('{maintenance}', [MaintenanceController::class, 'show']);
+        Route::post('{maintenance}', [MaintenanceController::class, 'update']); //error ValidateRequest when use put
+        Route::delete('{maintenance}', [MaintenanceController::class, 'destroy']);
         Route::get('maintenance_aplly/{maintenance}', [MaintenanceController::class, 'maintenance_aplly']);
-        Route::get('self_get', [MaintenanceController::class, 'self_get']);
-        Route::post('store', [MaintenanceController::class, 'store']);
-        Route::get('show/{maintenance}', [MaintenanceController::class, 'show']);
-        // Route::post('update/{maintenance}', [MaintenanceController::class, 'update']);
-        Route::post('destroy/{maintenance}', [MaintenanceController::class, 'destroy']);
 
-        Route::prefix("/{maintenance}/history")->middleware('auth:api')->group(
+
+        Route::prefix("{maintenance}/tracker")->middleware('auth:api')->group(
             function () {
-                Route::post('update/{pupdate}', [PUpdateController::class, 'update']);
-                Route::post('show/{pupdate}', [PUpdateController::class, 'update']);
-                Route::post('store', [PUpdateController::class, 'update']);
-                Route::post('destroy/{pupdate}', [PUpdateController::class, 'update']);
+                Route::get('', [PUpdateController::class, 'track']);
+                Route::post('', [PUpdateController::class, 'store']);
+                Route::delete('{pupdate}', [PUpdateController::class, 'destroy']);
+                Route::post('{pupdate}', [PUpdateController::class, 'update']);
             }
         );
     }
 );
-// change to cretae maintenance
+Route::get('v1/tracker/explore', [PUpdateController::class, 'explore'])->middleware('auth:api', 'api.key');
+
+// change to cretae maintenance //cancle ❌
 // Route::prefix('v1/inspeksi')->middleware('auth:api')->group(
 //     function () {
 //         Route::post('store', [MaintenanceController::class, 'store']);
@@ -110,7 +108,6 @@ Route::prefix('v1/inspeksi')->middleware('auth:api', 'api.key')->group(
         Route::get('getall', [InspeksiController::class, 'index']);
         // Route::post('store', [MaintenanceController::class, 'store'])->middleware(['can:store-inspeksi']);
         // Route::post('update/{maintenance}', [MaintenanceController::class, 'update'])->middleware(['can:update-inspeksi']);
-
     }
 );
 
@@ -118,8 +115,8 @@ Route::prefix('v1/category')->middleware('auth:api', 'api.key')->group(
     function () {
         Route::get('', [CategoryController::class, 'index']);
         Route::post('', [CategoryController::class, 'store']);
-        Route::get('/{category}', [CategoryController::class, 'show']);
-        Route::get('search', [CategoryController::class, 'search']);
+        Route::get('{category}', [CategoryController::class, 'show']);
+        Route::post('search', [CategoryController::class, 'search']);
         Route::put('{category}', [CategoryController::class, 'update']);
         Route::delete('{category}', [CategoryController::class, 'destroy']);
     }
@@ -132,7 +129,7 @@ Route::prefix('v1/location')->middleware('auth:api', 'api.key')->group(
         Route::get('{location}', [LocationController::class, 'show']);
         Route::put('{location}', [LocationController::class, 'update']);
         Route::delete('{location}', [LocationController::class, 'destroy']);
-        Route::get('search', [LocationController::class, 'search']);
+        // Route::get('search', [LocationController::class, 'search']);
     }
 );
 
@@ -155,16 +152,15 @@ Route::prefix('v1/subsatker')->middleware('auth:api', 'api.key')->group(
         Route::delete('{subsatker}', [SubsatkerController::class, 'destroy']);
     }
 );
-
-// nunggu refisi
-Route::prefix('v1/role')->middleware(['auth:api',])->group(
-    function () {
-        Route::get('', [RoleController::class, 'index']);
-        Route::get('/{role}', [RoleController::class, 'show']);
-        // Route::post('assign/{user}', [RoleController::class, 'assign']);
-        Route::get('permissions', [RoleController::class, 'showPermissions']);
-    }
-);
+// done
+Route::prefix('v1/role')->middleware('jwt.auth', 'api.key')->group(function () {
+    Route::get('', [RoleController::class, 'index']);
+    Route::post('', [RoleController::class, 'show']);
+    Route::post('assign', [RoleController::class, 'assignrole']);
+    Route::post('revoke', [RoleController::class, 'revokerole']);
+    Route::get('permissions', [RoleController::class, 'showp']);
+    Route::get('{role}', [RoleController::class, 'show']);
+});
 
 Route::prefix('v1/status')->middleware('auth:api', 'api.key')->group(
     function () {
@@ -173,6 +169,14 @@ Route::prefix('v1/status')->middleware('auth:api', 'api.key')->group(
         Route::get('{status}', [StatusController::class, 'show']);
         Route::put('{status}', [StatusController::class, 'update']);
         Route::delete('{status}', [StatusController::class, 'destroy']);
+    }
+);
+Route::prefix('v1/urgencylevel')->middleware('auth:api', 'api.key')->group(
+    function () {
+        Route::get('', [UrgencyController::class, 'index']);
+        Route::post('', [UrgencyController::class, 'store']);
+        Route::put('{urgency}', [UrgencyController::class, 'update']);
+        Route::delete('{urgency}', [UrgencyController::class, 'destroy']);
     }
 );
 

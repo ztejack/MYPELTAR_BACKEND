@@ -94,10 +94,10 @@ class User extends Authenticatable implements JWTSubject
             $user->uuid = UuidV4::uuid4()->getHex();
         });
     }
-    public function hasRole($role)
-    {
-        return $this->role === $role;
-    }
+    // public function hasRole($role)
+    // {
+    //     return $this->role === $role;
+    // }
     public function scopeWithRole($query, $roleName)
     {
         return $query->whereHas('role', function ($q) use ($roleName) {

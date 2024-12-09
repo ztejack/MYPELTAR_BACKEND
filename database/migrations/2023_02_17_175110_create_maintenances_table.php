@@ -13,6 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
+        Schema::create('urgency_levels', function (Blueprint $table) {
+            $table->id();
+            $table->string('status_name'); // Column for the urgency status name (e.g., "Low," "High")
+            $table->integer('priority_level'); // Numeric priority level (e.g., 1 for "Low")
+            $table->text('description')->nullable();
+            $table->timestamps();
+        });
         Schema::create('type_maintenances', function (Blueprint $table) {
             $table->id();
             $table->string('type');
@@ -22,7 +29,9 @@ return new class extends Migration
             $table->foreignId('id_asset')->default(false)->references('id')->on('assets')->onDelete('cascade');
             $table->foreignId('id_user')->default(false)->references('id')->on('users');
             $table->foreignId('id_type')->default(false)->references('id')->on('type_maintenances');
-            $table->string('deskripsi')->default(false);
+            $table->foreignId('id_urgency')->default(false)->references('id')->on('urgency_levels');
+            $table->foreignId('id_status')->default(false)->references('id')->on('statuses');
+            $table->string('description')->default(false);
             $table->string('imagebefore')->default(false);
             $table->string('imageafter')->default(false)->nullable();
             $table->timestamp('created_at')->useCurrent();
@@ -34,7 +43,7 @@ return new class extends Migration
             $table->foreignId('id_user')->default(false)->references('id')->on('users');
             $table->foreignId('id_maintenance')->default(false)->references('id')->on('maintenances')->onDelete('cascade');
             $table->foreignId('id_status')->default(false)->references('id')->on('statuses')->onDelete('cascade');
-            $table->string('deskripsi')->default(false)->nullable();
+            $table->string('description')->default(false)->nullable();
             $table->string('image')->default(false)->nullable();
             $table->timestamps();
         });
@@ -47,6 +56,7 @@ return new class extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('urgency_levels');
         Schema::dropIfExists('type_maintenances');
         Schema::dropIfExists('maintenances');
         Schema::dropIfExists('p_updates');

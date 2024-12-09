@@ -29,9 +29,7 @@ class SatkerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-    }
+    public function create() {}
 
     /**
      * Store a newly created resource in storage.
@@ -41,11 +39,17 @@ class SatkerController extends Controller
      */
     public function store(StoresatkerRequest $request)
     {
-        $input = $request->validated();
-        $satker = new Satker();
-        $satker->satker = $input['satker'];
-        $satker->save();
-        return response()->json(['status' => 'Satker Successfully Added!'], 201);
+        try {
+            $input = $request->validated();
+            $satker = new Satker();
+            $satker->satker = $input['satker_name'];
+            $satker->save();
+            return response()->json(['status' => 'Satker Successfully Added!'], 201);
+        } catch (\Exception $e) {
+            return response()->json([
+                'error' => 'Failed to create resource',
+            ]);
+        }
     }
 
     /**
@@ -80,10 +84,16 @@ class SatkerController extends Controller
      */
     public function update(UpdatesatkerRequest $request, satker $satker)
     {
-        $input = $request->validated();
-        $satker->satker = $input['satker'];
-        $satker->update();
-        return response()->json(['status' => 'Satker Successfully Updated !'], 201);
+        try {
+            $input = $request->validated();
+            $satker->satker = $input['satker_name'];
+            $satker->update();
+            return response()->json(['status' => 'Satker Successfully Updated !'], 201);
+        } catch (\Exception $e) {
+            return response()->json([
+                'error' => 'Failed to update resource',
+            ]);
+        }
     }
 
     /**

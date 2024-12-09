@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Status;
 use App\Http\Requests\StoreStatusRequest;
 use App\Http\Requests\UpdateStatusRequest;
+use App\Http\Resources\StatusResource;
+
 /**
  * @group Status
  */
@@ -18,11 +20,19 @@ class StatusController extends Controller
      */
     public function index()
     {
-        $statusa = Status::orderBy(
-            request('column') ? request('column') : 'updated_at',
-            request('direction') ? request('direction') : 'desc'
-        )->paginate(50);
-        return response()->json(['data' => $statusa]);
+        $statusa = StatusResource::collection(
+            Status::orderBy(
+                request('column') ? request('column') : 'updated_at',
+                request('direction') ? request('direction') : 'ASC'
+            )->paginate(50)
+        );
+
+        return response()->json(
+            [
+                'data' => $statusa,
+            ],
+            200
+        );
     }
 
     /**
@@ -39,7 +49,7 @@ class StatusController extends Controller
         $statusa->statustype = $input['statustype'];
         $statusa->save();
         return response()->json([
-            'status' => 'Status Berhasil Ditambahkan !'
+            'status' => 'Status Successfully Added!'
         ], 201);
     }
 
@@ -69,7 +79,7 @@ class StatusController extends Controller
 
         $status->update();
         return response()->json([
-            'status' => 'Status Berhasil Diupdate !',
+            'status' => 'Status Successfully Updated !',
         ], 200);
     }
 
@@ -82,15 +92,20 @@ class StatusController extends Controller
     public function destroy(Status $status)
     {
         try {
+            if (in_array($status->id, [1, 2, 3, 4, 5, 6])) {
+                return response()->json([
+                    'error' => 'Validation failed',
+                    'message' => 'Deletion is not allowed for Status ID.',
+                ], 422);
+            }
             $status->delete();
         } catch (\Exception $e) {
             return response()->json([
-                'error' => 'Failed to delete resource',
-                // 'message' => 'Status memilki relasi',
+                'error' => 'Failed to Delete Resource',
             ], 500);
         }
         return response()->json([
-            'status' => 'Status Berhasil Dihapus !',
+            'status' => 'Status Successfully Deleted!'
         ], 200);
     }
 }

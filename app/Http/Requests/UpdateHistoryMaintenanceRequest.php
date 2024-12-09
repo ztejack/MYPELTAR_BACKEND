@@ -3,7 +3,9 @@
 namespace App\Http\Requests;
 
 use App\Models\Maintenance;
+use App\Models\PMaintenanceUpdate;
 use App\Models\PUpdate;
+use App\Models\Status;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
@@ -17,8 +19,8 @@ class UpdateHistoryMaintenanceRequest extends FormRequest
      */
     public function authorize()
     {
-        $maintenance = Maintenance::findOrFail($this->route('maintenance'));
-        $pUpdate = PUpdate::findOrFail($this->route('pupdate'));
+        $maintenance = $this->route('maintenance');
+        $pUpdate = $this->route('pupdate');
         return $maintenance->id === $pUpdate->id_maintenance;
     }
 
@@ -35,10 +37,16 @@ class UpdateHistoryMaintenanceRequest extends FormRequest
         } else {
             $rules['image'] = '';
         }
-        $rules['id_status'] = 'required';
-        $rules['deskripsi_update'] = 'required|string';
+        $rules['status_id'] = ['required', function ($attribute, $value, $fail) {
+            $exists = Status::where('id', $value)->whereIn('statustype', ['MTNC', 'UNIVER'])->exists();
+            if (!$exists) {
+                $fail("The selected {$attribute} is invalid or not allowed for this type.");
+            }
+        }];
+        $rules['description'] = 'required|string';
         return $rules;
     }
+    protected function update() {}
     protected function failedValidation(Validator $validator)
     {
         $errors = $validator->errors()->messages();

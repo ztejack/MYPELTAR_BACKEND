@@ -32,7 +32,7 @@ class StoresubsatkerRequest extends FormRequest
     {
         $rule = [
             'subsatker' => 'required|string',
-            'satker' => 'required|integer',
+            'satker' => 'required|exists:satkers,id',
         ];
         return $rule;
     }

@@ -42,5 +42,9 @@ class StatusSeeder extends Seeder
             'statustype' => 'MTNC',
             'status' => 'Selesai',
         ]);
+        Status::create([
+            'statustype' => 'MTNC',
+            'status' => 'Dalam Pergantian Shift',
+        ]);
     }
 }

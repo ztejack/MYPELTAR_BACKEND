@@ -53,9 +53,9 @@ class RoleAndPermissionSeeder extends Seeder
         Permission::create(['name' => 'delete-assets']);
 
         // BANNER
-        Permission::create(['name' => 'store-banner']);
-        Permission::create(['name' => 'update-banner']);
-        Permission::create(['name' => 'delete-banner']);
+        Permission::create(['name' => 'store-news']);
+        Permission::create(['name' => 'update-news']);
+        Permission::create(['name' => 'delete-news']);
 
         // CATEGORY
         Permission::create(['name' => 'store-category']);
@@ -68,12 +68,12 @@ class RoleAndPermissionSeeder extends Seeder
         Permission::create(['name' => 'delete-location']);
 
         // STATUSA
-        Permission::create(['name' => 'store-statusa']);
-        Permission::create(['name' => 'update-statusa']);
-        Permission::create(['name' => 'delete-statusa']);
+        Permission::create(['name' => 'store-status']);
+        Permission::create(['name' => 'update-status']);
+        Permission::create(['name' => 'delete-status']);
 
         // ROLE
-        Permission::create(['name' => 'roleManagement']);
+        Permission::create(['name' => 'management-role']);
 
         $superadminRole = Role::create(['name' => 'SuperAdmin']);
         $adminRole = Role::create(['name' => 'Admin']);
@@ -92,9 +92,9 @@ class RoleAndPermissionSeeder extends Seeder
             'update-assets',
             'delete-assets',
 
-            'store-banner',
-            'update-banner',
-            'delete-banner',
+            'store-news',
+            'update-news',
+            'delete-news',
 
             'store-inspeksi',
             'update-inspeksi',
@@ -116,11 +116,11 @@ class RoleAndPermissionSeeder extends Seeder
             'update-category',
             'delete-category',
 
-            'store-statusa',
-            'update-statusa',
-            'delete-statusa',
+            'store-status',
+            'update-status',
+            'delete-status',
 
-            'roleManagement'
+            'management-role'
         ]);
 
         $adminRole->givePermissionTo([
@@ -134,9 +134,9 @@ class RoleAndPermissionSeeder extends Seeder
             'update-assets',
             'delete-assets',
 
-            'store-banner',
-            'update-banner',
-            'delete-banner',
+            'store-news',
+            'update-news',
+            'delete-news',
 
             'store-location',
             'update-location',
@@ -158,10 +158,10 @@ class RoleAndPermissionSeeder extends Seeder
             'update-category',
             'delete-category',
 
-            'store-statusa',
-            'update-statusa',
-            'delete-statusa',
-            'roleManagement'
+            'store-status',
+            'update-status',
+            'delete-status',
+            'management-role'
         ]);
 
         $inspeksiRole->givePermissionTo([

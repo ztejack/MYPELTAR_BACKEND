@@ -17,12 +17,14 @@ class InspeksiResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'user_inspektor' => UserResource::make($this->user_inspek),
+            'description' => $this->description,
+            'inspektor' => $this->user->name,
             'asset' => AssetResource::make($this->asset),
-            'type' => $this->type,
-            'imagebefore' => ($this->imagebefore == null) ? null : asset(Storage::url($this->imagebefore)),
-            'imageafter' => ($this->imageafter == null) ? null : asset($this->imageafter),
-            'history' => PUpdateResource::collection($this->pupdates)
+            // 'maintenance' => MaintenanceResource::make($this->maintenance),
+            'maintenance' => $this->maintenance,
+            'image' => ($this->image == null) ? null : asset(Storage::url($this->image)),
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at
         ];
     }
 }

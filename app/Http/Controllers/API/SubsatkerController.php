@@ -21,7 +21,6 @@ class SubsatkerController extends Controller
     public function index()
     {
         $satkers = SubsatkerResource::collection(Subsatker::all());
-        // $satkers = Subsatker::all();
         return response()->json(['data' => $satkers]);
     }
 
@@ -86,7 +85,9 @@ class SubsatkerController extends Controller
     {
         $input = $request->validated();
         $subsatker->subsatker = $input['subsatker'];
-        $subsatker->id_satker = $input['satker'];
+        if (array_key_exists('satker', $input) && !empty($input['satker'])) {
+            $subsatker->id_satker = $input['satker'];
+        }
         $subsatker->update();
         return response()->json(['status' => 'SubSatker Successfully Updated !'], 201);
     }
@@ -96,7 +97,7 @@ class SubsatkerController extends Controller
      *
      * @param  \App\Models\subsatker  $subsatker
      * @return \Illuminate\Http\Response
-     */
+     */ 
     public function destroy(subsatker $subsatker)
     {
         try {

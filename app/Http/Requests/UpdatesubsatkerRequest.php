@@ -27,7 +27,7 @@ class UpdatesubsatkerRequest extends FormRequest
     {
         return [
             'subsatker' => 'required|string',
-            'satker' => 'required|integer',
+            'satker' => 'integer',
         ];
     }
     protected function failedValidation(Validator $validator)

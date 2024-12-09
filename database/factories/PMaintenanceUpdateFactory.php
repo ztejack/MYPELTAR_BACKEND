@@ -24,7 +24,7 @@ class PMaintenanceUpdateFactory extends Factory
             'id_user' => User::pluck('id')->random(),
             'id_maintenance' => Maintenance::factory(),
             'id_status' => Status::where('statustype', 'MTNC')->pluck('id')->random(),
-            'deskripsi' => $this->faker->sentence(mt_rand(1, 4)),
+            'description' => $this->faker->sentence(mt_rand(1, 4)),
             'image' => 'public/images/News/example.png'
         ];
     }

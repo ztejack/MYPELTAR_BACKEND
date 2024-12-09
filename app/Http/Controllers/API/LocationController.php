@@ -30,7 +30,7 @@ class LocationController extends Controller
         return response()->json(
             [
                 'status' => 'success',
-                'locations' => $location,
+                'data' => $location,
             ],
             200
         );
@@ -54,13 +54,20 @@ class LocationController extends Controller
      */
     public function store(StorelocationRequest $request)
     {
-        $input = $request->validated();
-        $location = new Location();
-        $location->unit = $input['unit'];
-        $location->save();
-        return response()->json([
-            'status' => 'Location Successfully Added !'
-        ], 201);
+        try {
+            $input = $request->validated();
+            $location = new Location();
+            $location->unit = $input['unit'];
+            $location->save();
+            return response()->json([
+                'status' => 'Location Successfully Added !'
+            ], 201);
+        } catch (\Exception $e) {
+            return response()->json([
+                'error' => 'Failed to delete resource',
+                // 'message' => 'Status memilki relasi',
+            ], 500);
+        }
     }
 
     /**
@@ -94,12 +101,19 @@ class LocationController extends Controller
      */
     public function update(UpdatelocationRequest $request, Location $location)
     {
-        $input = $request->validated();
-        $location->unit = $input['unit'];
-        $location->update();
-        return response()->json([
-            'status' => 'Location Successfully Updated !',
-        ], 200);
+        try {
+            $input = $request->validated();
+            $location->unit = $input['unit'];
+            $location->update();
+            return response()->json([
+                'status' => 'Location Successfully Updated !',
+            ], 200);
+        } catch (\Exception $e) {
+            return response()->json([
+                'error' => 'Failed to delete resource',
+                // 'message' => 'Status memilki relasi',
+            ], 500);
+        }
     }
 
     /**

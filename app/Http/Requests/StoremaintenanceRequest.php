@@ -5,6 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Support\Facades\Auth;
 
 class StoremaintenanceRequest extends FormRequest
 {
@@ -25,16 +26,24 @@ class StoremaintenanceRequest extends FormRequest
      */
     public function rules()
     {
-        $rules = [];
-        if (!is_null($this->input('imagebefore'))) {
+        // Get the authenticated user
+        $user = Auth::user();
+
+        // Check if the user has the "Inspeksi" role
+        // if (!$user || !$user->hasRole('Inspeksi')) {
+        //     // Optionally throw a custom validation error or return a response if the role is not "Inspeksi"
+        //     abort(403, 'Unauthorized. You do not have the required role.');
+        // }
+        $rules = [
+            'asset_id' => 'required|exists:assets,id',
+            'description' => 'string'
+        ];
+        if ($this->has('imagebefore')) {
             $rules['imagebefore'] = 'image|mimes:jpeg,png,jpg|max:2048';
         } else {
             $rules['imagebefore'] = '';
         }
-        $rules['id_asset'] = 'required';
-        $rules['id_type'] = 'required';
-        $rules['deskripsi'] = 'string';
-        $rules['imageafter'] = '';
+        $rules['type_id'] = 'required|string|exists:type_maintenances,id';
         return $rules;
     }
 

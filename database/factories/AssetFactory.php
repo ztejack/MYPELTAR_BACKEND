@@ -33,18 +33,18 @@ class AssetFactory extends Factory
         $strcode = 'AST';
 
         return [
-            'stockcode' => mt_rand(1, 200),
+            'stockcode' => mt_rand(10000, 99999),
             'code_ast' => $this->assetcode($strcode, $num),
             // 'code' => $this->assetcode($strserial, $num),
             'serialnumber' => $this->assetcode($strserial, $num),
             'name' => fake()->name(),
-            'merk' => $this->faker->sentence(mt_rand(1, 3)),
+            'brand' => $this->faker->sentence(mt_rand(1, 3)),
             'model' => $this->faker->sentence(mt_rand(1, 3)),
             'image' => 'public/images/News/example.png',
-            'spesifikasi' => $this->faker->sentence(mt_rand(1, 3)),
-            'deskripsi' => $this->faker->sentence(mt_rand(1, 3)),
-            'id_lokasi' => Location::pluck('id')->random(),
-            // 'id_kategori' => mt_rand(1, 5),
+            'specifications' => $this->faker->sentence(mt_rand(1, 3)),
+            'description' => $this->faker->sentence(mt_rand(1, 3)),
+            'id_location' => Location::pluck('id')->random(),
+            // 'id_category' => Category::pluck('id')->random(),
             'id_status' => Status::where('statustype', 'ASST')->pluck('id')->random()
         ];
     }

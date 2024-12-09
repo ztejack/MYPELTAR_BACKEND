@@ -19,12 +19,12 @@ class Asset extends Model
         'code_ast',
         'serialnumber',
         'name',
-        'merk',
+        'brand',
         'model',
         'image',
-        'spesifikasi',
-        'deskripsi',
-        'id_lokasi',
+        'specifications',
+        'description',
+        'id_location',
         'id_status',
     ];
     /**
@@ -67,7 +67,7 @@ class Asset extends Model
      */
     public function lokasi()
     {
-        return $this->belongsTo(Location::class, 'id_lokasi');
+        return $this->belongsTo(Location::class, 'id_location');
     }
     public function category()
     {

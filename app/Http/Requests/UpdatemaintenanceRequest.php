@@ -2,11 +2,12 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Contracts\Validation\Validator;
+use App\Models\Status;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class UpdatemaintenanceRequest extends FormRequest
+class UpdateMaintenanceRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,18 +26,32 @@ class UpdatemaintenanceRequest extends FormRequest
      */
     public function rules()
     {
-        $rules = [];
+        $rules = [
+            'type_id' => 'required|integer|exists:type_maintenances,id',
+            'description' => 'string',
+            // 'status_id' => 'required|string|exists:statuses,id'
+        ];
+        $rules['status_id'] = function ($attribute, $value, $fail) {
+            $exists = Status::where('id', $value)->whereIn('status_type', ['MTNC', 'UNIVER'])->exists();
+            if (!$exists) {
+                $fail("The selected {$attribute} is invalid or not allowed for this type.");
+            }
+        };
+
         if (!is_null($this->input('imagebefore'))) {
             $rules['imagebefore'] = 'image|mimes:jpeg,png,jpg|max:2048';
         } else {
             $rules['imagebefore'] = '';
         }
-        $rules['id_type'] = 'required';
-        $rules['deskripsi'] = 'string';
-        $rules['deskripsi_update'] = 'string';
-        $rules['id_status'] = 'required';
         return $rules;
     }
+
+    /**
+     * Handle a failed validation attempt.
+     *
+     * @param Validator $validator
+     * @throws HttpResponseException
+     */
     protected function failedValidation(Validator $validator)
     {
         $errors = $validator->errors()->messages();
@@ -45,4 +60,15 @@ class UpdatemaintenanceRequest extends FormRequest
             'errors' => $errors,
         ], 422));
     }
+
+    // /**
+    //  * Prepare the data for validation.
+    //  *
+    //  * @return void
+    //  */
+    // protected function prepareForValidation()
+    // {
+    //     // Merge the existing model attributes with the request data
+    //     $this->merge($this->route($this->getModelName())->toArray());
+    // }
 }

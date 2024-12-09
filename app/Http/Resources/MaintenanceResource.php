@@ -18,12 +18,15 @@ class MaintenanceResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'user_inspektor' => UserResource::make($this->user_inspek),
+            'user_inspektor' => $this->user_inspek->name,
             'asset' => AssetResource::make($this->asset),
-            'type' => $this->type,
-            'imagebefore' => ($this->imagebefore == null) ? null : asset(Storage::url($this->imagebefore)),
-            'imageafter' => ($this->imageafter == null) ? null : asset($this->imageafter),
-            'history' => PUpdateResource::collection($this->pupdates)
+            'type' => $this->type->type,
+            'status' => $this->status->status,
+            'urgency_level' => $this->urgency->status_name,
+            'description' => $this->description,
+            'imagebefore' => ($this->imagebefore == null || $this->imagebefore == 0) ? null : asset(Storage::url($this->imagebefore)),
+            'imageafter' => ($this->imageafter == null || $this->imageafter == 0) ? null : asset($this->imageafter),
+            'history' => PUpdateResource::collection($this->pupdates->all())
         ];
     }
 }
