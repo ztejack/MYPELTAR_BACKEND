@@ -19,10 +19,13 @@ return new class extends Migration
             $table->integer('priority_level'); // Numeric priority level (e.g., 1 for "Low")
             $table->text('description')->nullable();
             $table->timestamps();
+            $table->timestamp('deleted_at')->nullable();
         });
         Schema::create('type_maintenances', function (Blueprint $table) {
             $table->id();
             $table->string('type');
+            $table->timestamps();
+            $table->timestamp('deleted_at')->nullable();
         });
         Schema::create('maintenances', function (Blueprint $table) {
             $table->id('id');

@@ -105,9 +105,11 @@ Route::get('v1/tracker/explore', [PUpdateController::class, 'explore'])->middlew
 // );
 Route::prefix('v1/inspeksi')->middleware('auth:api', 'api.key')->group(
     function () {
-        Route::get('getall', [InspeksiController::class, 'index']);
-        // Route::post('store', [MaintenanceController::class, 'store'])->middleware(['can:store-inspeksi']);
-        // Route::post('update/{maintenance}', [MaintenanceController::class, 'update'])->middleware(['can:update-inspeksi']);
+        Route::get('', [InspeksiController::class, 'index']);
+        Route::post('', [InspeksiController::class, 'store']);
+        Route::get('{inspeksi}', [InspeksiController::class, 'show']);
+        Route::post('{inspeksi}', [InspeksiController::class, 'update']);
+        Route::delete('{inspeksi}', [InspeksiController::class, 'destroy']);
     }
 );
 

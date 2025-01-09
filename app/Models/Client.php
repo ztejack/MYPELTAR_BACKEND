@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -11,7 +12,7 @@ use Ramsey\Uuid\Rfc4122\UuidV4;
 
 class Client extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
     /**
      * The attributes that are mass assignable.
      *
@@ -22,6 +23,7 @@ class Client extends Model
         'uuid',
         'api_key',
     ];
+    protected $dates = ['deleted_at'];
 
     public function getRouteKeyName()
     {

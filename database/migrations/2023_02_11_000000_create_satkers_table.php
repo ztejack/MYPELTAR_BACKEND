@@ -17,12 +17,14 @@ return new class extends Migration
             $table->id();
             $table->string('satker');
             $table->timestamps();
+            $table->timestamp('deleted_at')->nullable();
         });
         Schema::create('subsatkers', function (Blueprint $table) {
             $table->id();
             $table->string('subsatker');
             $table->foreignId('id_satker')->default(false)->references('id')->on('satkers')->onDelete('cascade');
             $table->timestamps();
+            $table->timestamp('deleted_at')->nullable();
         });
     }
 

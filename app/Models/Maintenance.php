@@ -74,6 +74,6 @@ class Maintenance extends Model
     // }
     public function inspeksi()
     {
-        return $this->belongsTo(Inspeksi::class, 'id_maintenance');
+        return $this->belongsTo(Inspeksi::class);
     }
 }

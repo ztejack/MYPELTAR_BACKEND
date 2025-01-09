@@ -18,7 +18,7 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->string('image')->nullable();
             $table->foreignId('id_user')->default(false)->references('id')->on('users');
-            $table->foreignId('id_maintenance')->default(false)->references('id')->on('maintenances');
+            $table->foreignId('id_maintenance')->nullable()->constrained('maintenances')->nullOnDelete();
             $table->foreignId('id_asset')->default(false)->references('id')->on('assets')->onDelete('cascade');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();

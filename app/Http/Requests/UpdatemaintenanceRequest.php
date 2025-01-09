@@ -28,11 +28,12 @@ class UpdateMaintenanceRequest extends FormRequest
     {
         $rules = [
             'type_id' => 'required|integer|exists:type_maintenances,id',
+            'urgency_id' => 'required|integer|exists:urgency_levels,id',
             'description' => 'string',
             // 'status_id' => 'required|string|exists:statuses,id'
         ];
         $rules['status_id'] = function ($attribute, $value, $fail) {
-            $exists = Status::where('id', $value)->whereIn('status_type', ['MTNC', 'UNIVER'])->exists();
+            $exists = Status::where('id', $value)->whereIn('statustype', ['MTNC', 'UNIVER'])->exists();
             if (!$exists) {
                 $fail("The selected {$attribute} is invalid or not allowed for this type.");
             }

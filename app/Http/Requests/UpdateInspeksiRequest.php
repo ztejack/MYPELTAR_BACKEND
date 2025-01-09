@@ -5,9 +5,8 @@ namespace App\Http\Requests;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
-use Illuminate\Support\Facades\Auth;
 
-class StoreInspeksiRequest extends FormRequest
+class UpdateInspeksiRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,19 +25,14 @@ class StoreInspeksiRequest extends FormRequest
      */
     public function rules()
     {
-        $rules = [
-            'maintenance_needed' => 'required',
+        return [
+            'maintenance_needed' => 'required|boolean', // Assuming this is a boolean
             'asset_id' => 'required|exists:assets,id',
-            'description' => 'string'
+            'description' => 'nullable|string', // Make description optional
+            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048', // Use nullable for image
+            'type_id' => 'required|string|exists:type_maintenances,id',
+            'urgency_id' => 'required|string|exists:urgency_levels,id',
         ];
-        if ($this->has('image')) {
-            $rules['image'] = 'image|mimes:jpeg,png,jpg|max:2048';
-        } else {
-            $rules['image'] = '';
-        }
-        $rules['type_id'] = 'required|string|exists:type_maintenances,id';
-        $rules['urgency_id'] = 'required|string|exists:urgency_levels,id';
-        return $rules;
     }
     protected function failedValidation(Validator $validator)
     {

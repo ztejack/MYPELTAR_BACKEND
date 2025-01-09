@@ -5,10 +5,11 @@ namespace App\Models;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Asset extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
     /**
      * The attributes that are mass assignable.
      *
@@ -27,6 +28,7 @@ class Asset extends Model
         'id_location',
         'id_status',
     ];
+    protected $dates = ['deleted_at'];
     /**
      * Get the route key for the model.
      *

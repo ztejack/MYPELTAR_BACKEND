@@ -14,6 +14,9 @@ use App\Models\Inspeksi;
 use App\Models\PMaintenanceUpdate;
 use App\Models\PUpdate;
 use App\Models\User;
+use App\Services\MaintenanceService;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -26,6 +29,17 @@ use LdapRecord\Query\Events\Paginate;
  */
 class MaintenanceController extends Controller
 {
+    protected $maintenanceService;
+
+    /**
+     * Inject the MaintenanceService.
+     *
+     * @param MaintenanceService $maintenanceService
+     */
+    public function __construct(MaintenanceService $maintenanceService)
+    {
+        $this->maintenanceService = $maintenanceService;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -80,43 +94,56 @@ class MaintenanceController extends Controller
      * @param  \App\Http\Requests\StoremaintenanceRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoremaintenanceRequest $request)
+    // public function store(StoremaintenanceRequest $request)
+    // {
+    //     try {
+    //         $input = $request->validated();
+    //         $status_id = 4;
+    //         $maintenance = new Maintenance();
+    //         $maintenance->id_user = Auth::user()->id;
+    //         $pupdate = new PMaintenanceUpdate();
+    //         if (isset($input['imagebefore'])) {
+    //             if ($input['imagebefore']) {
+    //                 $imagepath = Storage::put('public/images/Maintenance', $request->file('imagebefore'));
+    //                 $maintenance->imagebefore = $imagepath;
+    //                 $pupdate->image = $imagepath;
+    //             }
+    //         }
+    //         $maintenance->id_asset = $input['asset_id'];
+    //         $maintenance->id_type = $input['type_id'];
+    //         $maintenance->description = $input['description'];
+    //         $maintenance->id_status = $status_id;
+
+    //         $maintenance->save();
+    //         $pupdate->id_user = $maintenance->id_user;
+    //         $pupdate->id_maintenance = $maintenance->id;
+    //         $pupdate->id_status = $status_id;
+    //         $pupdate->id_urgency = $urgency_id;
+    //         $pupdate->description = $input['description'];
+    //         $pupdate->save();
+
+    //         $asset = Asset::find($input['asset_id']);
+    //         $asset->id_status = 3;
+    //         $asset->save();
+    //         return response()->json(['status' => 'Data Maintenance Berhasil Ditambahkan !'], 201);
+    //     } catch (\Exception $e) {
+    //         return response()->json([
+    //             'error' => 'Failed to store resource',
+    //             // for production only
+    //             'messange' => $e->getMessage(),
+    //         ], 500);
+    //     }
+    // }
+    public function store(StoreMaintenanceRequest $request)
     {
         try {
-            $input = $request->validated();
-            $status_id = 4;
-            $maintenance = new Maintenance();
-            $maintenance->id_user = Auth::user()->id;
-            $pupdate = new PMaintenanceUpdate();
-            if (isset($input['imagebefore'])) {
-                if ($input['imagebefore']) {
-                    $imagepath = Storage::put('public/images/Maintenance', $request->file('imagebefore'));
-                    $maintenance->imagebefore = $imagepath;
-                    $pupdate->image = $imagepath;
-                }
-            }
-            $maintenance->id_asset = $input['asset_id'];
-            $maintenance->id_type = $input['type_id'];
-            $maintenance->description = $input['description'];
-            $maintenance->id_status = $status_id;
+            $this->maintenanceService->storeMaintenance($request);
 
-            $maintenance->save();
-            $pupdate->id_user = $maintenance->id_user;
-            $pupdate->id_maintenance = $maintenance->id;
-            $pupdate->id_status = $status_id;
-            $pupdate->id_urgency = $urgency_id;
-            $pupdate->description = $input['description'];
-            $pupdate->save();
-
-            $asset = Asset::find($input['asset_id']);
-            $asset->id_status = 3;
-            $asset->save();
-            return response()->json(['status' => 'Data Maintenance Berhasil Ditambahkan !'], 201);
+            return response()->json(['status' => 'Maintenance Successfully Stored !'], 201);
         } catch (\Exception $e) {
             return response()->json([
-                'error' => 'Failed to store resource',
-                // for production only
-                'messange' => $e->getMessage(),
+                'error' => 'Failed to store maintenance',
+                'message' => $e->getMessage(),
             ], 500);
         }
     }
@@ -158,8 +185,11 @@ class MaintenanceController extends Controller
         $input = $request->validated();
         try {
 
-            $maintenance = Maintenance::find($Maintenance);
+            // Find the maintenance record or throw a 404 exception
+            $maintenance = Maintenance::findOrFail($Maintenance);
+            // dd($input);
             $maintenance->id_type = $input['type_id'];
+            $maintenance->id_urgency = $input['urgency_id'];
             $maintenance->description = $input['description'];
             $pupdate = new PMaintenanceUpdate();
             if (!is_null($input['imagebefore'])) {
@@ -173,10 +203,17 @@ class MaintenanceController extends Controller
             $pupdate->id_status = $input['status_id'];
             $pupdate->description = $input['description'];
             $pupdate->save();
-            return response()->json(['status' => 'Data Maintenance Berhasil Diupdate !'], 201);
-        } catch (\Exception $e) {
+            return response()->json(['status' => 'Maintenance Successfully Updated !'], 201);
+        } catch (ModelNotFoundException $e) {
+            // Catch when the maintenance record is not found
             return response()->json([
-                'error' => 'Failed to update resource',
+                'message' => 'The maintenance record was not found.',
+            ], 404);
+        } catch (\Exception $e) {
+            // Catch other exceptions
+            return response()->json([
+                'message' => 'Failed to update resource.',
+                'error' => $e->getMessage(), // Expose detailed error in non-production environments only
             ], 500);
         }
     }

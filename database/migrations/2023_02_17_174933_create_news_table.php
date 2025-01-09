@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('deskripsi');
             $table->foreignId('id_user')->default(false)->references('id')->on('users');;
             $table->timestamps();
+            $table->timestamp('deleted_at')->nullable();
         });
     }
 

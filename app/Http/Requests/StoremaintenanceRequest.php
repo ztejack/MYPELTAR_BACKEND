@@ -44,6 +44,7 @@ class StoremaintenanceRequest extends FormRequest
             $rules['imagebefore'] = '';
         }
         $rules['type_id'] = 'required|string|exists:type_maintenances,id';
+        $rules['urgency_id'] = 'required|string|exists:urgency_levels,id';
         return $rules;
     }
 

@@ -39,12 +39,12 @@ class LoginRequest extends FormRequest
                     if (filter_var($value, FILTER_VALIDATE_EMAIL)) {
                         $exists = \App\Models\User::where('email', $value)->exists();
                         if (!$exists) {
-                            $fail('Wrong Email');
+                            $fail('Email not found');
                         }
                     } else {
                         $exists = \App\Models\User::where('username', $value)->exists();
                         if (!$exists) {
-                            $fail('Wrong Username');
+                            $fail('Username not found');
                         }
                     }
                 },
@@ -54,10 +54,10 @@ class LoginRequest extends FormRequest
     }
     protected function failedValidation(Validator $validator)
     {
-        $errors = $validator->errors()->all();
+        $errors = $validator->errors()->first();
         throw new HttpResponseException(response()->json([
             'status' => 'fails',
-            'message' => $errors[0],
+            'message' => $errors,
         ], 404));
     }
 }
