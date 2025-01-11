@@ -81,7 +81,8 @@ Route::prefix('v1/maintenance')->middleware('auth:api', 'api.key')->group(
         Route::get('{maintenance}', [MaintenanceController::class, 'show']);
         Route::post('{maintenance}', [MaintenanceController::class, 'update']); //error ValidateRequest when use put
         Route::delete('{maintenance}', [MaintenanceController::class, 'destroy']);
-        Route::get('maintenance_aplly/{maintenance}', [MaintenanceController::class, 'maintenance_aplly']);
+        Route::post('maintenance_aplly/{maintenance}', [MaintenanceController::class, 'maintenance_aplly']);
+        Route::post('cancle_maintenance_aplly/{maintenance}', [MaintenanceController::class, 'cancle_maintenance_apply']);
 
 
         Route::prefix("{maintenance}/tracker")->middleware('auth:api')->group(

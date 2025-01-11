@@ -70,8 +70,6 @@ class AssetController extends Controller
         try {
             $limit = $request->query('limit', 20);
             $assets = Asset::query();
-            // return $assets->get();
-            // $a = [];
             // Apply filters
             if ($request->has('asset_name') && $request->input('asset_name') != null) {
                 $assets->where('name', 'like', '%' . $request->input('asset_name') . '%');
@@ -177,7 +175,6 @@ class AssetController extends Controller
             );
 
             return response()->json([
-                'status' => 'success',
                 'data' => $assets,
             ], 200, [], JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
         } catch (\Exception $e) {
@@ -237,7 +234,6 @@ class AssetController extends Controller
             $asset->category()->attach($category);
 
             return response()->json([
-                'status' => 'success',
                 'message' => 'Asset Successfully Added !'
             ], 201);
         } catch (\Exception $e) {

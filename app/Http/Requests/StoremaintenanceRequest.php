@@ -30,7 +30,7 @@ class StoremaintenanceRequest extends FormRequest
         $user = Auth::user();
 
         // Check if the user has the "Inspeksi" role
-        // if (!$user || !$user->hasRole('Inspeksi')) {
+        // if (!$user || !$user->hasRole('Maintenance')) {
         //     // Optionally throw a custom validation error or return a response if the role is not "Inspeksi"
         //     abort(403, 'Unauthorized. You do not have the required role.');
         // }
