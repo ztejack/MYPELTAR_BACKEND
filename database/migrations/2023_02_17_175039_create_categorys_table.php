@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('category');
             $table->foreignId('id_subsatker')->default(false)->references('id')->on('subsatkers')->onDelete('cascade');
             $table->timestamps();
-            $table->timestamp('deleted_at')->nullable();
+            $table->softDeletes();
         });
     }
 

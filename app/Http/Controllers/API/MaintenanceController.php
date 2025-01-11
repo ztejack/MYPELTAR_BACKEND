@@ -256,7 +256,7 @@ class MaintenanceController extends Controller
             ], 500);
         }
         return response()->json([
-            'status' => 'Track Maintenance successfully deleted !',
+            'status' => 'Maintenance successfully deleted !',
         ], 200);
     }
 }

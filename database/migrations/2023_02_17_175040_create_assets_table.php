@@ -17,14 +17,14 @@ return new class extends Migration
         Schema::create('locations', function (Blueprint $table) {
             $table->id();
             $table->string('unit');
-            $table->timestamp('deleted_at')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
         Schema::create('statuses', function (Blueprint $table) {
             $table->id();
             $table->string('statustype');
             $table->string('status');
-            $table->timestamp('deleted_at')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
         Schema::create('assets', function (Blueprint $table) {
@@ -42,7 +42,7 @@ return new class extends Migration
             // $table->foreignId('id_kategori')->default(false)->references('id')->on('categories'); //many to many wait
             $table->foreignId('id_status')->nullable()->references('id')->on('statuses')->onDelete('restrict');
             $table->timestamps();
-            $table->timestamp('deleted_at')->nullable();
+            $table->softDeletes();
         });
     }
 
