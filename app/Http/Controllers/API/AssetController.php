@@ -320,6 +320,21 @@ class AssetController extends Controller
         }
     }
 
+    public function getdeletedrecords()
+    {
+        try {
+            $deletedRecords = asset::onlyTrashed()->get()->paginate(10);
+
+            return response()->json([
+                'data' => $deletedRecords,
+            ], 200);
+        } catch (\Exception $e) {
+            return response()->json([
+                'message' => 'Failed to fetch deleted records.',
+                'error' => $e->getMessage(),
+            ], 500);
+        }
+    }
     /**
      *
      * Delete the specified Assets from storage.
@@ -339,6 +354,26 @@ class AssetController extends Controller
         return response()->json([
             'status' => 'Asset Successfully Deleted !',
         ], 200);
+    }
+    /**
+     *
+     * Restore the specified Assets from storage.
+     *
+     * @param  \App\Models\asset  $asset
+     * @return \Illuminate\Http\Response
+     */
+    public function restore($asset)
+    {
+        try {
+            // Find the soft-deleted record
+            $record = asset::withTrashed()->findOrFail($asset);
+
+            // Restore the record
+            $record->restore();
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Failed to restore record.', 'message' => $e->getMessage()], 500);
+        }
+        return response()->json(['status' => 'Record successfully restored!'], 200);
     }
 
     /**

@@ -66,10 +66,12 @@ Route::prefix('v1/asset')->middleware('auth:api', 'api.key')->group(
     function () {
         Route::get('', [AssetController::class, 'index']);
         Route::get('search', [AssetController::class, 'search']);
+        Route::get('deleted', [AssetController::class, 'getdeletedrecords']);
         Route::get('{asset}', [AssetController::class, 'show']);
         Route::post('', [AssetController::class, 'store']);
         Route::put('{asset}', [AssetController::class, 'update']);
         Route::delete('{asset}', [AssetController::class, 'destroy']);
+        Route::post('restore/{asset}', [AssetController::class, 'restore']);
     }
 );
 
