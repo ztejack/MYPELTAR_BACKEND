@@ -13,6 +13,7 @@ use App\Services\MaintenanceService;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Storage;
 
 class InspeksiController extends Controller
@@ -82,11 +83,12 @@ class InspeksiController extends Controller
             ], 500);
         }
     }
-    public function update(UpdateInspeksiRequest $request, $inspeksi)
+
+    public function update(UpdateInspeksiRequest $request, Inspeksi $inspeksi)
     {
+        $this->authorize('update-inspeksi', $inspeksi);
         $input = $request->validated();
         try {
-            $inspeksi = inspeksi::findOrFail($inspeksi);
             if ($input['maintenance_needed']) {
                 $maintenance = Maintenance::find($inspeksi->id_maintenance);
                 if ($maintenance) {
@@ -127,6 +129,7 @@ class InspeksiController extends Controller
             ], 500);
         }
     }
+
     public function show(Inspeksi $inspeksi)
     {
         try {
@@ -143,6 +146,7 @@ class InspeksiController extends Controller
             ], 500);
         }
     }
+
     public function destroy(Inspeksi $inspeksi)
     {
         try {

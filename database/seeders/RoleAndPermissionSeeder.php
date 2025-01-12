@@ -31,6 +31,7 @@ class RoleAndPermissionSeeder extends Seeder
         Permission::create(['name' => 'update-inspeksi']);
 
         // MAINTENANCE
+        Permission::create(['name' => 'create-maintenance']);
         Permission::create(['name' => 'delete-maintenance']);
 
         //SATKER

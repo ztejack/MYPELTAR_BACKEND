@@ -20,6 +20,7 @@ use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Storage;
 use LdapRecord\Query\Events\Paginate;
 
@@ -142,14 +143,11 @@ class MaintenanceController extends Controller
      * @param  \public\image\maintenance\ $imagepath
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatemaintenanceRequest $request, $Maintenance)
+    public function update(UpdatemaintenanceRequest $request, Maintenance $maintenance)
     {
+        $this->authorize('update-maintenance', $maintenance);
         $input = $request->validated();
         try {
-
-            // Find the maintenance record or throw a 404 exception
-            $maintenance = Maintenance::findOrFail($Maintenance);
-            // dd($input);
             $maintenance->id_type = $input['type_id'];
             $maintenance->id_urgency = $input['urgency_id'];
             $maintenance->description = $input['description'];
@@ -180,7 +178,6 @@ class MaintenanceController extends Controller
         }
     }
 
-    /* need refision*/
     /* apply maintenance to be repaired*/
     public function maintenance_aplly(Request $request, Maintenance $maintenance)
     {

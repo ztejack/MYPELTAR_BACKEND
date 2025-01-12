@@ -18,13 +18,11 @@ class RoleMiddleware
     public function handle($request, Closure $next, ...$roles)
     {
         $user = Auth::user();
-
         foreach ($roles as $role) {
             if ($user->hasRole($role)) {
                 return $next($request);
             }
         }
-
-        return response()->json(['message' => 'Unauthorized'], 403);
+        return response()->json(['message' => 'You do not have the required role to perform this action'], 403);
     }
 }

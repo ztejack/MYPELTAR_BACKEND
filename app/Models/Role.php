@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Permission\Models\Role as SpatieRole;
 
+// class Role extends SpatieRole
 class Role extends SpatieRole
 {
     use HasUuids, SoftDeletes;
@@ -23,4 +24,9 @@ class Role extends SpatieRole
     protected $casts = [
         'id' => 'string'
     ];
+
+    // public function users()
+    // {
+    //     return $this->belongsToMany(User::class);
+    // }
 }

@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Inspeksi;
+use App\Models\Maintenance;
 use App\Models\User;
 use App\Policies\UserPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -45,5 +47,31 @@ class AuthServiceProvider extends ServiceProvider
         // } catch (\Exception $e) {
         //     Log::error('Error defining Gates: ' . $e->getMessage());
         // }
+        // Gate::define('store-maintenance', function ($user) {
+        //     return $user->hasAnyRole(['Maintenance']);
+        // });
+        // Gate::define('update-maintenance', function ($user) {
+        //     return $user->hasAnyRole(['SuperAdmin', 'Admin', 'Maintenance']);
+        // });
+        // Gate::define('store-inspeksi', function ($user) {
+        //     return $user->hasAnyRole(['SuperAdmin', 'Admin', 'Inspeksi']);
+        // });
+        // Gate::define('update-inspeksi', function ($user) {
+        //     return $user->hasAnyRole(['SuperAdmin', 'Admin', 'Inspeksi']);
+        // });
+        Gate::define('update-maintenance', function ($user, Maintenance $maintenance) {
+            if ($user->hasAnyRole(['SuperAdmin', 'Admin'])) {
+                return true;
+            } elseif ($user->hasRole('Maintenance')) {
+                return $maintenance->id_user == $user->id;
+            }
+        });
+        Gate::define('update-inspeksi', function ($user, Inspeksi $inspeksi) {
+            if ($user->hasAnyRole(['SuperAdmin', 'Admin'])) {
+                return true;
+            } elseif ($user->hasRole('Inspeksi')) {
+                return $inspeksi->id_user == $user->id;
+            }
+        });
     }
 }

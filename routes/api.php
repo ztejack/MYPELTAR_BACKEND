@@ -42,8 +42,7 @@ Route::prefix('v1/auth')->group(
         );
     }
 );
-Route::prefix('v1/client')->middleware(['admin'])->group(
-    // Route::prefix('v1/client')->group(
+Route::prefix('v1/client')->middleware('role:SuperAdmin|Admin')->group(
     function () {
         Route::get('', [ClientController::class, 'index']);
         Route::get('{client}', [ClientController::class, 'show']);
@@ -51,7 +50,7 @@ Route::prefix('v1/client')->middleware(['admin'])->group(
         Route::delete('{client}', [ClientController::class, 'delete']);
     }
 );
-Route::prefix('v1/user')->middleware(['auth:api', 'api.key'])->group(
+Route::prefix('v1/user')->middleware('auth:api', 'api.key', 'role:SuperAdmin|Admin')->group(
     function () {
         Route::get('', [UserController::class, 'index']);
         Route::get('search', [UserController::class, 'search']);
@@ -62,7 +61,7 @@ Route::prefix('v1/user')->middleware(['auth:api', 'api.key'])->group(
     }
 );
 
-Route::prefix('v1/asset')->middleware('auth:api', 'api.key')->group(
+Route::prefix('v1/asset')->middleware('auth:api', 'api.key', 'role:SuperAdmin|Admin')->group(
     function () {
         Route::get('', [AssetController::class, 'index']);
         Route::get('search', [AssetController::class, 'search']);
@@ -75,7 +74,7 @@ Route::prefix('v1/asset')->middleware('auth:api', 'api.key')->group(
     }
 );
 
-Route::prefix('v1/maintenance')->middleware('auth:api', 'api.key')->group(
+Route::prefix('v1/maintenance')->middleware('auth:api', 'api.key', 'role:SuperAdmin|Admin|Maintenance')->group(
     function () {
         Route::get('', [MaintenanceController::class, 'index']);
         Route::get('self', [MaintenanceController::class, 'self_get']);
@@ -87,7 +86,7 @@ Route::prefix('v1/maintenance')->middleware('auth:api', 'api.key')->group(
         Route::post('cancle_maintenance_aplly/{maintenance}', [MaintenanceController::class, 'cancle_maintenance_apply']);
 
 
-        Route::prefix("{maintenance}/tracker")->middleware('auth:api')->group(
+        Route::prefix("{maintenance}/tracker")->group(
             function () {
                 Route::get('', [PUpdateController::class, 'track']);
                 Route::post('', [PUpdateController::class, 'store']);
@@ -97,7 +96,7 @@ Route::prefix('v1/maintenance')->middleware('auth:api', 'api.key')->group(
         );
     }
 );
-Route::get('v1/tracker/explore', [PUpdateController::class, 'explore'])->middleware('auth:api', 'api.key');
+Route::get('v1/tracker/explore', [PUpdateController::class, 'explore'])->middleware('auth:api', 'api.key', 'role:SuperAdmin|Admin|Maintenance');
 
 // change to cretae maintenance //cancle ❌
 // Route::prefix('v1/inspeksi')->middleware('auth:api')->group(
@@ -106,7 +105,7 @@ Route::get('v1/tracker/explore', [PUpdateController::class, 'explore'])->middlew
 //         Route::post('update/{maintenance}', [MaintenanceController::class, 'update'])->middleware(['can:update-inspeksi']);
 //     }
 // );
-Route::prefix('v1/inspeksi')->middleware('auth:api', 'api.key')->group(
+Route::prefix('v1/inspeksi')->middleware('auth:api', 'api.key', 'role:SuperAdmin|Admin|Inspeksi')->group(
     function () {
         Route::get('', [InspeksiController::class, 'index']);
         Route::post('', [InspeksiController::class, 'store']);
@@ -116,7 +115,7 @@ Route::prefix('v1/inspeksi')->middleware('auth:api', 'api.key')->group(
     }
 );
 
-Route::prefix('v1/category')->middleware('auth:api', 'api.key')->group(
+Route::prefix('v1/category')->middleware('auth:api', 'api.key', 'role:SuperAdmin|Admin')->group(
     function () {
         Route::get('', [CategoryController::class, 'index']);
         Route::post('', [CategoryController::class, 'store']);
@@ -127,7 +126,7 @@ Route::prefix('v1/category')->middleware('auth:api', 'api.key')->group(
     }
 );
 
-Route::prefix('v1/location')->middleware('auth:api', 'api.key')->group(
+Route::prefix('v1/location')->middleware('auth:api', 'api.key', 'role:SuperAdmin|Admin')->group(
     function () {
         Route::get('', [LocationController::class, 'index']);
         Route::post('', [LocationController::class, 'store']);
@@ -138,7 +137,7 @@ Route::prefix('v1/location')->middleware('auth:api', 'api.key')->group(
     }
 );
 
-Route::prefix('v1/satker')->middleware('auth:api', 'api.key')->group(
+Route::prefix('v1/satker')->middleware('auth:api', 'api.key', 'role:SuperAdmin|Admin')->group(
     function () {
         Route::get('', [SatkerController::class, 'index']);
         Route::post('', [SatkerController::class, 'store']);
@@ -148,7 +147,7 @@ Route::prefix('v1/satker')->middleware('auth:api', 'api.key')->group(
     }
 );
 
-Route::prefix('v1/subsatker')->middleware('auth:api', 'api.key')->group(
+Route::prefix('v1/subsatker')->middleware('auth:api', 'api.key', 'role:SuperAdmin|Admin')->group(
     function () {
         Route::get('', [SubsatkerController::class, 'index']);
         Route::post('', [SubsatkerController::class, 'store']);
@@ -158,7 +157,7 @@ Route::prefix('v1/subsatker')->middleware('auth:api', 'api.key')->group(
     }
 );
 // done
-Route::prefix('v1/role')->middleware('jwt.auth', 'api.key')->group(function () {
+Route::prefix('v1/role')->middleware('jwt.auth', 'api.key', 'role:SuperAdmin|Admin')->group(function () {
     Route::get('', [RoleController::class, 'index']);
     Route::post('', [RoleController::class, 'show']);
     Route::post('assign', [RoleController::class, 'assignrole']);
@@ -167,7 +166,7 @@ Route::prefix('v1/role')->middleware('jwt.auth', 'api.key')->group(function () {
     Route::get('{role}', [RoleController::class, 'show']);
 });
 
-Route::prefix('v1/status')->middleware('auth:api', 'api.key')->group(
+Route::prefix('v1/status')->middleware('auth:api', 'api.key', 'role:SuperAdmin|Admin')->group(
     function () {
         Route::get('', [StatusController::class, 'index']);
         Route::post('', [StatusController::class, 'store']);
@@ -176,7 +175,7 @@ Route::prefix('v1/status')->middleware('auth:api', 'api.key')->group(
         Route::delete('{status}', [StatusController::class, 'destroy']);
     }
 );
-Route::prefix('v1/urgencylevel')->middleware('auth:api', 'api.key')->group(
+Route::prefix('v1/urgencylevel')->middleware('auth:api', 'api.key', 'role:SuperAdmin|Admin')->group(
     function () {
         Route::get('', [UrgencyController::class, 'index']);
         Route::post('', [UrgencyController::class, 'store']);
@@ -185,7 +184,7 @@ Route::prefix('v1/urgencylevel')->middleware('auth:api', 'api.key')->group(
     }
 );
 
-Route::prefix('v1/news')->middleware('auth:api', 'api.key')->group(
+Route::prefix('v1/news')->middleware('auth:api', 'api.key', 'role:SuperAdmin|Admin')->group(
     function () {
         Route::get('', [NewsController::class, 'index']);
         Route::post('', [NewsController::class, 'store']);
