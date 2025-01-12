@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Status extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
     /**
      * The attributes that are mass assignable.
      *
@@ -16,8 +17,9 @@ class Status extends Model
     protected $fillable = [
         'statustype',
         'status',
-        // 'password',
     ];
+    protected $dates = ['deleted_at'];
+
 
     /**
      * The attributes that should be cast.
@@ -37,6 +39,6 @@ class Status extends Model
     }
     public function pupdate()
     {
-        return $this->belongsToMany(PUpdate::class, 'id_status');
+        return $this->belongsToMany(PMaintenanceUpdate::class, 'id_status');
     }
 }

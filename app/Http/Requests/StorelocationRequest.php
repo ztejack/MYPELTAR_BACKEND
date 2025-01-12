@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Location;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
@@ -30,7 +31,12 @@ class StorelocationRequest extends FormRequest
     public function customrule()
     {
         $rule = [
-            'unit' => 'required|string',
+            'unit' => ['required', 'string', function ($attribute, $value, $fail) {
+                // Check if the unit with this location already exists
+                if (Location::where('unit', $value)->exists()) {
+                    $fail('The Location unit ' . $value . ' already exists.');
+                }
+            }],
         ];
         return $rule;
     }

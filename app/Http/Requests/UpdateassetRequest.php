@@ -5,6 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Validation\Rule;
 
 class UpdateassetRequest extends FormRequest
 {
@@ -16,7 +17,7 @@ class UpdateassetRequest extends FormRequest
     // public function authorize()
     // {
     //     return false;
-    // } 
+    // }
 
     /**
      * Get the validation rules that apply to the request.
@@ -31,16 +32,20 @@ class UpdateassetRequest extends FormRequest
     {
         $rules = [
             'stockcode' => 'required|string',
-            // 'code_ast' => 'required|string',
-            'serialnumber' => 'required',
-            'nama_asset' => 'min:6',
-            'merk' => 'required|string',
+            'serialnumber' =>
+            [
+                'required',
+                'string',
+                Rule::unique('assets')->ignore($this->route('asset')), // Exclude current asset
+            ],
+            'asset_name' => 'required|string',
+            'brand' => 'string',
             'model' => 'string',
-            'spesifikasi' => 'string',
-            'deskripsi' => 'string',
-            'id_lokasi' => 'integer',
-            'id_kategori' => 'array',
-            'id_status' => 'integer',
+            'specifications' => 'string',
+            'description' => 'string',
+            'id_location' => 'integer',
+            'id_category' => 'array',
+            'id_status' => 'required',
         ];
         if (!is_null($this->input('image'))) {
             $rules['image'] = 'image|mimes:jpeg,png,jpg|max:2048';

@@ -29,11 +29,9 @@ class CategoryController extends Controller
                 request('direction') ? request('direction') : 'desc'
             )->paginate(50)
         );
-
-
         return response()->json([
             'status' => 'success',
-            'category' => $category,
+            'data' => $category,
         ], 200);
     }
 
@@ -45,13 +43,18 @@ class CategoryController extends Controller
      */
     public function store(StorecategoryRequest $request)
     {
-        // return $request;
-        $input = $request->validated();
-        $category = new Category();
-        $category->category = $input['category'];
-        $category->id_subsatker = $input['subsatker'];
-        $category->save();
-        return response()->json(['status' => 'Category Successfully Added !'], 201);
+        try {
+            $input = $request->validated();
+            $category = new Category();
+            $category->category = $input['category'];
+            $category->id_subsatker = $input['subsatker'];
+            $category->save();
+            return response()->json(['status' => 'Category Successfully Added !'], 201);
+        } catch (\Exception $e) {
+            return response()->json([
+                'error' => 'Failed to create resource',
+            ], 500);
+        }
     }
 
     /**
@@ -62,13 +65,17 @@ class CategoryController extends Controller
      */
     public function show(category $category)
     {
-        $category->subsatker();
-        $categories = CategoryResource::make($category);
-        return response()->json([
-            'data' => $categories
-        ]);
+        try {
+            $categories = CategoryResource::make($category);
+            return response()->json([
+                'data' => $categories
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'error' => 'Failed to update resource',
+            ], 500);
+        }
     }
-
 
     /**
      * Update the specified resource in storage.
@@ -77,15 +84,22 @@ class CategoryController extends Controller
      * @param  \App\Models\category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatecategoryRequest $request, category $category)
+    public function update(UpdatecategoryRequest $request, Category $category)
     {
-        $input = $request->validated();
-        $category->category = $input['category'];
-        $category->id_subsatker = $input['subsatker'];
-        $category->update();
-        return response()->json([
-            'status' => 'Category Successfully Updated !'
-        ], 201);
+        try {
+            // Use custom validation rules with the category ID
+            $input = $request->validate($request->customrule($category->id));
+            $category->category = $input['category'];
+            // $category->id_subsatker = $input['subsatker'];
+            $category->update();
+            return response()->json([
+                'status' => 'Category Successfully Updated !'
+            ], 201);
+        } catch (\Exception $e) {
+            return response()->json([
+                'error' => 'Failed to update resource',
+            ], 500);
+        }
     }
 
     /**
@@ -98,23 +112,56 @@ class CategoryController extends Controller
     {
         try {
             $category->delete();
+            return response()->json([
+                'status' => 'Category Successfully Deleted !'
+            ], 200);
         } catch (\Exception $e) {
             return response()->json([
                 'error' => 'Failed to delete resource',
             ], 500);
         }
-        return response()->json([
-            'status' => 'Category Successfully Deleted !'
-        ], 200);
     }
 
     public function search(Request $request)
     {
-        $query = $request->input('Kategori');
-        $categori = Category::query();
-        $categoryes = $categori->where('kategori', 'like', '%' . $query . '%')->get();
-        return response()->json([
-            'data' => $categoryes,
-        ], 200);
+        try {
+
+            // Validate the incoming search parameters
+            $data = $request->validate([
+                'category' => 'nullable|string',
+                'id_subsatker' => 'nullable|integer',
+            ]);
+
+            // Build the query based on the provided parameters
+            $query = Category::query();
+
+            // Add a search condition for the 'category' field
+            if (!empty($data['category'])) {
+                $query->where('category', 'like', '%' . $data['category'] . '%');
+            }
+
+            // Add a search condition for the 'id_subsatker' field
+            if (!empty($data['id_subsatker'])) {
+                $query->where('id_subsatker', $data['id_subsatker']);
+            }
+
+            // Execute the query and get the results
+            $categories = $query->get();
+
+            // Check if any categories were found
+            if ($categories->isEmpty()) {
+                return response()->json(['message' => 'No categories found.'], 404);
+            }
+
+            // Return the search results as a JSON response
+            return response()->json([
+                'message' => 'Categories found.',
+                'data' => $categories
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'error' => 'Failed to search resource',
+            ], 500);
+        }
     }
 }

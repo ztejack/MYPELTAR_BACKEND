@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\WEB\Auth\AuthController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,8 +21,17 @@ Route::get('/', function () {
 
 Route::prefix('auth')->group(function () {
     Route::post('login', [AuthController::class, 'login'])->name('login');
-    Route::get('login', [AuthController::class, 'login_view'])->name('login_view');
+    Route::get('log', [AuthController::class, 'login_view'])->name('login_view')->middleware('permission:getall-users');
 });
 //log-viewers
 Route::get('log-viewers', [\Rap2hpoutre\LaravelLogViewer\LogViewerController::class, 'index']);
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/images/{folder}/{filename}', function ($folder, $filename) {
+    $path = "images/{$folder}/{$filename}";
+
+    if (!Storage::disk('public')->exists($path)) {
+        abort(404, "Image not found.");
+    }
+
+    return response()->file(storage_path("app/public/{$path}"));
+});

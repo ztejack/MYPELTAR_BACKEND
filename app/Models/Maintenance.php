@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Maintenance extends Model
 {
-    protected $table = 'maintenances';
+    // protected $table = 'maintenances';
     use HasFactory;
     /**
      * The attributes that are mass assignable.
@@ -15,12 +15,14 @@ class Maintenance extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'id_user_inspeksi',
+        'id_user',
         'id_asset',
         'id_type',
-        'deskripsi',
-        'fotobefore',
-        'fotoafter',
+        'id_urgency',
+        'id_status',
+        'description',
+        'imagebefore',
+        'imageafter',
     ];
 
     /**
@@ -35,9 +37,7 @@ class Maintenance extends Model
      *
      * @var array<string, string>
      */
-    protected $casts = [
-        // 'create_at' =
-    ];
+    protected $casts = [];
 
     /**
      * Return a model value array, containing any relation model.
@@ -46,11 +46,15 @@ class Maintenance extends Model
      */
     public function user_inspek()
     {
-        return $this->belongsTo(User::class, 'id_user_inspeksi');
+        return $this->belongsTo(User::class, 'id_user');
     }
     public function type()
     {
         return $this->belongsTo(TypeMaintenance::class, 'id_type');
+    }
+    public function urgency()
+    {
+        return $this->belongsTo(UrgencyLevel::class, 'id_urgency');
     }
     public function pupdates()
     {
@@ -62,10 +66,14 @@ class Maintenance extends Model
     }
     public function status()
     {
-        return $this->belongsTo(Status::class);
+        return $this->belongsTo(Status::class, 'id_status');
     }
+    // public function inspeksi()
+    // {
+    //     return $this->belongsToMany(Inspeksi::class, 'p_inspeksi_maintenance', 'maintenance_id', 'inspeksi_id');
+    // }
     public function inspeksi()
     {
-        return $this->belongsToMany(Inspeksi::class, 'p_inspeksi_maintenance', 'maintenance_id', 'inspeksi_id');
+        return $this->belongsTo(Inspeksi::class);
     }
 }

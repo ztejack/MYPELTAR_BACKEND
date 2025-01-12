@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class PMaintenanceUpdate extends Model
 {
     use HasFactory;
+    protected $table = 'p_maintenance_updates';
     /**
      * The attributes that are mass assignable.
      *
@@ -17,16 +18,16 @@ class PMaintenanceUpdate extends Model
         'id_user',
         'id_maintenance',
         'id_status',
-        'deskripsi',
+        'description',
         'image'
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
-    protected $hidden = [];
+    // /**
+    //  * The attributes that should be hidden for serialization.
+    //  *
+    //  * @var array<int, string>
+    //  */
+    // protected $hidden = [];
 
     /**
      * The attributes that should be cast.

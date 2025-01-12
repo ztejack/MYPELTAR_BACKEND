@@ -13,6 +13,7 @@ use App\Models\Satker;
 use App\Models\Subsatker;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Log;
 
 class DatabaseSeeder extends Seeder
 {
@@ -32,6 +33,7 @@ class DatabaseSeeder extends Seeder
             SubsatkerSeeder::class,
             UserSeeder::class,
             StatusSeeder::class,
+            UrgencyLevelsSeeder::class,
             TypeMaintenanceSeeder::class,
             ClientSeeder::class,
             CategorySeeder::class,

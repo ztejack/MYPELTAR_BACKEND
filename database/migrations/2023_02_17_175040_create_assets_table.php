@@ -17,12 +17,14 @@ return new class extends Migration
         Schema::create('locations', function (Blueprint $table) {
             $table->id();
             $table->string('unit');
+            $table->softDeletes();
             $table->timestamps();
         });
         Schema::create('statuses', function (Blueprint $table) {
             $table->id();
             $table->string('statustype');
             $table->string('status');
+            $table->softDeletes();
             $table->timestamps();
         });
         Schema::create('assets', function (Blueprint $table) {
@@ -31,16 +33,16 @@ return new class extends Migration
             $table->string('code_ast')->unique();
             $table->string('serialnumber');
             $table->string('name');
-            $table->string('merk');
+            $table->string('brand')->nullable();
             $table->string('model')->nullable();
-            $table->string('spesifikasi');
+            $table->string('specifications')->nullable();
             $table->string('image')->nullable();
-            $table->string('deskripsi');
-            $table->foreignId('id_lokasi')->default(false)->references('id')->on('locations')->onDelete('cascade');
+            $table->string('description')->nullable();
+            $table->foreignId('id_location')->default(false)->references('id')->on('locations')->onDelete('cascade');
             // $table->foreignId('id_kategori')->default(false)->references('id')->on('categories'); //many to many wait
-            // $table->foreignId('id_status')->nullable()->unsigned()->default(false)->constrained('statuses')->onDelete('set null');
-            $table->foreignId('id_status')->nullable()->default(false)->references('id')->on('statuses')->onDelete('restrict');
+            $table->foreignId('id_status')->nullable()->references('id')->on('statuses')->onDelete('restrict');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

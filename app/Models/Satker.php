@@ -3,9 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Satker extends Model
 {
+    use  SoftDeletes;
     /**
      * The attributes that are mass assignable.
      *
@@ -15,6 +17,8 @@ class Satker extends Model
         'satker',
         // 'password',
     ];
+    protected $dates = ['deleted_at'];
+
     /**
      * Return a model value array, containing any relation model.
      *

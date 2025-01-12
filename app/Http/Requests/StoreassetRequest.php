@@ -32,13 +32,13 @@ class StoreassetRequest extends FormRequest
         $rules = [
             'stockcode' => 'required|string|unique:assets',
             'serialnumber' => 'required|unique:assets',
-            'nama_asset' => 'min:6',
-            'merk' => 'required|string',
+            'asset_name' => 'min:6',
+            'brand' => 'required|string',
             'model' => 'string',
-            'spesifikasi' => 'string',
-            'deskripsi' => 'string',
-            'id_lokasi' => 'required|integer',
-            'id_kategori' => 'required',
+            'specifications' => 'string',
+            'description' => 'string',
+            'id_location' => 'required|integer',
+            'id_category' => 'required',
             'id_status' => 'required|integer',
         ];
         if ($this->has('image')) {

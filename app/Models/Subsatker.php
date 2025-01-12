@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Subsatker extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
     /**
      * The attributes that are mass assignable.
      *
@@ -16,8 +17,9 @@ class Subsatker extends Model
     protected $fillable = [
         'subsatker',
         'id_satker',
-        // 'password',
     ];
+    protected $dates = ['deleted_at'];
+
 
     /**
      * The attributes that should be hidden for serialization.

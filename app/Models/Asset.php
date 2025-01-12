@@ -5,10 +5,11 @@ namespace App\Models;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Asset extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
     /**
      * The attributes that are mass assignable.
      *
@@ -19,14 +20,15 @@ class Asset extends Model
         'code_ast',
         'serialnumber',
         'name',
-        'merk',
+        'brand',
         'model',
         'image',
-        'spesifikasi',
-        'deskripsi',
-        'id_lokasi',
+        'specifications',
+        'description',
+        'id_location',
         'id_status',
     ];
+    protected $dates = ['deleted_at'];
     /**
      * Get the route key for the model.
      *
@@ -67,7 +69,7 @@ class Asset extends Model
      */
     public function lokasi()
     {
-        return $this->belongsTo(Location::class, 'id_lokasi');
+        return $this->belongsTo(Location::class, 'id_location');
     }
     public function category()
     {

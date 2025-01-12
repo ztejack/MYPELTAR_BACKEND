@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Category;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
@@ -31,7 +32,14 @@ class StorecategoryRequest extends FormRequest
     public function customrule()
     {
         $rule = [
-            'category' => 'required|string',
+            'category' => ['required', 'string', function ($attribute, $value, $fail) {
+                // Check if a category with the same name and subsatker exists
+                $subsatkerId = request()->input('subsatker'); // Get the subsatker ID from the request
+
+                if (Category::where('category', $value)->where('id_subsatker', $subsatkerId)->exists()) {
+                    $fail('The Category ' . $value . ' already exists for the given subsatker.');
+                }
+            }],
             'subsatker' => 'required|integer'
         ];
         return $rule;

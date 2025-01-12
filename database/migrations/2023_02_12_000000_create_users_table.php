@@ -19,6 +19,7 @@ return new class extends Migration
             $table->uuid('uuid');
             $table->longText('api_key')->unique();
             $table->timestamps();
+            $table->softDeletes();
         });
         Schema::create('users', function (Blueprint $table) {
             $table->id('id');
@@ -31,6 +32,7 @@ return new class extends Migration
             $table->string('password');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
+            $table->softDeletes();
         });
     }
 
