@@ -3,12 +3,11 @@
 namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
-class LoginTest extends TestCase
+class AuthTests extends TestCase
 {
-    // use RefreshDatabase; // Optional: Resets the database after each test
-
     /**
      * Test successful login.
      *
@@ -121,15 +120,4 @@ class LoginTest extends TestCase
                 'message' => 'Wrong Password',
             ]);
     }
-
-    // public function test_access_protected_endpoint_with_token()
-    // {
-    //     $token = $this->test_user_can_login_and_get_bearer_token();
-
-    //     $response = $this->withHeaders([
-    //         'Authorization' => "Bearer $token",
-    //     ])->getJson(route('protected.endpoint'));
-
-    //     $response->assertStatus(200);
-    // }
 }
