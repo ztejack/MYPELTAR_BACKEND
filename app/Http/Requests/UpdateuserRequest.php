@@ -45,7 +45,7 @@ class UpdateuserRequest extends FormRequest
                 'string',
             ],
             'id_satker' => 'required',
-            'id_subsatker' => 'required',
+            'id_divisi' => 'required',
             'id_role' => 'required',
         ];
         return $rule;

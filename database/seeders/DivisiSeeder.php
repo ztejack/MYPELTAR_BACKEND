@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Subsatker;
+use App\Models\Divisi;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class SubsatkerSeeder extends Seeder
+class DivisiSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,16 +15,16 @@ class SubsatkerSeeder extends Seeder
      */
     public function run()
     {
-        Subsatker::create([
-            'subsatker' => 'IT',
+        Divisi::create([
+            'divisi' => 'IT',
             'id_satker' => 1,
         ]);
-        Subsatker::create([
-            'subsatker' => 'Perawatan Listrik',
+        Divisi::create([
+            'divisi' => 'Perawatan Listrik',
             'id_satker' => 1,
         ]);
-        Subsatker::create([
-            'subsatker' => 'Mekanik',
+        Divisi::create([
+            'divisi' => 'Mekanik',
             'id_satker' => 1,
         ]);
     }

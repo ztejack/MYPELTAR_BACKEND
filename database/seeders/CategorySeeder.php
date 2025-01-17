@@ -17,15 +17,15 @@ class CategorySeeder extends Seeder
     {
         Category::create([
             'category' => 'Block',
-            'id_subsatker' => 3
+            'id_divisi' => 3
         ]);
         Category::create([
             'category' => 'Jaringan',
-            'id_subsatker' => 1
+            'id_divisi' => 1
         ]);
         Category::create([
             'category' => 'PowerSupply',
-            'id_subsatker' => 2
+            'id_divisi' => 2
         ]);
     }
 }

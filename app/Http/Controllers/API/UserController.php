@@ -36,8 +36,8 @@ class UserController extends Controller
         if ($request->has('satker') && $request->input('satker') != null) {
             $Userss->where('satker', $request->input('satker'));
         }
-        if ($request->has('subsatker') && $request->input('subsatker') != null) {
-            $Userss->where('subsatker', $request->input('subsatker'));
+        if ($request->has('divisi') && $request->input('divisi') != null) {
+            $Userss->where('divisi', $request->input('divisi'));
         }
         if ($request->has('satker') && $request->input('satker') != null) {
             $satkerTerm = $request->input('satker');
@@ -45,10 +45,10 @@ class UserController extends Controller
                 $query->where('satker', $satkerTerm);
             });
         }
-        if ($request->has('subsatker') && $request->input('subsatker') != null) {
-            $subsatkerTerm = $request->input('subsatker');
-            $Userss->whereHas('subsatker', function ($query) use ($subsatkerTerm) {
-                $query->where('subsatker',  $subsatkerTerm);
+        if ($request->has('divisi') && $request->input('divisi') != null) {
+            $divisiTerm = $request->input('divisi');
+            $Userss->whereHas('divisi', function ($query) use ($divisiTerm) {
+                $query->where('divisi',  $divisiTerm);
             });
         }
 
@@ -104,10 +104,10 @@ class UserController extends Controller
         $user->name = $input['name'];
         $user->email = $input['email'];
         $user->username = $input['username'];
-        $user->id_subsatker = $input['id_subsatker'];
+        $user->id_divisi = $input['id_divisi'];
         $user->password = '12345678';
         $user->uuid = UuidV4::uuid4()->getHex();
-        // return $role;
+        
         if (!is_null($input['id_role'])) {
             $user->assignRole($input['']);
         } else {
@@ -153,7 +153,7 @@ class UserController extends Controller
         $user->name = $input['name'];
         $user->email = $input['email'];
         $user->username = $input['username'];
-        $user->id_subsatker = $input['id_subsatker'];
+        $user->id_divisi = $input['id_divisi'];
         $role = Role::findByName($user->getRoleNames()->first());
         $user->removeRole($role->id);
         $user->assignRole($input['id_role']);

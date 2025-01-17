@@ -7,7 +7,7 @@ use App\Models\Subsatker;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\subsatker>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\divisi>
  */
 class SubsatkerFactory extends Factory
 {
@@ -19,7 +19,7 @@ class SubsatkerFactory extends Factory
     public function definition()
     {
         return [
-            'subsatker' => $this->faker->sentence(1),
+            'divisi' => $this->faker->sentence(1),
             'id_satker' => function () {
                 return Satker::factory()->create()->id;
             }
@@ -27,8 +27,8 @@ class SubsatkerFactory extends Factory
     }
     // public function configure()
     // {
-    //     return $this->beforeCreating(function (Subsatker $subsatker) {
-    //         $subsatker->id_satker = function () {
+    //     return $this->beforeCreating(function (Subsatker $divisi) {
+    //         $divisi->id_satker = function () {
     //             return Satker::factory()->create()->id;
     //         };
     //     });

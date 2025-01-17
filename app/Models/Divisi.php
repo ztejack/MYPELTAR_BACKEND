@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Subsatker extends Model
+class Divisi extends Model
 {
     use HasFactory, SoftDeletes;
     /**
@@ -15,7 +15,7 @@ class Subsatker extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'subsatker',
+        'divisi',
         'id_satker',
     ];
     protected $dates = ['deleted_at'];
@@ -56,6 +56,6 @@ class Subsatker extends Model
     }
     public function category()
     {
-        return $this->hasMany(Category::class, 'id_subsatker');
+        return $this->hasMany(Category::class, 'id_divisi');
     }
 }

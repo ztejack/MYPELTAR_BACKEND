@@ -29,7 +29,6 @@ class LocationController extends Controller
 
         return response()->json(
             [
-                'status' => 'success',
                 'data' => $location,
             ],
             200

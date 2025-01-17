@@ -30,7 +30,7 @@ class User extends Authenticatable implements JWTSubject
         'email',
         'username',
         'uuid',
-        'id_subsatker',
+        'id_divisi',
     ];
     protected $dates = ['deleted_at'];
 
@@ -116,9 +116,9 @@ class User extends Authenticatable implements JWTSubject
     // {
     //     return $this->belongsToMany(Role::class);
     // }
-    public function subsatker()
+    public function divisi()
     {
-        return $this->belongsTo(Subsatker::class, 'id_subsatker');
+        return $this->belongsTo(Divisi::class, 'id_divisi');
     }
     public function satker()
     {

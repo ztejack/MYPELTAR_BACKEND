@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class SubsatkerResource extends JsonResource
+class DivisiResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,7 +16,7 @@ class SubsatkerResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'subsatker' => $this->subsatker,
+            'divisi' => $this->divisi,
             'satker' => $this->satker->satker,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,

@@ -4,6 +4,7 @@ use App\Http\Controllers\API\AssetController;
 use App\Http\Controllers\API\Auth\AuthController;
 use App\Http\Controllers\API\Auth\ClientController;
 use App\Http\Controllers\API\CategoryController;
+use App\Http\Controllers\API\DivisiController;
 use App\Http\Controllers\API\InspeksiController;
 use App\Http\Controllers\API\LocationController;
 use App\Http\Controllers\API\MaintenanceController;
@@ -11,7 +12,6 @@ use App\Http\Controllers\API\NewsController;
 use App\Http\Controllers\API\RoleController;
 use App\Http\Controllers\API\SatkerController;
 use App\Http\Controllers\API\StatusController;
-use App\Http\Controllers\API\SubsatkerController;
 use App\Http\Controllers\API\PUpdateController;
 use App\Http\Controllers\API\UrgencyController;
 use App\Http\Controllers\API\UserController;
@@ -147,13 +147,13 @@ Route::prefix('v1/satker')->middleware('auth:api', 'api.key', 'role:SuperAdmin|A
     }
 );
 
-Route::prefix('v1/subsatker')->middleware('auth:api', 'api.key', 'role:SuperAdmin|Admin')->group(
+Route::prefix('v1/divisi')->middleware('auth:api', 'api.key', 'role:SuperAdmin|Admin')->group(
     function () {
-        Route::get('', [SubsatkerController::class, 'index']);
-        Route::post('', [SubsatkerController::class, 'store']);
-        Route::get('{subsatker}', [SubsatkerController::class, 'show']);
-        Route::put('{subsatker}', [SubsatkerController::class, 'update']);
-        Route::delete('{subsatker}', [SubsatkerController::class, 'destroy']);
+        Route::get('', [DivisiController::class, 'index']);
+        Route::post('', [DivisiController::class, 'store']);
+        Route::get('{divisi}', [DivisiController::class, 'show']);
+        Route::put('{divisi}', [DivisiController::class, 'update']);
+        Route::delete('{divisi}', [DivisiController::class, 'destroy']);
     }
 );
 // done

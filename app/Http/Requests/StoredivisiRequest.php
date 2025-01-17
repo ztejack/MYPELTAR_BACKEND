@@ -6,7 +6,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class UpdatesubsatkerRequest extends FormRequest
+class StoredivisiRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,10 +25,16 @@ class UpdatesubsatkerRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'subsatker' => 'required|string',
-            'satker' => 'integer',
+        // dd($this);
+        return $this->customrule();
+    }
+    public function customrule()
+    {
+        $rule = [
+            'divisi' => 'required|string',
+            'satker' => 'required|exists:satkers,id',
         ];
+        return $rule;
     }
     protected function failedValidation(Validator $validator)
     {

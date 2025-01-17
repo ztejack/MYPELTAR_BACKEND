@@ -33,14 +33,14 @@ class StorecategoryRequest extends FormRequest
     {
         $rule = [
             'category' => ['required', 'string', function ($attribute, $value, $fail) {
-                // Check if a category with the same name and subsatker exists
-                $subsatkerId = request()->input('subsatker'); // Get the subsatker ID from the request
+                // Check if a category with the same name and divisi exists
+                $divisiId = request()->input('divisi'); // Get the divisi ID from the request
 
-                if (Category::where('category', $value)->where('id_subsatker', $subsatkerId)->exists()) {
-                    $fail('The Category ' . $value . ' already exists for the given subsatker.');
+                if (Category::where('category', $value)->where('id_divisi', $divisiId)->exists()) {
+                    $fail('The Category ' . $value . ' already exists for the given divisi.');
                 }
             }],
-            'subsatker' => 'required|integer'
+            'divisi' => 'required|integer'
         ];
         return $rule;
     }
