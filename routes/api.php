@@ -162,7 +162,7 @@ Route::prefix('v1/role')->middleware('jwt.auth', 'api.key', 'role:SuperAdmin|Adm
     Route::post('', [RoleController::class, 'show']);
     Route::post('assign', [RoleController::class, 'assignrole']);
     Route::post('revoke', [RoleController::class, 'revokerole']);
-    Route::get('permissions', [RoleController::class, 'showp']);
+    Route::get('permissions', [RoleController::class, 'showpermissions']);
     Route::get('{role}', [RoleController::class, 'show']);
 });
 

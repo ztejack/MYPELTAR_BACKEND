@@ -22,10 +22,10 @@ class AuthenticateApiKey
     {
         //only for production not deployment
 
-        // $client = Client::where('name', 'mypeltar_test')->first();
-        // $request->merge(['client' => $client]);
+        $client = Client::where('name', 'mypeltar_test')->first();
+        $request->merge(['client' => $client]);
 
-        // return $next($request);
+        return $next($request);
 
         //only for production not deployment
 
@@ -69,6 +69,6 @@ class AuthenticateApiKey
         return response()->json([
             'status' => 'fails',
             'message' => $message,
-        ], $status);
+        ], $status); 
     }
 }

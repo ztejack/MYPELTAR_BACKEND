@@ -34,7 +34,7 @@ class StoreuserRequest extends FormRequest
             'email' => 'required|unique:users,email|email',
             'username' => 'required|unique:users,username|string',
             'id_satker' => 'required',
-            'id_subsatker' => 'required',
+            'id_divisi' => 'required',
         ];
         // $rules = [];
         if (!is_null($this->input('id_role'))) {

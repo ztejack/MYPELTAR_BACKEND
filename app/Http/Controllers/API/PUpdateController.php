@@ -87,7 +87,7 @@ class PUpdateController extends Controller
      * @param  \App\Models\PUpdate  $PUpdate
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateHistoryMaintenanceRequest $request, Maintenance $maintenance, PMaintenanceUpdate $pupdate)
+    public function update(UpdateHistoryMaintenanceRequest $request, PMaintenanceUpdate $pupdate)
     {
         try {
             $input = $request->validated();

@@ -19,7 +19,7 @@ class NewsResource extends JsonResource
             'id' => $this->id,
             'user' => $this->publiser->name,
             'title' => $this->title,
-            'deskripsi' => $this->deskripsi,
+            'description' => $this->deskripsi,
             'image' => ($this->image == null) ? null : asset(Storage::url($this->image)),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,

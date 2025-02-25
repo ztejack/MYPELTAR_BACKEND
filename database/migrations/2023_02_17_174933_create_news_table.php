@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id('id');
             $table->string('title');
             $table->string('image');
-            $table->string('deskripsi');
+            $table->string('description');
             $table->foreignId('id_user')->default(false)->references('id')->on('users');;
             $table->timestamps();
             $table->softDeletes();

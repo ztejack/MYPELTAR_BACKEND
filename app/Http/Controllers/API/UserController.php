@@ -107,7 +107,7 @@ class UserController extends Controller
         $user->id_divisi = $input['id_divisi'];
         $user->password = '12345678';
         $user->uuid = UuidV4::uuid4()->getHex();
-        
+
         if (!is_null($input['id_role'])) {
             $user->assignRole($input['']);
         } else {

@@ -24,9 +24,4 @@ class Role extends SpatieRole
     protected $casts = [
         'id' => 'string'
     ];
-
-    // public function users()
-    // {
-    //     return $this->belongsToMany(User::class);
-    // }
 }

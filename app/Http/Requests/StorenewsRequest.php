@@ -32,7 +32,7 @@ class StorenewsRequest extends FormRequest
             $rules['image'] = '';
         }
         $rules['title'] = 'required';
-        $rules['deskripsi'] = 'required|string';
+        $rules['description'] = 'required|string';
         return $rules;
     }
     protected function failedValidation(Validator $validator)

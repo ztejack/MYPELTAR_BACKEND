@@ -8,6 +8,7 @@ use Tests\TestCase;
 
 class AuthTests extends TestCase
 {
+    protected string $token = '';
     /**
      * Test successful login.
      *
@@ -17,7 +18,7 @@ class AuthTests extends TestCase
     {
         // Arrange: Prepare request data
         $loginData = [
-            'login' => 'superuser@example.com',
+            'login' => 'superuser',
             'password' => '123456789',
         ];
 
@@ -35,7 +36,7 @@ class AuthTests extends TestCase
                     'email',
                     'username',
                     'role',
-                    'subsatker',
+                    'divisi',
                     'satker',
                 ],
                 'authorisation' => [
@@ -45,10 +46,63 @@ class AuthTests extends TestCase
             ]);
 
         // Assert: Check if token exists in the response
-        $this->assertNotEmpty($response->json('authorisation.token'), 'Token should not be empty');
+        // $this->assertNotEmpty($response->json('authorisation.token'), 'Token should not be empty');
         // Optionally, extract and save the token for further tests
-        $token = $response->json('authorisation.token');
-        return $token;
+        // $token = $response->json('authorisation.token');
+        // return $token;
+        // Store token for future use
+        $this->token = $response->json('authorisation.token');
+        $this->assertNotEmpty($this->token, 'Token should not be empty');
+    }
+
+    /**
+     * Test user can logout.
+     */
+    public function test_user_can_logout()
+    {
+        // Ensure a user is logged in and has a token
+        $this->test_user_can_login_and_get_bearer_token();
+
+        // Act: Send POST request to logout endpoint with token
+        $response = $this->postJson('/api/v1/auth/logout', [], [
+            'Authorization' => 'Bearer ' . $this->token
+        ]);
+
+        // Assert: Successful logout
+        $response->assertStatus(200)
+            ->assertJson([
+                'status' => 'success',
+                'message' => 'Successfully logged out',
+            ]);
+    }
+
+    /**
+     * Test user can refresh token.
+     */
+    public function test_user_can_refresh_token()
+    {
+        // Ensure a user is logged in and has a token
+        $this->test_user_can_login_and_get_bearer_token();
+
+        // Act: Send POST request to refresh token endpoint
+        $response = $this->postJson('/api/v1/auth/refresh', [], [
+            'Authorization' => 'Bearer ' . $this->token
+        ]);
+
+        // Assert: Token is refreshed
+        $response->assertStatus(200)
+            ->assertJsonStructure([
+                'status',
+                'authorisation' => [
+                    'token',
+                    'type',
+                ],
+            ]);
+
+        // Ensure new token is received
+        $newToken = $response->json('authorisation.token');
+        $this->assertNotEmpty($newToken, 'New token should not be empty');
+        $this->assertNotEquals($this->token, $newToken, 'Token should be refreshed');
     }
 
     /**

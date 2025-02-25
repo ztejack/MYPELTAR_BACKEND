@@ -20,27 +20,21 @@ class DivisiController extends Controller
      */
     public function index()
     {
-        // dd(Divisi::all());
-        // $divisis = DivisiResource::collection(Divisi::all());
-        $divisis = DivisiResource::collection(
-            Divisi::orderBy(
-                request('column') ? request('column') : 'updated_at',
-                request('direction') ? request('direction') : 'desc'
-            )->paginate(50)
-        );
-        return response()->json([
-            'data' => $divisis,
-        ], 200);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        try {
+            $divisis = DivisiResource::collection(
+                Divisi::orderBy(
+                    request('column') ? request('column') : 'updated_at',
+                    request('direction') ? request('direction') : 'desc'
+                )->paginate(50)
+            );
+            return response()->json([
+                'data' => $divisis,
+            ], 200);
+        } catch (\Exception $e) {
+            return response()->json([
+                'error' => 'Failed to get resource',
+            ], 500);
+        }
     }
 
     /**
@@ -51,13 +45,19 @@ class DivisiController extends Controller
      */
     public function store(StoredivisiRequest $request)
     {
-        // dd($request);
-        $input = $request->validated();
-        $divisi = new Divisi();
-        $divisi->divisi = $input['divisi'];
-        $divisi->id_satker = $input['satker'];
-        $divisi->save();
-        return response()->json(['status' => 'Divisi Successfully Added !'], 201);
+        try {
+            $input = $request->validated();
+            $divisi = new Divisi();
+            $divisi->divisi = $input['divisi'];
+            $divisi->id_satker = $input['satker'];
+            $divisi->save();
+            return response()->json(['status' => 'Divisi Successfully Added !'], 201);
+        } catch (\Exception $e) {
+            return response()->json([
+                'error' => 'Failed to store divisi',
+                'message' => $e->getMessage(),
+            ], 500);
+        }
     }
 
     /**
@@ -68,19 +68,14 @@ class DivisiController extends Controller
      */
     public function show(divisi $divisi)
     {
-        $divisi = DivisiResource::make($divisi);
-        return response()->json(['data' => $divisi], 200);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\divisi  $divisi
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(divisi $divisi)
-    {
-        //
+        try {
+            $divisi = DivisiResource::make($divisi);
+            return response()->json(['data' => $divisi], 200);
+        } catch (\Exception $e) {
+            return response()->json([
+                'error' => 'Failed to get resource',
+            ], 500);
+        }
     }
 
     /**
@@ -92,13 +87,20 @@ class DivisiController extends Controller
      */
     public function update(UpdatedivisiRequest $request, divisi $divisi)
     {
-        $input = $request->validated();
-        $divisi->divisi = $input['divisi'];
-        if (array_key_exists('satker', $input) && !empty($input['satker'])) {
-            $divisi->id_satker = $input['satker'];
+        try {
+            $input = $request->validated();
+            $divisi->divisi = $input['divisi'];
+            if (array_key_exists('satker', $input) && !empty($input['satker'])) {
+                $divisi->id_satker = $input['satker'];
+            }
+            $divisi->update();
+            return response()->json(['status' => 'SubSatker Successfully Updated !'], 201);
+        } catch (\Exception $e) {
+            return response()->json([
+                'error' => 'Failed to store resource',
+                'message' => $e->getMessage(),
+            ], 500);
         }
-        $divisi->update();
-        return response()->json(['status' => 'SubSatker Successfully Updated !'], 201);
     }
 
     /**
@@ -117,7 +119,7 @@ class DivisiController extends Controller
             ], 500);
         }
         return response()->json([
-            'status' => 'SubSatker Successfully Deleted !'
+            'status' => 'Resource Successfully Deleted !'
         ], 200);
     }
 }
