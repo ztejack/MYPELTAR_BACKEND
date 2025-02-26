@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->uuid('uuid');
-            $table->longText('api_key')->unique();
+            $table->string('api_key')->unique();
             $table->timestamps();
             $table->softDeletes();
         });

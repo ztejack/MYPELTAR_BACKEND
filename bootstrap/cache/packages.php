@@ -1,19 +1,4 @@
 <?php return array (
-  'directorytree/ldaprecord-laravel' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'LdapRecord\\Laravel\\LdapServiceProvider',
-      1 => 'LdapRecord\\Laravel\\LdapAuthServiceProvider',
-    ),
-  ),
-  'fruitcake/laravel-cors' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'Fruitcake\\Cors\\CorsServiceProvider',
-    ),
-  ),
   'haruncpi/laravel-id-generator' => 
   array (
     'providers' => 
@@ -26,6 +11,17 @@
     'providers' => 
     array (
       0 => 'Knuckles\\Scribe\\ScribeServiceProvider',
+    ),
+  ),
+  'laravel/octane' => 
+  array (
+    'aliases' => 
+    array (
+      'Octane' => 'Laravel\\Octane\\Facades\\Octane',
+    ),
+    'providers' => 
+    array (
+      0 => 'Laravel\\Octane\\OctaneServiceProvider',
     ),
   ),
   'laravel/sail' => 

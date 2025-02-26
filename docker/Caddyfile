@@ -1,0 +1,25 @@
+{
+    # Global options
+    admin off
+    auto_https off
+}
+
+:80 {
+    root * /app/public
+
+    # Enable PHP processing
+    php_server {
+        resolve_root_symlink on
+        index index.php
+    }
+
+    # Handle static files
+    file_server
+
+    # Route all requests to index.php if file not found
+    @notStatic {
+        not file
+        not path /favicon.ico
+    }
+    rewrite @notStatic /index.php?{query}
+}
