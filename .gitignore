@@ -5,7 +5,7 @@ storage/sessions/*
 storage/logs/*
 /storage/*.key
 vendor
-.env
+# .env
 .env.backup
 .phpunit.result.cache
 docker-compose.override.yml
