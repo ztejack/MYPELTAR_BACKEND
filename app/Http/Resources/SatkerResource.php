@@ -17,7 +17,7 @@ class SatkerResource extends JsonResource
         return [
             'id' => $this->id,
             'satker' => $this->satker,
-            'subSatker' => $this->subsatker,
+            'divisi' => $this->divisi,
         ];
     }
 }

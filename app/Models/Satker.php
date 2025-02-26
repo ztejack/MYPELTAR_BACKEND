@@ -15,7 +15,6 @@ class Satker extends Model
      */
     protected $fillable = [
         'satker',
-        // 'password',
     ];
     protected $dates = ['deleted_at'];
 
@@ -24,9 +23,9 @@ class Satker extends Model
      *
      * @return array
      */
-    public function subsatker()
+    public function divisi()
     {
-        return $this->hasMany(Subsatker::class, 'id_satker');
+        return $this->hasMany(Divisi::class, 'id_satker');
     }
     public function users()
     {

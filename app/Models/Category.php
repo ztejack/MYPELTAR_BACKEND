@@ -16,7 +16,7 @@ class Category extends Model
      */
     protected $fillable = [
         'category',
-        'id_subsatker',
+        'id_divisi',
     ];
     protected $dates = ['deleted_at'];
     /**
@@ -42,9 +42,9 @@ class Category extends Model
     {
         return $this->belongsToMany(Asset::class);
     }
-    public function subsatker()
+    public function divisi()
     {
-        return $this->belongsTo(Subsatker::class, 'id_subsatker');
+        return $this->belongsTo(Divisi::class, 'id_divisi');
     }
     public function status()
     {

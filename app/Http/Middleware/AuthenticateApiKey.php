@@ -69,6 +69,6 @@ class AuthenticateApiKey
         return response()->json([
             'status' => 'fails',
             'message' => $message,
-        ], $status);
+        ], $status); 
     }
 }

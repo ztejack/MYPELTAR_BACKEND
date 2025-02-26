@@ -46,7 +46,7 @@ class NewsController extends Controller
         $input = $request->validated();
         $news = new News();
         $news->title = $input['title'];
-        $news->deskripsi = $input['deskripsi'];
+        $news->description = $input['description'];
         if (!is_null($input['image'])) {
             $image = Storage::put('public/images/News', $request->file('image'));
             $news->image = $image;
@@ -79,7 +79,7 @@ class NewsController extends Controller
     {
         $input = $request->validated();
         $news->title = $input['title'];
-        $news->deskripsi = $input['deskripsi'];
+        $news->description = $input['description'];
         if ($request->hasFile('image')) {
             if (Storage::exists($news->image)) {
                 Storage::delete($news->image);

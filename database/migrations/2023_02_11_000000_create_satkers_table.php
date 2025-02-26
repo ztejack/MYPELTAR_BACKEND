@@ -19,9 +19,9 @@ return new class extends Migration
             $table->timestamps();
             $table->softDeletes();
         });
-        Schema::create('subsatkers', function (Blueprint $table) {
+        Schema::create('divisis', function (Blueprint $table) {
             $table->id();
-            $table->string('subsatker');
+            $table->string('divisi');
             $table->foreignId('id_satker')->default(false)->references('id')->on('satkers')->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes();
@@ -35,7 +35,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('subsatkers');
+        Schema::dropIfExists('divisis');
         Schema::dropIfExists('satkers');
     }
 };

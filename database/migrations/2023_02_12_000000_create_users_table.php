@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->uuid('uuid');
-            $table->longText('api_key')->unique();
+            $table->string('api_key')->unique();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -26,7 +26,7 @@ return new class extends Migration
             $table->uuid('uuid');
             $table->string('slug')->unique();
             $table->string('name');
-            $table->foreignId('id_subsatker')->default(false)->references('id')->on('subsatkers');
+            $table->foreignId('id_divisi')->default(false)->references('id')->on('divisis');
             $table->string('username');
             $table->string('email')->unique();
             $table->string('password');

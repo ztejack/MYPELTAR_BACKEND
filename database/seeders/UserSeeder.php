@@ -19,21 +19,20 @@ class UserSeeder extends Seeder
     public function run()
     {
         $user = User::create([
-            // 'uuid' => UuidV4::uuid4()->getHex(),
             'name' => 'SuperUser',
             'username' => 'superuser',
-            'id_subsatker' => 1,
+            'id_divisi' => 1,
             'email' => 'superuser@example.com',
             'password' => bcrypt('123456789'),
         ]);
+        $user->save();
         $superAdminRole = Role::findByName('SuperAdmin');
         $user->assignRole($superAdminRole);
 
         $user = User::create([
-            // 'uuid' => UuidV4::uuid4()->getHex(),
             'name' => 'Admin',
             'username' => 'admin',
-            'id_subsatker' => 1,
+            'id_divisi' => 1,
             'email' => 'Admin@example.com',
             'password' => bcrypt('123456789'),
         ]);
@@ -41,10 +40,9 @@ class UserSeeder extends Seeder
         $user->assignRole($superAdminRole);
 
         $user = User::create([
-            // 'uuid' => UuidV4::uuid4()->getHex(),
             'name' => 'AdminMaintenance',
             'username' => 'maintenance',
-            'id_subsatker' => 1,
+            'id_divisi' => 1,
             'email' => 'Maintenance@example.com',
             'password' => bcrypt('123456789'),
         ]);
@@ -52,10 +50,9 @@ class UserSeeder extends Seeder
         $user->assignRole($superAdminRole);
 
         $user = User::create([
-            // 'uuid' => UuidV4::uuid4()->getHex(),
             'name' => 'AdminInspeksi',
             'username' => 'inspeksi',
-            'id_subsatker' => 1,
+            'id_divisi' => 1,
             'email' => 'inspeksi@example.com',
             'password' => bcrypt('123456789'),
         ]);

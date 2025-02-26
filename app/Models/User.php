@@ -17,7 +17,6 @@ use Spatie\Sluggable\SlugOptions;
 class User extends Authenticatable implements JWTSubject
 {
 
-    // use   Notifiable, AuthenticatesWithLdap;
     use  HasFactory, Notifiable, HasRoles, HasApiTokens, HasSlug, SoftDeletes;
 
     /**
@@ -30,7 +29,7 @@ class User extends Authenticatable implements JWTSubject
         'email',
         'username',
         'uuid',
-        'id_subsatker',
+        'id_divisi',
     ];
     protected $dates = ['deleted_at'];
 
@@ -44,18 +43,47 @@ class User extends Authenticatable implements JWTSubject
         'remember_token',
     ];
     /**
+     * Boot method for the User model.
+     *
+     * This method is called when the model is initialized. It sets up an event listener
+     * for the "creating" event, which is triggered before a new user record is created.
+     *
+     * When a new user is being created, this listener generates a UUID (version 4) and
+     * assigns its hexadecimal representation to the `uuid` attribute of the user.
+     *
+     * @return void
+     */
+    // UuidV4::uuid4()->getHex() with UuidV4::uuid4()->toString().
+    public static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($user) {
+            $user->uuid = UuidV4::uuid4()->toString();
+        });
+    }
+    /**
      * Get the options for generating the slug.
+     *
+     * @return \Spatie\Sluggable\SlugOptions
      */
     public function getSlugOptions(): SlugOptions
     {
-        // return SlugOptions::create()
-        //     ->generateSlugsFrom('name')
-        //     ->saveSlugsTo('slug');
         return SlugOptions::create()
-            ->generateSlugsFrom(['username', 'uuid'])
-            ->saveSlugsTo('slug')
-            ->usingLanguage('nl');;
+            ->generateSlugsFrom(['uuid', 'username'])
+            ->saveSlugsTo('slug');
     }
+
+    /**
+     * Get the route key name for the model.
+     *
+     * This method overrides the default route key name used by Laravel
+     * for model binding. By default, Laravel uses the model's primary key
+     * (usually 'id') as the route key name. This method changes it to use
+     * the 'uuid' attribute instead.
+     *
+     * @return string The attribute name to be used as the route key.
+     */
     public function getRouteKeyName()
     {
         return 'uuid';
@@ -86,20 +114,16 @@ class User extends Authenticatable implements JWTSubject
      */
     public function getJWTCustomClaims()
     {
-        return [];
+        return ['uuid' => $this->uuid];
     }
-    public static function boot()
-    {
-        parent::boot();
 
-        static::creating(function ($user) {
-            $user->uuid = UuidV4::uuid4()->getHex();
-        });
-    }
-    // public function hasRole($role)
-    // {
-    //     return $this->role === $role;
-    // }
+    /**
+     * Scope a query to only include users with a given role.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @param  mixed  $roleName
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
     public function scopeWithRole($query, $roleName)
     {
         return $query->whereHas('role', function ($q) use ($roleName) {
@@ -112,13 +136,9 @@ class User extends Authenticatable implements JWTSubject
      *
      * @return array
      */
-    // public function role()
-    // {
-    //     return $this->belongsToMany(Role::class);
-    // }
-    public function subsatker()
+    public function divisi()
     {
-        return $this->belongsTo(Subsatker::class, 'id_subsatker');
+        return $this->belongsTo(Divisi::class, 'id_divisi');
     }
     public function satker()
     {
@@ -132,8 +152,4 @@ class User extends Authenticatable implements JWTSubject
     {
         return $this->belongsToMany(Inspeksi::class);
     }
-    // public function apiKey()
-    // {
-    //     return $this->hasOne(ApiKey::class);
-    // }
 }

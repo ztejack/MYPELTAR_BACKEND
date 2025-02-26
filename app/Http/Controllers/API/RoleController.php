@@ -39,7 +39,7 @@ class RoleController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function showp()
+    public function showpermissions()
     {
         $user = Auth::user();
         try {
@@ -61,59 +61,59 @@ class RoleController extends Controller
      */
     public function assignrole(Request $request)
     {
-        // try {
-        // Validate the request data
-        $validator = Validator::make(
-            $request->all(),
-            [
-                'user_id' => 'required|integer|exists:users,id',
-                'role_id' => 'required|integer|exists:roles,id',
-            ]
-        );
-        // If validation fails, return a custom response
-        if ($validator->fails()) {
-            return response()->json([
-                'message' => 'The given data was invalid',
-                'errors' => $validator->errors()->messages()
-            ], 422);  // 422 Unprocessable Entity status code for validation errors
-        }
+        try {
+            // Validate the request data
+            $validator = Validator::make(
+                $request->all(),
+                [
+                    'user_id' => 'required|integer|exists:users,id',
+                    'role_id' => 'required|integer|exists:roles,id',
+                ]
+            );
+            // If validation fails, return a custom response
+            if ($validator->fails()) {
+                return response()->json([
+                    'message' => 'The given data was invalid',
+                    'errors' => $validator->errors()->messages()
+                ], 422);  // 422 Unprocessable Entity status code for validation errors
+            }
 
-        // Find the user by ID
-        $user = User::find($request['user_id']);
+            // Find the user by ID
+            $user = User::find($request['user_id']);
 
-        // Find the role by ID
-        $role = Role::find($request['role_id']);
-        // Check if the user already has this role
-        if ($user->hasRole($role->name)) {
+            // Find the role by ID
+            $role = Role::find($request['role_id']);
+            // Check if the user already has this role
+            if ($user->hasRole($role->name)) {
+                return response()->json([
+                    'message' => 'User already has this role',
+                    'user' => new UserResource($user),
+                    'role' => $role->name
+                ], 200); // Return success response if the user already has the role
+            }
+
+            // Remove all current roles before assigning a new one
+            $user->syncRoles([]); // This removes all roles from the user
+
+            // // Assign the new role to the user
+            $user->assignRole($role);
+
+            // Return success response
             return response()->json([
-                'message' => 'User already has this role',
+                'message' => 'Role assigned successfully',
                 'user' => new UserResource($user),
-                'role' => $role->name
-            ], 200); // Return success response if the user already has the role
+                'role' => $role->name,
+            ], 200);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'error' => 'Failed to search resource',
+            ]);
         }
-
-        // Remove all current roles before assigning a new one
-        $user->syncRoles([]); // This removes all roles from the user
-
-        // // Assign the new role to the user
-        $user->assignRole($role);
-
-        // Return success response
-        return response()->json([
-            'message' => 'Role assigned successfully',
-            'user' => new UserResource($user),
-            'role' => $role->name,
-        ], 200);
-        // } catch (\Throwable $th) {
-        //     return response()->json([
-        //         'error' => 'Failed to search resource',
-        //     ]);
-        // }
     }
 
     public function revokerole(Request $request)
     {
-        try {
+        try { 
             // Validate the request to ensure the user_id is provided and valid
             $validator = Validator::make($request->all(), [
                 'user_id' => 'required|integer|exists:users,id',
@@ -150,18 +150,6 @@ class RoleController extends Controller
                 'error' => 'Failed to search resource',
             ]);
         }
-    }
-    /**
-     * Store a newly created resource in storage.
-     *
-     *
-     * @param  \App\Http\Requests\StoreroleRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreroleRequest $request)
-    {
-        // $input = $request->validated();
-        // $role = new Role()
     }
 
     /**
@@ -210,28 +198,5 @@ class RoleController extends Controller
                 'error' => 'Failed to search resource',
             ]);
         }
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\role  $role
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(role $role)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateroleRequest  $request
-     * @param  \App\Models\role  $role
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateroleRequest $request, role $role)
-    {
-        //
     }
 }

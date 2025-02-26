@@ -29,21 +29,10 @@ class LocationController extends Controller
 
         return response()->json(
             [
-                'status' => 'success',
                 'data' => $location,
             ],
             200
         );
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -79,17 +68,6 @@ class LocationController extends Controller
     public function show(Location $location)
     {
         return response()->json(['data' => $location], 200);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Location  $Location
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Location $lokasi)
-    {
-        //
     }
 
     /**

@@ -10,7 +10,6 @@ use App\Models\Maintenance;
 use App\Models\News;
 use App\Models\PUpdate;
 use App\Models\Satker;
-use App\Models\Subsatker;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Log;
@@ -30,7 +29,7 @@ class DatabaseSeeder extends Seeder
             // RoleSeeder::class,
             LocationSeeder::class,
             SatkerSeeder::class,
-            SubsatkerSeeder::class,
+            DivisiSeeder::class,
             UserSeeder::class,
             StatusSeeder::class,
             UrgencyLevelsSeeder::class,

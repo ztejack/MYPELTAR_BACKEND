@@ -17,7 +17,7 @@ class News extends Model
     protected $fillable = [
         'title',
         'image',
-        'deskripsi',
+        'description',
         'id_user',
     ];
     protected $dates = ['deleted_at'];

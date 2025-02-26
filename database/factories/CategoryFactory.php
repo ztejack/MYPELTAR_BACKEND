@@ -18,7 +18,7 @@ class CategoryFactory extends Factory
     {
         return [
             'kategori' => $this->faker->sentence(1),
-            'id_subsatker' => mt_rand(1, 5)
+            'id_divisi' => mt_rand(1, 5)
         ];
     }
 }

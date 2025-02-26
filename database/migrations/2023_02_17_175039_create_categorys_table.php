@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->string('category');
-            $table->foreignId('id_subsatker')->default(false)->references('id')->on('subsatkers')->onDelete('cascade');
+            $table->foreignId('id_divisi')->default(false)->references('id')->on('divisis')->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes();
         });

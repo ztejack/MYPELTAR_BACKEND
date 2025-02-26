@@ -30,7 +30,6 @@ class CategoryController extends Controller
             )->paginate(50)
         );
         return response()->json([
-            'status' => 'success',
             'data' => $category,
         ], 200);
     }
@@ -47,7 +46,7 @@ class CategoryController extends Controller
             $input = $request->validated();
             $category = new Category();
             $category->category = $input['category'];
-            $category->id_subsatker = $input['subsatker'];
+            $category->id_divisi = $input['divisi'];
             $category->save();
             return response()->json(['status' => 'Category Successfully Added !'], 201);
         } catch (\Exception $e) {
@@ -90,7 +89,7 @@ class CategoryController extends Controller
             // Use custom validation rules with the category ID
             $input = $request->validate($request->customrule($category->id));
             $category->category = $input['category'];
-            // $category->id_subsatker = $input['subsatker'];
+            // $category->id_divisi = $input['divisi'];
             $category->update();
             return response()->json([
                 'status' => 'Category Successfully Updated !'
@@ -129,7 +128,7 @@ class CategoryController extends Controller
             // Validate the incoming search parameters
             $data = $request->validate([
                 'category' => 'nullable|string',
-                'id_subsatker' => 'nullable|integer',
+                'id_divisi' => 'nullable|integer',
             ]);
 
             // Build the query based on the provided parameters
@@ -140,9 +139,9 @@ class CategoryController extends Controller
                 $query->where('category', 'like', '%' . $data['category'] . '%');
             }
 
-            // Add a search condition for the 'id_subsatker' field
-            if (!empty($data['id_subsatker'])) {
-                $query->where('id_subsatker', $data['id_subsatker']);
+            // Add a search condition for the 'id_divisi' field
+            if (!empty($data['id_divisi'])) {
+                $query->where('id_divisi', $data['id_divisi']);
             }
 
             // Execute the query and get the results
