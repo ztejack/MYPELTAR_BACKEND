@@ -34,7 +34,9 @@ RUN chmod -R 777 storage bootstrap/cache
 # Expose port aplikasi
 EXPOSE 8000
 
-CMD ["php", "artisan", "migrate:fresh","--seed"]
+RUN php artisan key:generate
+
+RUN php artisan migrate:fresh --seed
 
 # Jalankan Laravel Octane dengan FrankenPHP
 CMD ["php", "artisan", "octane:start", "--server=frankenphp", "--host=127.0.0.1", "--workers=8", "--max-requests=500", "--port=8000"]
