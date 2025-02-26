@@ -5662,3 +5662,48 @@ Did you mean this?
 #44 /app/artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
 #45 {main}
 "} 
+[2025-02-26 13:56:22] local.ERROR: The "--columns" option does not exist. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\RuntimeException(code: 0): The \"--columns\" option does not exist. at D:\\ALPHA\\Project\\MYPELTAR_BACKEND\\vendor\\symfony\\console\\Input\\ArgvInput.php:223)
+[stacktrace]
+#0 D:\\ALPHA\\Project\\MYPELTAR_BACKEND\\vendor\\symfony\\console\\Input\\ArgvInput.php(150): Symfony\\Component\\Console\\Input\\ArgvInput->addLongOption()
+#1 D:\\ALPHA\\Project\\MYPELTAR_BACKEND\\vendor\\symfony\\console\\Input\\ArgvInput.php(85): Symfony\\Component\\Console\\Input\\ArgvInput->parseLongOption()
+#2 D:\\ALPHA\\Project\\MYPELTAR_BACKEND\\vendor\\symfony\\console\\Input\\ArgvInput.php(74): Symfony\\Component\\Console\\Input\\ArgvInput->parseToken()
+#3 D:\\ALPHA\\Project\\MYPELTAR_BACKEND\\vendor\\symfony\\console\\Input\\Input.php(56): Symfony\\Component\\Console\\Input\\ArgvInput->parse()
+#4 D:\\ALPHA\\Project\\MYPELTAR_BACKEND\\vendor\\symfony\\console\\Command\\Command.php(285): Symfony\\Component\\Console\\Input\\Input->bind()
+#5 D:\\ALPHA\\Project\\MYPELTAR_BACKEND\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(180): Symfony\\Component\\Console\\Command\\Command->run()
+#6 D:\\ALPHA\\Project\\MYPELTAR_BACKEND\\vendor\\symfony\\console\\Application.php(1096): Illuminate\\Console\\Command->run()
+#7 D:\\ALPHA\\Project\\MYPELTAR_BACKEND\\vendor\\symfony\\console\\Application.php(324): Symfony\\Component\\Console\\Application->doRunCommand()
+#8 D:\\ALPHA\\Project\\MYPELTAR_BACKEND\\vendor\\symfony\\console\\Application.php(175): Symfony\\Component\\Console\\Application->doRun()
+#9 D:\\ALPHA\\Project\\MYPELTAR_BACKEND\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(201): Symfony\\Component\\Console\\Application->run()
+#10 D:\\ALPHA\\Project\\MYPELTAR_BACKEND\\artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle()
+#11 {main}
+"} 
+[2025-02-26 13:56:32] local.ERROR: The "--columns" option does not exist. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\RuntimeException(code: 0): The \"--columns\" option does not exist. at D:\\ALPHA\\Project\\MYPELTAR_BACKEND\\vendor\\symfony\\console\\Input\\ArgvInput.php:223)
+[stacktrace]
+#0 D:\\ALPHA\\Project\\MYPELTAR_BACKEND\\vendor\\symfony\\console\\Input\\ArgvInput.php(150): Symfony\\Component\\Console\\Input\\ArgvInput->addLongOption()
+#1 D:\\ALPHA\\Project\\MYPELTAR_BACKEND\\vendor\\symfony\\console\\Input\\ArgvInput.php(85): Symfony\\Component\\Console\\Input\\ArgvInput->parseLongOption()
+#2 D:\\ALPHA\\Project\\MYPELTAR_BACKEND\\vendor\\symfony\\console\\Input\\ArgvInput.php(74): Symfony\\Component\\Console\\Input\\ArgvInput->parseToken()
+#3 D:\\ALPHA\\Project\\MYPELTAR_BACKEND\\vendor\\symfony\\console\\Input\\Input.php(56): Symfony\\Component\\Console\\Input\\ArgvInput->parse()
+#4 D:\\ALPHA\\Project\\MYPELTAR_BACKEND\\vendor\\symfony\\console\\Command\\Command.php(285): Symfony\\Component\\Console\\Input\\Input->bind()
+#5 D:\\ALPHA\\Project\\MYPELTAR_BACKEND\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(180): Symfony\\Component\\Console\\Command\\Command->run()
+#6 D:\\ALPHA\\Project\\MYPELTAR_BACKEND\\vendor\\symfony\\console\\Application.php(1096): Illuminate\\Console\\Command->run()
+#7 D:\\ALPHA\\Project\\MYPELTAR_BACKEND\\vendor\\symfony\\console\\Application.php(324): Symfony\\Component\\Console\\Application->doRunCommand()
+#8 D:\\ALPHA\\Project\\MYPELTAR_BACKEND\\vendor\\symfony\\console\\Application.php(175): Symfony\\Component\\Console\\Application->doRun()
+#9 D:\\ALPHA\\Project\\MYPELTAR_BACKEND\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(201): Symfony\\Component\\Console\\Application->run()
+#10 D:\\ALPHA\\Project\\MYPELTAR_BACKEND\\artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle()
+#11 {main}
+"} 
+[2025-02-26 13:56:36] local.ERROR: The "--columns" option does not exist. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\RuntimeException(code: 0): The \"--columns\" option does not exist. at D:\\ALPHA\\Project\\MYPELTAR_BACKEND\\vendor\\symfony\\console\\Input\\ArgvInput.php:223)
+[stacktrace]
+#0 D:\\ALPHA\\Project\\MYPELTAR_BACKEND\\vendor\\symfony\\console\\Input\\ArgvInput.php(150): Symfony\\Component\\Console\\Input\\ArgvInput->addLongOption()
+#1 D:\\ALPHA\\Project\\MYPELTAR_BACKEND\\vendor\\symfony\\console\\Input\\ArgvInput.php(85): Symfony\\Component\\Console\\Input\\ArgvInput->parseLongOption()
+#2 D:\\ALPHA\\Project\\MYPELTAR_BACKEND\\vendor\\symfony\\console\\Input\\ArgvInput.php(74): Symfony\\Component\\Console\\Input\\ArgvInput->parseToken()
+#3 D:\\ALPHA\\Project\\MYPELTAR_BACKEND\\vendor\\symfony\\console\\Input\\Input.php(56): Symfony\\Component\\Console\\Input\\ArgvInput->parse()
+#4 D:\\ALPHA\\Project\\MYPELTAR_BACKEND\\vendor\\symfony\\console\\Command\\Command.php(285): Symfony\\Component\\Console\\Input\\Input->bind()
+#5 D:\\ALPHA\\Project\\MYPELTAR_BACKEND\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(180): Symfony\\Component\\Console\\Command\\Command->run()
+#6 D:\\ALPHA\\Project\\MYPELTAR_BACKEND\\vendor\\symfony\\console\\Application.php(1096): Illuminate\\Console\\Command->run()
+#7 D:\\ALPHA\\Project\\MYPELTAR_BACKEND\\vendor\\symfony\\console\\Application.php(324): Symfony\\Component\\Console\\Application->doRunCommand()
+#8 D:\\ALPHA\\Project\\MYPELTAR_BACKEND\\vendor\\symfony\\console\\Application.php(175): Symfony\\Component\\Console\\Application->doRun()
+#9 D:\\ALPHA\\Project\\MYPELTAR_BACKEND\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(201): Symfony\\Component\\Console\\Application->run()
+#10 D:\\ALPHA\\Project\\MYPELTAR_BACKEND\\artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle()
+#11 {main}
+"} 
