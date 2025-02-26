@@ -9,7 +9,8 @@ RUN apt-get update && apt-get install -y \
     libonig-dev \
     libxml2-dev \
     zip \
-    unzip
+    unzip \
+    netcat-openbsd
 
 # Install PHP extensions
 RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
@@ -34,9 +35,12 @@ RUN chmod -R 777 storage bootstrap/cache
 # Expose port aplikasi
 EXPOSE 8000
 
-RUN php artisan key:generate
+# Copy entrypoint.sh ke dalam container
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 
-RUN php artisan migrate:fresh --seed
+# Set entrypoint untuk menunggu MySQL dan menjalankan migrasi
+ENTRYPOINT ["/entrypoint.sh"]
 
 # Jalankan Laravel Octane dengan FrankenPHP
 CMD ["php", "artisan", "octane:start", "--server=frankenphp", "--host=127.0.0.1", "--workers=8", "--max-requests=500", "--port=8000"]
