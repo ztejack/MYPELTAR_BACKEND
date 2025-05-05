@@ -20,12 +20,16 @@ class DivisiSeeder extends Seeder
             'id_satker' => 1,
         ]);
         Divisi::create([
-            'divisi' => 'Perawatan Listrik',
+            'divisi' => 'Watsin',
             'id_satker' => 1,
         ]);
         Divisi::create([
-            'divisi' => 'Mekanik',
-            'id_satker' => 1,
+            'divisi' => 'Watrik',
+            'id_satker' => 3,
+        ]);
+        Divisi::create([
+            'divisi' => 'Perawatan Bangunan',
+            'id_satker' => 3,
         ]);
     }
 }

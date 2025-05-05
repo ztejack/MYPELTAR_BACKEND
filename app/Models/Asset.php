@@ -67,7 +67,7 @@ class Asset extends Model
      *
      * @return array
      */
-    public function lokasi()
+    public function location()
     {
         return $this->belongsTo(Location::class, 'id_location');
     }

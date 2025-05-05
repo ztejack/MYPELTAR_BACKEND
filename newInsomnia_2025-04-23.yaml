@@ -1,0 +1,3022 @@
+type: spec.insomnia.rest/5.0
+name: MYPELTAR
+meta:
+  id: wrk_2169efdfb0e140c1b52a5a43efa27210
+  created: 1684307470232
+  modified: 1745364678883
+collection:
+  - name: ALPHA
+    meta:
+      id: fld_a21fd76b7bde41b4bc3576ca6157694a
+      created: 1696146490466
+      modified: 1696146490466
+      sortKey: -1696146490466
+    children:
+      - name: AUTH
+        meta:
+          id: fld_25b98a810103403690ee464deab8f04d
+          created: 1696146490467
+          modified: 1736709061666
+          sortKey: -1720422354277
+        children:
+          - name: Client
+            meta:
+              id: fld_9c3eaa454337406e86b6c1942d2de851
+              created: 1711490382069
+              modified: 1720012732280
+              sortKey: -1696146490574
+            children:
+              - url: "{{ _.base_path }}/client/7DBF7426C0E9458F82DAEBCC991D9886"
+                name: GET
+                meta:
+                  id: req_1501d66f6da9444193e2c32fe500ece0
+                  created: 1711490387788
+                  modified: 1720364340309
+                  isPrivate: false
+                  sortKey: -1711490387788
+                method: GET
+                headers:
+                  - name: User-Agent
+                    value: insomnia/8.6.1
+                    id: pair_f2cb677339f843489cc28ad02c1dd72d
+                  - id: pair_b503c0f6aca64094a12d9ba1e222d75e
+                    name: MYP-API-KEY
+                    value: D70A352AD6964AAC935013278A0ADDEA
+                    disabled: true
+                authentication:
+                  type: bearer
+                  token: "{{ _.bearer }}"
+                settings:
+                  renderRequestBody: true
+                  encodeUrl: true
+                  followRedirects: global
+                  cookies:
+                    send: true
+                    store: true
+                  rebuildPath: true
+              - url: "{{ _.base_path }}/client/"
+                name: ALL
+                meta:
+                  id: req_7c29c2db000549bc974e8d3c7d52f3b4
+                  created: 1720015081694
+                  modified: 1721834289886
+                  isPrivate: false
+                  sortKey: -1707683374820.5
+                method: GET
+                headers:
+                  - name: User-Agent
+                    value: insomnia/8.6.1
+                    id: pair_f2cb677339f843489cc28ad02c1dd72d
+                  - id: pair_b503c0f6aca64094a12d9ba1e222d75e
+                    name: MYP-API-KEY
+                    value: D70A352AD6964AAC935013278A0ADDEA
+                authentication:
+                  type: bearer
+                  token: "{{ _.bearer }}"
+                settings:
+                  renderRequestBody: true
+                  encodeUrl: true
+                  followRedirects: global
+                  cookies:
+                    send: true
+                    store: true
+                  rebuildPath: true
+              - url: "{{ _.base_path }}/client"
+                name: STORE
+                meta:
+                  id: req_90a9f6fe13984abd84248a83dd383402
+                  created: 1720017029545
+                  modified: 1721834436890
+                  isPrivate: false
+                  sortKey: -1709586881304.25
+                method: POST
+                body:
+                  mimeType: application/json
+                  text: |-
+                    {
+                    	"name": "tests"
+                    }
+                headers:
+                  - name: Content-Type
+                    value: application/json
+                  - name: User-Agent
+                    value: insomnia/8.6.1
+                    id: pair_f2cb677339f843489cc28ad02c1dd72d
+                  - id: pair_b503c0f6aca64094a12d9ba1e222d75e
+                    name: MYP-API-KEY
+                    value: "{{ _.X_API_KEY }}"
+                    type: text
+                    multiline: false
+                authentication:
+                  type: bearer
+                  token: "{{ _.bearer }}"
+                  disabled: false
+                settings:
+                  renderRequestBody: true
+                  encodeUrl: true
+                  followRedirects: global
+                  cookies:
+                    send: true
+                    store: true
+                  rebuildPath: true
+              - url: "{{ _.base_path }}/client/390B33D05F05470093866E176AB69A7B"
+                name: New Request
+                meta:
+                  id: req_b01be3f61eea459b8288ea7066d5f1e5
+                  created: 1721834459255
+                  modified: 1721834525194
+                  isPrivate: false
+                  sortKey: -1721834459255
+                method: DELETE
+                body:
+                  mimeType: application/json
+                headers:
+                  - name: Content-Type
+                    value: application/json
+                    id: pair_68c82b0cc32e48749b52a43a0ba5bfe9
+                  - name: User-Agent
+                    value: insomnia/9.3.2
+                    id: pair_22aa762b8caa46539eee3787f16e866f
+                  - id: pair_ddbc5c9feee44c9a8724250d3f0e0695
+                    name: MYP-PAI-KEY
+                    value: "{{ _.X_API_KEY }}"
+                    disabled: false
+                authentication:
+                  type: bearer
+                  token: "{{ _.bearer }}"
+                settings:
+                  renderRequestBody: true
+                  encodeUrl: true
+                  followRedirects: global
+                  cookies:
+                    send: true
+                    store: true
+                  rebuildPath: true
+          - url: "{{ _.base_path }}/auth/logout"
+            name: Logout
+            meta:
+              id: req_dd0e08298bdd4132a39268165d077982
+              created: 1696146490469
+              modified: 1726459277227
+              isPrivate: false
+              sortKey: -1696146490469
+            method: POST
+            authentication:
+              type: bearer
+              disabled: false
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_path }}/auth/login"
+            name: Login
+            meta:
+              id: req_e18ae96a3ded40d5ae8e8c9d962e2376
+              created: 1696146490471
+              modified: 1745371296846
+              isPrivate: false
+              sortKey: -1696146490471
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"login": "axtomy9@gmail.com",
+                	"password": "mypeltar@user"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: apiKey
+                value: 2N9S0lvFF7T9qaPaP4YkPmmgI8sYswGHqZ8sPcg1
+                id: pair_4b038fbbde6e466bb9011be424cd21c1
+                disabled: true
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_path }}/auth/refresh"
+            name: Refresh
+            meta:
+              id: req_a806f1f7625b49f686d037ce20891b0d
+              created: 1696146490473
+              modified: 1745371229237
+              isPrivate: false
+              sortKey: -1696146490473
+            method: POST
+            authentication:
+              type: bearer
+              disabled: false
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_path }}/auth/profile"
+            name: Profile
+            meta:
+              id: req_1f0794e3b79a4050abb01f761ca2172c
+              created: 1696146490474
+              modified: 1720364608950
+              isPrivate: false
+              sortKey: -1696146490474
+            method: GET
+            headers:
+              - id: pair-empty
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+                disabled: false
+              - id: pair_240b0e242c1f46dab0d2682d64eae560
+                name: MYP-API-KEY
+                value: CD0C0258-A560-4EC3-B4B2-C43410E110B7
+                disabled: true
+            authentication:
+              type: bearer
+              disabled: false
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_path }}/auth/forgot-password"
+            name: ForgotPassword
+            meta:
+              id: req_1a69baa94b0c44a5a47f330efe5e9dec
+              created: 1745367878240
+              modified: 1745374367330
+              isPrivate: false
+              sortKey: -1696146490470.5
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"email": "axtomy9@gmail.com"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: apiKey
+                value: 2N9S0lvFF7T9qaPaP4YkPmmgI8sYswGHqZ8sPcg1
+                id: pair_4b038fbbde6e466bb9011be424cd21c1
+                disabled: true
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_path }}/auth/reset-password"
+            name: ResetPassword
+            meta:
+              id: req_31472c9cbaf7456c917248568236766c
+              created: 1745367885559
+              modified: 1745375844048
+              isPrivate: false
+              sortKey: -1696146490470.25
+            method: POST
+            body:
+              mimeType: application/json
+              text: >-
+                {
+                	"token": "696fa2008e7fb7d50a5bf927268f0671a0ff4518208705955cddbe1e4ab43e07",
+                	"email": "axtomy9@gmail.com",
+                	"password_confirmation":"cobareset",
+                	"password":"cobareset"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: apiKey
+                value: 2N9S0lvFF7T9qaPaP4YkPmmgI8sYswGHqZ8sPcg1
+                id: pair_4b038fbbde6e466bb9011be424cd21c1
+                disabled: true
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+      - name: Aset
+        meta:
+          id: fld_f6d71bbab7c84c6798d8554402e1e9d8
+          created: 1696146490478
+          modified: 1696146490478
+          sortKey: -1696146490478
+        children:
+          - url: "{{ _.base_path_deploy }}/asset/"
+            name: GETALL ASSET
+            meta:
+              id: req_f0665b4851314ceeb255546c7fa098fb
+              created: 1696146490479
+              modified: 1745304843294
+              isPrivate: false
+              sortKey: -1700008098226.5
+            method: GET
+            parameters:
+              - id: pair_20571ac10b4d4476b913253a3838d0f3
+                name: page
+                value: "1"
+                disabled: false
+              - id: pair_0b1605696ee14a38bb8d4f12e24c2b19
+                name: limit
+                disabled: false
+              - id: pair_a9bb9e0f523c4b7988eb28f2f585f144
+                name: sort_by
+                disabled: false
+              - id: pair_9b9594c176da4a42bdc2ffd4e86fd9b2
+                name: order
+                value: id
+                disabled: false
+              - id: pair_29de981382b448cf992fef9e9943dec2
+                name: name
+                value: carlo
+                disabled: false
+            headers:
+              - id: pair_c33c3d8329ec4622b983e32b5287bf8e
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+                disabled: true
+            authentication:
+              type: bearer
+              disabled: false
+              token: "{{ _.bearer_deploy }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_path_deploy }}/asset"
+            name: STORE ASSET
+            meta:
+              id: req_f1e73a0c7965472893b9fd9850854c4a
+              created: 1696146490479
+              modified: 1744923529108
+              isPrivate: false
+              sortKey: -1698077294353.75
+            method: POST
+            body:
+              mimeType: multipart/form-data
+              params:
+                - name: stockcode
+                  value: "20202020049"
+                  id: pair_74a026638530460195eb6d033a764596
+                - id: pair_90abe0ff725d490e8a1f7d8f2aaebe13
+                  name: serialnumber
+                  value: 22aa-a564-kasd-asdl
+                  disabled: false
+                - id: pair_ff1983f1fb334277be98eb3ba4e94de1
+                  name: asset_name
+                  value: Ge
+                  disabled: false
+                - id: pair_66061cb4af0a4b41b8b9460f654ddf0a
+                  name: model
+                  value: carbonite
+                  disabled: false
+                - id: pair_2e63b050e6004aefb815dbe3498093e8
+                  name: specifications
+                  value: blablablablabla
+                  disabled: false
+                - id: pair_bea575eff5de474c98096707f2f65e81
+                  name: description
+                  value: blablablablabla
+                  disabled: false
+                - id: pair_615c2deb6d134317a958a1d839b0d0de
+                  name: id_location
+                  value: "2"
+                  disabled: false
+                - id: pair_4141bf1c333844a89a8dcaea2c271f98
+                  name: id_category[]
+                  value: "1"
+                  disabled: false
+                - id: pair_7e5a09dee88340458abbd4fae37cb702
+                  name: id_category[]
+                  value: "2"
+                  disabled: false
+                - id: pair_635d7b90fa03496886b40c6f91a2e9f1
+                  name: id_status
+                  value: "2"
+                  disabled: false
+                - id: pair_94402d58b0e34c8fb1c44f523b617ae6
+                  name: image
+                  disabled: false
+                  type: file
+                  fileName: C:\Users\JACK\Downloads\GSQCGJ9XwAEv50O.jpeg
+                - id: pair_c225d9a3f9c14ec8bba4a658e283bde2
+                  name: brand
+                  value: gear
+                  disabled: false
+            headers:
+              - name: Content-Type
+                value: multipart/form-data
+              - id: pair_1cd3c428804c4efd81f5498e8f662ff8
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+                disabled: false
+            authentication:
+              type: bearer
+              disabled: false
+              token: "{{ _.bearer_deploy }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_path_deploy }}/asset/7"
+            name: GET ASSET
+            meta:
+              id: req_c8b2128ed2a848978d24ba071017f239
+              created: 1696146490480
+              modified: 1745268078094
+              isPrivate: false
+              sortKey: -1696146490480
+            method: GET
+            headers:
+              - id: pair_d37857b1864e4a82834aa5478d6bd02e
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+            authentication:
+              type: bearer
+              disabled: false
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_path_deploy }}/asset/5"
+            name: UPDATE ASSET
+            meta:
+              id: req_075a8bbd088b4432abccf8dc1b3b5338
+              created: 1696146490481
+              modified: 1745262673497
+              isPrivate: false
+              sortKey: -1696146490481
+            method: POST
+            body:
+              mimeType: multipart/form-data
+              params:
+                - id: pair_6d0bfae9bf8b4936a040af1bdff66234
+                  name: stockcode
+                  value: "50650"
+                  disabled: false
+                - id: pair_cf661ae6e7bc4f08b5634e245ef8d13e
+                  name: serialnumber
+                  value: 22aa-a564-aasd-asdg
+                  disabled: false
+                - id: pair_b6c780bef48e488db019aa96f8f65f43
+                  name: asset_name
+                  value: Gearbox
+                  disabled: false
+                - id: pair_214f598987bd48d0b9512d5c14edf7c0
+                  name: brand
+                  value: merktern
+                  disabled: false
+                - id: pair_52d1fb2cd8c549e9887f5674cf718aaf
+                  name: model
+                  value: carbonite
+                  disabled: false
+                - id: pair_d480410e54914c138f58cc1292136ef5
+                  name: specifications
+                  value: blablablablabla
+                  disabled: false
+                - id: pair_d3a289dbc6394e7aa9c9be6cd22aee1b
+                  name: description
+                  value: blablablablabla
+                  disabled: false
+                - id: pair_b0a26d4514034c87bd4fdbed634c2495
+                  name: id_location
+                  value: "2"
+                  disabled: false
+                - id: pair_b2af340606dc4da18b413ba608c95b82
+                  name: id_category[]
+                  value: "1"
+                  disabled: false
+                  type: text
+                  multiline: true
+                - id: pair_42de3c340a4c46488cfdb8e6c82e150b
+                  name: id_status
+                  value: "2"
+                  disabled: false
+                - id: pair_3301cbc315744725b1e60d2746a2f7be
+                  name: _method
+                  value: PUT
+                  disabled: false
+            parameters:
+              - id: pair_e3876e6c7bd84a23a4b7d0ad5bb8e91a
+                disabled: false
+            headers:
+              - name: Content-Type
+                value: multipart/form-data
+              - id: pair_633dddee0185470b9f49df890eeeceb7
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+                disabled: false
+            authentication:
+              type: bearer
+              disabled: false
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_path_deploy }}/asset/search/"
+            name: SEARCH ASSET
+            meta:
+              id: req_aabd808cdc9a47e58a13d8780eac8e2e
+              created: 1703869705972
+              modified: 1745268486004
+              isPrivate: false
+              sortKey: -1703869705972
+            method: GET
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"search":"",
+                	"status": "dalam perbaikan",
+                	"location":"pompa"
+                }
+            parameters:
+              - id: pair_87c7eb4b3cd640f79652d9a03eb26762
+                name: asset_code
+                value: AST25010007
+                disabled: true
+            headers:
+              - name: Content-Type
+                value: application/json
+                id: pair_e570e2b84f934c23a8a562858346e03e
+              - name: User-Agent
+                value: insomnia/8.5.1
+                id: pair_4607796b0b41427b845b6f8b843d1565
+              - id: pair_33b48fd78b7d4e399a98b109e7a7074d
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+                disabled: false
+            authentication:
+              type: bearer
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_path }}/asset/2"
+            name: DESTROY
+            meta:
+              id: req_25755161ae3748cf87dc61a12cd47d8d
+              created: 1721719564905
+              modified: 1736612883253
+              isPrivate: false
+              sortKey: -1696146490466.5
+            method: DELETE
+            headers:
+              - name: User-Agent
+                value: insomnia/9.3.2
+                id: pair_5ec4c594242940b487b5d7225abafbe0
+              - id: pair_5b190fe5fb9e422aa517b8bfa369ccb7
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+                disabled: false
+            authentication:
+              type: bearer
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_path }}/asset/deleted"
+            name: GET DeletedRecords ASSET
+            meta:
+              id: req_10088df2892a423c8ede05e87057d22e
+              created: 1736611946556
+              modified: 1736612878295
+              isPrivate: false
+              sortKey: -1696146490429
+            method: GET
+            headers:
+              - id: pair_d37857b1864e4a82834aa5478d6bd02e
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+            authentication:
+              type: bearer
+              disabled: false
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_path }}/asset/restore/2"
+            name: RESTORE
+            meta:
+              id: req_9680f9f01859438bbb142123fa12683f
+              created: 1736612499676
+              modified: 1736612881043
+              isPrivate: false
+              sortKey: -1696146490454
+            method: POST
+            headers:
+              - name: User-Agent
+                value: insomnia/9.3.2
+                id: pair_5ec4c594242940b487b5d7225abafbe0
+              - id: pair_5b190fe5fb9e422aa517b8bfa369ccb7
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+                disabled: false
+            authentication:
+              type: bearer
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+      - name: Category
+        meta:
+          id: fld_5ae479c1884043d4bc4f8ee13cf09d32
+          created: 1696146490482
+          modified: 1696146490482
+          sortKey: -1696146490482
+        children:
+          - url: "{{ _.base_path_deploy }}/category/"
+            name: GETALL
+            meta:
+              id: req_a4be75d67aaf41c69543203d88572f2a
+              created: 1696146490482
+              modified: 1744800599675
+              isPrivate: false
+              sortKey: -1696146490482
+            method: GET
+            headers:
+              - id: pair_1d543ba8f8dc4beda36b8d04d5ec738d
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+                disabled: false
+            authentication:
+              type: bearer
+              disabled: false
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_path }}/category/"
+            name: STORE
+            meta:
+              id: req_d60ea052480f469baa17f9a0686b8087
+              created: 1696146490483
+              modified: 1737117669876
+              isPrivate: false
+              sortKey: -1696146490483
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                  "category": "mesinx",
+                  "divisi":1
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - id: pair_ac5c17d8c4ff485d9d18b425df900e33
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+                disabled: false
+            authentication:
+              type: bearer
+              disabled: false
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_path }}/category/2"
+            name: SHOW
+            meta:
+              id: req_8cfa7101ac3240a79d19234a2056b1dc
+              created: 1696146490484
+              modified: 1727775903143
+              isPrivate: false
+              sortKey: -1696146490484
+            method: GET
+            headers:
+              - id: pair_d28e3003aefd46619d146666bfc4312b
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+                disabled: false
+            authentication:
+              type: bearer
+              disabled: false
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_path }}/category/7"
+            name: UPDATE
+            meta:
+              id: req_f7ab29b9d845453881dc0d2a6d71c802
+              created: 1696146490484
+              modified: 1727775801258
+              isPrivate: false
+              sortKey: -1696146490484
+            method: PUT
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                  "category" : "mesin"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - id: pair_224a5e7e0f3f42d5bd33f72b9480f821
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+                disabled: false
+            authentication:
+              type: bearer
+              disabled: false
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_path }}/category/6"
+            name: DESTROY
+            meta:
+              id: req_c2189a1c23f6407984a82f47d50d965a
+              created: 1696146490485
+              modified: 1727727341297
+              isPrivate: false
+              sortKey: -1696146490485
+            method: DELETE
+            headers:
+              - id: pair_0ab7ec200bb64504ae770d2726b6e20e
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+                disabled: false
+            authentication:
+              type: bearer
+              disabled: false
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_path }}/category/search/"
+            name: SEARCH
+            meta:
+              id: req_25a3d920a33e4dc7bd7acf46467b2bce
+              created: 1696146490488
+              modified: 1737117661477
+              isPrivate: false
+              sortKey: -1696146490488
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                  "category":"",
+                	"id_divisi":""
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - id: pair_e4af17715c8a4971a6b233eb63435d5c
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+                disabled: false
+            authentication:
+              type: bearer
+              disabled: false
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+      - name: Location
+        meta:
+          id: fld_97812086d3db486a93725f5eaec73309
+          created: 1696146490490
+          modified: 1696146490490
+          sortKey: -1696146490490
+        children:
+          - url: "{{ _.base_path_deploy }}/location/"
+            name: GETALL
+            meta:
+              id: req_fce3174138854e80b985e3b13d8fe919
+              created: 1696146490491
+              modified: 1744796916571
+              isPrivate: false
+              sortKey: -1696146490491
+            method: GET
+            headers:
+              - id: pair_c2f31c6419df428d9016e77576ce528d
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+                disabled: false
+            authentication:
+              type: bearer
+              disabled: false
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_path }}/location/"
+            name: STORE
+            meta:
+              id: req_158775398b524497a3896c044911b7d6
+              created: 1696146490492
+              modified: 1721895336854
+              isPrivate: false
+              sortKey: -1696146490492
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                  "unit": "Gedung Utama"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - id: pair_ac6369f48a9a4a2598bdb5e38788904b
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+                disabled: false
+            authentication:
+              type: bearer
+              disabled: false
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_path }}/location/3"
+            name: SHOW
+            meta:
+              id: req_6eb5ef566c5044c98fa97d73cdb4cc2b
+              created: 1696146490492
+              modified: 1727721405267
+              isPrivate: false
+              sortKey: -1696146490492
+            method: GET
+            headers:
+              - id: pair_fbfb3f3360f440d28828e88d7cd9956b
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+                disabled: false
+            authentication:
+              type: bearer
+              disabled: false
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_path }}/location/7"
+            name: UPDATE
+            meta:
+              id: req_05684b125e60400f8ef84bbd0db86c4a
+              created: 1696146490493
+              modified: 1727722186585
+              isPrivate: false
+              sortKey: -1696146490493
+            method: PUT
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                  "unit":"Kantor"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - id: pair_a23ab1e0a02849f0918763052db7cbc8
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+                disabled: false
+            authentication:
+              type: bearer
+              disabled: false
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_path }}/location/6"
+            name: DESTROY
+            meta:
+              id: req_2a1ccd321eb84931a12534744aa8ebc4
+              created: 1696146490494
+              modified: 1727720982922
+              isPrivate: false
+              sortKey: -1696146490494
+            method: DELETE
+            headers:
+              - id: pair_b3211f5f140e4396b8f76b1b9a9fc686
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+                disabled: false
+            authentication:
+              type: bearer
+              disabled: false
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+      - name: Satker
+        meta:
+          id: fld_5230c1437c4746b7aff671778ed5c544
+          created: 1696146490495
+          modified: 1696146490495
+          sortKey: -1696146490495
+        children:
+          - url: "{{ _.base_path }}/satker/"
+            name: GetAll
+            meta:
+              id: req_6771430531d94085b73d563f2ad7a446
+              created: 1696146490496
+              modified: 1737097360309
+              isPrivate: false
+              sortKey: -1696146490496
+            method: GET
+            headers:
+              - id: pair_fa611ffb169b4d728c8a0c8c0bd66039
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+                disabled: false
+            authentication:
+              type: bearer
+              disabled: false
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_path }}/satker/"
+            name: STORE
+            meta:
+              id: req_eccf9e471018455da0bc8d5a6562c88a
+              created: 1696146490496
+              modified: 1727717783723
+              isPrivate: false
+              sortKey: -1696146490496
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                  "satker_name":"IT"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - id: pair_5c955d38f275443f858552b80d4938fb
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+                disabled: false
+            authentication:
+              type: bearer
+              disabled: false
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_path }}/satker/1"
+            name: Show
+            meta:
+              id: req_1a7adb0273f9463db307d3e5f2a3384f
+              created: 1696146490497
+              modified: 1721891178152
+              isPrivate: false
+              sortKey: -1696146490497
+            method: GET
+            headers:
+              - id: pair_e4a138c9b7464003a1c241286f1a3e61
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+                disabled: false
+            authentication:
+              type: bearer
+              disabled: false
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_path }}/satker/2"
+            name: UPDATE
+            meta:
+              id: req_60bcbf099c3543daa57be3d427947f68
+              created: 1696146490498
+              modified: 1727720252306
+              isPrivate: false
+              sortKey: -1696146490498
+            method: PUT
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"satker_name": "dummly"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - id: pair_c032b832403c4198ad1a75e402a268d9
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+                disabled: false
+            authentication:
+              type: bearer
+              disabled: false
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_path }}/satker/2"
+            name: DESTROY
+            meta:
+              id: req_d5c3c9685a234235857b38a544d5b250
+              created: 1696146490498
+              modified: 1721891269415
+              isPrivate: false
+              sortKey: -1696146490498
+            method: DELETE
+            headers:
+              - id: pair_2a804f7884a24268a720a4f6a859b8e3
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+                disabled: false
+            authentication:
+              type: bearer
+              disabled: false
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+      - name: Divisi
+        meta:
+          id: fld_5cbbbed1053e4f83a19e49f0d956e251
+          created: 1696146490499
+          modified: 1737096571886
+          sortKey: -1696146490499
+        children:
+          - url: "{{ _.base_path }}/divisi/"
+            name: GetAll
+            meta:
+              id: req_b9a4431d149746d89dab01c087d66920
+              created: 1696146490500
+              modified: 1737096643985
+              isPrivate: false
+              sortKey: -1696146490500
+            method: GET
+            headers:
+              - id: pair_5dd46f91822741e2a8da041214322944
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+                disabled: false
+            authentication:
+              type: bearer
+              disabled: false
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_path }}/divisi"
+            name: STORE
+            meta:
+              id: req_acdc18b37faa44ed8336b37ea70bd0bd
+              created: 1696146490501
+              modified: 1737096650909
+              isPrivate: false
+              sortKey: -1696146490501
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"divisi":"mekanik",
+                	"satker":"1"
+                }
+            parameters:
+              - id: pair-empty
+                disabled: true
+            headers:
+              - name: Content-Type
+                value: application/json
+                id: pair_616e7092fe3d4889b7bde5a5dc4e8e52
+              - id: pair_2ac3bf1266d143ccaf1da3cd3531ace3
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+            authentication:
+              type: bearer
+              disabled: false
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_path }}/divisi/3"
+            name: DESTROY
+            meta:
+              id: req_845c3cb1e3aa41de9906aac2140f36b7
+              created: 1696146490502
+              modified: 1737096653436
+              isPrivate: false
+              sortKey: -1696146490503.5
+            method: DELETE
+            headers:
+              - id: pair_eabe7e12c1ed4188b1e087031d999c6f
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+                disabled: false
+            authentication:
+              type: bearer
+              disabled: false
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_path }}/divisi/1"
+            name: Show
+            meta:
+              id: req_21baf600755a4cd18f80c51468a77411
+              created: 1696146490505
+              modified: 1737105321179
+              isPrivate: false
+              sortKey: -1696146490505
+            method: GET
+            headers:
+              - id: pair_bcca5f52199b4c60b7ae31ad63bbcc94
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+                disabled: false
+            authentication:
+              type: bearer
+              disabled: false
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_path }}/divisi/5"
+            name: UPDATE
+            meta:
+              id: req_fdbfd790b9474ab4a1482899d4cc0ac3
+              created: 1721895254102
+              modified: 1737096648280
+              isPrivate: false
+              sortKey: -1696146490500.5
+            method: PUT
+            body:
+              text: |-
+                {
+                  "divisi":"mekanix",
+                	"satker": "1"
+                }
+            headers:
+              - id: pair_cd2678070cdd40139634c88e75bd7859
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+                disabled: false
+              - id: pair_fb9e09e760d64a58ab976d6495d34647
+                name: Content-Type
+                value: application/json
+                disabled: false
+            authentication:
+              type: bearer
+              disabled: false
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+      - name: Role
+        meta:
+          id: fld_12042ff52fc14e44858dc830e442cf19
+          created: 1696146490507
+          modified: 1696146490507
+          sortKey: -1696146490507
+        children:
+          - url: "{{ _.base_path }}/role/"
+            name: GETALL
+            meta:
+              id: req_c8bfd2d56c4342a1b152548d7302a0b1
+              created: 1696146490508
+              modified: 1727533181881
+              isPrivate: false
+              sortKey: -1696146490508
+            method: GET
+            headers:
+              - id: pair_997a603b471f4430936d7ddb9c8d0a9c
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+                disabled: false
+            authentication:
+              type: bearer
+              disabled: false
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_path_deploy }}/role/"
+            name: SEARCH
+            meta:
+              id: req_d3881e7cfd4a442f96f380f46230ffd2
+              created: 1696146490512
+              modified: 1745348887711
+              isPrivate: false
+              sortKey: -1696146490512
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"role_id": "",
+                	"name": "Admin"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - id: pair_52a0c62da60f4bef923b17e4be2b13ad
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+                disabled: false
+            authentication:
+              type: bearer
+              disabled: false
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_path_deploy }}/role/assign/"
+            name: ASSIGN ROLE
+            meta:
+              id: req_e4a0510b18d94f98a7f128a98d2a1658
+              created: 1703873897409
+              modified: 1745349129626
+              isPrivate: false
+              sortKey: -1703873897409
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                    "user_id": 1,
+                    "role_id": 1
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/8.5.1
+                id: pair_b2d783838d2747e9a37bd35e84f312dc
+              - id: pair_b9201e742da94452810349f0eb45659e
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+                disabled: false
+            authentication:
+              type: bearer
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_path }}/role/permissions"
+            name: ROLE PERMISSION
+            meta:
+              id: req_65d8970d354144f884aad0577a976e5c
+              created: 1720513842537
+              modified: 1727170954546
+              isPrivate: false
+              sortKey: -1720513842537
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/9.3.2
+                id: pair_7ec3d7c7f865454ab87c2d53c6dda2f5
+                disabled: true
+              - id: pair_36254dfb87bb4ac980a0fe3d033116de
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+                disabled: false
+            authentication:
+              type: bearer
+              token: "{{ _.bearer }}"
+              disabled: false
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_path }}/role/revoke/"
+            name: REVOKE ROLE
+            meta:
+              id: req_4b30389b5c5a4375adbc306503e1ba51
+              created: 1727678494357
+              modified: 1727678510622
+              isPrivate: false
+              sortKey: -1703871801690.5
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                    "user_id": 3
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/8.5.1
+                id: pair_b2d783838d2747e9a37bd35e84f312dc
+              - id: pair_b9201e742da94452810349f0eb45659e
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+                disabled: false
+            authentication:
+              type: bearer
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+      - name: Status
+        meta:
+          id: fld_8a89f3174b1d4c9a921478a0357546aa
+          created: 1696146490513
+          modified: 1721838415042
+          sortKey: -1696146490513
+        children:
+          - url: "{{ _.base_path_deploy }}/status"
+            name: GETALL STATUS
+            meta:
+              id: req_db34c9f204454e34bea3e44f614ba748
+              created: 1696146490513
+              modified: 1744796883874
+              isPrivate: false
+              description: get all list of status
+              sortKey: -1696146490513
+            method: GET
+            headers:
+              - id: pair_a34577282bf641e0b0b0096ec1c2c8e2
+                name: myp-api-key
+                value: "{{ _.X_API_KEY }}"
+                disabled: false
+            authentication:
+              type: bearer
+              disabled: false
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_path }}/status"
+            name: STORE STATUS
+            meta:
+              id: req_fe7b07c7401a433ca1ffad31a103c5b0
+              created: 1696146490514
+              modified: 1726463338915
+              isPrivate: false
+              sortKey: -1696146490514
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                  "status":"createtest",
+                	"statustype":"ASST"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - id: pair_d60aa6fce1ff48ce89577e539ce864ba
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+                disabled: false
+            authentication:
+              type: bearer
+              disabled: false
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_path }}/status/1"
+            name: DESTROY STATUS
+            meta:
+              id: req_79296894721a4e8c9744bba700de1cd9
+              created: 1696146490515
+              modified: 1726466886290
+              isPrivate: false
+              sortKey: -1696146490515
+            method: DELETE
+            headers:
+              - id: pair_0f408a343259438d8b85db93363ea7e4
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+                disabled: false
+            authentication:
+              type: bearer
+              disabled: false
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_path }}/status/1"
+            name: UPDATE STATUS
+            meta:
+              id: req_b8a604d04a7d473db1cde43251d65f8b
+              created: 1696146490515
+              modified: 1726466624183
+              isPrivate: false
+              sortKey: -1696146490515
+            method: PUT
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"status": "Dalam Perbaikan",
+                	"statustype": "ASST"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - id: pair_4ea17ad30aa141279f7f63c2f22f1d0e
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+                disabled: false
+            authentication:
+              type: bearer
+              disabled: false
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_path }}/status/3"
+            name: GET STATUS
+            meta:
+              id: req_e84df9da6d4145f4b0aeb4aaa604b89b
+              created: 1696146490516
+              modified: 1726890472479
+              isPrivate: false
+              sortKey: -1696146490516
+            method: GET
+            headers:
+              - id: pair_e1ee1396d7b54bc8ac1729dc58a19333
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+                disabled: false
+            authentication:
+              type: bearer
+              disabled: false
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+      - name: Maintenance
+        meta:
+          id: fld_b47ac2cea42841fbab657ac5100d09f0
+          created: 1696146490518
+          modified: 1736709057845
+          sortKey: -1720422354177
+        children:
+          - name: Tracker
+            meta:
+              id: fld_d5f372a4b9b8457b8bd7575a8ed086e3
+              created: 1729503122069
+              modified: 1729863632275
+              sortKey: -1729503122069
+            children:
+              - url: "{{ _.base_path }}/maintenance/20/tracker"
+                name: STORE TRACK
+                meta:
+                  id: req_4a4f446925ee4535a5696ebc33eae11c
+                  created: 1729503194638
+                  modified: 1745354977170
+                  isPrivate: false
+                  sortKey: -1729503132305
+                method: POST
+                body:
+                  mimeType: multipart/form-data
+                  params:
+                    - id: pair_f43e343b64f1419da4be588e91e93a04
+                      name: description
+                      value: test tracker
+                      disabled: false
+                    - id: pair_4a089ca23e4c4d2e8f7ba4df5eabf0c3
+                      name: status_id
+                      value: "5"
+                      disabled: false
+                    - id: pair_fa96d042a1c04e10975e57d81581ceb3
+                      name: image
+                      disabled: false
+                      type: file
+                      fileName: C:\Users\JACK\Downloads\Telegram
+                        Desktop\60aabab7-8d75-46bb-9cfa-c3dbdcd1ef63 (2).jpeg
+                      multiline: false
+                headers:
+                  - name: Content-Type
+                    value: multipart/form-data
+                  - id: pair_8193b13808dc43178086c26a42e352d2
+                    name: MYP-API-KEY
+                    value: "{{ _.X_API_KEY }}"
+                    disabled: false
+                authentication:
+                  type: bearer
+                  disabled: false
+                  token: "{{ _.bearer }}"
+                settings:
+                  renderRequestBody: true
+                  encodeUrl: true
+                  followRedirects: global
+                  cookies:
+                    send: true
+                    store: true
+                  rebuildPath: true
+              - url: "{{ _.base_path_deploy }}/maintenance/1/tracker"
+                name: GET TRACK
+                meta:
+                  id: req_436122a3674a40418d914c185a8e27f6
+                  created: 1729863905250
+                  modified: 1745355706736
+                  isPrivate: false
+                  sortKey: -1728908516817.5
+                method: GET
+                headers:
+                  - id: pair_8193b13808dc43178086c26a42e352d2
+                    name: MYP-API-KEY
+                    value: "{{ _.X_API_KEY }}"
+                    disabled: false
+                authentication:
+                  type: bearer
+                  disabled: false
+                  token: "{{ _.bearer }}"
+                settings:
+                  renderRequestBody: true
+                  encodeUrl: true
+                  followRedirects: global
+                  cookies:
+                    send: true
+                    store: true
+                  rebuildPath: true
+              - url: "{{ _.base_path }}/maintenance/20/tracker/59"
+                name: UPDATE TRACK
+                meta:
+                  id: req_83fbfc8ffbfd42a9af65500c59430aa7
+                  created: 1730189480413
+                  modified: 1730270934662
+                  isPrivate: false
+                  sortKey: -1729205824561.25
+                method: POST
+                body:
+                  mimeType: multipart/form-data
+                  params:
+                    - id: pair_f43e343b64f1419da4be588e91e93a04
+                      name: description
+                      value: test upodate tracker
+                      disabled: false
+                    - id: pair_4a089ca23e4c4d2e8f7ba4df5eabf0c3
+                      name: status_id
+                      value: "5"
+                      disabled: false
+                    - id: pair_fa96d042a1c04e10975e57d81581ceb3
+                      name: image
+                      disabled: false
+                      type: file
+                      fileName: C:\Users\JACK\Downloads\Telegram
+                        Desktop\60aabab7-8d75-46bb-9cfa-c3dbdcd1ef63 (2).jpeg
+                      multiline: false
+                headers:
+                  - name: Content-Type
+                    value: multipart/form-data
+                  - id: pair_8193b13808dc43178086c26a42e352d2
+                    name: MYP-API-KEY
+                    value: "{{ _.X_API_KEY }}"
+                    disabled: false
+                authentication:
+                  type: bearer
+                  disabled: false
+                  token: "{{ _.bearer }}"
+                settings:
+                  renderRequestBody: true
+                  encodeUrl: true
+                  followRedirects: global
+                  cookies:
+                    send: true
+                    store: true
+                  rebuildPath: true
+              - url: "{{ _.base_path }}/maintenance/20/tracker/60"
+                name: DESTROY TRACK
+                meta:
+                  id: req_b6324c9131ff41568985743f10056df4
+                  created: 1730220306208
+                  modified: 1730306672459
+                  isPrivate: false
+                  sortKey: -1729354478433.125
+                method: DELETE
+                body:
+                  mimeType: multipart/form-data
+                  params:
+                    - id: pair_c722a0e172f94778aa4be5f1efb2ea8d
+                      disabled: false
+                headers:
+                  - name: Content-Type
+                    value: multipart/form-data
+                  - id: pair_8193b13808dc43178086c26a42e352d2
+                    name: MYP-API-KEY
+                    value: "{{ _.X_API_KEY }}"
+                    disabled: false
+                authentication:
+                  type: bearer
+                  disabled: false
+                  token: "{{ _.bearer }}"
+                settings:
+                  renderRequestBody: true
+                  encodeUrl: true
+                  followRedirects: global
+                  cookies:
+                    send: true
+                    store: true
+                  rebuildPath: true
+              - url: "{{ _.base_path_deploy }}/tracker/explore"
+                name: GET EXPLORE TRACK
+                meta:
+                  id: req_be3db546c2734fb1b9c5858b6fc842fb
+                  created: 1730307745602
+                  modified: 1745356194059
+                  isPrivate: false
+                  sortKey: -1728611209073.75
+                method: GET
+                parameters:
+                  - id: pair_39572930abf64f168624cfc39e118aa9
+                    name: status_id
+                    value: "5"
+                    disabled: true
+                  - id: pair_1739611760a5498eb3bea03c62514628
+                    name: asset_id
+                    value: "5"
+                    disabled: true
+                  - id: pair_f251d0f6da4a48cfaa974f99acc8c47e
+                    name: maintenance_id
+                    value: "100"
+                    disabled: true
+                  - id: pair_0499cfbb13734f1294f4790bbfe40022
+                    name: user_id
+                    value: "2"
+                    disabled: false
+                headers:
+                  - id: pair_8193b13808dc43178086c26a42e352d2
+                    name: MYP-API-KEY
+                    value: "{{ _.X_API_KEY }}"
+                    disabled: false
+                authentication:
+                  type: bearer
+                  disabled: false
+                  token: "{{ _.bearer }}"
+                settings:
+                  renderRequestBody: true
+                  encodeUrl: true
+                  followRedirects: global
+                  cookies:
+                    send: true
+                    store: true
+                  rebuildPath: true
+          - url: "{{ _.base_path_deploy }}/maintenance/"
+            name: GETALL MAINTENANCE
+            meta:
+              id: req_404b598284b94b8e9408fe8d34810c8f
+              created: 1696146490519
+              modified: 1745355485042
+              isPrivate: false
+              sortKey: -1696146490519
+            method: GET
+            parameters:
+              - id: pair_a9e2c3560fc14a6bba6b7a031cd415c1
+                name: page
+                value: "1"
+                disabled: false
+            headers:
+              - id: pair_a9fa238637f44f05a642623f545a9a35
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+                disabled: false
+            authentication:
+              type: bearer
+              disabled: false
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_path }}/maintenance/store"
+            name: TEST STORE MAINTENANCE
+            meta:
+              id: req_c952e3f5a35b4aa49e8bc7c29862aed6
+              created: 1696146490521
+              modified: 1729502744227
+              isPrivate: false
+              sortKey: -1696146490419
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"asset_id":"2",
+                	"type_id":"3",
+                	"description":"description"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - id: pair_75b86040f3ad45438c690896984a6071
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+                disabled: false
+            authentication:
+              type: bearer
+              disabled: false
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_path }}/maintenance/21"
+            name: GET MAINTENANCE
+            meta:
+              id: req_aa918029ac214a69b719fa9b58161fd1
+              created: 1696146490522
+              modified: 1736606995103
+              isPrivate: false
+              sortKey: -1696146490522
+            method: GET
+            headers:
+              - id: pair_8193b13808dc43178086c26a42e352d2
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+                disabled: false
+            authentication:
+              type: bearer
+              disabled: false
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_path_deploy }}/maintenance/maintenance_aplly/21"
+            name: APPLY MAINTENANCE
+            meta:
+              id: req_45edad22d80c4a7888f6d73ecaf39d33
+              created: 1697434023824
+              modified: 1745354431889
+              isPrivate: false
+              description: not Work Perfecly
+              sortKey: -1696146490622
+            method: POST
+            parameters:
+              - id: pair_588464903dcf4b0eb69c25de36b42d0c
+                name: asset
+                value: "2"
+                disabled: true
+            headers:
+              - name: User-Agent
+                value: insomnia/8.1.0
+            authentication:
+              type: bearer
+              token: "{{ _.bearer }}"
+              disabled: false
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_path }}/maintenance/self"
+            name: SELF  GET MAINTENANCE
+            meta:
+              id: req_1a7d8a74b6ae44a88f72035b72cda334
+              created: 1728011975976
+              modified: 1729503168942
+              isPrivate: false
+              sortKey: -1728011975976
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/10.0.0
+                id: pair_e31d4318cd15488a8fecfded3a0f0b91
+              - id: pair_f8f38f9cd89b43de855ba6db79270f4a
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+                disabled: false
+            authentication:
+              type: bearer
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_path_deploy }}/maintenance/"
+            name: STORE MAINTENANCE
+            meta:
+              id: req_a9ffdc60bd4c42bba643895daef38fc7
+              created: 1728130828980
+              modified: 1745353411051
+              isPrivate: false
+              sortKey: -1696146490520
+            method: POST
+            body:
+              mimeType: multipart/form-data
+              params:
+                - id: pair_ca70d9e3f8634b12a28681d71aa3f8af
+                  name: asset_id
+                  value: "2"
+                  disabled: false
+                - id: pair_0e9884c9231947b0b21307ef5e045fd1
+                  name: type_id
+                  value: "2"
+                  disabled: false
+                - id: pair_084c2d0ce4844abf8041d8b208c1d07c
+                  name: status_id
+                  value: "4"
+                  disabled: false
+                - id: pair_15d8dda7cd7a4716b78e4939800ebc4d
+                  name: description
+                  value: testfinal
+                  disabled: false
+                - id: pair_71b89acc48774c039dc92507fbee32ae
+                  name: imagebefore
+                  disabled: false
+                  type: file
+                  fileName: C:\Users\JACK\Downloads\Telegram
+                    Desktop\60aabab7-8d75-46bb-9cfa-c3dbdcd1ef63 (2).jpeg
+                - id: pair_b1832b80c6704e14b55aa80e2134189c
+                  name: urgency_id
+                  value: "2"
+                  disabled: false
+            headers:
+              - name: Content-Type
+                value: multipart/form-data
+              - id: pair_75b86040f3ad45438c690896984a6071
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+                disabled: false
+            authentication:
+              type: bearer
+              disabled: false
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_path }}/maintenance/21"
+            name: DESTROY MAINTENANCE
+            meta:
+              id: req_d9542c79fa9644298a2ce14819b0cca1
+              created: 1728313901330
+              modified: 1736610282276
+              isPrivate: false
+              sortKey: -1728313901330
+            method: DELETE
+            headers:
+              - name: User-Agent
+                value: insomnia/10.0.0
+                id: pair_02ad2406ebde47bfaaafebe512f78e26
+              - id: pair_222590de84f84a9dbe1dda1cf1ffa618
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+                disabled: false
+            authentication:
+              type: bearer
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_path_deploy }}/maintenance/1"
+            name: UPDATE MAINTENANCE
+            meta:
+              id: req_2a5d9bfc29a3474eb8ce712d1292b743
+              created: 1728630101051
+              modified: 1745355573997
+              isPrivate: false
+              sortKey: -1696146490519.875
+            method: POST
+            body:
+              mimeType: multipart/form-data
+              params:
+                - id: pair_ceae5fad4ae142859d7a143422f718d3
+                  name: type_id
+                  value: "1"
+                  disabled: false
+                  type: text
+                  multiline: false
+                - id: pair_b2329a84761a43789d8263cf2bfdf972
+                  name: status_id
+                  value: "4"
+                  disabled: false
+                - id: pair_ab4087d4c93949198fa1bd1499c7896c
+                  name: urgency_id
+                  value: "3"
+                  disabled: false
+                - id: pair_2f2715776f814792878eb1943998ad27
+                  name: description
+                  value: newdescription testfinal
+                  disabled: false
+                - id: pair_d85895de8d754c949e14c44f92882ff3
+                  name: imagebefore
+                  disabled: false
+                  type: file
+                  fileName: C:\Users\JACK\Downloads\Telegram
+                    Desktop\99bf43a3-69eb-4ed2-b19c-2e7b02efe592.jpeg
+            headers:
+              - name: Content-Type
+                value: multipart/form-data
+                id: pair_0721282072254dd9ac591e1d98d45b51
+                disabled: false
+              - id: pair_75b86040f3ad45438c690896984a6071
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+                disabled: false
+            authentication:
+              type: bearer
+              disabled: false
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_path }}/maintenance/25"
+            name: FAIL UPDATE MAINTENANCE
+            meta:
+              id: req_6de7b40f96f84e09b144b78c4804d887
+              created: 1729506546809
+              modified: 1734594271005
+              isPrivate: false
+              sortKey: -1696146490506.5
+            method: PATCH
+            body:
+              mimeType: multipart/form-data
+              params:
+                - id: pair_ca70d9e3f8634b12a28681d71aa3f8af
+                  name: status_id
+                  value: "5"
+                  disabled: false
+                - id: pair_0e9884c9231947b0b21307ef5e045fd1
+                  name: type_id
+                  value: "2"
+                  disabled: false
+                - id: pair_15d8dda7cd7a4716b78e4939800ebc4d
+                  name: description
+                  value: nanana
+                  disabled: false
+                - id: pair_71b89acc48774c039dc92507fbee32ae
+                  name: imagebefore
+                  disabled: true
+                  type: file
+                  fileName: C:\Users\JACK\Downloads\Telegram
+                    Desktop\60aabab7-8d75-46bb-9cfa-c3dbdcd1ef63 (2).jpeg
+            headers:
+              - name: Content-Type
+                value: multipart/form-data
+                id: pair_f06cb1fef788411598a567979f0c1520
+                disabled: false
+              - id: pair_75b86040f3ad45438c690896984a6071
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+                disabled: false
+            authentication:
+              type: bearer
+              disabled: false
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_path }}/maintenance/store"
+            name: FAIL UPDATES MAINTENANCE
+            meta:
+              id: req_edb7f76ac78c4cdf95de1046bc4b233d
+              created: 1729520448808
+              modified: 1734594276529
+              isPrivate: false
+              sortKey: -1696146490494
+            method: PUT
+            body:
+              mimeType: multipart/form-data
+              params:
+                - id: pair_ca70d9e3f8634b12a28681d71aa3f8af
+                  name: asset_id
+                  value: "2"
+                  disabled: true
+                - id: pair_0e9884c9231947b0b21307ef5e045fd1
+                  name: type_id
+                  value: "2"
+                  disabled: false
+                - id: pair_084c2d0ce4844abf8041d8b208c1d07c
+                  name: status_id
+                  value: "4"
+                  disabled: true
+                - id: pair_15d8dda7cd7a4716b78e4939800ebc4d
+                  name: description
+                  value: nanana
+                  disabled: true
+                - id: pair_71b89acc48774c039dc92507fbee32ae
+                  name: imagebefore
+                  disabled: true
+                  type: file
+                  fileName: C:\Users\JACK\Downloads\Telegram
+                    Desktop\60aabab7-8d75-46bb-9cfa-c3dbdcd1ef63 (2).jpeg
+            headers:
+              - name: Content-Type
+                value: multipart/form-data
+              - id: pair_75b86040f3ad45438c690896984a6071
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+                disabled: false
+            authentication:
+              type: bearer
+              disabled: false
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_path }}/maintenance/cancel_maintenance_aplly/21"
+            name: CANCEL APPLY MAINTENANCE
+            meta:
+              id: req_f65b56077b304e34b3e0d855d47355b7
+              created: 1736609359959
+              modified: 1745354583897
+              isPrivate: false
+              description: not Work Perfecly
+              sortKey: -1696146490572
+            method: POST
+            parameters:
+              - id: pair_588464903dcf4b0eb69c25de36b42d0c
+                name: asset
+                value: "2"
+                disabled: true
+            headers:
+              - name: User-Agent
+                value: insomnia/8.1.0
+            authentication:
+              type: bearer
+              token: "{{ _.bearer }}"
+              disabled: false
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+      - name: USER
+        meta:
+          id: fld_639fbf7b4ea74d0ea2f078b25e94195d
+          created: 1703874607059
+          modified: 1720423807008
+          sortKey: -1720422353827
+        children:
+          - url: "{{ _.base_path }}/user"
+            name: GETALL
+            meta:
+              id: req_6577fd37425641e3846d1be8b9823ba6
+              created: 1703874619205
+              modified: 1745367083147
+              isPrivate: false
+              sortKey: -1703874619205
+            method: GET
+            parameters:
+              - id: pair_fb0bf13f7eb1403b929e8c540848a1f1
+                name: page
+                value: "1"
+                disabled: false
+            headers:
+              - name: User-Agent
+                value: insomnia/8.5.1
+                id: pair_49aec9214d9641e4986af254d56108f6
+              - id: pair_fb4bf4d4ad254d45a537c7d1d1a57fff
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+                disabled: false
+            authentication:
+              type: bearer
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_path_deploy }}/user/44e4249e-e6ad-4e51-bc0c-3282f7b87275"
+            name: GET
+            meta:
+              id: req_c4804806d0fb43b29b1d7120305ff653
+              created: 1703874817334
+              modified: 1745351957600
+              isPrivate: false
+              sortKey: -1703874258307
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/8.5.1
+                id: pair_b117291fbc604098abc502720069d36e
+              - id: pair_b189e1b7d4094b1189e988f950a89539
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+            authentication:
+              type: bearer
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_path }}/user"
+            name: STORE
+            meta:
+              id: req_46ef5f67edab4fef84ed2b76fd8f3e6e
+              created: 1703876361853
+              modified: 1745367093928
+              isPrivate: false
+              sortKey: -1703876361853
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"name":"jack",
+                	"email":"example@example",
+                	"username":"jackzte",
+                	"id_role":"",
+                	"id_satker":"2",
+                	"id_divisi":"2"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+                id: pair_c11d7a85e028483f9c5c830c6bdfde24
+              - name: User-Agent
+                value: insomnia/8.5.1
+                id: pair_299e14b3a9474a669c55d6b63637482b
+                disabled: false
+              - id: pair_5709fe3fba2c4d5a8ae2a3303f098e59
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+                disabled: false
+            authentication:
+              type: bearer
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_path }}/user/b5ba12e20e01451ca5f471f139a0ad61"
+            name: DELETE
+            meta:
+              id: req_cdef53914a734d5c94ed7f3b35aa43af
+              created: 1721838043031
+              modified: 1726463191722
+              isPrivate: false
+              sortKey: -1721838043031
+            method: DELETE
+            headers:
+              - name: User-Agent
+                value: insomnia/9.3.2
+                id: pair_427ddb3ee86445099182e08f01a40710
+              - id: pair_70934523f023425a8c33eeaff4fcc686
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+                disabled: false
+            authentication:
+              type: bearer
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_path_deploy }}/user/search"
+            name: SEARCH
+            meta:
+              id: req_a69e3b9d46a34088aac605d1d26eb5e4
+              created: 1745343014902
+              modified: 1745351078260
+              isPrivate: false
+              sortKey: -1703874077858
+            method: GET
+            parameters:
+              - id: pair_80bb425189ec4e0bb2fad96c5d9bca4f
+                name: username
+                value: inspeksi
+                disabled: false
+              - id: pair_446a9d9dc9dd44f5b170b52fa72dae5e
+                disabled: true
+            headers:
+              - name: User-Agent
+                value: insomnia/8.5.1
+                id: pair_b117291fbc604098abc502720069d36e
+              - id: pair_b189e1b7d4094b1189e988f950a89539
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+                disabled: true
+            authentication:
+              type: bearer
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_path_deploy }}/user/44e4249e-e6ad-4e51-bc0c-3282f7b87275"
+            name: UPDATE
+            meta:
+              id: req_34c4b9aeb8c94b4fb9911e043aecd047
+              created: 1745351607626
+              modified: 1745351980234
+              isPrivate: false
+              sortKey: -1703875490529
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"_method":"PUT",
+                	"name":"jack",
+                	"email":"example@example",
+                	"username":"jackzte",
+                	"id_role":"2",
+                	"id_satker":"2",
+                	"id_divisi":"1"
+                }
+            parameters:
+              - id: pair_f839e1ff3b49497d886e54ac630fd837
+                disabled: false
+            headers:
+              - name: Content-Type
+                value: application/json
+                id: pair_c11d7a85e028483f9c5c830c6bdfde24
+              - name: User-Agent
+                value: insomnia/8.5.1
+                id: pair_299e14b3a9474a669c55d6b63637482b
+                disabled: false
+              - id: pair_5709fe3fba2c4d5a8ae2a3303f098e59
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+                disabled: false
+              - id: pair_c62500a5c5d5417584502873d5e40743
+                name: _method
+                value: PUT
+                disabled: false
+            authentication:
+              type: bearer
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_path }}/user/resetpassword/06c7d009-0268-4d75-bf65-acd8e07d347d"
+            name: RESET PASSWORD
+            meta:
+              id: req_9af870aba84c4c7da4f08c1274a075b8
+              created: 1745366613783
+              modified: 1745367123663
+              isPrivate: false
+              sortKey: -1745366613783
+            method: POST
+            headers:
+              - name: User-Agent
+                value: insomnia/11.0.2
+            authentication:
+              type: bearer
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+      - name: Inspeksi
+        meta:
+          id: fld_38157348dfb448fda47e608dfab1dbd2
+          created: 1720422353777
+          modified: 1720422353777
+          sortKey: -1720422353777
+        children:
+          - url: "{{ _.base_path }}/inspeksi/"
+            name: GETALL INSPEKSI
+            meta:
+              id: req_71b93f1fad2c48b7ba082541a13fbbd8
+              created: 1720422393486
+              modified: 1734706363737
+              isPrivate: false
+              sortKey: -1720422393486
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/9.3.2
+                id: pair_687bb98041b24c0aa47a99bf209c13e2
+              - id: pair_6f6fb32791a04c23ba703db1ff7f1c4b
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+                disabled: false
+            authentication:
+              type: bearer
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_path }}/inspeksi/"
+            name: STORE INSPEKSI
+            meta:
+              id: req_a6fc9847d7c3472ea35e184f94dff42d
+              created: 1734351660905
+              modified: 1734426049238
+              isPrivate: false
+              sortKey: -1720422393586
+            method: POST
+            body:
+              mimeType: multipart/form-data
+              params:
+                - id: pair_ca70d9e3f8634b12a28681d71aa3f8af
+                  name: asset_id
+                  value: "2"
+                  disabled: false
+                - id: pair_0e9884c9231947b0b21307ef5e045fd1
+                  name: type_id
+                  value: "2"
+                  disabled: false
+                - id: pair_084c2d0ce4844abf8041d8b208c1d07c
+                  name: status_id
+                  value: "4"
+                  disabled: false
+                - id: pair_15d8dda7cd7a4716b78e4939800ebc4d
+                  name: description
+                  value: nanana
+                  disabled: false
+                - id: pair_71b89acc48774c039dc92507fbee32ae
+                  name: image
+                  disabled: false
+                  type: file
+                  fileName: C:\Users\JACK\Downloads\Telegram
+                    Desktop\60aabab7-8d75-46bb-9cfa-c3dbdcd1ef63 (2).jpeg
+                - id: pair_b1832b80c6704e14b55aa80e2134189c
+                  name: urgency_id
+                  value: "2"
+                  disabled: false
+                - id: pair_2b2a5a9d93ec4e1da772be42246583ad
+                  name: maintenance_needed
+                  value: "1"
+                  disabled: false
+            headers:
+              - name: Content-Type
+                value: multipart/form-data
+              - id: pair_75b86040f3ad45438c690896984a6071
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+                disabled: false
+            authentication:
+              type: bearer
+              disabled: false
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_path }}/inspeksi/11"
+            name: UPDATE INSPEKSI
+            meta:
+              id: req_ac05dcdd9c354854980e7b571e548123
+              created: 1734619235585
+              modified: 1736613168245
+              isPrivate: false
+              sortKey: -1720422393786
+            method: POST
+            body:
+              mimeType: multipart/form-data
+              params:
+                - id: pair_ca70d9e3f8634b12a28681d71aa3f8af
+                  name: asset_id
+                  value: "2"
+                  disabled: false
+                - id: pair_0e9884c9231947b0b21307ef5e045fd1
+                  name: type_id
+                  value: "2"
+                  disabled: false
+                - id: pair_084c2d0ce4844abf8041d8b208c1d07c
+                  name: status_id
+                  value: "4"
+                  disabled: false
+                - id: pair_15d8dda7cd7a4716b78e4939800ebc4d
+                  name: description
+                  value: nanana
+                  disabled: false
+                - id: pair_71b89acc48774c039dc92507fbee32ae
+                  name: image
+                  disabled: false
+                  type: file
+                  fileName: C:\Users\JACK\Downloads\Telegram
+                    Desktop\60aabab7-8d75-46bb-9cfa-c3dbdcd1ef63 (2).jpeg
+                - id: pair_b1832b80c6704e14b55aa80e2134189c
+                  name: urgency_id
+                  value: "2"
+                  disabled: false
+                - id: pair_2b2a5a9d93ec4e1da772be42246583ad
+                  name: maintenance_needed
+                  value: "1"
+                  disabled: false
+            headers:
+              - name: Content-Type
+                value: multipart/form-data
+              - id: pair_75b86040f3ad45438c690896984a6071
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+                disabled: false
+            authentication:
+              type: bearer
+              disabled: false
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_path }}/inspeksi/11"
+            name: GET INSPEKSI
+            meta:
+              id: req_cf3365224f964f81b96880cd50eb23aa
+              created: 1734706374445
+              modified: 1736613153643
+              isPrivate: false
+              sortKey: -1720284233646.5
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/9.3.2
+                id: pair_687bb98041b24c0aa47a99bf209c13e2
+              - id: pair_6f6fb32791a04c23ba703db1ff7f1c4b
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+                disabled: false
+            authentication:
+              type: bearer
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_path }}/inspeksi/11"
+            name: DELETE INSPEKSI
+            meta:
+              id: req_0e4e63aa954b4ce2802f25ad3b60cb4f
+              created: 1736447868174
+              modified: 1736613178851
+              isPrivate: false
+              sortKey: -1720215153726.75
+            method: DELETE
+            headers:
+              - name: User-Agent
+                value: insomnia/9.3.2
+                id: pair_687bb98041b24c0aa47a99bf209c13e2
+              - id: pair_6f6fb32791a04c23ba703db1ff7f1c4b
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+                disabled: false
+            authentication:
+              type: bearer
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+      - name: URGENCY LEVEL
+        meta:
+          id: fld_bcf73de1bcbe4770b54dddaf6d9794bf
+          created: 1733333923238
+          modified: 1733333989320
+          sortKey: -1720422354077
+        children:
+          - url: "{{ _.base_path }}/urgencylevel"
+            name: GET URGENCY LEVEL
+            meta:
+              id: req_ae78519340794a02a78ba783c8c6397f
+              created: 1733334057466
+              modified: 1733334148126
+              isPrivate: false
+              sortKey: -1733334062535
+            method: GET
+            headers:
+              - id: pair_e1ee1396d7b54bc8ac1729dc58a19333
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+                disabled: false
+            authentication:
+              type: bearer
+              disabled: false
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_path }}/urgencylevel/8"
+            name: UPDATE URGENCY LEVEL
+            meta:
+              id: req_0a359118b8024ece94f51b534eb58c93
+              created: 1733334105345
+              modified: 1733342983746
+              isPrivate: false
+              sortKey: -1733334062635
+            method: PUT
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"status_name": "createtests",
+                	"priority_level": "5",
+                	"description": "test"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - id: pair_4ea17ad30aa141279f7f63c2f22f1d0e
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+                disabled: false
+            authentication:
+              type: bearer
+              disabled: false
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_path }}/urgencylevel/7"
+            name: DESTROY URGENCY LEVEL
+            meta:
+              id: req_8044ae3ac5d34b3aa092781c4f9e254e
+              created: 1733334115006
+              modified: 1733342653995
+              isPrivate: false
+              sortKey: -1733334062585
+            method: DELETE
+            headers:
+              - id: pair_0f408a343259438d8b85db93363ea7e4
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+                disabled: false
+            authentication:
+              type: bearer
+              disabled: false
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_path }}/urgencylevel"
+            name: STORE URGENCY LEVEL
+            meta:
+              id: req_1cdf7da92bf84201a6661a76b9097dc8
+              created: 1733334129092
+              modified: 1733335867681
+              isPrivate: false
+              sortKey: -1733334062560
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                  "status_name":"createtest",
+                	"priority_level": "5",
+                	"description":"test"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - id: pair_d60aa6fce1ff48ce89577e539ce864ba
+                name: MYP-API-KEY
+                value: "{{ _.X_API_KEY }}"
+                disabled: false
+            authentication:
+              type: bearer
+              disabled: false
+              token: "{{ _.bearer }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+      - name: Folder TEST
+        meta:
+          id: fld_490bfa89d7e74b1e9b6977b79d382ed7
+          created: 1739431276975
+          modified: 1739431290136
+          sortKey: -1696146490480
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_82778cdd6437e4f5241e2b86ccae25a1e868cb8c
+    created: 1684307470239
+    modified: 1745369392714
+  cookies:
+    - key: XSRF-TOKEN
+      value: eyJpdiI6InJHNVJrVldUZTZ1RkFsdlZQS0hndUE9PSIsInZhbHVlIjoiY1RyZ3JjNVMyM3VBVTZuc2xRMWJTZ0ZUbjNYQ05LTTFTTW1ZaDd3U0RuVXVOWnVaYS9uT0UvMVd3RlR6UDJ6VHRXZ0d1N005eHUzUWpqWjdiV3VoRmpEVmVyN3Q3SlcydUpqM1RZWEVvLzNkaVBqS0lxMjNMMzY4QStoc1lZb00iLCJtYWMiOiIwNzJhZjMxNWRlY2IyYTg0NjJjZjgyMzFmZWNjNWFkMGIzMGE2MWFhNTNmMGI0NzIwZWRiZDg1YzQ4NDJhNjljIiwidGFnIjoiIn0%3D
+      maxAge: 7200
+      domain: 127.0.0.1
+      path: /
+      hostOnly: true
+      creation: 2024-09-30T06:12:16.091Z
+      lastAccessed: 2025-04-23T00:49:52.712Z
+      sameSite: lax
+      id: 017c2726-5e54-43ed-958e-ba7593e3139f
+    - key: mypeltar_session
+      value: eyJpdiI6IkY5M0JTcFU2UC9PUWdIcndjUTFwZ1E9PSIsInZhbHVlIjoieWNZaVBudGVBbEloWjNIaXZyRUNpL0srRjhoanQwdWdKUHE1Uzlha1dYT0wvUkhxbFFiNTJERW9jWHNFSm9ZN2lYQjhnTWtWMWwvV0crTTZYZTJrVGVsTlBJWGhxZlR1RklRMlNUVEtDT25FNW16TmtjODVzeldvdHZJOU1HYngiLCJtYWMiOiJhNDVmMGM4ODgzZDcyNGMxZTk3NjVhMzcwMmE0NDk2NTc4OGZiZDEzMTExMTc4MmFiYjQ4Nzk2MzFiZTUyN2YyIiwidGFnIjoiIn0%3D
+      maxAge: 7200
+      domain: 127.0.0.1
+      path: /
+      httpOnly: true
+      hostOnly: true
+      creation: 2024-09-30T06:12:16.092Z
+      lastAccessed: 2025-04-23T00:49:52.714Z
+      sameSite: lax
+      id: 24d23756-7990-4c59-a7e4-c4682c4cf61b
+environments:
+  name: Base Environment
+  meta:
+    id: env_82778cdd6437e4f5241e2b86ccae25a1e868cb8c
+    created: 1684307470237
+    modified: 1719780300218
+    isPrivate: false
+  subEnvironments:
+    - name: Alpha
+      meta:
+        id: env_ec0c6e1be0bf47b89e4283c6d1f14efb
+        created: 1684307490443
+        modified: 1745373939367
+        isPrivate: false
+        sortKey: 1684307490443
+      data:
+        bearer: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE3NDUzNzM5MTYsImV4cCI6MTc0NTYzMzExNiwibmJmIjoxNzQ1MzczOTE2LCJqdGkiOiJsdUxqN2czMzFVUmFzMUJoIiwic3ViIjoiMiIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjciLCJ1dWlkIjoiNTE0OTE1NmEtYWRjOS00YTdlLWFkYzktMmQzMjhkNGI1NmRkIn0.YD_3TRp1ULkCkdcmhOSxLGH_A08QsjWe56rPBF5gKNA
+        bearer_deploy: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE3NDUzNzM5MTYsImV4cCI6MTc0NTYzMzExNiwibmJmIjoxNzQ1MzczOTE2LCJqdGkiOiJsdUxqN2czMzFVUmFzMUJoIiwic3ViIjoiMiIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjciLCJ1dWlkIjoiNTE0OTE1NmEtYWRjOS00YTdlLWFkYzktMmQzMjhkNGI1NmRkIn0.YD_3TRp1ULkCkdcmhOSxLGH_A08QsjWe56rPBF5gKNA
+        base_path: http://127.0.0.1:8000/api/v1
+        base_path_deploy: https://119.252.161.220/api/v1
+        X_API_KEY: 8FF10306-6292-4C01-A099-3B1FF8A70524
+        X_API_KEY_DEPLOY: DD01642E-EB93-4F40-880F-E62B7B924AFD
+      color: "#c32828"
+    - name: OpenAPI env petstore.swagger.io
+      meta:
+        id: env_ee8a8012acc041c0adf68c9681b3c36b
+        created: 1720344020321
+        modified: 1720344020321
+        isPrivate: false
+        sortKey: 1720344020321
+      data:
+        scheme: https
+        base_path: /v2
+        host: petstore.swagger.io
+spec:
+  meta:
+    id: spc_a9025c60e4e943898fa7c1903d7dc462
+    created: 1720344994394
+    modified: 1745364678882
+testSuites:
+  - name: Example Test Suite
+    meta:
+      id: uts_788f4dce3bb8489ea03095c622e4d924
+      created: 1684307470248
+      modified: 1684307470248
+      sortKey: -1745415317196
+    tests:
+      - name: Returns 200
+        meta:
+          id: ut_5f9e0d93a57d4a45ae6728c56f8048c2
+          created: 1720365418891
+          modified: 1739431702548
+          sortKey: -1739431018298
+        requestId: req_f0665b4851314ceeb255546c7fa098fb
+        code: >-
+          // const expect = require('chai').expect;
+
+          const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
+
+          async function testRateLimit() {
+            const sendRequest = async () => {
+              const response = await insomnia.send();
+              return { status: response.status, body: JSON.parse(response.data) };
+            };
+
+            // First 3 requests should succeed
+            for (let i = 0; i < 50; i++) {
+              const response = await sendRequest();
+              expect(response.status).to.equal(200);
+              if (i < 2) await sleep(100); // Small delay between requests
+            }
+
+            // 4th request should fail
+            const failedResponse = await sendRequest();
+            expect(failedResponse.status).to.equal(429);
+            expect(failedResponse.body.message).to.equal('Too many requests');
+
+            // Wait for rate limit to reset
+          //   await sleep(60000);
+
+            // Request should succeed again
+            const finalResponse = await sendRequest();
+            expect(finalResponse.status).to.equal(200);
+          }
+
+
+          testRateLimit();
+      - name: Returns 200
+        meta:
+          id: ut_5108e81c829949448e9f53e475e354a6
+          created: 1739431018297
+          modified: 1739431077830
+          sortKey: -1739431018297
+        requestId: req_f0665b4851314ceeb255546c7fa098fb
+        code: |-
+          for (let i = 0; i < 50; i++) { // Ubah angka untuk jumlah request
+            let response = await insomnia.send();
+            console.log(`Response ${i + 1}:`, response.status);
+          }

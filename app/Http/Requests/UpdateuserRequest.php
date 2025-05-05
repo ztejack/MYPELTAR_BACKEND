@@ -44,10 +44,14 @@ class UpdateuserRequest extends FormRequest
                 Rule::unique('users', 'username')->ignore($userId),
                 'string',
             ],
-            'id_satker' => 'required',
-            'id_divisi' => 'required',
-            'id_role' => 'required',
+            'id_satker' => 'required|exists:satkers,id',
+            'id_divisi' => 'required|exists:divisis,id',
         ];
+        if (!is_null($this->input('id_role'))) {
+            $rule['id_role'] = 'not_in:1';
+        } else {
+            $rule['id_role'] = '';
+        }
         return $rule;
     }
     protected function failedValidation(Validator $validator)

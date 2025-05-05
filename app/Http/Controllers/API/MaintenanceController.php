@@ -46,14 +46,30 @@ class MaintenanceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         try {
-            $maintenances = Maintenance::latest()->paginate(50);
+            $limit = $request->query('limit', 20);
+            $maintenances = Maintenance::when(request('id_status'), function ($query) {
+                $query->where('id_status', request('id_status'));
+            })->when(request('exclude_status'), function ($query) {
+                $excluded = explode(',', request('exclude_status'));
+                $query->whereNotIn('id_status', $excluded);
+            })
+                ->latest()
+                ->paginate($limit);
+            $pagination = [
+                'current_page' => $maintenances->currentPage(),
+                'last_page' => $maintenances->lastPage(),
+                'per_page' => $maintenances->perPage(),
+                'total' => $maintenances->total(),
+                'from' => $maintenances->firstItem(),
+                'to' => $maintenances->lastItem(),
+            ];
             return response()->json(
                 [
-                    "data" =>
-                    MaintenanceResource::collection($maintenances)
+                    "data" => MaintenanceResource::collection($maintenances),
+                    'pagination' => $pagination,
                 ],
                 200,
                 [],
@@ -100,6 +116,7 @@ class MaintenanceController extends Controller
     public function store(StoreMaintenanceRequest $request)
     {
         try {
+            $input = $request->validated();
             $this->maintenanceService->storeMaintenance($request);
 
             return response()->json(['status' => 'Maintenance Successfully Stored !'], 201);
@@ -107,7 +124,7 @@ class MaintenanceController extends Controller
             return response()->json([
                 'error' => 'Failed to store maintenance',
                 'message' => $e->getMessage(),
-            ], 500);
+            ]);
         }
     }
 
@@ -200,7 +217,7 @@ class MaintenanceController extends Controller
         }
         return response()->json(['status' => 'Maintenance Successfully Aplly !'], 201);
     }
-    public function cancle_maintenance_apply(Request $request, Maintenance $maintenance)
+    public function cancel_maintenance_apply(Request $request, Maintenance $maintenance)
     {
         try {
             $user = Auth::user();

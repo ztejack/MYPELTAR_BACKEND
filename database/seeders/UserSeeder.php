@@ -22,41 +22,49 @@ class UserSeeder extends Seeder
             'name' => 'SuperUser',
             'username' => 'superuser',
             'id_divisi' => 1,
-            'email' => 'superuser@example.com',
-            'password' => bcrypt('123456789'),
+            'email' => 'axtomy9@gmail.com',
+            'password' => bcrypt('mypeltar@user'),
         ]);
         $user->save();
-        $superAdminRole = Role::findByName('SuperAdmin');
-        $user->assignRole($superAdminRole);
+        $role = Role::findByName('SuperAdmin');
+        $user->assignRole($role);
 
         $user = User::create([
             'name' => 'Admin',
             'username' => 'admin',
             'id_divisi' => 1,
-            'email' => 'Admin@example.com',
-            'password' => bcrypt('123456789'),
+            'email' => 'axtomy99@gmail.com',
+            'password' => bcrypt('mypeltar@user'),
         ]);
-        $superAdminRole = Role::findByName('Admin');
-        $user->assignRole($superAdminRole);
+        $role = Role::findByName('Admin');
+        $user->assignRole($role);
 
         $user = User::create([
-            'name' => 'AdminMaintenance',
+            'name' => 'UserMaintenance',
             'username' => 'maintenance',
             'id_divisi' => 1,
-            'email' => 'Maintenance@example.com',
-            'password' => bcrypt('123456789'),
+            'email' => 'maintenance@example.com',
+            'password' => bcrypt('mypeltar@user'),
         ]);
-        $superAdminRole = Role::findByName('Maintenance');
-        $user->assignRole($superAdminRole);
+        $role = Role::findByName('Maintenance');
+        $user->assignRole($role);
 
         $user = User::create([
-            'name' => 'AdminInspeksi',
+            'name' => 'UserInspeksi',
             'username' => 'inspeksi',
             'id_divisi' => 1,
             'email' => 'inspeksi@example.com',
-            'password' => bcrypt('123456789'),
+            'password' => bcrypt('mypeltar@user'),
         ]);
-        $superAdminRole = Role::findByName('Inspeksi');
-        $user->assignRole($superAdminRole);
+        $role = Role::findByName('Inspeksi');
+        $user->assignRole($role);
+
+        $user = User::create([
+            'name' => 'UserTest',
+            'username' => 'TestUser',
+            'id_divisi' => 1,
+            'email' => 'axzxx99@gmail.com',
+            'password' => bcrypt('mypeltar@user'),
+        ]);
     }
 }

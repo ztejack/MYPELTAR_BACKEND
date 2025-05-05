@@ -27,7 +27,7 @@ class AssetResource extends JsonResource
             // 'image' => ($this->image == null) ? null : url('storage/' . $this->image),
             'specifications' => $this->specifications,
             'description' => $this->description,
-            'location' => $this->lokasi->unit,
+            'location' => $this->location->unit,
             'category' => $this->category->pluck('category'),
             'status' => $this->status->status,
             'updated_at' => $this->updated_at,

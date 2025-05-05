@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Maintenance;
+use App\Models\PMaintenanceUpdate;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Http\Request;
@@ -36,7 +38,8 @@ class RouteServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->configureRateLimiting();
-
+        Route::model('maintenance', Maintenance::class);
+        Route::model('pupdate', PMaintenanceUpdate::class);
         $this->routes(function () {
             Route::prefix('api')
                 ->middleware('api')

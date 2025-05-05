@@ -71,39 +71,33 @@ class AssetController extends Controller
             $limit = $request->query('limit', 20);
             $assets = Asset::query();
             // Apply filters
-            if ($request->has('asset_name') && $request->input('asset_name') != null) {
-                $assets->where('name', 'like', '%' . $request->input('asset_name') . '%');
-            }
-            if ($request->has('brand') && $request->input('brand') != null) {
-                $assets->where('brand', 'like', '%' . $request->input('brand') . '%');
-            }
-            if ($request->has('model') && $request->input('model') != null) {
-                $assets->where('model', 'like', '%' . $request->input('model') . '%');
-            }
-            if ($request->has('asset_code') && $request->input('asset_code') != null) {
-                $assets->where('code_ast', $request->input('asset_code'));
-            }
-            if ($request->has('stock_code') && $request->input('stock_code') != null) {
-                $assets->where('stockcode', $request->input('stock_code'));
-            }
-            if ($request->has('serial_number') && $request->input('serial_number') != null) {
-                $assets->where('serialnumber', $request->input('serial_number'));
+            if ($request->has('search') && $request->input('search') !== null) {
+                $search = $request->input('search');
+                $assets->where(function ($q) use ($search) {
+                    $q->where('name', 'like', "%{$search}%")
+                        ->orWhere('brand', 'like', "%{$search}%")
+                        ->orWhere('model', 'like', "%{$search}%")
+                        ->orWhere('code_ast', 'like', "%{$search}%")
+                        ->orWhere('stockcode', 'like', "%{$search}%")
+                        ->orWhere('serialnumber', 'like', "%{$search}%");
+                });
             }
             if ($request->has('category') && $request->input('category') != null) {
                 $kategoriTerm = $request->input('category');
                 $assets->whereHas('category', function ($query) use ($kategoriTerm) {
-                    $query->where('category', 'like', '%' . $kategoriTerm . '%');
+                    $query->where('category', $kategoriTerm);
                 });
             }
             if ($request->has('status') && $request->input('status') != null) {
                 $statusTerm = $request->input('status');
                 $assets->whereHas('status', function ($query) use ($statusTerm) {
-                    $query->where('status', 'like', '%' . $statusTerm . '%');
+                    $query->where('status',  $statusTerm);
                 });
             }
             // Get results
             $assets = $assets->get();
-            return $assets;
+
+            // return $assets;
             if ($assets->isEmpty()) {
                 return response()->json(['message' => 'No results found.'], 404);
             } else {
@@ -121,7 +115,19 @@ class AssetController extends Controller
                 $assets = AssetResource::collection(
                     $paginatedAssets
                 );
-                return response()->json($assets, 200);
+                $pagination = [
+                    'current_page' => $assets->currentPage(),
+                    'last_page' => $assets->lastPage(),
+                    'per_page' => $assets->perPage(),
+                    'total' => $assets->total(),
+                    'from' => $assets->firstItem(),
+                    'to' => $assets->lastItem(),
+                ];
+                return response()->json([
+                    'data' => $assets,
+                    'pagination' => $pagination,
+                ], 200, [], JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
+                // return response()->json($assets, 200);
             }
         } catch (\Exception $e) {
             return response()->json([
@@ -167,15 +173,29 @@ class AssetController extends Controller
     {
         try {
             $limit = $request->query('limit', 20);
-            $assets = AssetResource::collection(
-                Asset::orderBy(
-                    request('column') ? request('column') : 'updated_at',
-                    request('direction') ? request('direction') : 'desc'
-                )->paginate($limit)
+
+            $query = Asset::orderBy(
+                $request->query('column', 'updated_at'),
+                $request->query('direction', 'desc')
             );
 
+            $assets = $query->paginate($limit);
+
+            $assetsResource = AssetResource::collection($assets);
+
+            // Manually build pagination info
+            $pagination = [
+                'current_page' => $assets->currentPage(),
+                'last_page' => $assets->lastPage(),
+                'per_page' => $assets->perPage(),
+                'total' => $assets->total(),
+                'from' => $assets->firstItem(),
+                'to' => $assets->lastItem(),
+            ];
+
             return response()->json([
-                'data' => $assets,
+                'data' => $assetsResource,
+                'pagination' => $pagination,
             ], 200, [], JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
         } catch (\Exception $e) {
             return response()->json([
@@ -217,7 +237,7 @@ class AssetController extends Controller
             $asset = new Asset();
             $asset->stockcode = $request['stockcode'];
             $asset->serialnumber = $request['serialnumber'];
-            $asset->name = $request['stockcode'];
+            $asset->name = $request['asset_name'];
             $asset->brand = $request['brand'];
             $asset->model = $request['model'];
             $asset->specifications = $request['specifications'];

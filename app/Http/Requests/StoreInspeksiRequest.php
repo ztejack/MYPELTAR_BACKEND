@@ -26,16 +26,16 @@ class StoreInspeksiRequest extends FormRequest
      */
     public function rules()
     {
+        return $this->customrule();
+    }
+    public function customrule()
+    {
         $rules = [
             'maintenance_needed' => 'required',
             'asset_id' => 'required|exists:assets,id',
             'description' => 'string'
         ];
-        if ($this->has('image')) {
-            $rules['image'] = 'image|mimes:jpeg,png,jpg|max:2048';
-        } else {
-            $rules['image'] = '';
-        }
+        $rules['image'] = 'nullable|mimes:jpeg,png,jpg|max:2048';
         $rules['type_id'] = 'required|string|exists:type_maintenances,id';
         $rules['urgency_id'] = 'required|string|exists:urgency_levels,id';
         return $rules;

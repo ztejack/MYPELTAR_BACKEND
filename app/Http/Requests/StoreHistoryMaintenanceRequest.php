@@ -26,21 +26,31 @@ class StoreHistoryMaintenanceRequest extends FormRequest
      */
     public function rules()
     {
+        return $this->customrule();
+    }
+    public function customrule()
+    {
         $rules = [];
-        if (!is_null($this->input('image'))) {
-            $rules['image'] = 'image|mimes:jpeg,png,jpg|max:2048';
-        } else {
-            $rules['image'] = '';
-        }
-        $rules['status_id'] = ['required',  function ($attribute, $value, $fail) {
-            $exists = Status::where('id', $value)->whereIn('statustype', ['MTNC', 'UNIVER'])->exists();
-            if (!$exists) {
-                $fail("The selected {$attribute} is invalid or not allowed for this type.");
+        $rules['image'] = 'nullable|mimes:jpeg,png,jpg|max:2048';
+        $rules['status_id'] = [
+            'required',
+            function ($attribute, $value, $fail) {
+                $status = Status::find($value);
+
+                if (!$status) {
+                    $fail("The selected {$attribute} is not found.");
+                    return;
+                }
+
+                if (!in_array($status->statustype, ['MTNC', 'UNIVER'])) {
+                    $fail("The selected {$attribute} is invalid or not allowed for this type.");
+                }
             }
-        }];
+        ];
         $rules['description'] = 'required|string';
         return $rules;
     }
+
     protected function failedValidation(Validator $validator)
     {
         $errors = $validator->errors()->messages();

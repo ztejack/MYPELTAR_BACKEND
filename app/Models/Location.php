@@ -32,4 +32,8 @@ class Location extends Model
      * @var array<string, string>
      */
     protected $casts = [];
+    public function assets()
+    {
+        return $this->belongsTo(Asset::class);
+    }
 }

@@ -33,9 +33,18 @@ class InspeksiController extends Controller
     {
         try {
             $inspeksi = Inspeksi::latest()->paginate(50);
+            $pagination = [
+                'total' => $inspeksi->total(),
+                'current_page' => $inspeksi->currentPage(),
+                'last_page' => $inspeksi->lastPage(),
+                'per_page' => $inspeksi->perPage(),
+                'from' => $inspeksi->firstItem(),
+                'to' => $inspeksi->lastItem(),
+            ];
             return response()->json(
                 [
                     'data' => InspeksiResource::collection($inspeksi),
+                    'pagination' => $pagination,
                 ],
                 200,
                 [],

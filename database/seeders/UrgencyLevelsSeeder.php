@@ -18,7 +18,7 @@ class UrgencyLevelsSeeder extends Seeder
         $data = [
             ['status_name' => 'Low', 'priority_level' => 1, 'description' => 'Non-critical, low urgency'],
             ['status_name' => 'Medium', 'priority_level' => 2, 'description' => 'Moderate urgency, requires attention'],
-            ['status_name' => 'High', 'priority_level' => 3, 'description' => 'High urgency, needs immediate action'],
+            ['status_name' => 'Hight', 'priority_level' => 3, 'description' => 'High urgency, needs immediate action'],
             ['status_name' => 'Critical', 'priority_level' => 4, 'description' => 'Critical situation, act immediately'],
         ];
         foreach ($data as $item) {

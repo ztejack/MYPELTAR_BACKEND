@@ -142,7 +142,14 @@ class User extends Authenticatable implements JWTSubject
     }
     public function satker()
     {
-        return $this->belongsTo(Satker::class);
+        return $this->hasOneThrough(
+            Satker::class,  // Model tujuan akhirnya
+            Divisi::class,  // Model perantaranya
+            'id',           // Foreign key di Divisi yang menghubungkan ke Satker (divisis.id_satker)
+            'id',           // Foreign key di Satker (biasanya id sendiri)
+            'id_divisi',    // Foreign key di User ke Divisi (users.id_divisi)
+            'id_satker'     // Foreign key di Divisi ke Satker (divisis.id_satker)
+        );
     }
     public function maintenance()
     {

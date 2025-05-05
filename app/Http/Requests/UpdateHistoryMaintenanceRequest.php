@@ -21,7 +21,9 @@ class UpdateHistoryMaintenanceRequest extends FormRequest
     {
         $maintenance = $this->route('maintenance');
         $pUpdate = $this->route('pupdate');
-        return $maintenance->id === $pUpdate->id_maintenance;
+
+        return $maintenance->id == $pUpdate->id_maintenance;
+        // return true;
     }
 
     /**
@@ -32,21 +34,26 @@ class UpdateHistoryMaintenanceRequest extends FormRequest
     public function rules()
     {
         $rules = [];
-        if (!is_null($this->input('image'))) {
-            $rules['image'] = 'image|mimes:jpeg,png,jpg|max:2048';
-        } else {
-            $rules['image'] = '';
-        }
-        $rules['status_id'] = ['required', function ($attribute, $value, $fail) {
-            $exists = Status::where('id', $value)->whereIn('statustype', ['MTNC', 'UNIVER'])->exists();
-            if (!$exists) {
-                $fail("The selected {$attribute} is invalid or not allowed for this type.");
+        $rules['imagebefore'] = 'nullable|mimes:jpeg,png,jpg|max:2048';
+        $rules['status_id'] = [
+            'required',
+            function ($attribute, $value, $fail) {
+                $status = Status::find($value);
+
+                if (!$status) {
+                    $fail("The selected {$attribute} is not found.");
+                    return;
+                }
+
+                if (!in_array($status->statustype, ['MTNC', 'UNIVER'])) {
+                    $fail("The selected {$attribute} is invalid or not allowed for this type.");
+                }
             }
-        }];
+        ];
         $rules['description'] = 'required|string';
         return $rules;
     }
-    protected function update() {}
+    // protected function update() {}
     protected function failedValidation(Validator $validator)
     {
         $errors = $validator->errors()->messages();

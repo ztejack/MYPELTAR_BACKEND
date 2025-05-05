@@ -24,8 +24,40 @@ class CategorySeeder extends Seeder
             'id_divisi' => 1
         ]);
         Category::create([
-            'category' => 'PowerSupply',
+            'category' => 'PC',
+            'id_divisi' => 1
+        ]);
+        Category::create([
+            'category' => 'Laptop',
+            'id_divisi' => 1
+        ]);
+        Category::create([
+            'category' => 'Printer',
+            'id_divisi' => 1
+        ]);
+        Category::create([
+            'category' => 'CCTV',
+            'id_divisi' => 1
+        ]);
+        Category::create([
+            'category' => 'Proyektor',
+            'id_divisi' => 1
+        ]);
+        Category::create([
+            'category' => 'Power Tool',
+            'id_divisi' => 3
+        ]);
+        Category::create([
+            'category' => 'Power Tool',
+            'id_divisi' => 1
+        ]);
+        Category::create([
+            'category' => 'Power Tool',
             'id_divisi' => 2
+        ]);
+        Category::create([
+            'category' => 'Filter',
+            'id_divisi' => 3
         ]);
     }
 }

@@ -34,14 +34,8 @@ class UserController extends Controller
             $Userss->where('email', 'like', '%' . $request->input('email') . '%');
         }
         if ($request->has('satker') && $request->input('satker') != null) {
-            $Userss->where('satker', $request->input('satker'));
-        }
-        if ($request->has('divisi') && $request->input('divisi') != null) {
-            $Userss->where('divisi', $request->input('divisi'));
-        }
-        if ($request->has('satker') && $request->input('satker') != null) {
             $satkerTerm = $request->input('satker');
-            $Userss->whereHas('satkers', function ($query) use ($satkerTerm) {
+            $Userss->whereHas('satker', function ($query) use ($satkerTerm) {
                 $query->where('satker', $satkerTerm);
             });
         }
@@ -97,33 +91,32 @@ class UserController extends Controller
      */
     public function store(StoreuserRequest $request)
     {
-        // dd($request->validated());
-        $input = $request->validated();
-        // dd($input);
-        $user = new User();
-        $user->name = $input['name'];
-        $user->email = $input['email'];
-        $user->username = $input['username'];
-        $user->id_divisi = $input['id_divisi'];
-        $user->password = '12345678';
-        $user->uuid = UuidV4::uuid4()->getHex();
+        try {
 
-        if (!is_null($input['id_role'])) {
-            $user->assignRole($input['']);
-        } else {
-            $user->assignRole($input['id_role']);
+            $input = $request->validated();
+            $user = new User();
+            $user->name = $input['name'];
+            $user->email = $input['email'];
+            $user->username = $input['username'];
+            $user->id_divisi = $input['id_divisi'];
+            $user->password = 'mypeltar@user';
+            $user->uuid = UuidV4::uuid4()->getHex();
+
+            if (!is_null($input['id_role'])) {
+                $user->assignRole($input['']);
+            } else {
+                $user->assignRole($input['id_role']);
+            }
+            $user->save();
+
+            $expirationDate = Carbon::now()->addDays(30);
+
+            return response()->json(['status' => 'Users Successfully Added!', 'default_password' => 'mypeltar@user'], 201);
+        } catch (\Exception $e) {
+            return response()->json([
+                'error' => 'Failed to store resource',
+            ]);
         }
-        $user->save();
-
-        $expirationDate = Carbon::now()->addDays(30);
-
-        // ApiKey::create([
-        //     'user_id' => $user->id,
-        //     'api_key' => Str::random(32),
-        //     'expiration_date' => $expirationDate,
-        // ]);
-
-        return response()->json(['status' => 'Users Successfully Added!'], 201);
     }
 
     /**
@@ -149,18 +142,40 @@ class UserController extends Controller
      */
     public function update(UpdateuserRequest $request, User $user)
     {
-        $input = $request->validated();
-        $user->name = $input['name'];
-        $user->email = $input['email'];
-        $user->username = $input['username'];
-        $user->id_divisi = $input['id_divisi'];
-        $role = Role::findByName($user->getRoleNames()->first());
-        $user->removeRole($role->id);
-        $user->assignRole($input['id_role']);
-        $user->update();
-        return response()->json(['status' => 'Users Successfully Updated !'], 201);
-    }
+        try {
+            $input = $request->validated();
+            $user->name = $input['name'];
+            $user->email = $input['email'];
+            $user->username = $input['username'];
+            $user->id_divisi = $input['id_divisi'];
+            if (!is_null($input['id_role'])) {
+                if ($user->getRoleNames()->first()) {
+                    $user->syncRoles([]); // This removes all roles from the user
+                }
+                $role = Role::find($request['id_role']);
+                $user->assignRole($role);
+            }
 
+            $user->update();
+            return response()->json(['status' => 'Users Successfully Updated !'], 201);
+        } catch (\Exception $e) {
+            return response()->json([
+                'error' => 'Failed to update resource',
+            ], 422);
+        }
+    }
+    public function reset_password(Request $request, User $user)
+    {
+        try {
+            $user->password = bcrypt('mypeltar@user');
+            $user->save();
+        } catch (\Exception $e) {
+            return response()->json([
+                'error' => 'Failed to reset password',
+            ]);
+        }
+        return response()->json(['status' => 'Users Password Successfully Updated !'], 201);
+    }
     /**
      * @group Users
      * Remove the specified resource from storage.
@@ -175,7 +190,7 @@ class UserController extends Controller
         } catch (\Exception $e) {
             return response()->json([
                 'error' => 'Failed to delete resource',
-            ], 500);
+            ]);
         }
         return response()->json([
             'status' => 'Users Successfully Deleted !',

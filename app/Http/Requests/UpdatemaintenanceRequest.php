@@ -32,18 +32,23 @@ class UpdateMaintenanceRequest extends FormRequest
             'description' => 'string',
             // 'status_id' => 'required|string|exists:statuses,id'
         ];
-        $rules['status_id'] = function ($attribute, $value, $fail) {
-            $exists = Status::where('id', $value)->whereIn('statustype', ['MTNC', 'UNIVER'])->exists();
-            if (!$exists) {
-                $fail("The selected {$attribute} is invalid or not allowed for this type.");
-            }
-        };
+        $rules['status_id'] = [
+            'required',
+            function ($attribute, $value, $fail) {
+                $status = Status::find($value);
 
-        if (!is_null($this->input('imagebefore'))) {
-            $rules['imagebefore'] = 'image|mimes:jpeg,png,jpg|max:2048';
-        } else {
-            $rules['imagebefore'] = '';
-        }
+                if (!$status) {
+                    $fail("The selected {$attribute} is not found.");
+                    return;
+                }
+
+                if (!in_array($status->statustype, ['MTNC', 'UNIVER'])) {
+                    $fail("The selected {$attribute} is invalid or not allowed for this type.");
+                }
+            }
+        ];
+
+        $rules['imagebefore'] = 'nullable|mimes:jpeg,png,jpg|max:2048';
         return $rules;
     }
 

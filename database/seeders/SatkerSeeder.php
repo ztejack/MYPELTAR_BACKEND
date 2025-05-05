@@ -18,5 +18,11 @@ class SatkerSeeder extends Seeder
         Satker::create([
             'satker' => 'Perawatan',
         ]);
+        Satker::create([
+            'satker' => 'Kenpro',
+        ]);
+        Satker::create([
+            'satker' => 'Utilitas',
+        ]);
     }
 }

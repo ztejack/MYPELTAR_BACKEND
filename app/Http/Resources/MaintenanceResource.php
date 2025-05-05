@@ -26,7 +26,9 @@ class MaintenanceResource extends JsonResource
             'description' => $this->description,
             'imagebefore' => ($this->imagebefore == null || $this->imagebefore == 0) ? null : asset(Storage::url($this->imagebefore)),
             'imageafter' => ($this->imageafter == null || $this->imageafter == 0) ? null : asset($this->imageafter),
-            'history' => PUpdateResource::collection($this->pupdates->all())
+            'history' => PUpdateResource::collection($this->pupdates->all()),
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at
         ];
     }
 }

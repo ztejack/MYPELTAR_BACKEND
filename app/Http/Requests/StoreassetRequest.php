@@ -41,11 +41,7 @@ class StoreassetRequest extends FormRequest
             'id_category' => 'required',
             'id_status' => 'required|integer',
         ];
-        if ($this->has('image')) {
-            $rules['image'] = 'image|mimes:jpeg,png,jpg|max:2048';
-        } else {
-            $rules['image'] = '';
-        }
+        $rules['image'] = 'nullable|mimes:jpeg,png,jpg|max:2048';
         return $rules;
     }
     protected function failedValidation(Validator $validator)

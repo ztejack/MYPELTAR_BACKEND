@@ -43,15 +43,12 @@ class UpdateassetRequest extends FormRequest
             'model' => 'string',
             'specifications' => 'string',
             'description' => 'string',
-            'id_location' => 'integer',
+            'id_location' => 'exits:locations,id',
             'id_category' => 'array',
-            'id_status' => 'required',
+            'id_status' => 'exits:statuses,id',
         ];
-        if (!is_null($this->input('image'))) {
-            $rules['image'] = 'image|mimes:jpeg,png,jpg|max:2048';
-        } else {
-            $rules['image'] = '';
-        }
+        $rules['image'] = 'nullable|mimes:jpeg,png,jpg|max:2048';
+
         return $rules;
     }
     protected function failedValidation(Validator $validator)

@@ -1,10 +1,6 @@
-/node_modules
-/public/hot
-/public/storage
-storage/sessions/*
-storage/logs/*
-/storage/*.key
-vendor
+# Umum
+node_modules/
+vendor/
 .env
 .env.backup
 .phpunit.result.cache
@@ -13,10 +9,27 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
-/.idea
-/.vscode
-storage/logs/laravel.log
 
+# IDE/editor
+.idea/
+.vscode/
+
+# Laravel specific
+/public/hot
+/public/storage
+/storage/*.key
+/storage/logs/*
+/storage/sessions/*
+/storage/framework/cache/*
+/storage/framework/views/*
+/storage/framework/sessions/*
+/storage/framework/testing/*
+/storage/clockwork/*
+
+# Log khusus
+/storage/logs/laravel.log
+
+# File frankenphp atau caddy build
 **/caddy
 frankenphp
 frankenphp-worker.php

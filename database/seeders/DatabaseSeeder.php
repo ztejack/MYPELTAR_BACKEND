@@ -37,6 +37,7 @@ class DatabaseSeeder extends Seeder
             ClientSeeder::class,
             CategorySeeder::class,
             AssetCategorySeeder::class,
+            AssetSeeder::class,
         ]);
         //News::factory(5)->create();
         //Satker::factory(5)->create();

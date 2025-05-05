@@ -26,6 +26,10 @@ class StoremaintenanceRequest extends FormRequest
      */
     public function rules()
     {
+        return $this->customrule();
+    }
+    public function customrule()
+    {
         // Get the authenticated user
         $user = Auth::user();
 
@@ -36,15 +40,11 @@ class StoremaintenanceRequest extends FormRequest
         // }
         $rules = [
             'asset_id' => 'required|exists:assets,id',
-            'description' => 'string'
+            'description' => 'string',
+            'imageafter' => 'nullable|mimes:jpeg,png,jpg|max:2048',
+            'type_id' => 'required|string|exists:type_maintenances,id',
+            'urgency_id' => 'required|string|exists:urgency_levels,id',
         ];
-        if ($this->has('imagebefore')) {
-            $rules['imagebefore'] = 'image|mimes:jpeg,png,jpg|max:2048';
-        } else {
-            $rules['imagebefore'] = '';
-        }
-        $rules['type_id'] = 'required|string|exists:type_maintenances,id';
-        $rules['urgency_id'] = 'required|string|exists:urgency_levels,id';
         return $rules;
     }
 

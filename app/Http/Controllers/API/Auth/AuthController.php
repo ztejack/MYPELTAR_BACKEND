@@ -3,13 +3,18 @@
 namespace App\Http\Controllers\API\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ForgotPasswordRequest;
 use App\Http\Requests\LoginRequest;
+use App\Http\Requests\ResetPasswordRequest;
 use App\Http\Resources\ApiKeyResource;
 use App\Http\Resources\UserResource;
 use App\Models\ApiKey;
+use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Password;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
@@ -24,7 +29,7 @@ class AuthController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['login']]);
+        $this->middleware('auth:api', ['except' => ['login', 'forgotPassword', 'resetPassword']]);
     }
 
     /**
@@ -166,5 +171,57 @@ class AuthController extends Controller
             ],
             200
         );
+    }
+
+    public function forgotPassword(ForgotPasswordRequest $request)
+    {
+        $status = Password::sendResetLink(
+            $request->only('email')
+        );
+
+        return response()->json([
+            'status' => $status === Password::RESET_LINK_SENT ? 'success' : 'failed',
+            'message' => __($status)
+        ]);
+    }
+
+    public function resetPassword(ResetPasswordRequest $request)
+    {
+        $token = $request->query('token');
+
+        if (!$token) {
+            return response()->json([
+                'status' => 'failed',
+                'message' => 'Token is required in query parameters.',
+            ], 422);
+        }
+
+        $status = Password::reset(
+            [
+                'email' => $request->email,
+                'password' => $request->password,
+                'password_confirmation' => $request->password_confirmation,
+                'token' => $token,
+            ],
+            function ($user, $password) {
+                $user->forceFill([
+                    'password' => bcrypt($password),
+                ])->save();
+
+                event(new PasswordReset($user));
+            }
+        );
+
+        if ($status === Password::INVALID_TOKEN) {
+            return response()->json([
+                'status' => 'failed',
+                'message' => 'Invalid or expired token.',
+            ], 404);
+        }
+
+        return response()->json([
+            'status' => $status === Password::PASSWORD_RESET ? 'success' : 'failed',
+            'message' => __($status),
+        ]);
     }
 }
