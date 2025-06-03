@@ -40,7 +40,7 @@ class AssetFactory extends Factory
             'name' => fake()->name(),
             'brand' => $this->faker->sentence(mt_rand(1, 3)),
             'model' => $this->faker->sentence(mt_rand(1, 3)),
-            'image' => 'public/images/News/example.png',
+            'image' => 'public/images/example.png',
             'specifications' => $this->faker->sentence(mt_rand(1, 3)),
             'description' => $this->faker->sentence(mt_rand(1, 3)),
             'id_location' => Location::pluck('id')->random(),

@@ -33,8 +33,8 @@ class MaintenanceFactory extends Factory
             'id_urgency' => UrgencyLevel::pluck('id')->random(),
             'id_status' => Status::where('statustype', 'MTNC')->pluck('id')->random(),
             'description' => $this->faker->sentence(mt_rand(2, 10)),
-            'imagebefore' => 'public/images/News/example.png',
-            'imageafter' => 'public/images/News/example.png',
+            'imagebefore' => 'public/images/example.png',
+            'imageafter' => 'public/images/example.png',
             'created_at' => now(),
             'updated_at' => now(),
         ];

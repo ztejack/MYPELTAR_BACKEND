@@ -21,7 +21,7 @@ class InspeksiFactory extends Factory
     {
         return [
             'description' => $this->faker->sentence(mt_rand(1, 3)),
-            'image' => 'public/images/News/example.png',
+            'image' => 'public/images/example.png',
             'id_user' => User::whereHas('roles', function ($query) {
                 $query->where('name', 'Inspeksi');
             })->pluck('id')->random(),

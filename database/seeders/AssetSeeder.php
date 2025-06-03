@@ -26,7 +26,7 @@ class AssetSeeder extends Seeder
             'description' => 'Industrial-use thermal scanner for inspections',
             'id_location' => 15,
             'id_status' => 1,
-            'image' => 'public/images/News/example.png',
+            'image' => 'public/images/example.png',
         ]);
         $category = Category::find(10);
         $asset->category()->attach($category, ['created_at' => now(), 'updated_at' => now()]);
