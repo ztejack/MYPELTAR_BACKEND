@@ -31,7 +31,6 @@ class UpdateassetRequest extends FormRequest
     public function customrule()
     {
         $rules = [
-            'stockcode' => 'required|string',
             'serialnumber' =>
             [
                 'required',

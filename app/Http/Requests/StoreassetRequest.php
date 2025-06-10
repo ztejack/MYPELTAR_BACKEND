@@ -30,7 +30,6 @@ class StoreassetRequest extends FormRequest
     public function customrule()
     {
         $rules = [
-            'stockcode' => 'required|string|unique:assets',
             'serialnumber' => 'required|unique:assets',
             'asset_name' => 'min:6',
             'brand' => 'required|string',

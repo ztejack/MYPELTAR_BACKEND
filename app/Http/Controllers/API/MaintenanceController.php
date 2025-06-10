@@ -251,18 +251,21 @@ class MaintenanceController extends Controller
         try {
             if (!$maintenance->pUpdates->isEmpty()) {
                 foreach ($maintenance->pUpdates as $update) {
-                    if (Storage::exists($update->image)) {
+                    if (Storage::exists($update->image) && basename($update->image) !== 'example.png') {
                         Storage::delete($update->image);
                     }
                     $update->delete();
                 }
             }
-            if (Storage::exists($maintenance->imagebefore)) {
+
+            if (Storage::exists($maintenance->imagebefore) && basename($maintenance->imagebefore) !== 'example.png') {
                 Storage::delete($maintenance->imagebefore);
             }
-            if (Storage::exists($maintenance->imageafter)) {
+
+            if (Storage::exists($maintenance->imageafter) && basename($maintenance->imageafter) !== 'example.png') {
                 Storage::delete($maintenance->imageafter);
             }
+
             $maintenance->delete();
         } catch (\Exception $e) {
             return response()->json([

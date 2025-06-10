@@ -41,7 +41,7 @@ class StoremaintenanceRequest extends FormRequest
         $rules = [
             'asset_id' => 'required|exists:assets,id',
             'description' => 'string',
-            'imageafter' => 'nullable|mimes:jpeg,png,jpg|max:2048',
+            'imagebefore' => 'required|mimes:jpeg,png,jpg|max:2048',
             'type_id' => 'required|string|exists:type_maintenances,id',
             'urgency_id' => 'required|string|exists:urgency_levels,id',
         ];

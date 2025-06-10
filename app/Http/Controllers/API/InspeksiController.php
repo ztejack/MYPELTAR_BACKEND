@@ -59,11 +59,16 @@ class InspeksiController extends Controller
 
     public function store(StoreInspeksiRequest $request)
     {
+        $imagepath = null;
         try {
             $validated = $request->validated();
             // Custom logic for inspeksi
             $inspeksi = new Inspeksi();
             $inspeksi->id_user = Auth::user()->id;
+            if (isset($validated['image']) && $validated['image']) {
+                $imagepath = Storage::put('public/images/Inspeksi', $request->file('image'));
+                $inspeksi->image = $imagepath;
+            }
             if ($validated['maintenance_needed']) {
                 // Trigger maintenance creation
                 $maintenanceData = (object) [
@@ -73,13 +78,13 @@ class InspeksiController extends Controller
                     'type_id' => 1, // Example: Type for inspections
                     'urgency_id' => $validated['urgency_id'],
                 ];
+                if ($imagepath) {
+                    $maintenanceData->imagebefore = $imagepath;
+                }
                 $maintenance = $this->maintenanceService->storeMaintenance($maintenanceData);
                 $inspeksi->id_maintenance =  $maintenance->id;
             }
-            if (isset($validated['image']) && $validated['image']) {
-                $imagepath = Storage::put('public/images/Inspeksi', $request->file('image'));
-                $inspeksi->image = $imagepath;
-            }
+
             $inspeksi->description = $validated['description'];
             $inspeksi->id_asset = $validated['asset_id'];
             $inspeksi->save();

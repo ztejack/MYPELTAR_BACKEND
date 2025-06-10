@@ -16,7 +16,6 @@ class Asset extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'stockcode',
         'code_ast',
         'serialnumber',
         'name',

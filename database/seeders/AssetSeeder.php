@@ -17,7 +17,6 @@ class AssetSeeder extends Seeder
     public function run()
     {
         $asset = Asset::create([
-            'stockcode' => 'AST25090001',
             'serialnumber' => 'TS-002TGB',
             'name' => 'Thermal Scanner-Hikvision',
             'brand' => 'Hikvision',

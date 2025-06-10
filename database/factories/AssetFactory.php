@@ -33,7 +33,6 @@ class AssetFactory extends Factory
         $strcode = 'AST';
 
         return [
-            'stockcode' => mt_rand(10000, 99999),
             'code_ast' => $this->assetcode($strcode, $num),
             // 'code' => $this->assetcode($strserial, $num),
             'serialnumber' => $this->assetcode($strserial, $num),

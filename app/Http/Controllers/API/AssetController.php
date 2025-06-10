@@ -37,7 +37,7 @@ class AssetController extends Controller
      * @queryParam merk string required The merk of the user. Example: Epsen
      * @queryParam model string required The model of the user. Example: Printer & Scanner
      * @queryParam code_asset string required The code_asset of the user. Example: AST0010
-     * @queryParam stockcode string required The stockcode of the user. Example: 202015602
+     
      * @queryParam serialnumber string required The serialnumber of the user. Example: hjk4h65...
      * @queryParam kategori string required The kategori of the user. Example: printer
      * @queryParam status string required The status of the user. Example: baik
@@ -46,7 +46,6 @@ class AssetController extends Controller
      * [
      *     {
      *       "id": 2,
-     *       "stock_code": "26",
      *       "asset_code": "AST23060002",
      *       "serialnumber": "FAKESerial00002",
      *       "asset_name": "Dr. Felipe Green",
@@ -78,7 +77,6 @@ class AssetController extends Controller
                         ->orWhere('brand', 'like', "%{$search}%")
                         ->orWhere('model', 'like', "%{$search}%")
                         ->orWhere('code_ast', 'like', "%{$search}%")
-                        ->orWhere('stockcode', 'like', "%{$search}%")
                         ->orWhere('serialnumber', 'like', "%{$search}%");
                 });
             }
@@ -149,7 +147,6 @@ class AssetController extends Controller
      *   "asset": [
      *     {
      *       "id": 2,
-     *       "stockcode": "26",
      *       "code_asset": "AST23060002",
      *       "serialnumber": "FAKESerial00002",
      *       "nama_asset": "Dr. Felipe Green",
@@ -218,9 +215,6 @@ class AssetController extends Controller
      * {
      *   "message": "The given data was invalid.",
      *   "errors": {
-     *     "stockcode": [
-     *       "The stockcode has already been taken."
-     *     ],
      *     "serialnumber": [
      *       "The serialnumber has already been taken."
      *     ]
@@ -235,7 +229,6 @@ class AssetController extends Controller
         try {
             $request->validated();
             $asset = new Asset();
-            $asset->stockcode = $request['stockcode'];
             $asset->serialnumber = $request['serialnumber'];
             $asset->name = $request['asset_name'];
             $asset->brand = $request['brand'];
@@ -271,7 +264,6 @@ class AssetController extends Controller
      * {
      *   "data": {
      *     "id": 4,
-     *     "stockcode": "178",
      *     "code_asset": "AST23060004",
      *     "serialnumber": "FAKESerial00004",
      *     "asset_name": "Ben Carter",
@@ -310,7 +302,6 @@ class AssetController extends Controller
     {
         try {
             $input = $request->validated();
-            $asset->stockcode = $input['stockcode'];
             $asset->serialnumber = $input['serialnumber'];
             $asset->name = $input['asset_name'];
             $asset->brand = $input['brand'];
